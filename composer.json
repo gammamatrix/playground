@@ -1,0 +1,46 @@
+{
+    "name": "gammamatrix/playground",
+    "description": "Playground: Laravel integration",
+    "keywords": [
+        "gammamatrix",
+        "laravel",
+        "playground"
+    ],
+    "homepage": "https://github.com/gammamatrix/playground",
+    "license": "MIT",
+    "version": "73.0.0",
+    "authors": [
+        {
+            "name": "Jeremy Postlethwaite",
+            "email": "jeremy.postlethwaite@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "ezyang/htmlpurifier": "^4.16"
+    },
+    "autoload": {
+        "psr-4": {
+            "GammaMatrix\\Playground\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Unit\\GammaMatrix\\Playground\\": "tests/Unit/",
+            "Tests\\Feature\\GammaMatrix\\Playground\\": "tests/Feature/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "GammaMatrix\\Playground\\ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
