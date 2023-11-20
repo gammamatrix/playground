@@ -39,7 +39,6 @@ if (!empty(config('playground.routes.bootstrap'))) {
 
 if (!empty(config('playground.routes.home'))) {
     Route::get('/', [
-        'as'        => 'home',
         'middleware' => [
             'web',
         ],
@@ -47,6 +46,7 @@ if (!empty(config('playground.routes.home'))) {
         'uses'      => '\GammaMatrix\Playground\Http\Controllers\IndexController@home',
     ]);
     Route::get('/home', [
+        'as'        => 'home',
         'middleware' => [
             'web',
         ],

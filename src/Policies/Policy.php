@@ -8,6 +8,7 @@ namespace GammaMatrix\Playground\Policies;
 
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Support\Str;
 
 /**
  * \GammaMatrix\Playground\Policies\Policy
@@ -30,6 +31,18 @@ abstract class Policy
      */
     public function before(User $user, $ability)
     {
+        // Allow the package and slug to be defined.
+
+        if (empty($this->package)) {
+            $this->package = Str::of(__NAMESPACE__)->betweenFirst('\\', '\\')->slug()->toString();
+            // $this->package = Str::of(__NAMESPACE__)->after( Str::of(__NAMESPACE__)->before('\\') )->before('\\')->slug()->toString();
+        }
+
+        if (empty($this->entity)) {
+            $this->entity = Str::of(class_basename(get_called_class()))->before('Policy')->slug()->toString();
+        }
+
+        // Str::of(class_basename($model))->snake()->replace('_', ' ')->title()->lower();
         // \Log::debug(__METHOD__, [
         //     '$user' => $user,
         //     '$ability' => $ability,
@@ -43,6 +56,8 @@ abstract class Policy
         //     '$user' => $user ? $user->toArray(): $user,
         //     '$ability' => $ability,
         //     '$this->allowRootOverride' => $this->allowRootOverride,
+        //     '$this->package' => $this->package,
+        //     '$this->entity' => $this->entity,
         // ]);
         if ($this->allowRootOverride && 'root' === $user->role) {
             return true;
@@ -69,7 +84,7 @@ abstract class Policy
         // \Log::debug(__METHOD__, [
         //     '$user' => $user,
         // ]);
-        return $this->hasRole($user, $this->rolesToView);
+        return $this->verify($user, 'viewAny');
     }
 
     /**
@@ -84,6 +99,6 @@ abstract class Policy
         // \Log::debug(__METHOD__, [
         //     '$user' => $user,
         // ]);
-        return $this->hasRole($user, $this->rolesToView);
+        return $this->verify($user, 'view');
     }
 }

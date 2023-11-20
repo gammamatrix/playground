@@ -14,6 +14,13 @@ $package_config = config('playground');
  */
 $withCreate = isset($withCreate) && is_bool($withCreate) ? $withCreate : true;
 
+$withPrivilege = !empty($meta['info']) && !empty($meta['info']['privilege']) && is_string($meta['info']['privilege']) ? $meta['info']['privilege'] : 'playground';
+
+$withCreate = $withCreate && (
+    Auth::user()?->currentAccessToken()?->can($withPrivilege.':create')
+    || Auth::user()?->currentAccessToken()?->can($withPrivilege.':*')
+);
+
 /**
  * @var boolean $withTable
  */
@@ -96,6 +103,7 @@ if ($withTable) {
         'routeDelete' => sprintf('%1$s.destroy', $meta['info']['model_route']),
         'routeRestore' => sprintf('%1$s.restore', $meta['info']['model_route']),
         'paginator' => $paginator,
+        'privilege' => $withPrivilege,
         'styling' => [
             'header' => [
                 'class' => 'mt-3'
@@ -107,6 +115,14 @@ if ($withTable) {
 //     '__METHOD__' => __METHOD__,
 //     '__FILE__' => __FILE__,
 //     '__LINE__' => __LINE__,
+//     '$withCreate' => $withCreate,
+//     'privilege' => $tableComponent['privilege'],
+//     'Auth::user()->can(app)' => Auth::user()->can('app'),
+//     'Auth::user()->can(*:*:view)' => Auth::user()->can($tableComponent['privilege'].':view'),
+//     'Auth::user()->can(app)' => Auth::user()?->currentAccessToken()->can('app'),
+//     'Auth::user()->can(*:*:frog)' => Auth::user()?->currentAccessToken()->can($tableComponent['privilege'].':frog'),
+//     'Auth::user()->can(*:*:view)' => Auth::user()?->currentAccessToken()->can($tableComponent['privilege'].':view'),
+//     'Auth::user()->can(*:*:*)' => Auth::user()?->currentAccessToken()->can($tableComponent['privilege'].':*'),
 //     '$meta' => $meta,
 //     // '$columns' => $columns,
 //     // '$styling' => $styling,
@@ -162,6 +178,7 @@ if ($withTable) {
             :meta="$meta"
             :validated="$meta['validated']"
             :sort="$meta['sortable']"
+            :privilege="$tableComponent['privilege']"
             :collapsible="true"
             :route-parameter="$tableComponent['routeParameter']"
             :route-parameter-key="$tableComponent['routeParameterKey']"

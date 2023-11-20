@@ -110,6 +110,8 @@ $withIcons = isset($withIcons) && is_bool($withIcons) ? $withIcons : true;
  */
 $withVue = isset($withVue) && is_bool($withVue) ? $withVue : true;
 
+$withMix = isset($withMix) && is_bool($withMix) ? $withMix : false;
+
 $withPlayground = isset($withPlayground) && is_bool($withPlayground) ? $withPlayground : true;
 // $withPlayground = false;
 /**
@@ -268,7 +270,9 @@ if ($withScripts) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js" integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+@if ($withMix)
 <script src="{{ mix('/js/app.js') }}"></script>
+@endif
 
 </body>
 

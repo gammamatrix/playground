@@ -20,9 +20,11 @@ $name = $user ? $user->name : '';
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
-                <!-- <li class="nav-item">
+                @if (Route::has('sitemap'))
+                <li class="nav-item">
                     <a class="nav-link" href="{{route('sitemap')}}">Sitemap</a>
-                </li> -->
+                </li>
+                @endif
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Session
@@ -38,6 +40,7 @@ $name = $user ? $user->name : '';
                         </li>
                         <li><a class="dropdown-item" href="{{route('dashboard')}}">Dashboard</a></li>
                         @endguest
+                        @if (Route::has('theme'))
                         <li>
                             <a class="dropdown-item" href="{{ route('theme', ['appTheme' => 'bootstrap-dark', '_return_url' => request()->url()])}}">
                                 <i class="fa-solid fa-moon"></i>
@@ -50,6 +53,7 @@ $name = $user ? $user->name : '';
                                 Light Theme
                             </a>
                         </li>
+                        @endif
                         <li>
                             <hr class="dropdown-divider">
                         </li>

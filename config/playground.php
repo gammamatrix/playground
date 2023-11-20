@@ -6,6 +6,22 @@ return [
     'packages' => array_map('trim', explode(',', env('PLAYGROUND_PACKAGES', 'playground'))),
     'view' => (string) env('PLAYGROUND_VIEW', 'playground::'),
     'iframes' => (string) env('PLAYGROUND_IFRAMES', ''),
+    'auth' => [
+        // 'policy' => (string) env('PLAYGROUND_AUTH_POLICY', 'roles'),
+        /**
+         * Privileges checks in this order:
+         * - Sanctum: HasApiTokens
+         * - method_exists: hasPrivilege
+         *
+         * @var string $verify roles|privileges
+         */
+        'verify' => (string) env('PLAYGROUND_AUTH_VERIFY', 'privileges'),
+        // 'verify' => (string) env('PLAYGROUND_AUTH_VERIFY', 'roles'),
+        'hasPrivilege' => (bool) env('PLAYGROUND_AUTH_HAS_PRIVILEGE', false),
+        'userPrivileges' => (bool) env('PLAYGROUND_AUTH_USER_PRIVILEGES', false),
+        'hasRole' => (bool) env('PLAYGROUND_AUTH_HAS_ROLE', false),
+        'userRoles' => (bool) env('PLAYGROUND_AUTH_USER_ROLES', false),
+    ],
     'cache' => [
         'cms' => (string) env('PLAYGROUND_CACHE_CMS', 'file'),
         'cms_ttl' => (integer) env('PLAYGROUND_CACHE_CMS_TTL', 601),

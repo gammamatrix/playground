@@ -1,29 +1,4 @@
 @extends($package_config['layout'])
-<?php
-$user = Auth::user();
-if ($user) {
-    $isAdmin = $user->isAdmin();
-    $isClient = $user->hasRole('client');
-    $isManager = $user->hasRole('manager');
-    $isPublisher = $user->hasRole('publisher');
-    $isVendor = $user->hasRole('vendor');
-    $inSales = $user->hasRole('sales');
-    $name = $user->name;
-    $role = $user->role;
-} else {
-    $isAdmin = false;
-    $isClient = false;
-    $isManager = false;
-    $isPublisher = false;
-    $inSales = false;
-    $isVendor = false;
-    $role = 'guest';
-    $name = '';
-}
-$isGuest = empty($role) || in_array($role, [
-    'guest',
-]);
-?>
 @section('title', 'Sitemap')
 @section('breadcrumbs')
 <nav aria-label="breadcrumb" class="m-3">

@@ -191,7 +191,7 @@ $isFlag = isset($columnMeta['flag'])
         @elseif ($columnMeta['html'])
         {!! $value !!}
         @elseif ($isDate)
-        <time datetime="{{$value}}">{{$value->toDayDateTimeString()}}</time>
+        <time datetime="{{$value}}">{{$value}}</time>
         @else
         {{ $value }}
         @endif

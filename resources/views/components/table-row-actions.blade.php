@@ -1,7 +1,14 @@
 <th>
     <div class="text-nowrap" role="group" aria-label="Record Controls and Actions">
 
-        @if ($routeDeleteRelationship && $routeDelete)
+        @php
+        $token = Auth::user()?->currentAccessToken();
+        $withDelete = $routeDelete && ($token?->can($privilege.':delete') || $token?->can($privilege.':*'));
+        $withEdit = $routeEdit && ($token?->can($privilege.':edit') || $token?->can($privilege.':*'));
+        $withRestore = $routeRestore && ($token?->can($privilege.':restore') || $token?->can($privilege.':*'));
+        @endphp
+
+        @if ($withDelete && $routeDeleteRelationship && $routeDelete)
 
         <form class="d-inline-block" method="POST" action="{{route($routeDelete, ['product' => $routeDeleteRelationshipId , 'relationship' => $routeDeleteRelationship])}}">
             @method('DELETE')
@@ -15,7 +22,7 @@
             </button>
         </form>
 
-        @elseif ($routeDelete)
+        @elseif ($withDelete && $routeDelete)
 
         <form class="d-inline-block" method="POST" action="{{route($routeDelete, [$routeParameter => $record[$routeParameterKey] ])}}">
             @method('DELETE')
@@ -41,7 +48,7 @@
             </button>
         </form>
 
-        @elseif ($routeEdit)
+        @elseif ($withEdit && $routeEdit)
 
         <a class="btn btn-primary" href="{{route($routeEdit, [$routeParameter => $record[$routeParameterKey], '_return_url' => $returnUrl])}}" role="button">
             <i class="fa-solid fa-pen"></i>
