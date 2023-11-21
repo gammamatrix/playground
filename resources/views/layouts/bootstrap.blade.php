@@ -1,6 +1,4 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <?php
 
 $package_config = config('playground');
@@ -8,37 +6,24 @@ $package_config = config('playground');
 /**
  * @var string $appName The application name.
  */
-$appName = isset($appName)
-    && is_string($appName)
-    && !empty($appName)
-    ? $appName
-    : config('app.name')
-;
+$appName = isset($appName) && is_string($appName) && !empty($appName) ? $appName : config('app.name');
 
 /**
  * @var string $appTheme The application theme.
  */
-$appTheme = isset($appTheme)
-    && is_string($appTheme)
-    && !empty($appTheme)
-    ? $appTheme
-    : session('appTheme')
-;
+$appTheme = isset($appTheme) && is_string($appTheme) && !empty($appTheme) ? $appTheme : session('appTheme');
+?>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-bs-theme="{{ $appTheme }}">
+<?php
+/**
+ * @var string $appName The application name.
+ */
+$appName = isset($appName) && is_string($appName) && !empty($appName) ? $appName : config('app.name');
 
 /**
  * @var boolean $withAlerts Show the alerts in the layout.
  */
 $withAlerts = isset($withAlerts) && is_bool($withAlerts) ? $withAlerts : true;
-
-/**
- * @var array $fonts The display font.
- */
-$fonts = [
-    'nunito' => [
-        'href' => 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap',
-        'rel' => 'stylesheet',
-    ],
-];
 
 /**
  * @var boolean $withErrors Show the errors in the layout.
@@ -110,14 +95,12 @@ $withIcons = isset($withIcons) && is_bool($withIcons) ? $withIcons : true;
  */
 $withVue = isset($withVue) && is_bool($withVue) ? $withVue : true;
 
-$withMix = isset($withMix) && is_bool($withMix) ? $withMix : false;
-
 $withPlayground = isset($withPlayground) && is_bool($withPlayground) ? $withPlayground : true;
 // $withPlayground = false;
 /**
  * @var array The view library asset information.
  */
-$libs = config(sprintf('playground.libs.%1$s', config('playground.cdn', true) ? 'cdn' : 'vendor'));
+$libs = config('playground.libs');
 // dd([
 //     '__METHOD__' => __METHOD__,
 //     '__FILE__' => __FILE__,
@@ -130,149 +113,149 @@ $libs = config(sprintf('playground.libs.%1$s', config('playground.cdn', true) ? 
 /**
  * @var array The order matters for the rendering of scripts.
  */
-$scriptList = [];
+$scriptListHead = [];
+$scriptListBody = [];
 
 if ($withScripts) {
-    $scriptList[] = 'moment';
+    $scriptListBody[] = 'moment';
+    $scriptListBody[] = 'bootstrap';
+    $scriptListHead[] = 'bootstrap-css';
 
     if ($withEditor) {
-        $scriptList[] = 'ckeditor';
+        $scriptListBody[] = 'ckeditor';
     }
 
     if ($withPlayground) {
-        $scriptList[] = 'playground';
+        $scriptListBody[] = 'playground';
     }
 
-    $scriptList[] = 'jquery';
-    $scriptList[] = 'popper';
+    $scriptListBody[] = 'jquery';
+    $scriptListBody[] = 'popper';
 
     if ($withIcons) {
-        $scriptList[] = 'fontawesome';
+        $scriptListHead[] = 'fontawesome-css';
+        $scriptListBody[] = 'fontawesome';
+    }
+    if ($withVue) {
+        $scriptListHead[] = 'vue';
+    }
+
+    if (!empty($libs['head']) && is_array($libs['head'])) {
+        foreach ($libs['head'] as $key => $meta) {
+            if (!empty($meta['always']) && !in_array($key, $scriptListHead)) {
+                $scriptListHead[] = $key;
+            }
+        }
+    }
+    if (!empty($libs['body']) && is_array($libs['body'])) {
+        foreach ($libs['body'] as $key => $meta) {
+            if (!empty($meta['always']) && !in_array($key, $scriptListBody)) {
+                $scriptListBody[] = $key;
+            }
+        }
     }
 }
+// dump([
+//     '__FILE__' => __FILE__,
+//     '$scriptListHead' => $scriptListHead,
+//     '$scriptListHead' => $scriptListHead,
+//     '$libs' => $libs,
+// ]);
 ?>
+
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="/favicon.ico">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>{{ !empty($appName) ? sprintf('%1$s: ', $appName) : '' }}@yield('title')</title>
 
-    <!-- Fonts -->
-    @foreach ($fonts as $fontSlug => $fontMeta)
-    @if (!empty($fontMeta['href']))
-<link href="{{$fontMeta['href']}}" @if (!empty($fontMeta['rel']))rel="{{$fontMeta['rel']}}" @endif>
-    @endif
-    @endforeach
-
-    <!-- Bootstrap CSS -->
-    {{-- https://github.com/vinorodrigues/bootstrap-dark-5 --}}
-    @if ('bootstrap-dark' === $appTheme)
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-dark.min.css" rel="stylesheet" crossorigin="anonymous">
-    @else
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    @endif
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    {{-- @if ($withIcons && !empty($libs['fontawesome-css']) && !empty($libs['fontawesome-css']['url']))
-        <link rel="stylesheet" href="{{$libs['fontawesome-css']['url']}}" @if (!empty($libs['fontawesome-css']['integrity']))integrity="{{$libs['fontawesome-css']['integrity']}}"@endif crossorigin="anonymous">
-    @endif --}}
-
-    @if ($withVue)
-    <script src="https://unpkg.com/vue@3"></script>
-    @endif
-
-    @foreach ($scriptList as $script)
-    @continue(empty($libs[$script]) || empty($libs[$script]['url']))
-        <?= sprintf('<script src="%1$s"%2$s%3$s></script>',
-        $libs[$script]['url'],
-        empty($libs[$script]['integrity']) ? '' : sprintf(' integrity="%1$s"', $libs[$script]['integrity']),
-        empty($libs[$script]['crossorigin']) ? '' : sprintf(' crossorigin="%1$s"', $libs[$script]['crossorigin'])
-        ) ?>
-
-    @endforeach
+    @includeWhen(
+        !empty($libs['head']) && is_array($libs['head']),
+        sprintf('%1$slayouts/bootstrap/libraries', $package_config['view']),
+        [
+            'libs' => $libs['head'],
+            'required' => $scriptListHead,
+        ]
+    )
 
     @stack('scripts')
     @yield('head')
 
     @if (!$withBreadcrumbs)
-    <style>
-    .breadcrumb {
-        display: none;
-    }
-    </style>
+        <style>
+            .breadcrumb {
+                display: none;
+            }
+        </style>
     @endif
     <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-        }
-        .ck-editor__editable_inline, .editor__editable {
+        .ck-editor__editable_inline,
+        .editor__editable {
             min-height: 200px;
         }
     </style>
 </head>
 
-<body class="{{$withBodyClass}}">
+<body class="{{ $withBodyClass }}">
 
-@yield('pre-header')
+    @yield('pre-header')
 
-@yield('header')
+    @yield('header')
 
-@yield('pre-nav')
+    @yield('pre-nav')
 
-@if (is_bool($withNav))
-@include(sprintf('%1$slayouts/bootstrap/nav', $package_config['view']))
-@elseif (!empty($withNav) && is_string($withNav))
-@include($withNav)
-@endif
+    @if (is_bool($withNav))
+        @include(sprintf('%1$slayouts/bootstrap/nav', $package_config['view']))
+    @elseif (!empty($withNav) && is_string($withNav))
+        @include($withNav)
+    @endif
 
-@if (is_bool($withSidebarLeft))
-@include(sprintf('%1$slayouts/bootstrap/sidebar-left', $package_config['view']))
-@elseif (!empty($withSidebarLeft) && is_string($withSidebarLeft))
-@include($withSidebarLeft)
-@endif
+    @if (is_bool($withSidebarLeft))
+        @include(sprintf('%1$slayouts/bootstrap/sidebar-left', $package_config['view']))
+    @elseif (!empty($withSidebarLeft) && is_string($withSidebarLeft))
+        @include($withSidebarLeft)
+    @endif
 
-@if (is_bool($withSidebarRight))
-@include(sprintf('%1$slayouts/bootstrap/sidebar-right', $package_config['view']))
-@elseif (!empty($withSidebarRight) && is_string($withSidebarRight))
-@include($withSidebarRight)
-@endif
+    @if (is_bool($withSidebarRight))
+        @include(sprintf('%1$slayouts/bootstrap/sidebar-right', $package_config['view']))
+    @elseif (!empty($withSidebarRight) && is_string($withSidebarRight))
+        @include($withSidebarRight)
+    @endif
 
-@yield('pre-main')
+    @yield('pre-main')
 
-<main role="main" class="{{$withMainClass}}">
-@yield('breadcrumbs')
-@includeWhen($withAlerts, sprintf('%1$slayouts/bootstrap/alerts', $package_config['view']))
-@includeWhen($withErrors, sprintf('%1$slayouts/bootstrap/errors', $package_config['view']))
-@yield('main')
-@yield('content')
-@yield('content-end')
-</main>
+    <main role="main" class="{{ $withMainClass }}">
+        @yield('breadcrumbs')
+        @includeWhen($withAlerts, sprintf('%1$slayouts/bootstrap/alerts', $package_config['view']))
+        @includeWhen($withErrors, sprintf('%1$slayouts/bootstrap/errors', $package_config['view']))
+        @yield('main')
+        @yield('content')
+        @yield('content-end')
+    </main>
 
-@yield('pre-footer')
+    @yield('pre-footer')
 
-@if (is_bool($withFooter))
-@include(sprintf('%1$slayouts/bootstrap/footer', $package_config['view']))
-@elseif (!empty($withFooter) && is_string($withFooter))
-@include($withFooter)
-@endif
+    @if (is_bool($withFooter))
+        @include(sprintf('%1$slayouts/bootstrap/footer', $package_config['view']))
+    @elseif (!empty($withFooter) && is_string($withFooter))
+        @include($withFooter)
+    @endif
 
-@yield('body')
-@stack('body-first')
-@stack('body')
-@stack('modals')
-@stack('body-last')
+    @yield('body')
+    @stack('body-first')
+    @stack('body')
+    @stack('modals')
+    @stack('body-last')
 
-<!-- Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js" integrity="sha512-8pHNiqTlsrRjVD4A/3va++W1sMbUHwWxxRPWNyVlql3T+Hgfd81Qc6FC5WMXDC+tSauxxzp1tgiAvSKFu1qIlA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-@if ($withMix)
-<script src="{{ mix('/js/app.js') }}"></script>
-@endif
+    @includeWhen(
+        !empty($libs['body']) && is_array($libs['body']),
+        sprintf('%1$slayouts/bootstrap/libraries', $package_config['view']),
+        [
+            'libs' => $libs['body'],
+            'required' => $scriptListBody,
+        ]
+    )
 
 </body>
 

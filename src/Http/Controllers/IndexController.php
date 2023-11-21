@@ -178,9 +178,8 @@ class IndexController extends Controller
             ]);
         }
 
-        if (!empty($appTheme)) {
-            session(['appTheme' => $appTheme]);
-        }
+        session(['appTheme' => $appTheme]);
+
         $_return_url = empty($_return_url) ? '/' : $_return_url;
         return redirect($_return_url);
     }

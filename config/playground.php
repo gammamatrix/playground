@@ -63,6 +63,26 @@ return [
         'user' => (boolean) env('PLAYGROUND_SITEMAP_USER', false),
         'view' => (string) env('PLAYGROUND_SITEMAP_VIEW', 'playground::index.sitemap-playground'),
     ],
+    'themes' => [
+        'default' => [
+            'enable' => (boolean) env('PLAYGROUND_THEME_DEFAULT_ENABLE', true),
+            'label' => 'Default Theme',
+            'key' => '',
+            'icon' => '',
+        ],
+        'dark' => [
+            'enable' => (boolean) env('PLAYGROUND_THEME_DARK_ENABLE', true),
+            'label' => 'Dark Theme',
+            'key' => 'dark',
+            'icon' => 'fa-solid fa-moon',
+        ],
+        'light' => [
+            'enable' => (boolean) env('PLAYGROUND_THEME_LIGHT_ENABLE', true),
+            'label' => 'Light Theme',
+            'key' => 'light',
+            'icon' => 'fa-solid fa-sun',
+        ],
+    ],
     'theme' => env('MIX_THEME', 'site'),
 
     /*
@@ -76,99 +96,101 @@ return [
     | NOTE When updating link and script assets, make sure to update the
     |      integrity with a SHA256 checksum.
     |
-    | NOTE Use the npm version from package.json for each library.
     */
-
     'libs' => [
-        'cdn' => [
-            'ckeditor' => [
-                'crossorigin' => 'anonymous',
-                'integrity' => '',
-                'url' => 'https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js',
-                'version' => '34.2.0',
+        'head' => [
+            'favicon' => [
+                'type' => 'link',
+                'href' => '/favicon.ico',
+                'rel' => 'icon',
+                'always' => true,
             ],
-            'playground' => [
-                'url' => '/vendor/playground.js',
-                'version' => '1.0.0',
-            ],
-            // 'fontawesome' => [
-            //     'crossorigin' => 'anonymous',
-            //     'integrity' => 'sha256-k/BD5riVJWtbouHdLw+osR7VNosE40gZFNXjFHZAwzo=',
-            //     'url' => 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/js/fontawesome.min.js',
-            //     'version' => '4.5.0',
-            // ],
-            // 'fontawesome-css' => [
-            //     'crossorigin' => 'anonymous',
-            //     'integrity' => 'sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=',
-            //     'url' => 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css',
-            //     'version' => '5.12.0-1',
-            // ],
             // 'gstatic' => [
+            //     'type' => 'link',
             //     'version' => '',
             //     'integrity' => '',
-            //     'url' => 'https://fonts.gstatic.com/',
+            //     'href' => 'https://fonts.gstatic.com/',
             // ],
-            // 'jquery' => [
-            //     'crossorigin' => 'anonymous',
-            //     'integrity' => 'sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=',
-            //     'url' => 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js',
-            //     'version' => '3.4.1',
-            // ],
-            // 'popper' => [
-            //     'crossorigin' => 'anonymous',
-            //     'integrity' => 'sha256-x3YZWtRjM8bJqf48dFAv/qmgL68SI4jqNWeSLMZaMGA=',
-            //     'url' => 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js',
-            //     'version' => '',
-            // ],
-            // 'moment' => [
-            //     'crossorigin' => 'anonymous',
-            //     'integrity' => 'sha256-AdQN98MVZs44Eq2yTwtoKufhnU+uZ7v2kXnD5vqzZVo=',
-            //     'url' => 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js',
-            //     'version' => '2.24.0',
-            // ],
-        ],
-        'vendor' => [
+            'nunito' => [
+                'type' => 'link',
+                'href' => 'https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap',
+                'rel' => 'stylesheet',
+                'always' => true,
+            ],
+            'body-nunito' => [
+                'type' => 'style',
+                'style' => 'body {font-family: Nunito, sans-serif;}',
+                'always' => true,
+            ],
             'ckeditor' => [
-                // 'integrity' => 'sha256-O6msWr5chm3jMpzhL3leUj0C2d9lUx93b6CQF9KXciA=',
-                'url' => 'https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js',
-                // 'url' => '/vendor/ckeditor.js',
+                'type' => 'script',
+                'crossorigin' => 'anonymous',
+                'integrity' => '',
+                'src' => 'https://cdn.ckeditor.com/ckeditor5/34.2.0/classic/ckeditor.js',
                 'version' => '34.2.0',
             ],
-            'playground' => [
-                'url' => '/vendor/playground.js',
-                'version' => '1.0.0',
+            'bootstrap-css' => [
+                'rel' => 'stylesheet',
+                'type' => 'link',
+                'crossorigin' => 'anonymous',
+                'integrity' => 'sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN',
+                'href' => 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css',
+                'version' => '5.3.2',
+                'always' => true,
             ],
-            //     'fontawesome' => [
-            //         'integrity' => 'sha256-kfloLmH/F2aW936XePvhgKlJH4TZMn/nAG5oxtuiy8Q=',
-            //         'url' => '/vendor/fontawesome/js/fontawesome.min.js',
-            //         'version' => '5.12.0',
-            //     ],
-            //     'fontawesome-css' => [
-            //         'integrity' => 'sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=',
-            //         'url' => '/vendor/fontawesome/css/all.min.css',
-            //         'version' => '5.12.0',
-            //     ],
-            //     'gstatic' => [
-            //         'integrity' => '',
-            //         'url' => '',
-            //         'version' => '',
-            //     ],
-            //     'jquery' => [
-            //         'integrity' => 'sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=',
-            //         'url' => '/vendor/jquery.slim.min.js',
-            //         'version' => '3.4.1',
-            //     ],
-            //     'popper' => [
-            //         'integrity' => 'sha256-x3YZWtRjM8bJqf48dFAv/qmgL68SI4jqNWeSLMZaMGA=',
-            //         'url' => '/vendor/popper.min.js',
-            //         'version' => '1.16.0',
-            //     ],
-            //     'moment' => [
-            //         'integrity' => 'sha256-AdQN98MVZs44Eq2yTwtoKufhnU+uZ7v2kXnD5vqzZVo=',
-            //         'url' => '/vendor/moment-with-locales.min.js',
-            //         'version' => '2.24.0',
-            //     ],
-            // ],
+            'fontawesome-css' => [
+                'rel' => 'stylesheet',
+                'type' => 'link',
+                'crossorigin' => 'anonymous',
+                'integrity' => 'sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==',
+                'href' => 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css',
+                'version' => '6.4.2',
+                'always' => true,
+            ],
+            'vue' => [
+                'type' => 'script',
+                'crossorigin' => 'anonymous',
+                'integrity' => '',
+                'src' => 'https://unpkg.com/vue@3',
+                'version' => '',
+                'always' => true,
+            ],
+        ],
+        'body' => [
+            'bootstrap' => [
+                'type' => 'script',
+                'crossorigin' => 'anonymous',
+                'integrity' => 'sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL',
+                'src' => 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js',
+                'version' => '5.3.2',
+                'always' => true,
+            ],
+            'playground' => [
+                'type' => 'script',
+                'crossorigin' => 'anonymous',
+                'integrity' => '',
+                'src' => '/vendor/playground.js',
+                'version' => '73.0.0',
+                'always' => true,
+            ],
+            'jquery' => [
+                'type' => 'script',
+                'crossorigin' => 'anonymous',
+                'integrity' => 'sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==',
+                'referrerpolicy' => 'no-referrer',
+                'src' => 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js',
+                'version' => '3.7.1',
+                'always' => true,
+            ],
+            'fontawesome' => [
+                'type' => 'script',
+                'referrerpolicy' => 'no-referrer',
+                'crossorigin' => 'anonymous',
+                'integrity' => 'sha512-uKQ39gEGiyUJl4AI6L+ekBdGKpGw4xJ55+xyJG7YFlJokPNYegn9KwQ3P8A7aFQAUtUsAQHep+d/lrGqrbPIDQ==',
+                'src' => 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js',
+                'version' => '6.4.2',
+                'always' => true,
+            ],
         ],
     ],
 ];
