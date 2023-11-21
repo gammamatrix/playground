@@ -9,9 +9,9 @@
 
 $package_config = config('playground');
 
- /**
- * @var boolean $withParent
- */
+/**
+* @var boolean $withParent
+*/
 $withParent = isset($withParent) && is_bool($withParent) ? $withParent : true;
 
 $parent = $withParent ? $data->parent()->first() : null;

@@ -23,7 +23,7 @@ class ModelTest extends TestCase
     /**
      * @var string
      */
-    const ABSTRACT_CLASS = \GammaMatrix\Playground\Models\Model::class;
+    public const ABSTRACT_CLASS = \GammaMatrix\Playground\Models\Model::class;
 
     /**
      * @var object

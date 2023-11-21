@@ -18,7 +18,7 @@ class AbstractTest extends TestCase
     /**
      * @var string
      */
-    const ABSTRACT_CLASS = \GammaMatrix\Playground\Policies\Policy::class;
+    public const ABSTRACT_CLASS = \GammaMatrix\Playground\Policies\Policy::class;
 
     /**
      * @var object

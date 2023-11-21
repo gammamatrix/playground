@@ -135,22 +135,10 @@ if ($hasHeaderStyling && isset($styling['header']['class']) && is_string($stylin
 
             <tbody>
                 @foreach ($paginator as $datum)
-                    <?php
-                    $record = $datum->toArray();
-                    // dd([
-                    //     '__METHOD__' => __METHOD__,
-                    //     '__FILE__' => __FILE__,
-                    //     '__LINE__' => __LINE__,
-                    //     '$record' => $record,
-                    //     '$datum' => $datum,
-                    // ]);
-                    ?>
+                    @php $record = $datum->toArray(); @endphp
                     <tr>
-
                         @include('playground::components/table/data-row')
-
                         @includeWhen($modelActions, 'playground::components/table/data-row-actions')
-
                     </tr>
                 @endforeach
             </tbody>

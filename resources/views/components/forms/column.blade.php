@@ -18,12 +18,12 @@ if ('datetime-local' === $type && $oldValue) {
 if (empty($oldValue) && !is_null($default)) {
     $oldValue = $default;
 }
-$min = $hasRules && isset($rules['min']) ? $rules['min'] : NULL;
-$max = $hasRules && isset($rules['max']) ? $rules['max'] : NULL;
+$min = $hasRules && isset($rules['min']) ? $rules['min'] : null;
+$max = $hasRules && isset($rules['max']) ? $rules['max'] : null;
 
 $step = !empty($step) && is_numeric($step) && in_array($type, [
     'number'
-]) ? $step : NULL;
+]) ? $step : null;
 
 
 $advanced = isset($advanced) && $advanced ? 'form-advanced' : '';

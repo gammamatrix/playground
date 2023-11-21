@@ -18,7 +18,7 @@ class TraitTest extends TestCase
     /**
      * @var string
      */
-    const TRAIT_CLASS = \GammaMatrix\Playground\Policies\PolicyTrait::class;
+    public const TRAIT_CLASS = \GammaMatrix\Playground\Policies\PolicyTrait::class;
 
     /**
      * @var object
@@ -188,4 +188,3 @@ class TraitTest extends TestCase
         ));
     }
 }
-

@@ -114,7 +114,6 @@ trait PolicyTrait
         if ('privileges' === $verify) {
             return $this->hasPrivilege($user, $this->privilege($ability));
         } elseif ('roles' === $verify) {
-
             return $this->hasRole($user, $this->privilege($ability));
         }
         \Log::debug(__METHOD__, [

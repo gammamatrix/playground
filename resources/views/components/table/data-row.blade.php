@@ -118,7 +118,7 @@ if ($isFk && !empty($accessor)) {
             $value = $fkModelData[$property];
         }
     }
-    // dump([
+// dump([
     //     '__METHOD__' => __METHOD__,
     //     '__FILE__' => __FILE__,
     //     '__LINE__' => __LINE__,
@@ -130,7 +130,7 @@ if ($isFk && !empty($accessor)) {
     //     '$record' => $record,
     //     '$datum' => $datum,
     //     '$fkModel' => $fkModel ? $fkModel->toArray() : $fkModel,
-    // ]);
+// ]);
 } elseif ($columnMeta['showSpec']) {
     // Get the label of the type.
     $accessor = empty($accessor) ? 'spec' : $accessor;

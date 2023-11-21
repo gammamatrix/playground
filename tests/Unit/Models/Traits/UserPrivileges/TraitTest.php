@@ -17,7 +17,7 @@ class TraitTest extends TestCase
     /**
      * @var string
      */
-    const TRAIT_CLASS = \GammaMatrix\Playground\Models\Traits\UserPrivileges::class;
+    public const TRAIT_CLASS = \GammaMatrix\Playground\Models\Traits\UserPrivileges::class;
 
     /**
      * @var object
@@ -266,4 +266,3 @@ class TraitTest extends TestCase
         $this->assertFalse($this->mock->isAdmin());
     }
 }
-
