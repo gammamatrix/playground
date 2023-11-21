@@ -1,5 +1,5 @@
 <th>
-    <div class="text-nowrap" role="group" aria-label="Record Controls and Actions">
+    <div class="text-nowrap" role="group" aria-label="{{ __('playground::pagination.row.actions.label') }}">
 
         @php
             $token = Auth::user()?->currentAccessToken();
