@@ -8,8 +8,8 @@
  */
 
 /**
-* @var array $columns The columns in the table, keyed by slug.
-*/
+ * @var array $columns The columns in the table, keyed by slug.
+ */
 $columns = isset($columns) && is_array($columns) ? $columns : [];
 
 if (empty($paginator) || empty($columns)) {
@@ -85,7 +85,7 @@ if ($hasHeaderStyling && isset($styling['header']['class']) && is_string($stylin
     $headerClass = $styling['header']['class'];
 }
 ?>
-<div class="panel {{ $headerClass }}" id="{{$id}}">
+<div class="panel {{ $headerClass }}" id="{{ $id }}">
 
     <div class="table-responsive">
 
@@ -96,62 +96,50 @@ if ($hasHeaderStyling && isset($styling['header']['class']) && is_string($stylin
             <thead>
                 <tr>
                     @foreach ($columns as $column => $columnMeta)
-                    <th class="{{!empty($columnMeta['hide-sm']) ? 'd-none d-sm-table-cell' : ''}}">
-                        @if (isset($columnMeta['icon']))
-                        <span class="{{ $columnMeta['icon'] }}"></span>
-                        @endif
-                        @if (isset($columnMeta['label']))
-                        {{ $columnMeta['label'] }}
-                        @endif
-                    </th>
+                        <th class="{{ !empty($columnMeta['hide-sm']) ? 'd-none d-sm-table-cell' : '' }}">
+                            @if (isset($columnMeta['icon']))
+                                <span class="{{ $columnMeta['icon'] }}"></span>
+                            @endif
+                            @if (isset($columnMeta['label']))
+                                {{ $columnMeta['label'] }}
+                            @endif
+                        </th>
                     @endforeach
                     @if ($modelActions)
-                    <th>
-                        Actions
-                    </th>
+                        <th>
+                            Actions
+                        </th>
                     @endif
                 </tr>
             </thead>
 
             @if ($showLinks && $paginator->count() > 10)
-            <tfoot>
-                <tr>
-                    <td colspan="{{$modelActions ? count($columns) + 1 : count($columns)}}">
-                        <h2 class="h4">
-                            @if ($icon)
-                            <span class="{{ $icon }}"></span>
-                            @endif
-                            {{ $slot }}
-                            <span class="{{ $badge }}">{{ $paginator->count() }} </span>
+                <tfoot>
+                    <tr>
+                        <td colspan="{{ $modelActions ? count($columns) + 1 : count($columns) }}">
+                            <h2 class="h4">
+                                @if ($icon)
+                                    <span class="{{ $icon }}"></span>
+                                @endif
+                                {{ $slot }}
+                                <span class="{{ $badge }}">{{ $paginator->count() }} </span>
 
-                            <div class="float-end">
-                                {{$paginator->links()}}
-                            </div>
-                        </h2>
-                    </td>
-                </tr>
-            </tfoot>
+                                <div class="float-end">
+                                    {{ $paginator->links() }}
+                                </div>
+                            </h2>
+                        </td>
+                    </tr>
+                </tfoot>
             @endif
 
             <tbody>
                 @foreach ($paginator as $datum)
-                <?php
-                $record = $datum->toArray();
-                // dd([
-                //     '__METHOD__' => __METHOD__,
-                //     '__FILE__' => __FILE__,
-                //     '__LINE__' => __LINE__,
-                //     '$record' => $record,
-                //     '$datum' => $datum,
-                // ]);
-                ?>
-                <tr>
-
-                @include('playground::components/table-row-data')
-
-                @includeWhen($modelActions, 'playground::components/table-row-actions')
-
-                </tr>
+                    @php $record = $datum->toArray(); @endphp
+                    <tr>
+                        @include('playground::components/table/data-row')
+                        @includeWhen($modelActions, 'playground::components/table/data-row-actions')
+                    </tr>
                 @endforeach
             </tbody>
 

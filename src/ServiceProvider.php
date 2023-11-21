@@ -42,14 +42,14 @@ class ServiceProvider extends AuthServiceProvider
             if ($this->app->runningInConsole()) {
                 // Publish configuration
                 $this->publishes([
-                    dirname(__DIR__).'/config/playground-matrix.php'
-                        => config_path('playground-matrix.php')
+                    dirname(__DIR__).'/config/playground.php'
+                        => config_path('playground.php')
                 ], 'playground-config');
 
                 // Publish JavaScript assets
                 $this->publishes([
                     dirname(__DIR__).'/resources/js/playground.js' => public_path('vendor/playground.js'),
-                ], 'public');
+                ], 'playground-js');
             }
 
             $this->about();

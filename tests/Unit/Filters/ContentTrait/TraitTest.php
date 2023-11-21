@@ -17,7 +17,7 @@ class TraitTest extends TestCase
     /**
      * @var string
      */
-    const TRAIT_CLASS = \GammaMatrix\Playground\Filters\ContentTrait::class;
+    public const TRAIT_CLASS = \GammaMatrix\Playground\Filters\ContentTrait::class;
 
     /**
      * @var object
@@ -119,4 +119,3 @@ class TraitTest extends TestCase
         $this->assertSame($expected, $this->mock->encodeURIComponent($expected));
     }
 }
-

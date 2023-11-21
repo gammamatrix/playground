@@ -6,8 +6,10 @@
 
 namespace GammaMatrix\Playground\Policies;
 
-use App\Models\User;
+// use App\Models\User;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Support\Str;
 
 /**
  * \GammaMatrix\Playground\Policies\Policy
@@ -17,6 +19,8 @@ abstract class Policy
 {
     use HandlesAuthorization;
     use PolicyTrait;
+    use PrivilegeTrait;
+    use RoleTrait;
 
     /**
      * Perform a before check.
@@ -28,8 +32,18 @@ abstract class Policy
      *
      * @return mixed Returns true if the user has the root role assigned.
      */
-    public function before(User $user, $ability)
+    public function before(Authenticatable $user, $ability)
     {
+        // Allow the package and slug to be defined.
+
+        if (empty($this->package)) {
+            $this->package = Str::of(__NAMESPACE__)->betweenFirst('\\', '\\')->slug()->toString();
+        }
+
+        if (empty($this->entity)) {
+            $this->entity = Str::of(class_basename(get_called_class()))->before('Policy')->slug()->toString();
+        }
+
         // \Log::debug(__METHOD__, [
         //     '$user' => $user,
         //     '$ability' => $ability,
@@ -43,8 +57,10 @@ abstract class Policy
         //     '$user' => $user ? $user->toArray(): $user,
         //     '$ability' => $ability,
         //     '$this->allowRootOverride' => $this->allowRootOverride,
+        //     '$this->package' => $this->package,
+        //     '$this->entity' => $this->entity,
         // ]);
-        if ($this->allowRootOverride && 'root' === $user->role) {
+        if ($this->allowRootOverride && $this->isRoot($user)) {
             return true;
         }
 
@@ -64,12 +80,12 @@ abstract class Policy
      *
      * @return boolean
      */
-    public function index(User $user)
+    public function index(Authenticatable $user)
     {
         // \Log::debug(__METHOD__, [
         //     '$user' => $user,
         // ]);
-        return $this->hasRole($user, $this->rolesToView);
+        return $this->verify($user, 'viewAny');
     }
 
     /**
@@ -79,11 +95,11 @@ abstract class Policy
      *
      * @return boolean
      */
-    public function view(User $user)
+    public function view(Authenticatable $user)
     {
         // \Log::debug(__METHOD__, [
         //     '$user' => $user,
         // ]);
-        return $this->hasRole($user, $this->rolesToView);
+        return $this->verify($user, 'view');
     }
 }

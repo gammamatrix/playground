@@ -29,8 +29,8 @@ $containerClass = isset($snippet['meta']['container'])
 $h = isset($snippet['meta']['header'])
     && isset($snippet['meta']['header']['level'])
     && is_numeric($snippet['meta']['header']['level'])
-    && in_array((integer) $snippet['meta']['header']['level'], [1, 2, 3, 4, 5, 6])
-    ? (integer) $snippet['meta']['header']['level']
+    && in_array((int) $snippet['meta']['header']['level'], [1, 2, 3, 4, 5, 6])
+    ? (int) $snippet['meta']['header']['level']
     : 3
 ;
 ?>

@@ -9,9 +9,9 @@
 
 $package_config = config('playground');
 
- /**
- * @var boolean $withParent
- */
+/**
+* @var boolean $withParent
+*/
 $withParent = isset($withParent) && is_bool($withParent) ? $withParent : true;
 
 $parent = $withParent ? $data->parent()->first() : null;
@@ -20,6 +20,13 @@ $parent = $withParent ? $data->parent()->first() : null;
  * @var boolean $withCreate
  */
 $withCreate = isset($withCreate) && is_bool($withCreate) ? $withCreate : true;
+
+$withPrivilege = !empty($meta['info']) && !empty($meta['info']['privilege']) && is_string($meta['info']['privilege']) ? $meta['info']['privilege'] : 'playground';
+
+$withCreate = $withCreate && (
+    Auth::user()?->currentAccessToken()?->can($withPrivilege.':create')
+    || Auth::user()?->currentAccessToken()?->can($withPrivilege.':*')
+);
 
 /**
  * @var boolean|string $withInfo
@@ -35,6 +42,7 @@ $withImage = isset($withImage) && is_bool($withImage) ? $withImage : true;
  * @var boolean $hasTables
  */
 $hasTables = !empty($dataDetail['tables']) && is_array($dataDetail['tables']);
+
 ?>
 @extends($package_config['layout'])
 @section('title', sprintf('%1$s - %2$s - %3$s', $data[ $meta['info']['model_attribute'] ], $meta['info']['module_label'], $meta['info']['model_label']))

@@ -1,9 +1,11 @@
 @extends($package_config['layout'])
-@section('title', 'Home')
+@section('title', __('Home'))
 @section('breadcrumbs')
 <nav aria-label="breadcrumb" class="m-3">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item active" aria-current="page"><a href="/">Home</a></li>
+        @if (Route::has('home'))
+        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('home') }}">{{ __('Home') }}</a></li>
+        @endif
     </ol>
 </nav>
 @endsection

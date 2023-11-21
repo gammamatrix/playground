@@ -9,17 +9,16 @@
 
 $package_config = config('playground');
 
-
 ?>
 @extends($package_config['layout'])
 @section('content')
-<div class="container-fluid">
-    <div class="row justify-content-center">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
 
-@yield('section-primary')
+            @yield('section-primary')
 
-@yield('section-secondary')
+            @yield('section-secondary')
 
+        </div>
     </div>
-</div>
 @endsection

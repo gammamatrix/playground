@@ -55,7 +55,7 @@ $attributes = trim(implode(' ', array_filter([
 //     '$records' => $records,
 //     'old($column)' => old($column),
 // ]);
-if(empty($column)) {
+if (empty($column)) {
     echo 'Expecting a column for the form select.';
 }
 ?>

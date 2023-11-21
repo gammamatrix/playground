@@ -25,19 +25,13 @@ $columnMeta['action'] = isset($columnMeta['action']) ? $columnMeta['action'] : '
 
 $columnMeta['showSpec'] = isset($columnMeta['showSpec']) && is_bool($columnMeta['showSpec']) ? $columnMeta['showSpec'] : false;
 
-$columnMeta['filter'] = isset($columnMeta['filter']) && is_string($columnMeta['filter']) && !empty($record[ $column ]) ? $columnMeta['filter'] : null;
+$columnMeta['filter'] = isset($columnMeta['filter']) && is_string($columnMeta['filter']) && !empty($record[$column]) ? $columnMeta['filter'] : null;
 
 if ($columnMeta['filter']) {
-    $columnMeta['filter_id'] = empty($record[ $columnMeta['filter'] ]) ? '' : $record[ $columnMeta['filter'] ];
+    $columnMeta['filter_id'] = empty($record[$columnMeta['filter']]) ? '' : $record[$columnMeta['filter']];
     $columnMeta['filter_css_id'] = 'filter_' . $columnMeta['filter'] . '_' . $columnMeta['filter_id'];
     $columnMeta['filter_name'] = 'filter[' . $columnMeta['filter'] . '][]';
-    $columnMeta['filter_checked'] = !empty($validated['filter'])
-        && !empty($validated['filter'][ $columnMeta['filter'] ])
-        && is_array($validated['filter'][ $columnMeta['filter'] ])
-        && in_array($record[ $columnMeta['filter'] ], $validated['filter'][ $columnMeta['filter'] ])
-        ? 'checked'
-        : ''
-    ;
+    $columnMeta['filter_checked'] = !empty($validated['filter']) && !empty($validated['filter'][$columnMeta['filter']]) && is_array($validated['filter'][$columnMeta['filter']]) && in_array($record[$columnMeta['filter']], $validated['filter'][$columnMeta['filter']]) ? 'checked' : '';
 }
 
 /**
@@ -87,17 +81,17 @@ if ($preferLinkSlug) {
 if (empty($columnMeta['linkRoute'])) {
     $link = '';
 } elseif ($preferLinkSlug) {
-    $link = route($columnMeta['linkRoute'], [ 'slug' => $record['slug'] ]);
+    $link = route($columnMeta['linkRoute'], ['slug' => $record['slug']]);
 } elseif ($preferLinkId) {
-    $link = route($columnMeta['linkRoute'], [ $routeParameter => $record[$routeParameterKey] ]);
+    $link = route($columnMeta['linkRoute'], [$routeParameter => $record[$routeParameterKey]]);
 } elseif ($preferLinkGo) {
-    $link = route($columnMeta['linkRoute'], [ 'go' => $record[$routeParameterKey] ]);
+    $link = route($columnMeta['linkRoute'], ['go' => $record[$routeParameterKey]]);
 } elseif ($isFk) {
-    $link = empty($record[ $column ]) ? '' : route($columnMeta['linkRoute'], [ $routeParameter => $record[ $column ] ]);
+    $link = empty($record[$column]) ? '' : route($columnMeta['linkRoute'], [$routeParameter => $record[$column]]);
 }
 
 if ($isUrlLink) {
-    $link = empty($record[ $column ]) ? '' : $record[ $column ];
+    $link = empty($record[$column]) ? '' : $record[$column];
     $value = $link;
 }
 $hasLink = !empty($link);
@@ -117,17 +111,14 @@ $hasLink = !empty($link);
 // ]);
 
 if ($isFk && !empty($accessor)) {
-
     $fkModel = $datum->{$accessor}()->first();
     if ($fkModel) {
         $fkModelData = $fkModel->toArray();
-        if (!empty($property)
-            && isset($fkModelData[ $property ])
-        ) {
-            $value = $fkModelData[ $property ];
+        if (!empty($property) && isset($fkModelData[$property])) {
+            $value = $fkModelData[$property];
         }
     }
-    // dump([
+// dump([
     //     '__METHOD__' => __METHOD__,
     //     '__FILE__' => __FILE__,
     //     '__LINE__' => __LINE__,
@@ -139,7 +130,7 @@ if ($isFk && !empty($accessor)) {
     //     '$record' => $record,
     //     '$datum' => $datum,
     //     '$fkModel' => $fkModel ? $fkModel->toArray() : $fkModel,
-    // ]);
+// ]);
 } elseif ($columnMeta['showSpec']) {
     // Get the label of the type.
     $accessor = empty($accessor) ? 'spec' : $accessor;
@@ -160,10 +151,7 @@ if (is_array($value)) {
     }
 }
 
-$isFlag = isset($columnMeta['flag'])
-    && is_bool($columnMeta['flag'])
-    && $columnMeta['flag']
-;
+$isFlag = isset($columnMeta['flag']) && is_bool($columnMeta['flag']) && $columnMeta['flag'];
 
 // dump([
 //     '__METHOD__' => __METHOD__,
@@ -179,47 +167,46 @@ $isFlag = isset($columnMeta['flag'])
 //     '$routeDeleteRelationshipId' => $routeDeleteRelationshipId,
 //     '$modelActions' => $modelActions,
 // ]);
+
 ?>
-<td class="{{!empty($columnMeta['hide-sm']) ? 'd-none d-sm-table-cell' : ''}}{{ $columnMeta['class'] }}">
+<td class="{{ !empty($columnMeta['hide-sm']) ? 'd-none d-sm-table-cell' : '' }}{{ $columnMeta['class'] }}">
     @if ($hasLink)
-    <a href="{{ $link }}">
+        <a href="{{ $link }}">
     @endif
 
-        @if ($isFlag)
+    @if ($isFlag)
         <x-playground::model-flag :$columnMeta :$value />
-        <!-- @modelFlag(($columnMeta + ['value' => $value])) -->
-        @elseif ($columnMeta['html'])
+        <!-- @modelFlag($columnMeta + ['value' => $value]) -->
+    @elseif ($columnMeta['html'])
         {!! $value !!}
-        @elseif ($isDate)
-        <time datetime="{{$value}}">{{$value->toDayDateTimeString()}}</time>
-        @else
+    @elseif ($isDate)
+        <time datetime="{{ $value }}">{{ $value }}</time>
+    @else
         {{ $value }}
-        @endif
+    @endif
 
     @if ($hasLink)
-    </a>
+        </a>
     @endif
 
     @if ($columnMeta['filter'])
-
         <div class="form-check">
             @php
-            $filter_table_id = request()->fullUrlWithoutQuery('filter.id');
-            if (!str_contains($filter_table_id, '?')) {
-                $filter_table_id .= '?';
-            } else {
-                $filter_table_id .= '&';
-            }
+                $filter_table_id = request()->fullUrlWithoutQuery('filter.id');
+                if (!str_contains($filter_table_id, '?')) {
+                    $filter_table_id .= '?';
+                } else {
+                    $filter_table_id .= '&';
+                }
             @endphp
-            <a href="{{$filter_table_id.'filter[id][]='.$columnMeta['filter_id']}}" class="btn btn-outline-warning">
+            <a href="{{ $filter_table_id . 'filter[id][]=' . $columnMeta['filter_id'] }}" class="btn btn-outline-warning">
                 <span class="fas fa-filter"><span>
             </a>
             {{-- <input class="form-check-input" type="checkbox" value="{{$columnMeta['filter_id']}}" name="{{$columnMeta['filter_name']}}" id="{{$columnMeta['filter_css_id']}}" {{$columnMeta['filter_checked']}}> --}}
             {{-- <label class="form-check-label" for="{{$columnMeta['filter_id']}}">
-                <span class="fas fa-filter"><span>
-            </label> --}}
+            <span class="fas fa-filter"><span>
+        </label> --}}
         </div>
-
     @endif
 
 </td>

@@ -21,12 +21,12 @@ class AbstractTest extends TestCase
     /**
      * @var string
      */
-    const ABSTRACT_CLASS = \GammaMatrix\Playground\Policies\ModelPolicy::class;
+    public const ABSTRACT_CLASS = \GammaMatrix\Playground\Policies\ModelPolicy::class;
 
     /**
      * @var string
      */
-    const MODEL_CLASS = \GammaMatrix\Playground\Cms\Models\Page::class;
+    public const MODEL_CLASS = \GammaMatrix\Playground\Cms\Models\Page::class;
 
     /**
      * @var object
@@ -94,7 +94,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $this->assertFalse($this->mock->delete($user, $model));
     }
@@ -108,7 +108,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $role = 'admin';
         $roles = [
@@ -129,7 +129,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $model->locked = true;
 
@@ -167,7 +167,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $this->assertFalse($this->mock->detail($user, $model));
     }
@@ -181,7 +181,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $role = 'admin';
         $roles = [
@@ -204,7 +204,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $this->assertFalse($this->mock->edit($user, $model));
     }
@@ -218,7 +218,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $role = 'admin';
         $roles = [
@@ -241,7 +241,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $this->assertFalse($this->mock->forceDelete($user, $model));
     }
@@ -255,7 +255,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $role = 'admin';
         $roles = [
@@ -278,7 +278,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $this->assertFalse($this->mock->lock($user, $model));
     }
@@ -292,7 +292,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $role = 'admin';
         $roles = [
@@ -315,7 +315,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $this->assertFalse($this->mock->manage($user, $model));
     }
@@ -329,7 +329,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $role = 'admin';
         $roles = [
@@ -352,7 +352,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $this->assertFalse($this->mock->restore($user, $model));
     }
@@ -366,7 +366,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $role = 'admin';
         $roles = [
@@ -418,7 +418,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $this->assertFalse($this->mock->update($user, $model));
     }
@@ -432,7 +432,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $role = 'admin';
         $roles = [
@@ -453,7 +453,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $model->locked = true;
 
@@ -491,7 +491,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $this->assertFalse($this->mock->unlock($user, $model));
     }
@@ -505,7 +505,7 @@ class AbstractTest extends TestCase
         $user = User::factory()->make();
 
         $model_class = static::MODEL_CLASS;
-        $model = new $model_class;
+        $model = new $model_class();
 
         $role = 'admin';
         $roles = [

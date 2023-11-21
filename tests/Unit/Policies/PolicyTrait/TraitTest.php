@@ -8,6 +8,9 @@ namespace Tests\Unit\GammaMatrix\Playground\Policies\PolicyTrait;
 
 use App\Models\User;
 use GammaMatrix\Playground\Test\TestCase;
+use Illuminate\Support\Facades\Log;
+use TiMacDonald\Log\LogEntry;
+use TiMacDonald\Log\LogFake;
 
 /**
  * \Tests\Unit\Playground\Policies\PolicyTrait\TraitTest
@@ -18,7 +21,7 @@ class TraitTest extends TestCase
     /**
      * @var string
      */
-    const TRAIT_CLASS = \GammaMatrix\Playground\Policies\PolicyTrait::class;
+    public const TRAIT_CLASS = \GammaMatrix\Playground\Policies\PolicyTrait::class;
 
     /**
      * @var object
@@ -45,147 +48,80 @@ class TraitTest extends TestCase
         );
     }
 
-    /**
-     * Test getRolesForAdmin().
-     *
-     */
-    public function test_getRolesForAdmin()
+    public function test_getEntity()
     {
-        $expected = [
-            'admin',
-            'wheel',
-            'root',
-        ];
-
-        $this->assertSame($expected, $this->mock->getRolesForAdmin());
+        $this->assertSame('', $this->mock->getEntity());
     }
 
-    /**
-     * Test getRolesForAction().
-     *
-     */
-    public function test_getRolesForAction()
+    public function test_getPackage()
     {
-        $expected = [
-            'admin',
-            'wheel',
-            'root',
-        ];
-
-        $this->assertSame($expected, $this->mock->getRolesForAction());
+        $this->assertSame('', $this->mock->getPackage());
     }
 
-    /**
-     * Test getRolesToView().
-     *
-     */
-    public function test_getRolesToView()
+    public function test_hasToken()
     {
-        $expected = [
-            'admin',
-            'wheel',
-            'root',
-        ];
-
-        $this->assertSame($expected, $this->mock->getRolesToView());
+        $this->assertFalse($this->mock->hasToken());
     }
 
-    /**
-     * Test hasPrivilege().
-     *
-     */
-    public function test_hasPrivilege()
+    public function test_getToken()
+    {
+        $this->assertNull($this->mock->getToken());
+    }
+
+    public function test_setToken()
+    {
+        $this->assertIsObject($this->mock->setToken());
+    }
+
+    public function test_verify()
+    {
+        LogFake::bind();
+
+        $user = User::factory()->make();
+
+        $verify = 'invalid-verifier';
+
+        config(['playground.auth.verify' => $verify]);
+
+        $ability = 'view';
+
+        $this->assertFalse($this->mock->verify($user, $ability));
+
+        Log::assertLogged(
+            fn (LogEntry $log) => $log->level === 'debug'
+        );
+
+        Log::assertLogged(
+            fn (LogEntry $log) => str_contains(
+                $log->context['$ability'],
+                $ability
+            )
+        );
+    }
+
+    public function test_verify_privileges()
     {
         $user = User::factory()->make();
-        $privileges = [];
 
-        $this->assertFalse($this->mock->hasPrivilege(
-            $user,
-            $privileges
-        ));
+        $verify = 'privileges';
+
+        config(['playground.auth.verify' => $verify]);
+
+        $ability = 'view';
+
+        $this->assertFalse($this->mock->verify($user, $ability));
     }
 
-    /**
-     * Test hasPrivilege().
-     *
-     */
-    public function test_hasPrivilege_with_admin()
+    public function test_verify_roles()
     {
         $user = User::factory()->make();
-        $privileges = [
-            'admin',
-        ];
 
-        $user->privileges = $privileges;
+        $verify = 'roles';
 
-        $this->assertTrue($this->mock->hasPrivilege(
-            $user,
-            $privileges
-        ));
+        config(['playground.auth.verify' => $verify]);
 
-        $this->assertFalse($this->mock->hasPrivilege(
-            $user,
-            ['root']
-        ));
+        $ability = 'view';
 
-        $this->assertFalse($this->mock->hasPrivilege(
-            $user,
-            ['root', 'wheel']
-        ));
-
-        $this->assertTrue($this->mock->hasPrivilege(
-            $user,
-            ['admin', 'root', 'wheel']
-        ));
-    }
-
-    /**
-     * Test hasRole().
-     *
-     */
-    public function test_hasRole()
-    {
-        $user = User::factory()->make();
-        $roles = [];
-
-        $this->assertFalse($this->mock->hasRole(
-            $user,
-            $roles
-        ));
-    }
-
-    /**
-     * Test hasRole().
-     *
-     */
-    public function test_hasRole_with_admin()
-    {
-        $user = User::factory()->make();
-        $roles = [
-            'admin',
-        ];
-
-        $user->roles = $roles;
-
-        $this->assertTrue($this->mock->hasRole(
-            $user,
-            $roles
-        ));
-
-        $this->assertFalse($this->mock->hasRole(
-            $user,
-            ['root']
-        ));
-
-        $this->assertFalse($this->mock->hasRole(
-            $user,
-            ['root', 'wheel']
-        ));
-
-        $this->assertTrue($this->mock->hasRole(
-            $user,
-            ['admin', 'root', 'wheel']
-        ));
+        $this->assertFalse($this->mock->verify($user, $ability));
     }
 }
-

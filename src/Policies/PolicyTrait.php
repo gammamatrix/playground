@@ -6,7 +6,10 @@
 
 namespace GammaMatrix\Playground\Policies;
 
-use App\Models\User;
+// use App\Models\User;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Auth\Access\Response;
+use Illuminate\Support\Str;
 
 /**
  * \GammaMatrix\Playground\Policies\PolicyTrait
@@ -19,88 +22,56 @@ trait PolicyTrait
      */
     protected $allowRootOverride = true;
 
-    /**
-     * @var array $rolesForAction The roles allowed for actions in the MVC.
-     */
-    protected $rolesForAction = [
-        'admin',
-        'wheel',
-        'root',
-    ];
+    protected string $package = '';
 
-    /**
-     * @var array $rolesForAdmin The roles allowed for admin actions in the MVC.
-     */
-    protected $rolesForAdmin = [
-        'admin',
-        'wheel',
-        'root',
-    ];
+    protected string $entity = '';
 
-    /**
-     * @var array $rolesToView The roles allowed to view the MVC.
-     */
-    protected $rolesToView = [
-        'admin',
-        'wheel',
-        'root',
-    ];
+    protected ?object $token = null;
 
-    /**
-     * Get the roles for admin actions.
-     *
-     * @return array
-     */
-    public function getRolesForAdmin()
+    abstract public function hasPrivilege(Authenticatable $user, string $privilege): bool|Response;
+
+    abstract public function hasRole(Authenticatable $user, string $ability): bool|Response;
+
+    abstract public function privilege(string $ability = '*'): string;
+
+    public function getEntity(): string
     {
-        return $this->rolesForAdmin;
+        return $this->entity;
     }
 
-    /**
-     * Get the roles for standard actions.
-     *
-     * @return array
-     */
-    public function getRolesForAction()
+    public function getPackage(): string
     {
-        return $this->rolesForAction;
+        return $this->package;
     }
 
-    /**
-     * Get the roles for view actions.
-     *
-     * @return array
-     */
-    public function getRolesToView()
+    public function hasToken(): bool
     {
-        return $this->rolesToView;
+        return !empty($this->token);
     }
 
-    /**
-     * Does the user have a required privilege?
-     *
-     * @param  \App\Models\User  $user
-     * @param  array  $privileges The required privileges.
-     * @return boolean
-     */
-    public function hasPrivilege(User $user, array $privileges = [])
+    public function getToken(): ?object
     {
-        return in_array($user->privilege, $privileges)
-            || array_intersect($user->privileges, $privileges)
-        ;
+        return $this->token;
     }
 
-    /**
-     * Does the user have a required role?
-     *
-     * @param  \App\Models\User  $user
-     * @param  array  $roles the roles from $rolesToView, $rolesForAction, $rolesForAdmin
-     * @return boolean
-     */
-    public function hasRole(User $user, array $roles = [])
+    public function setToken(?object $token = null): self
     {
-        return in_array($user->role, $roles)
-            || array_intersect($user->roles, $roles)
-        ;
+        $this->token = $token;
+        return $this;
+    }
+
+    public function verify(Authenticatable $user, string $ability): bool|Response
+    {
+        $verify = config('playground.auth.verify');
+        if ('privileges' === $verify) {
+            return $this->hasPrivilege($user, $this->privilege($ability));
+        } elseif ('roles' === $verify) {
+            return $this->hasRole($user, $ability);
+        }
+        \Log::debug(__METHOD__, [
+            '$ability' => $ability,
+            '$user' => $user,
+        ]);
+        return false;
     }
 }

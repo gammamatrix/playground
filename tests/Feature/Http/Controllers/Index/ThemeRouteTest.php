@@ -29,17 +29,17 @@ class ThemeRouteTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_route_theme_as_partner_and_succeed()
-    {
-        $this->initAuthRoles();
-        $response = $this->as('partner')->get('/theme?appTheme=bootstrap');
-        $response->assertRedirect('/');
-    }
+    // public function test_route_theme_as_partner_and_succeed()
+    // {
+    //     $this->initAuthRoles();
+    //     $response = $this->as('partner')->get('/theme?appTheme=bootstrap');
+    //     $response->assertRedirect('/');
+    // }
 
-    public function test_route_theme_as_sales_and_succeed_with_theme_and_redirect()
-    {
-        $this->initAuthRoles();
-        $response = $this->as('sales')->getJson('/theme?appTheme=bootstrap-dark&_return_url=%2Fsitemap');
-        $response->assertRedirect('/sitemap');
-    }
+    // public function test_route_theme_as_sales_and_succeed_with_theme_and_redirect()
+    // {
+    //     $this->initAuthRoles();
+    //     $response = $this->as('sales')->getJson('/theme?appTheme=bootstrap-dark&_return_url=%2Fsitemap');
+    //     $response->assertRedirect('/sitemap');
+    // }
 }

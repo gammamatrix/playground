@@ -24,6 +24,7 @@ class Data extends Component
         public bool $showLinks = true,
         public bool $modelActions = false,
         public bool $trashable = true,
+        public string $privilege = '',
         public string $routeParameter = 'id',
         public string $routeParameterKey = 'id',
         public string $routeEdit = '',

@@ -23,7 +23,7 @@ class ModelTest extends TestCase
     /**
      * @var string
      */
-    const ABSTRACT_CLASS = \GammaMatrix\Playground\Models\Model::class;
+    public const ABSTRACT_CLASS = \GammaMatrix\Playground\Models\Model::class;
 
     /**
      * @var object
@@ -248,4 +248,3 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 }
-

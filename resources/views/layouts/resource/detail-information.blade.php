@@ -1,18 +1,28 @@
+<?php
+$routeDelete = route(sprintf('%1$s.destroy', $meta['info']['model_route']), [$meta['info']['model_slug'] => $data->id]);
+$routeEdit = route(sprintf('%1$s.edit', $meta['info']['model_route']), [$meta['info']['model_slug'] => $data->id]);
+$token = Auth::user()?->currentAccessToken();
+$withDelete = $routeDelete && ($token?->can($meta['info']['privilege'].':delete') || $token?->can($meta['info']['privilege'].':*'));
+$withEdit = $routeEdit && ($token?->can($meta['info']['privilege'].':edit') || $token?->can($meta['info']['privilege'].':*'));
+
+?>
 <div class="card my-1">
     <div class="card-header">
+        @if ($withDelete || $withEdit)
         <div class="btn-group float-end" role="group" aria-label="{{$meta['info']['model_label']}} Controls and Actions">
             <button id="brand-actions" type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                 <span class="fas fa-gear"></span> Actions
             </button>
             <ul class="dropdown-menu" aria-labelledby="brand-actions">
-                <form method="POST" action="{{route(sprintf('%1$s.destroy', $meta['info']['model_route']), [$meta['info']['model_slug'] => $data->id])}}" novalidate>
+                <form method="POST" action="{{$routeDelete}}" novalidate>
                 @csrf
                 @method('delete')
                 <button class="dropdown-item" role="button">Trash <span class="fas fa-trash float-end"></span></button>
                 </form>
-                <a class="dropdown-item" href="{{route(sprintf('%1$s.edit', $meta['info']['model_route']), [$meta['info']['model_slug'] => $data->id])}}" role="button">Edit <span class="fas fa-edit float-end"></span></a>
+                <a class="dropdown-item" href="{{$routeEdit}}" role="button">Edit <span class="fas fa-edit float-end"></span></a>
             </div>
         </div>
+        @endif
         <h1>{{ $data->label }}</h1>
     </div>
     @if ($withImage && $data && $data->image)
@@ -44,7 +54,7 @@
                     <th scope="row">Created</th>
                     <td>
                         @if ($data->created_at)
-                        <time datetime="{{$data['created_at']}}">{{$data['created_at']->toDayDateTimeString()}}</time>
+                        <time datetime="{{$data['created_at']}}">{{$data['created_at']}}</time>
                         @endif
                     </td>
                 </tr>
@@ -52,7 +62,7 @@
                     <th scope="row">Updated</th>
                     <td>
                         @if ($data->updated_at)
-                        <time datetime="{{$data['updated_at']}}">{{$data['updated_at']->toDayDateTimeString()}}</time>
+                        <time datetime="{{$data['updated_at']}}">{{$data['updated_at']}}</time>
                         @endif
                     </td>
                 </tr>

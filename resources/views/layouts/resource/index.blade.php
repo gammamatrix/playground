@@ -14,6 +14,17 @@ $package_config = config('playground');
  */
 $withCreate = isset($withCreate) && is_bool($withCreate) ? $withCreate : true;
 
+$withPrivilege = !empty($meta['info']) && !empty($meta['info']['privilege']) && is_string($meta['info']['privilege']) ? $meta['info']['privilege'] : 'playground';
+
+$withCreate =
+    $withCreate &&
+    (Auth::user()
+        ?->currentAccessToken()
+        ?->can($withPrivilege . ':create') ||
+        Auth::user()
+            ?->currentAccessToken()
+            ?->can($withPrivilege . ':*'));
+
 /**
  * @var boolean $withTable
  */
@@ -32,7 +43,6 @@ $withTableColumns = isset($withTableColumns) && is_array($withTableColumns) && !
 $tableComponent = [];
 
 if ($withTable) {
-
     if (empty($withTableColumns)) {
         $withTableColumns = [
             'label' => [
@@ -96,9 +106,10 @@ if ($withTable) {
         'routeDelete' => sprintf('%1$s.destroy', $meta['info']['model_route']),
         'routeRestore' => sprintf('%1$s.restore', $meta['info']['model_route']),
         'paginator' => $paginator,
+        'privilege' => $withPrivilege,
         'styling' => [
             'header' => [
-                'class' => 'mt-3'
+                'class' => 'mt-3',
             ],
         ],
     ];
@@ -107,6 +118,14 @@ if ($withTable) {
 //     '__METHOD__' => __METHOD__,
 //     '__FILE__' => __FILE__,
 //     '__LINE__' => __LINE__,
+//     '$withCreate' => $withCreate,
+//     'privilege' => $tableComponent['privilege'],
+//     'Auth::user()->can(app)' => Auth::user()->can('app'),
+//     'Auth::user()->can(*:*:view)' => Auth::user()->can($tableComponent['privilege'].':view'),
+//     'Auth::user()->can(app)' => Auth::user()?->currentAccessToken()->can('app'),
+//     'Auth::user()->can(*:*:frog)' => Auth::user()?->currentAccessToken()->can($tableComponent['privilege'].':frog'),
+//     'Auth::user()->can(*:*:view)' => Auth::user()?->currentAccessToken()->can($tableComponent['privilege'].':view'),
+//     'Auth::user()->can(*:*:*)' => Auth::user()?->currentAccessToken()->can($tableComponent['privilege'].':*'),
 //     '$meta' => $meta,
 //     // '$columns' => $columns,
 //     // '$styling' => $styling,
@@ -116,65 +135,55 @@ if ($withTable) {
 //     // '$paginator' => $paginator,
 //     // '$hasHeaderStyling' => $hasHeaderStyling,
 // ]);
-
 ?>
 @extends($package_config['layout'])
 @section('title', sprintf('%1$s - %2$s Index', $meta['info']['module_label'], $meta['info']['model_label']))
 @section('breadcrumbs')
-<nav aria-label="breadcrumb" class="container-fluid mt-3">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="/">Home</a></li>
-        <li class="breadcrumb-item"><a href="{{ route($meta['info']['module_route']) }}">{{$meta['info']['module_label']}}</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><a href="{{ route($meta['info']['model_route']) }}">{{$meta['info']['model_label']}} Index</a></li>
-    </ol>
-</nav>
+    <nav aria-label="breadcrumb" class="container-fluid mt-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a
+                    href="{{ route($meta['info']['module_route']) }}">{{ $meta['info']['module_label'] }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page"><a
+                    href="{{ route($meta['info']['model_route']) }}">{{ $meta['info']['model_label'] }} Index</a></li>
+        </ol>
+    </nav>
 @endsection
 @section('content')
-<div class="container-fluid">
-    <div class="row justify-content-center">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
 
-@if ($withCreate)
-        <div class="col-md-12 mb-3">
-            <div class="btn-group float-end px-3" role="group" aria-label="{{$meta['info']['model_label']}} Controls and Actions">
-                <a class="btn btn-primary" href="{{route(sprintf('%1$s.create', $meta['info']['model_route']))}}" role="button">Create</a>
-            </div>
-        </div>
-@endif
+            @if ($withCreate)
+                <div class="col-md-12 mb-3">
+                    <div class="btn-group float-end px-3" role="group"
+                        aria-label="{{ $meta['info']['model_label'] }} Controls and Actions">
+                        <a class="btn btn-primary" href="{{ route(sprintf('%1$s.create', $meta['info']['model_route'])) }}"
+                            role="button">Create</a>
+                    </div>
+                </div>
+            @endif
 
-@yield('section-primary')
-
-
-@if ($withTable && is_string($withTable))
-    @include($withTable)
-@elseif ($withTable)
-    <div class="col-md-12">
-    </div>
-@endif
-
-@yield('section-secondary')
-
-        <x-playground::table.data
-            :columns="$withTableColumns"
-            :paginator="$paginator"
-            :model-actions="true"
-            :trashable="true"
-            :id="$tableComponent['id']"
-            :meta="$meta"
-            :validated="$meta['validated']"
-            :sort="$meta['sortable']"
-            :collapsible="true"
-            :route-parameter="$tableComponent['routeParameter']"
-            :route-parameter-key="$tableComponent['routeParameterKey']"
-            :route-edit="$tableComponent['routeEdit']"
-            :route-delete="$tableComponent['routeDelete']"
-            :route-restore="$tableComponent['routeRestore']"
-            :styling="$tableComponent['styling']"
-        >
-            {{$meta['info']['model_label_plural']}}
-        </x-playground::table.data>
+            @yield('section-primary')
 
 
-        {{-- <x-playground::table
+            @if ($withTable && is_string($withTable))
+                @include($withTable)
+            @elseif ($withTable)
+                <div class="col-md-12">
+                </div>
+            @endif
+
+            @yield('section-secondary')
+
+            <x-playground::table.data :columns="$withTableColumns" :paginator="$paginator" :model-actions="true" :trashable="true"
+                :id="$tableComponent['id']" :meta="$meta" :validated="$meta['validated']" :sort="$meta['sortable']" :privilege="$tableComponent['privilege']" :collapsible="true"
+                :route-parameter="$tableComponent['routeParameter']" :route-parameter-key="$tableComponent['routeParameterKey']" :route-edit="$tableComponent['routeEdit']" :route-delete="$tableComponent['routeDelete']" :route-restore="$tableComponent['routeRestore']"
+                :styling="$tableComponent['styling']">
+                {{ $meta['info']['model_label_plural'] }}
+            </x-playground::table.data>
+
+
+            {{-- <x-playground::table
             :columns="$withTableColumns"
             :paginator="$paginator"
             :model-actions="true"
@@ -196,7 +205,7 @@ if ($withTable) {
         </x-playground::table> --}}
 
 
-        {{-- <x-alert>
+            {{-- <x-alert>
             <x-slot:title>
                 Server Error
             </x-slot>
@@ -205,6 +214,6 @@ if ($withTable) {
         </x-alert> --}}
 
 
+        </div>
     </div>
-</div>
 @endsection

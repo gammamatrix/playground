@@ -1,4 +1,4 @@
-<div class="mb-3" style="background: teal">
+<div class="mb-3">
     @if ($showLinks)
     <div class="float-end">
         {{$paginator->links('playground::pagination/bootstrap')}}
