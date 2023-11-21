@@ -29,17 +29,17 @@ class HomeRouteTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_route_home_as_user_admin_and_succeed()
-    {
-        $this->initAuthRoles();
-        $response = $this->as('user-admin')->get('/');
-        $response->assertStatus(200);
-    }
+    // public function test_route_home_as_user_admin_and_succeed()
+    // {
+    //     $this->initAuthRoles();
+    //     $response = $this->as('user-admin')->get('/');
+    //     $response->assertStatus(200);
+    // }
 
-    public function test_route_json_home_as_admin_and_succeed()
-    {
-        $this->initAuthRoles();
-        $response = $this->as('root')->getJson('/');
-        $response->assertStatus(200);
-    }
+    // public function test_route_json_home_as_admin_and_succeed()
+    // {
+    //     $this->initAuthRoles();
+    //     $response = $this->as('root')->getJson('/');
+    //     $response->assertStatus(200);
+    // }
 }

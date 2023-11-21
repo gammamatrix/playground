@@ -6,7 +6,8 @@
 
 namespace GammaMatrix\Playground\Policies;
 
-use App\Models\User;
+// use App\Models\User;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -22,7 +23,7 @@ abstract class ModelPolicy extends Policy
      *
      * @param  \App\Models\User  $user
      */
-    public function create(User $user): bool|Response
+    public function create(Authenticatable $user): bool|Response
     {
         return $this->verify($user, 'create');
     }
@@ -35,7 +36,7 @@ abstract class ModelPolicy extends Policy
      * @param  \App\Models\User  $user
      * @param  \Illuminate\Database\Eloquent\Model  $model
      */
-    public function delete(User $user, Model $model): bool|Response
+    public function delete(Authenticatable $user, Model $model): bool|Response
     {
         // Models must be unlocked to allow deleting.
         // NOTE: This lock check is bypassed by a root user.
@@ -55,7 +56,7 @@ abstract class ModelPolicy extends Policy
      * @param  \App\Models\User  $user
      * @param  \Illuminate\Database\Eloquent\Model  $model
      */
-    public function detail(User $user, Model $model): bool|Response
+    public function detail(Authenticatable $user, Model $model): bool|Response
     {
         return $this->verify($user, 'view');
     }
@@ -66,7 +67,7 @@ abstract class ModelPolicy extends Policy
      * @param  \App\Models\User  $user
      * @param  \Illuminate\Database\Eloquent\Model  $model
      */
-    public function edit(User $user, Model $model = null): bool|Response
+    public function edit(Authenticatable $user, Model $model = null): bool|Response
     {
         return $this->verify($user, 'edit');
     }
@@ -79,7 +80,7 @@ abstract class ModelPolicy extends Policy
      * @param  \App\Models\User  $user
      * @param  \Illuminate\Database\Eloquent\Model  $model
      */
-    public function forceDelete(User $user, Model $model): bool|Response
+    public function forceDelete(Authenticatable $user, Model $model): bool|Response
     {
         return $this->verify($user, 'forceDelete');
     }
@@ -90,7 +91,7 @@ abstract class ModelPolicy extends Policy
      * @param  \App\Models\User  $user
      * @param  \Illuminate\Database\Eloquent\Model  $model
      */
-    public function lock(User $user, Model $model): bool|Response
+    public function lock(Authenticatable $user, Model $model): bool|Response
     {
         return $this->verify($user, 'lock');
     }
@@ -101,7 +102,7 @@ abstract class ModelPolicy extends Policy
      * @param  \App\Models\User  $user
      * @param  \Illuminate\Database\Eloquent\Model  $model
      */
-    public function manage(User $user, Model $model): bool|Response
+    public function manage(Authenticatable $user, Model $model): bool|Response
     {
         return $this->verify($user, 'manage');
     }
@@ -112,7 +113,7 @@ abstract class ModelPolicy extends Policy
      * @param  \App\Models\User  $user
      * @param  \Illuminate\Database\Eloquent\Model  $model
      */
-    public function restore(User $user, Model $model): bool|Response
+    public function restore(Authenticatable $user, Model $model): bool|Response
     {
         return $this->verify($user, 'restore');
     }
@@ -122,7 +123,7 @@ abstract class ModelPolicy extends Policy
      *
      * @param  \App\Models\User  $user
      */
-    public function store(User $user): bool|Response
+    public function store(Authenticatable $user): bool|Response
     {
         return $this->verify($user, 'store');
     }
@@ -133,7 +134,7 @@ abstract class ModelPolicy extends Policy
      * @param  \App\Models\User  $user
      * @param  \Illuminate\Database\Eloquent\Model  $model
      */
-    public function update(User $user, Model $model): bool|Response
+    public function update(Authenticatable $user, Model $model): bool|Response
     {
         // Models must be unlocked to allow updating.
         // NOTE: This lock check is bypassed by a root user.
@@ -153,7 +154,7 @@ abstract class ModelPolicy extends Policy
      * @param  \App\Models\User  $user
      * @param  \Illuminate\Database\Eloquent\Model  $model
      */
-    public function unlock(User $user, Model $model): bool|Response
+    public function unlock(Authenticatable $user, Model $model): bool|Response
     {
         return $this->verify($user, 'unlock');
     }

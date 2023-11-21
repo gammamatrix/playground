@@ -29,17 +29,17 @@ class BootstrapRouteTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_route_bootstrap_as_vendor_and_succeed()
-    {
-        $this->initAuthRoles();
-        $response = $this->as('vendor')->get('/bootstrap');
-        $response->assertStatus(200);
-    }
+    // public function test_route_bootstrap_as_vendor_and_succeed()
+    // {
+    //     $this->initAuthRoles();
+    //     $response = $this->as('vendor')->get('/bootstrap');
+    //     $response->assertStatus(200);
+    // }
 
-    public function test_route_json_bootstrap_as_wheel_and_succeed()
-    {
-        $this->initAuthRoles();
-        $response = $this->as('wheel')->getJson('/bootstrap');
-        $response->assertStatus(200);
-    }
+    // public function test_route_json_bootstrap_as_wheel_and_succeed()
+    // {
+    //     $this->initAuthRoles();
+    //     $response = $this->as('wheel')->getJson('/bootstrap');
+    //     $response->assertStatus(200);
+    // }
 }

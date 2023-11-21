@@ -8,6 +8,7 @@ namespace Tests\Unit\GammaMatrix\Playground\Policies\Policy;
 
 use App\Models\User;
 use GammaMatrix\Playground\Test\TestCase;
+use Illuminate\Auth\Access\Response;
 
 /**
  * \Tests\Unit\Playground\Policies\Policy\AbstractTest
@@ -35,6 +36,11 @@ class AbstractTest extends TestCase
         parent::setUp();
 
         $this->mock = $this->getMockForAbstractClass(static::ABSTRACT_CLASS);
+        config([
+            'playground.auth.userRole' => true,
+            'playground.auth.userRoles' => true,
+            'playground.auth.verify' => 'roles',
+        ]);
     }
 
     /**
@@ -86,7 +92,7 @@ class AbstractTest extends TestCase
     {
         $user = User::factory()->make();
 
-        $this->assertFalse($this->mock->index($user));
+        $this->assertInstanceOf(Response::class, $this->mock->index($user));
     }
 
     /**
@@ -115,7 +121,7 @@ class AbstractTest extends TestCase
     {
         $user = User::factory()->make();
 
-        $this->assertFalse($this->mock->view($user));
+        $this->assertInstanceOf(Response::class, $this->mock->view($user));
     }
 
     /**
