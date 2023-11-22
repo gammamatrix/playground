@@ -7,7 +7,6 @@
 namespace Tests\Feature\Http\Controllers;
 
 use Tests\RouteTestCase;
-// use GammaMatrix\Playground\Test\AuthTrait;
 
 /**
  * \Tests\Feature\Http\Controllers\BootstrapRouteTest

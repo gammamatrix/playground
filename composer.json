@@ -43,6 +43,8 @@
         "gammamatrix/playground-test": "dev-feature/PG-5",
         "laravel/sanctum": "^3.3"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "GammaMatrix\\Playground\\": "src/"
@@ -71,6 +73,9 @@
             ]
         }
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    "scripts": {
+        "test": "phpunit",
+        "format": "php-cs-fixer fix --allow-risky=yes .",
+        "analyse": "phpstan analyse"
+    }
 }

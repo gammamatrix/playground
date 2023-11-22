@@ -20,7 +20,7 @@ trait WithModifier
     public function modifier(): HasOne
     {
         return $this->hasOne(
-            config('playground.user', \App\Models\User::class),
+            config('playground.user', '\\App\\Models\\User'),
             'id',
             'modified_by_id'
         );

@@ -9,6 +9,7 @@ namespace GammaMatrix\Playground\Policies;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 /**
  * \GammaMatrix\Playground\Policies\PolicyTrait
@@ -67,7 +68,7 @@ trait PolicyTrait
         } elseif ('roles' === $verify) {
             return $this->hasRole($user, $ability);
         }
-        \Log::debug(__METHOD__, [
+        Log::debug(__METHOD__, [
             '$ability' => $ability,
             '$user' => $user,
         ]);

@@ -8,6 +8,8 @@ namespace GammaMatrix\Playground\Models\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 
+// use Illuminate\Support\Facades\Log;
+
 /**
  * \GammaMatrix\Playground\Models\Traits\ScopeFilterColumns
  *
@@ -23,6 +25,24 @@ trait ScopeFilterColumns
             return $query;
         }
 
+        $filter_operators = [
+            '|' => [],
+            '&' => [],
+            '=' => [],
+            '!=' => [],
+            '<>' => [],
+            '<=>' => [],
+            '<' => [],
+            '<=' => [],
+            '>=' => [],
+            'NULL' => [],
+            'NOTNULL' => [],
+            'LIKE' => [],
+            'NOTLIKE' => [],
+            'BETWEEN' => [],
+            'NOTBETWEEN' => [],
+        ];
+
         foreach ($columns as $column => $meta) {
             // dump([
             //     '__METHOD__' => __METHOD__,
@@ -34,7 +54,7 @@ trait ScopeFilterColumns
                 || !preg_match('/^[a-z][a-z0-9_]+$/i', $column)
                 || !array_key_exists($column, $validated['filter'])
             ) {
-                // \Log::debug(__METHOD__, ['VALIDATION' => 'empty', '$column' => $column, '$validated' => $validated,]);
+                // Log::debug(__METHOD__, ['VALIDATION' => 'empty', '$column' => $column, '$validated' => $validated,]);
                 continue;
             }
 
@@ -56,7 +76,7 @@ trait ScopeFilterColumns
             } else {
                 if (is_array($validated['filter'][$column])) {
                     if (!empty($validated['filter'][$column]['operator'])
-                        && array_key_exists(strtoupper($validated['filter'][$column]['operator']), $this->filter_operators)
+                        && array_key_exists(strtoupper($validated['filter'][$column]['operator']), $filter_operators)
                     ) {
                         $filter_operator = strtoupper($validated['filter'][$column]['operator']);
                     }

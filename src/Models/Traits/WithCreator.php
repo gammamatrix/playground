@@ -20,7 +20,7 @@ trait WithCreator
     public function creator(): HasOne
     {
         return $this->hasOne(
-            config('playground.user', \App\Models\User::class),
+            config('playground.user', '\\App\\Models\\User'),
             'id',
             'created_by_id'
         );

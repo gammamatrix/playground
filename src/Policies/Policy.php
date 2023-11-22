@@ -7,7 +7,9 @@
 namespace GammaMatrix\Playground\Policies;
 
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Auth\Access\Response;
 use Illuminate\Auth\Access\HandlesAuthorization;
+// use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 /**
@@ -26,7 +28,7 @@ abstract class Policy
      *
      * NOTE Override this method when the root user should not have access.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  string  $ability The ability represents an action in the MCA.
      *
      * @return mixed Returns true if the user has the root role assigned.
@@ -75,11 +77,8 @@ abstract class Policy
     /**
      * Determine whether the user can view the index.
      *
-     * @param  \App\Models\User  $user
-     *
-     * @return boolean
      */
-    public function index(Authenticatable $user)
+    public function index(Authenticatable $user): bool|Response
     {
         // \Log::debug(__METHOD__, [
         //     '$user' => $user,
@@ -90,11 +89,8 @@ abstract class Policy
     /**
      * Determine whether the user can view.
      *
-     * @param  \App\Models\User  $user
-     *
-     * @return boolean
      */
-    public function view(Authenticatable $user)
+    public function view(Authenticatable $user): bool|Response
     {
         // \Log::debug(__METHOD__, [
         //     '$user' => $user,
