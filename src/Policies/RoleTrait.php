@@ -6,8 +6,7 @@
 
 namespace GammaMatrix\Playground\Policies;
 
-// use App\Models\User;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Access\Response;
 
 /**

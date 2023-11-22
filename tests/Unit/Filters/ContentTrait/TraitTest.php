@@ -4,24 +4,18 @@
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Filters\ContentTrait;
+namespace Tests\Unit\Filters\ContentTrait;
 
-use GammaMatrix\Playground\Test\TestCase;
+use Tests\TestCase;
 
 /**
- * \Tests\Unit\Playground\Filters\ContentTrait\TraitTest
+ * \Tests\Unit\Filters\ContentTrait\TraitTest
  *
  */
 class TraitTest extends TestCase
 {
-    /**
-     * @var string
-     */
     public const TRAIT_CLASS = \GammaMatrix\Playground\Filters\ContentTrait::class;
 
-    /**
-     * @var object
-     */
     public $mock;
 
     /**
@@ -44,10 +38,6 @@ class TraitTest extends TestCase
         );
     }
 
-    /**
-     * Test purify().
-     *
-     */
     public function test_purify()
     {
         $expected = 'some-string';
@@ -55,10 +45,6 @@ class TraitTest extends TestCase
         $this->assertSame($expected, $this->mock->purify($expected));
     }
 
-    /**
-     * Test exorcise().
-     *
-     */
     public function test_exorcise()
     {
         $expected = 'some-string';
@@ -66,10 +52,6 @@ class TraitTest extends TestCase
         $this->assertSame($expected, $this->mock->exorcise($expected));
     }
 
-    /**
-     * Test getHtmlPurifier().
-     *
-     */
     public function test_getHtmlPurifier()
     {
         $this->assertInstanceOf(
@@ -78,10 +60,6 @@ class TraitTest extends TestCase
         );
     }
 
-    /**
-     * Test getHtmlPurifier().
-     *
-     */
     public function test_getHtmlPurifier_with_iframes()
     {
         $this->assertInstanceOf(
@@ -92,10 +70,6 @@ class TraitTest extends TestCase
         );
     }
 
-    /**
-     * Test getHtmlPurifier().
-     *
-     */
     public function test_getHtmlPurifier_with_purifier_path()
     {
         $this->assertInstanceOf(
@@ -108,10 +82,6 @@ class TraitTest extends TestCase
         );
     }
 
-    /**
-     * Test encodeURIComponent().
-     *
-     */
     public function test_encodeURIComponent()
     {
         $expected = 'some-string';

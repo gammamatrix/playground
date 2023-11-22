@@ -6,7 +6,6 @@
 
 namespace GammaMatrix\Playground\Models\Traits;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
@@ -21,7 +20,7 @@ trait WithOwner
     public function owner(): HasOne
     {
         return $this->hasOne(
-            User::class,
+            config('playground.user', \App\Models\User::class),
             'id',
             'owned_by_id'
         );

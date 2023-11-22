@@ -4,14 +4,14 @@
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Models\Model;
+namespace Tests\Unit\Models\Model;
 
-use GammaMatrix\Playground\Test\TestCase;
+use Tests\TestCase;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Models\Model\ModelTest
+ * \Tests\Unit\Models\Model\ModelTest
  *
  */
 class ModelTest extends TestCase
@@ -43,6 +43,7 @@ class ModelTest extends TestCase
         }
 
         $this->mock = $this->getMockForAbstractClass(static::ABSTRACT_CLASS);
+        config(['playground.user' => \GammaMatrix\Playground\Test\Models\User::class]);
     }
 
     public function test_WithChildren_children_returns_HasMany()

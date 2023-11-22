@@ -4,9 +4,9 @@
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait;
+namespace Tests\Unit\Filters\ModelTrait;
 
-use GammaMatrix\Playground\Test\TestCase;
+use Tests\TestCase;
 
 /**
  * \Tests\Unit\Playground\Filters\ModelTrait\TraitTest
@@ -14,14 +14,8 @@ use GammaMatrix\Playground\Test\TestCase;
  */
 class TraitTest extends TestCase
 {
-    /**
-     * @var string
-     */
     public const TRAIT_CLASS = \GammaMatrix\Playground\Filters\ModelTrait::class;
 
-    /**
-     * @var object
-     */
     public $mock;
 
     /**
@@ -44,10 +38,6 @@ class TraitTest extends TestCase
         );
     }
 
-    /**
-     * Test filterArray().
-     *
-     */
     public function test_filterArray()
     {
         $expected = ['some-string'];
@@ -55,10 +45,6 @@ class TraitTest extends TestCase
         $this->assertSame($expected, $this->mock->filterArray($expected));
     }
 
-    /**
-     * Test filterArray().
-     *
-     */
     public function test_filterArray_with_string()
     {
         $expected = 'some-string';
@@ -66,10 +52,6 @@ class TraitTest extends TestCase
         $this->assertSame([$expected], $this->mock->filterArray($expected));
     }
 
-    /**
-     * Test filterArray().
-     *
-     */
     public function test_filterArray_with_null()
     {
         $expected = [];

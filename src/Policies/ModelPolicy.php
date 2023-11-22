@@ -6,8 +6,7 @@
 
 namespace GammaMatrix\Playground\Policies;
 
-// use App\Models\User;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -21,7 +20,7 @@ abstract class ModelPolicy extends Policy
     /**
      * Determine whether the user can create model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      */
     public function create(Authenticatable $user): bool|Response
     {
@@ -33,7 +32,7 @@ abstract class ModelPolicy extends Policy
      *
      * - This is for soft deletes or trash.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  \Illuminate\Database\Eloquent\Model  $model
      */
     public function delete(Authenticatable $user, Model $model): bool|Response
@@ -53,7 +52,7 @@ abstract class ModelPolicy extends Policy
     /**
      * Determine whether the user can view the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  \Illuminate\Database\Eloquent\Model  $model
      */
     public function detail(Authenticatable $user, Model $model): bool|Response
@@ -64,7 +63,7 @@ abstract class ModelPolicy extends Policy
     /**
      * Determine whether the user can edit a model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  \Illuminate\Database\Eloquent\Model  $model
      */
     public function edit(Authenticatable $user, Model $model = null): bool|Response
@@ -77,7 +76,7 @@ abstract class ModelPolicy extends Policy
      *
      * Force deletes permanently from a database.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  \Illuminate\Database\Eloquent\Model  $model
      */
     public function forceDelete(Authenticatable $user, Model $model): bool|Response
@@ -88,7 +87,7 @@ abstract class ModelPolicy extends Policy
     /**
      * Determine whether the user can lock a model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  \Illuminate\Database\Eloquent\Model  $model
      */
     public function lock(Authenticatable $user, Model $model): bool|Response
@@ -99,7 +98,7 @@ abstract class ModelPolicy extends Policy
     /**
      * Determine whether the user can manage the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  \Illuminate\Database\Eloquent\Model  $model
      */
     public function manage(Authenticatable $user, Model $model): bool|Response
@@ -110,7 +109,7 @@ abstract class ModelPolicy extends Policy
     /**
      * Determine whether the user can restore the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  \Illuminate\Database\Eloquent\Model  $model
      */
     public function restore(Authenticatable $user, Model $model): bool|Response
@@ -121,7 +120,7 @@ abstract class ModelPolicy extends Policy
     /**
      * Determine whether the user can store the model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      */
     public function store(Authenticatable $user): bool|Response
     {
@@ -131,7 +130,7 @@ abstract class ModelPolicy extends Policy
     /**
      * Determine whether the user can edit a model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  \Illuminate\Database\Eloquent\Model  $model
      */
     public function update(Authenticatable $user, Model $model): bool|Response
@@ -151,7 +150,7 @@ abstract class ModelPolicy extends Policy
     /**
      * Determine whether the user can unlock a model.
      *
-     * @param  \App\Models\User  $user
+     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  \Illuminate\Database\Eloquent\Model  $model
      */
     public function unlock(Authenticatable $user, Model $model): bool|Response

@@ -4,15 +4,15 @@
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterDates;
+namespace Tests\Unit\Models\Traits\ScopeFilterDates;
 
-use GammaMatrix\Playground\Test\TestCase;
+use Tests\TestCase;
 use GammaMatrix\Playground\Test\SqlTrait;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterDates\ModelTest
+ * \Tests\Unit\Models\Traits\ScopeFilterDates\ModelTest
  *
  */
 class ModelTest extends TestCase

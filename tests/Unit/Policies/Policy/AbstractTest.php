@@ -1,12 +1,12 @@
 <?php
 /**
- * Playground
+ * GammaMatrix
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Policies\Policy;
+namespace Tests\Unit\Policies\Policy;
 
-use App\Models\User;
+use GammaMatrix\Playground\Test\Models\User;
 use GammaMatrix\Playground\Test\TestCase;
 use Illuminate\Auth\Access\Response;
 

@@ -1,19 +1,19 @@
 <?php
 /**
- * Playground
+ * GammaMatrix
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Policies\PolicyTrait;
+namespace Tests\Unit\Policies\PolicyTrait;
 
-use App\Models\User;
-use GammaMatrix\Playground\Test\TestCase;
+use Tests\TestCase;
+use GammaMatrix\Playground\Test\Models\User;
 use Illuminate\Support\Facades\Log;
 use TiMacDonald\Log\LogEntry;
 use TiMacDonald\Log\LogFake;
 
 /**
- * \Tests\Unit\Playground\Policies\PolicyTrait\TraitTest
+ * \Tests\Unit\Policies\PolicyTrait\TraitTest
  *
  */
 class TraitTest extends TestCase

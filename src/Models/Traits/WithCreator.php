@@ -6,7 +6,6 @@
 
 namespace GammaMatrix\Playground\Models\Traits;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
@@ -21,7 +20,7 @@ trait WithCreator
     public function creator(): HasOne
     {
         return $this->hasOne(
-            User::class,
+            config('playground.user', \App\Models\User::class),
             'id',
             'created_by_id'
         );

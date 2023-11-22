@@ -16,9 +16,32 @@
             "role": "Developer"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:gammamatrix/playground-test.git"
+        }
+    ],
     "require": {
-        "php": "^8.0",
-        "ezyang/htmlpurifier": "^4.16"
+        "php": "^8.1",
+        "ezyang/htmlpurifier": "^4.16",
+        "illuminate/auth": "^9.0|^10.0",
+        "illuminate/console": "^9.0|^10.0",
+        "illuminate/contracts": "^9.0|^10.0",
+        "illuminate/database": "^9.0|^10.0",
+        "illuminate/http": "^9.0|^10.0",
+        "illuminate/routing": "^9.0|^10.0",
+        "illuminate/support": "^9.0|^10.0",
+        "illuminate/translation": "^9.0|^10.0",
+        "illuminate/validation": "^9.0|^10.0",
+        "illuminate/view": "^9.0|^10.0"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.9.1",
+        "orchestra/testbench": "^7.0|^8.0",
+        "phpunit/phpunit": "^10.1",
+        "gammamatrix/playground-test": "dev-feature/PG-5",
+        "laravel/sanctum": "^3.3"
     },
     "autoload": {
         "psr-4": {
@@ -27,14 +50,21 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\Unit\\GammaMatrix\\Playground\\": "tests/Unit/",
-            "Tests\\Feature\\GammaMatrix\\Playground\\": "tests/Feature/"
+            "Tests\\": "tests/"
         }
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "preferred-install": {
+            "gammamatrix/*": "source",
+            "*": "dist"
+        }
     },
     "extra": {
+        "branch-alias": {
+            "dev-develop": "73.x-dev",
+            "dev-master": "73.x-dev"
+        },
         "laravel": {
             "providers": [
                 "GammaMatrix\\Playground\\ServiceProvider"
