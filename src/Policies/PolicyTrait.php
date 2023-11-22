@@ -67,6 +67,9 @@ trait PolicyTrait
             return $this->hasPrivilege($user, $this->privilege($ability));
         } elseif ('roles' === $verify) {
             return $this->hasRole($user, $ability);
+        } elseif ('user' === $verify) {
+            // A user with an email address passes.
+            return !empty($user->getAttribute('email'));
         }
         Log::debug(__METHOD__, [
             '$ability' => $ability,
