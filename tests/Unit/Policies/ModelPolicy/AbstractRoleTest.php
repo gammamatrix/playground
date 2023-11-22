@@ -4,15 +4,15 @@
  *
  */
 
-namespace Tests\Unit\Policies\ModelPolicy;
+namespace Tests\Unit\GammaMatrix\Playground\Policies\ModelPolicy;
 
 use GammaMatrix\Playground\Test\Models\UserWithRoleAndRolesAndPrivileges as User;
-use GammaMatrix\Playground\Test\TestCase;
+use Tests\Unit\GammaMatrix\Playground\TestCase;
 use GammaMatrix\Playground\Test\AuthTrait;
 use Illuminate\Auth\Access\Response;
 
 /**
- * \Tests\Unit\Playground\Policies\ModelPolicy\AbstractRoleTest
+ * \Tests\Unit\GammaMatrix\Playground\Playground\Policies\ModelPolicy\AbstractRoleTest
  *
  */
 class AbstractRoleTest extends TestCase

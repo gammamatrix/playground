@@ -4,12 +4,12 @@
  *
  */
 
-namespace Tests\Unit\Filters\ModelTrait;
+namespace Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait;
 
-use Tests\TestCase;
+use Tests\Unit\GammaMatrix\Playground\TestCase;
 
 /**
- * \Tests\Unit\Playground\Filters\ModelTrait\TraitTest
+ * \Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\TraitTest
  *
  */
 class TraitTest extends TestCase

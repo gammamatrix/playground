@@ -4,14 +4,14 @@
  *
  */
 
-namespace Tests\Unit\Models\Model;
+namespace Tests\Unit\GammaMatrix\Playground\Models\Model;
 
-use Tests\TestCase;
+use Tests\Unit\GammaMatrix\Playground\TestCase;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * \Tests\Unit\Models\Model\ModelTest
+ * \Tests\Unit\GammaMatrix\Playground\Models\Model\ModelTest
  *
  */
 class ModelTest extends TestCase

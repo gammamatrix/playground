@@ -4,14 +4,14 @@
  *
  */
 
-namespace Tests\Unit\Policies\PrivilegeTrait;
+namespace Tests\Unit\GammaMatrix\Playground\Policies\PrivilegeTrait;
 
-use Tests\TestCase;
+use Tests\Unit\GammaMatrix\Playground\TestCase;
 use GammaMatrix\Playground\Test\Models\UserWithSanctum;
 use Illuminate\Auth\Access\Response;
 
 /**
- * \Tests\Unit\Policies\PrivilegeTrait\TraitTest
+ * \Tests\Unit\GammaMatrix\Playground\Policies\PrivilegeTrait\TraitTest
  *
  */
 class TraitTest extends TestCase

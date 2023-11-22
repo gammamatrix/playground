@@ -4,15 +4,15 @@
  *
  */
 
-namespace Tests\Feature\Http\Controllers;
+namespace Tests\Feature\GammaMatrix\Playground\Http\Controllers;
 
-use Tests\RouteTestCase;
+use Tests\Feature\GammaMatrix\Playground\TestCase;
 
 /**
- * \Tests\Feature\Http\Controllers\DashboardRouteTest
+ * \Tests\Feature\GammaMatrix\Playground\Http\Controllers\DashboardRouteTest
  *
  */
-class DashboardRouteTest extends RouteTestCase
+class DashboardRouteTest extends TestCase
 {
     public function test_route_dashboard_as_guest_and_fail_when_disabled_for_guest_and_no_redirect()
     {

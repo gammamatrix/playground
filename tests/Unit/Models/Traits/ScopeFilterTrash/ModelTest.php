@@ -4,14 +4,14 @@
  *
  */
 
-namespace Tests\Unit\Models\Traits\ScopeFilterTrash;
+namespace Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterTrash;
 
-use Tests\TestCase;
+use Tests\Unit\GammaMatrix\Playground\TestCase;
 use GammaMatrix\Playground\Test\SqlTrait;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- * \Tests\Unit\Models\Traits\ScopeFilterTrash\ModelTest
+ * \Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterTrash\ModelTest
  *
  */
 class ModelTest extends TestCase

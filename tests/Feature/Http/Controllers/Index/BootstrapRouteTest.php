@@ -4,15 +4,15 @@
  *
  */
 
-namespace Tests\Feature\Http\Controllers;
+namespace Tests\Feature\GammaMatrix\Playground\Http\Controllers;
 
-use Tests\RouteTestCase;
+use Tests\Feature\GammaMatrix\Playground\TestCase;
 
 /**
- * \Tests\Feature\Http\Controllers\BootstrapRouteTest
+ * \Tests\Feature\GammaMatrix\Playground\Http\Controllers\BootstrapRouteTest
  *
  */
-class BootstrapRouteTest extends RouteTestCase
+class BootstrapRouteTest extends TestCase
 {
     /**
      * Setup the test environment.

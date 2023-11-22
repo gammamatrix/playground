@@ -4,15 +4,15 @@
  *
  */
 
-namespace Tests\Feature\Http\Controllers;
+namespace Tests\Feature\GammaMatrix\Playground\Http\Controllers;
 
-use Tests\RouteTestCase;
+use Tests\Feature\GammaMatrix\Playground\TestCase;
 
 /**
- * \Tests\Feature\Http\Controllers\SitemapRouteTest
+ * \Tests\Feature\GammaMatrix\Playground\Http\Controllers\SitemapRouteTest
  *
  */
-class SitemapRouteTest extends RouteTestCase
+class SitemapRouteTest extends TestCase
 {
     public function test_route_sitemap_as_guest_and_fail_when_disabled_for_guest_and_no_redirect()
     {
