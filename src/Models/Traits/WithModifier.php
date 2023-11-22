@@ -6,7 +6,6 @@
 
 namespace GammaMatrix\Playground\Models\Traits;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
@@ -21,7 +20,7 @@ trait WithModifier
     public function modifier(): HasOne
     {
         return $this->hasOne(
-            User::class,
+            config('playground.user', '\\App\\Models\\User'),
             'id',
             'modified_by_id'
         );

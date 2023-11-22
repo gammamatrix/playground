@@ -2,6 +2,7 @@
 
 return [
     'cdn' => (bool) env('PLAYGROUND_CDN', true),
+    'user' => (string) env('PLAYGROUND_USER', '\\App\\Models\\User'),
     'layout' => (string) env('PLAYGROUND_LAYOUT', 'playground::layouts.site'),
     'js' => array_map('trim', explode(',', env('PLAYGROUND_JS', 'playground'))),
     'packages' => array_map('trim', explode(',', env('PLAYGROUND_PACKAGES', 'playground'))),

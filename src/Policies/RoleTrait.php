@@ -6,8 +6,7 @@
 
 namespace GammaMatrix\Playground\Policies;
 
-// use App\Models\User;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Access\Response;
 
 /**
@@ -46,9 +45,8 @@ trait RoleTrait
     /**
      * Get the roles for admin actions.
      *
-     * @return array
      */
-    public function getRolesForAdmin()
+    public function getRolesForAdmin(): array
     {
         return $this->rolesForAdmin;
     }
@@ -56,9 +54,8 @@ trait RoleTrait
     /**
      * Get the roles for standard actions.
      *
-     * @return array
      */
-    public function getRolesForAction()
+    public function getRolesForAction(): array
     {
         return $this->rolesForAction;
     }
@@ -77,9 +74,8 @@ trait RoleTrait
     /**
      * Get the roles for view actions.
      *
-     * @return array
      */
-    public function getRolesToView()
+    public function getRolesToView(): array
     {
         return $this->rolesToView;
     }
@@ -138,7 +134,7 @@ trait RoleTrait
             if (is_array($roles)
                 && !empty($user->roles)
             && is_array($user->roles)
-        ) {
+            ) {
                 foreach ($roles as $role) {
                     if (in_array($role, $user->roles)) {
                         return true;

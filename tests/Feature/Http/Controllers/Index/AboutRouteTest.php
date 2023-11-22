@@ -4,19 +4,16 @@
  *
  */
 
-namespace Tests\Feature\GammaMatrix\Playground\Http\Controllers;
+namespace Tests\Feature\Http\Controllers;
 
-use GammaMatrix\Playground\Test\TestCase;
-use GammaMatrix\Playground\Test\AuthTrait;
+use Tests\RouteTestCase;
 
 /**
- * \Tests\Feature\GammaMatrix\Playground\Http\Controllers\AboutRouteTest
+ * \Tests\Feature\Http\Controllers\AboutRouteTest
  *
  */
-class AboutRouteTest extends TestCase
+class AboutRouteTest extends RouteTestCase
 {
-    use AuthTrait;
-
     public function test_route_about_as_guest_and_succeed()
     {
         $response = $this->get('/about');

@@ -4,18 +4,29 @@
  *
  */
 
-namespace Tests\Feature\GammaMatrix\Playground\Http\Controllers;
+namespace Tests\Feature\Http\Controllers;
 
-use GammaMatrix\Playground\Test\TestCase;
-use GammaMatrix\Playground\Test\AuthTrait;
+use Tests\RouteTestCase;
 
 /**
- * \Tests\Feature\GammaMatrix\Playground\Http\Controllers\BootstrapRouteTest
+ * \Tests\Feature\Http\Controllers\BootstrapRouteTest
  *
  */
-class BootstrapRouteTest extends TestCase
+class BootstrapRouteTest extends RouteTestCase
 {
-    use AuthTrait;
+    /**
+     * Setup the test environment.
+     *
+     * @return void
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+        config([
+            'playground.load.routes' => true,
+            'playground.routes.bootstrap' => true,
+        ]);
+    }
 
     public function test_route_bootstrap_as_guest_and_succeed()
     {

@@ -1,17 +1,17 @@
 <?php
 /**
- * Playground
+ * GammaMatrix
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Policies\RoleTrait;
+namespace Tests\Unit\Policies\RoleTrait;
 
-use App\Models\User;
-use GammaMatrix\Playground\Test\TestCase;
+use Tests\TestCase;
+use GammaMatrix\Playground\Test\Models\User;
 use Illuminate\Auth\Access\Response;
 
 /**
- * \Tests\Unit\Playground\Policies\RoleTrait\TraitTest
+ * \Tests\Unit\Policies\RoleTrait\TraitTest
  *
  */
 class TraitTest extends TestCase

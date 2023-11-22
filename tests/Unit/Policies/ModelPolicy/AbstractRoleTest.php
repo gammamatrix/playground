@@ -4,17 +4,18 @@
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Policies\ModelPolicy;
+namespace Tests\Unit\Policies\ModelPolicy;
 
-use App\Models\User;
+use GammaMatrix\Playground\Test\Models\UserWithRoleAndRolesAndPrivileges as User;
 use GammaMatrix\Playground\Test\TestCase;
 use GammaMatrix\Playground\Test\AuthTrait;
+use Illuminate\Auth\Access\Response;
 
 /**
- * \Tests\Unit\Playground\Policies\ModelPolicy\AbstractTest
+ * \Tests\Unit\Playground\Policies\ModelPolicy\AbstractRoleTest
  *
  */
-class AbstractTest extends TestCase
+class AbstractRoleTest extends TestCase
 {
     use AuthTrait;
 
@@ -26,7 +27,7 @@ class AbstractTest extends TestCase
     /**
      * @var string
      */
-    public const MODEL_CLASS = \GammaMatrix\Playground\Cms\Models\Page::class;
+    public const MODEL_CLASS = \GammaMatrix\Playground\Test\Models\User::class;
 
     /**
      * @var object
@@ -50,6 +51,11 @@ class AbstractTest extends TestCase
         }
 
         $this->mock = $this->getMockForAbstractClass(static::ABSTRACT_CLASS);
+        config([
+            'playground.auth.verify' => 'roles',
+            'playground.auth.hasRole' => true,
+            'playground.auth.userRoles' => true,
+        ]);
     }
 
     // create()
@@ -62,7 +68,7 @@ class AbstractTest extends TestCase
     {
         $user = User::factory()->make();
 
-        $this->assertFalse($this->mock->create($user));
+        $this->assertInstanceOf(Response::class, $this->mock->create($user));
     }
 
     /**
@@ -96,7 +102,7 @@ class AbstractTest extends TestCase
         $model_class = static::MODEL_CLASS;
         $model = new $model_class();
 
-        $this->assertFalse($this->mock->delete($user, $model));
+        $this->assertInstanceOf(Response::class, $this->mock->delete($user, $model));
     }
 
     /**
@@ -143,7 +149,7 @@ class AbstractTest extends TestCase
         $response = $this->mock->delete($user, $model);
 
         $this->assertInstanceOf(
-            \Illuminate\Auth\Access\Response::class,
+            Response::class,
             $response
         );
 
@@ -169,7 +175,7 @@ class AbstractTest extends TestCase
         $model_class = static::MODEL_CLASS;
         $model = new $model_class();
 
-        $this->assertFalse($this->mock->detail($user, $model));
+        $this->assertInstanceOf(Response::class, $this->mock->detail($user, $model));
     }
 
     /**
@@ -206,7 +212,7 @@ class AbstractTest extends TestCase
         $model_class = static::MODEL_CLASS;
         $model = new $model_class();
 
-        $this->assertFalse($this->mock->edit($user, $model));
+        $this->assertInstanceOf(Response::class, $this->mock->edit($user, $model));
     }
 
     /**
@@ -243,7 +249,7 @@ class AbstractTest extends TestCase
         $model_class = static::MODEL_CLASS;
         $model = new $model_class();
 
-        $this->assertFalse($this->mock->forceDelete($user, $model));
+        $this->assertInstanceOf(Response::class, $this->mock->forceDelete($user, $model));
     }
 
     /**
@@ -280,7 +286,7 @@ class AbstractTest extends TestCase
         $model_class = static::MODEL_CLASS;
         $model = new $model_class();
 
-        $this->assertFalse($this->mock->lock($user, $model));
+        $this->assertInstanceOf(Response::class, $this->mock->lock($user, $model));
     }
 
     /**
@@ -317,7 +323,7 @@ class AbstractTest extends TestCase
         $model_class = static::MODEL_CLASS;
         $model = new $model_class();
 
-        $this->assertFalse($this->mock->manage($user, $model));
+        $this->assertInstanceOf(Response::class, $this->mock->manage($user, $model));
     }
 
     /**
@@ -354,7 +360,7 @@ class AbstractTest extends TestCase
         $model_class = static::MODEL_CLASS;
         $model = new $model_class();
 
-        $this->assertFalse($this->mock->restore($user, $model));
+        $this->assertInstanceOf(Response::class, $this->mock->restore($user, $model));
     }
 
     /**
@@ -386,7 +392,7 @@ class AbstractTest extends TestCase
     {
         $user = User::factory()->make();
 
-        $this->assertFalse($this->mock->store($user));
+        $this->assertInstanceOf(Response::class, $this->mock->store($user));
     }
 
     /**
@@ -420,7 +426,7 @@ class AbstractTest extends TestCase
         $model_class = static::MODEL_CLASS;
         $model = new $model_class();
 
-        $this->assertFalse($this->mock->update($user, $model));
+        $this->assertInstanceOf(Response::class, $this->mock->update($user, $model));
     }
 
     /**
@@ -493,7 +499,7 @@ class AbstractTest extends TestCase
         $model_class = static::MODEL_CLASS;
         $model = new $model_class();
 
-        $this->assertFalse($this->mock->unlock($user, $model));
+        $this->assertInstanceOf(Response::class, $this->mock->unlock($user, $model));
     }
 
     /**

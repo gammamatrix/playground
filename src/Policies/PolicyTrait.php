@@ -6,10 +6,10 @@
 
 namespace GammaMatrix\Playground\Policies;
 
-// use App\Models\User;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Log;
 
 /**
  * \GammaMatrix\Playground\Policies\PolicyTrait
@@ -67,8 +67,11 @@ trait PolicyTrait
             return $this->hasPrivilege($user, $this->privilege($ability));
         } elseif ('roles' === $verify) {
             return $this->hasRole($user, $ability);
+        } elseif ('user' === $verify) {
+            // A user with an email address passes.
+            return !empty($user->getAttribute('email'));
         }
-        \Log::debug(__METHOD__, [
+        Log::debug(__METHOD__, [
             '$ability' => $ability,
             '$user' => $user,
         ]);

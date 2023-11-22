@@ -18,9 +18,9 @@ trait ScopeFilterTrash
         Builder $query,
         ?string $visibility = null
     ): Builder {
-        if ('with' === strtolower($visibility)) {
+        if ($visibility && 'with' === strtolower($visibility)) {
             $query->withTrashed();
-        } elseif ('only' === strtolower($visibility)) {
+        } elseif ($visibility && 'only' === strtolower($visibility)) {
             $query->onlyTrashed();
         }
         return $query;

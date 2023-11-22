@@ -16,10 +16,35 @@
             "role": "Developer"
         }
     ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:gammamatrix/playground-test.git"
+        }
+    ],
     "require": {
-        "php": "^8.0",
-        "ezyang/htmlpurifier": "^4.16"
+        "php": "^8.1",
+        "ezyang/htmlpurifier": "^4.16",
+        "illuminate/auth": "^10.0",
+        "illuminate/console": "^10.0",
+        "illuminate/contracts": "^10.0",
+        "illuminate/database": "^10.0",
+        "illuminate/http": "^10.0",
+        "illuminate/routing": "^10.0",
+        "illuminate/support": "^10.0",
+        "illuminate/translation": "^10.0",
+        "illuminate/validation": "^10.0",
+        "illuminate/view": "^10.0"
     },
+    "require-dev": {
+        "fakerphp/faker": "^1.9.1",
+        "orchestra/testbench": "^8.0",
+        "phpunit/phpunit": "^10.1",
+        "gammamatrix/playground-test": "dev-develop|dev-master|^73.0",
+        "laravel/sanctum": "^3.3"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "GammaMatrix\\Playground\\": "src/"
@@ -27,20 +52,30 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\Unit\\GammaMatrix\\Playground\\": "tests/Unit/",
-            "Tests\\Feature\\GammaMatrix\\Playground\\": "tests/Feature/"
+            "Tests\\": "tests/"
         }
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "preferred-install": {
+            "gammamatrix/*": "source",
+            "*": "dist"
+        }
     },
     "extra": {
+        "branch-alias": {
+            "dev-develop": "73.x-dev",
+            "dev-master": "73.x-dev"
+        },
         "laravel": {
             "providers": [
                 "GammaMatrix\\Playground\\ServiceProvider"
             ]
         }
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    "scripts": {
+        "test": "phpunit",
+        "format": "php-cs-fixer fix --allow-risky=yes",
+        "analyse": "phpstan analyse"
+    }
 }

@@ -4,14 +4,14 @@
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterIds;
+namespace Tests\Unit\Models\Traits\ScopeFilterIds;
 
-use GammaMatrix\Playground\Test\TestCase;
+use Tests\TestCase;
 use GammaMatrix\Playground\Test\SqlTrait;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterIds\ModelTest
+ * \Tests\Unit\Models\Traits\ScopeFilterIds\ModelTest
  *
  */
 class ModelTest extends TestCase
@@ -195,9 +195,9 @@ class ModelTest extends TestCase
         $validated = [
             'filter' => [
                 'modified_by_id' => [
-                    $this->faker->uuid,
-                    $this->faker->uuid,
-                    $this->faker->uuid,
+                    $this->faker()->uuid,
+                    $this->faker()->uuid,
+                    $this->faker()->uuid,
                     'ignore-not-a-valid-uuid',
                 ],
                 'invalid ID' => 'columns should be ignored',
@@ -275,13 +275,13 @@ class ModelTest extends TestCase
             'invalid ID' => [],
         ];
 
-        $id = $this->faker->uuid;
+        $id = $this->faker()->uuid;
 
         $validated = [
             'filter' => [
                 'modified_by_id' => [
                     $id,
-                    $this->faker->uuid,
+                    $this->faker()->uuid,
                     'this-id-is-not-ignored-not-a-valid-uuid',
                     $id,
                 ],
@@ -326,8 +326,8 @@ class ModelTest extends TestCase
         $validated = [
             'filter' => [
                 'modified_by_id' => [
-                    $this->faker->uuid,
-                    $this->faker->uuid,
+                    $this->faker()->uuid,
+                    $this->faker()->uuid,
                     'this-id-is-not-ignored-not-a-valid-uuid',
                 ],
             ],
@@ -410,13 +410,13 @@ class ModelTest extends TestCase
 
         $validated = [
             'filter' => [
-                'id' => $this->faker->uuid,
+                'id' => $this->faker()->uuid,
                 'owned_by_id' => null,
                 'project_id' => [0],
                 'modified_by_id' => [
-                    $this->faker->uuid,
-                    $this->faker->uuid,
-                    $this->faker->uuid,
+                    $this->faker()->uuid,
+                    $this->faker()->uuid,
+                    $this->faker()->uuid,
                     'ignore-not-a-valid-uuid',
                 ],
                 'invalid ID' => 'columns should be ignored',
