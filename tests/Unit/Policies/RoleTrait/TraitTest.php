@@ -4,14 +4,14 @@
  *
  */
 
-namespace Tests\Unit\Policies\RoleTrait;
+namespace Tests\Unit\GammaMatrix\Playground\Policies\RoleTrait;
 
-use Tests\TestCase;
+use Tests\Unit\GammaMatrix\Playground\TestCase;
 use GammaMatrix\Playground\Test\Models\User;
 use Illuminate\Auth\Access\Response;
 
 /**
- * \Tests\Unit\Policies\RoleTrait\TraitTest
+ * \Tests\Unit\GammaMatrix\Playground\Policies\RoleTrait\TraitTest
  *
  */
 class TraitTest extends TestCase

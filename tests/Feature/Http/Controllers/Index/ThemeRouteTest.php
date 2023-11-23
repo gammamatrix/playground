@@ -4,15 +4,15 @@
  *
  */
 
-namespace Tests\Feature\Http\Controllers;
+namespace Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index;
 
-use Tests\RouteTestCase;
+use Tests\Feature\GammaMatrix\Playground\TestCase;
 
 /**
- * \Tests\Feature\Http\Controllers\ThemeRouteTest
+ * \Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\ThemeRouteTest
  *
  */
-class ThemeRouteTest extends RouteTestCase
+class ThemeRouteTest extends TestCase
 {
     public function test_route_theme_as_guest_and_succeed()
     {

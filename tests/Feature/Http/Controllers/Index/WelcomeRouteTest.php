@@ -4,15 +4,15 @@
  *
  */
 
-namespace Tests\Feature\Http\Controllers;
+namespace Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index;
 
-use Tests\RouteTestCase;
+use Tests\Feature\GammaMatrix\Playground\TestCase;
 
 /**
- * \Tests\Feature\Http\Controllers\WelcomeRouteTest
+ * \Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\WelcomeRouteTest
  *
  */
-class WelcomeRouteTest extends RouteTestCase
+class WelcomeRouteTest extends TestCase
 {
     public function test_route_welcome_as_guest_and_succeed()
     {

@@ -52,7 +52,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\Unit\\GammaMatrix\\Playground\\": "tests/Unit/",
+            "Tests\\Feature\\GammaMatrix\\Playground\\": "tests/Feature/"
         }
     },
     "config": {

@@ -4,16 +4,16 @@
  *
  */
 
-namespace Tests\Unit\Policies\PolicyTrait;
+namespace Tests\Unit\GammaMatrix\Playground\Policies\PolicyTrait;
 
-use Tests\TestCase;
+use Tests\Unit\GammaMatrix\Playground\TestCase;
 use GammaMatrix\Playground\Test\Models\User;
 use Illuminate\Support\Facades\Log;
 use TiMacDonald\Log\LogEntry;
 use TiMacDonald\Log\LogFake;
 
 /**
- * \Tests\Unit\Policies\PolicyTrait\TraitTest
+ * \Tests\Unit\GammaMatrix\Playground\Policies\PolicyTrait\TraitTest
  *
  */
 class TraitTest extends TestCase
