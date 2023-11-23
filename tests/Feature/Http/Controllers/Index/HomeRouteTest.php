@@ -4,12 +4,12 @@
  *
  */
 
-namespace Tests\Feature\GammaMatrix\Playground\Http\Controllers;
+namespace Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index;
 
 use Tests\Feature\GammaMatrix\Playground\TestCase;
 
 /**
- * \Tests\Feature\GammaMatrix\Playground\Http\Controllers\HomeRouteTest
+ * \Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\HomeRouteTest
  *
  */
 class HomeRouteTest extends TestCase

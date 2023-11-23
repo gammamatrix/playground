@@ -12,7 +12,7 @@ use GammaMatrix\Playground\ServiceProvider;
 use Illuminate\Contracts\Config\Repository;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\GammaMatrix\Playground\TestCase
+ * \Tests\Unit\GammaMatrix\Playground\TestCase
  *
  */
 class TestCase extends OrchestraTestCase

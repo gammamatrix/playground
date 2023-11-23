@@ -11,7 +11,7 @@ use Tests\Unit\GammaMatrix\Playground\TestCase;
 use Illuminate\Auth\Access\Response;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Playground\Policies\Policy\AbstractTest
+ * \Tests\Unit\GammaMatrix\Playground\Policies\Policy\AbstractTest
  *
  */
 class AbstractTest extends TestCase
