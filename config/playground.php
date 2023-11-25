@@ -1,15 +1,13 @@
 <?php
 
 return [
-    'cdn' => (bool) env('PLAYGROUND_CDN', true),
-    'user' => (string) env('PLAYGROUND_USER', '\\App\\Models\\User'),
+    'user' => (string) env('PLAYGROUND_USER', 'App\\Models\\User'),
+    'user_id' => (string) env('PLAYGROUND_USER_ID', 'increments'),
+    'user_table' => (string) env('PLAYGROUND_USER_TABLE', 'users'),
     'layout' => (string) env('PLAYGROUND_LAYOUT', 'playground::layouts.site'),
-    'js' => array_map('trim', explode(',', env('PLAYGROUND_JS', 'playground'))),
     'packages' => array_map('trim', explode(',', env('PLAYGROUND_PACKAGES', 'playground'))),
     'view' => (string) env('PLAYGROUND_VIEW', 'playground::'),
-    'iframes' => (string) env('PLAYGROUND_IFRAMES', ''),
     'auth' => [
-        // 'policy' => (string) env('PLAYGROUND_AUTH_POLICY', 'roles'),
         /**
          * Privileges checks in this order:
          * - Sanctum: HasApiTokens
@@ -25,25 +23,16 @@ return [
         'userRole' => (bool) env('PLAYGROUND_AUTH_USER_ROLE', false),
         'userRoles' => (bool) env('PLAYGROUND_AUTH_USER_ROLES', false),
     ],
-    'cache' => [
-        'cms' => (string) env('PLAYGROUND_CACHE_CMS', 'file'),
-        'cms_ttl' => (int) env('PLAYGROUND_CACHE_CMS_TTL', 601),
-        'security' => (string) env('PLAYGROUND_CACHE_SECURITY', 'file'),
-        'security_ttl' => (int) env('PLAYGROUND_CACHE_SECURITY_TTL', 597),
-        'system' => (string) env('PLAYGROUND_CACHE_SYSTEM', 'file'),
-        'system_ttl' => (int) env('PLAYGROUND_CACHE_SYSTEM_TTL', 611),
-        'purifier' => (string) env('PLAYGROUND_CACHE_PURIFIER', null),
-    ],
     'load' => [
-        // 'commands' => (boolean) env('PLAYGROUND_LOAD_COMMANDS', false),
         'routes' => (bool) env('PLAYGROUND_LOAD_ROUTES', false),
         'views' => (bool) env('PLAYGROUND_LOAD_VIEWS', false),
     ],
-    'redirects' => [
-        'dashboard' => (string) env('PLAYGROUND_REDIRECTS_DASHBOARD', '/dashboard'),
-        'default' => (string) env('PLAYGROUND_REDIRECTS_DEFAULT', '/'),
-        'home' => (string) env('PLAYGROUND_REDIRECTS_HOME', '/'),
-        'logout' => (string) env('PLAYGROUND_REDIRECTS_LOGOUT', '/logout'),
+    'purifier' => [
+        'iframes' => (string) env(
+            'PLAYGROUND_PURIFIER_IFRAMES',
+            '%^(https?:)?(\/\/www\.youtube(?:-nocookie)?\.com\/embed\/|\/\/player\.vimeo\.com\/)%'
+        ),
+        'path' => (string) env('PLAYGROUND_PURIFIER_PATH', ''),
     ],
     'routes' => [
         'about' => (bool) env('PLAYGROUND_ROUTES_ABOUT', false),
@@ -86,8 +75,6 @@ return [
             'icon' => 'fa-solid fa-sun',
         ],
     ],
-    'theme' => env('MIX_THEME', 'site'),
-
     /*
     |--------------------------------------------------------------------------
     | Software library versions and integrity verification.

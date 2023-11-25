@@ -75,9 +75,7 @@ class TraitTest extends TestCase
         $this->assertInstanceOf(
             \HTMLPurifier::class,
             $this->mock->getHtmlPurifier([
-                'cache' => [
-                    'purifier' => '/tmp/purifier',
-                ]
+                'path' => '/tmp/purifier',
             ])
         );
     }

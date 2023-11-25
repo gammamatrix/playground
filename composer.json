@@ -1,12 +1,12 @@
 {
     "name": "gammamatrix/playground",
-    "description": "Playground: Laravel integration",
+    "description": "Playground: A base package for Laravel integration.",
     "keywords": [
         "gammamatrix",
         "laravel",
         "playground"
     ],
-    "homepage": "https://github.com/gammamatrix/playground",
+    "homepage": "https://github.com/gammamatrix/playground/wiki",
     "license": "MIT",
     "version": "73.0.0",
     "authors": [
