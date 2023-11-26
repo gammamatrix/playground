@@ -1,5 +1,7 @@
 # Playground
 
+![Playground CI Workflow](https://github.com/gammamatrix/playground/actions/workflows/ci.yml/badge.svg?)
+
 This is the base package for Playground.
 
 This package provides controllers, policies, migrations, models, requests, views and more for building [Laravel](https://laravel.com/docs/10.x) packages.
