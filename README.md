@@ -102,7 +102,7 @@ By default, the following libraries are loaded.
 - `/vendor/playground.js` A small library to be loaded for Blade UI usage. Needs to be published.
 
 Optionally, a page may load:
-- [CKEditor 5](https://ckeditor.com/ckeditor-5/) an advanced WSIWYG editor for forms.
+- [CKEditor 5](https://ckeditor.com/ckeditor-5/) an advanced WYSIWYG editor for forms.
 
 
 ### Assets
@@ -116,7 +116,7 @@ php artisan vendor:publish --provider="GammaMatrix\Playground\ServiceProvider" -
 
 ## Migrations
 
-The migrations provided in this package are used for (PHPunit 10)[https://docs.phpunit.de/en/10.4/] feature testing with (Orchestra Testbench)[https://packages.tools/testbench.html].
+The migrations provided in this package are used for [PHPunit 10](https://docs.phpunit.de/en/10.4/) feature testing with [Orchestra Testbench](https://packages.tools/testbench.html).
 - They will not be exported in software builds.
 
 ## Testing
