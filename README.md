@@ -131,7 +131,6 @@ Playground provides information in the `artisan about` command.
 
 <img src="resources/docs/artisan-about-playground.png" alt="screenshot of artisan about command with Playground.">
 
-
 ## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.

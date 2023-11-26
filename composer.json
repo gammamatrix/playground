@@ -8,7 +8,6 @@
     ],
     "homepage": "https://github.com/gammamatrix/playground/wiki",
     "license": "MIT",
-    "version": "73.0.0",
     "authors": [
         {
             "name": "Jeremy Postlethwaite",
@@ -42,6 +41,9 @@
         "phpunit/phpunit": "^10.1",
         "gammamatrix/playground-test": "dev-develop|dev-master|^73.0",
         "laravel/sanctum": "^3.3"
+    },
+    "suggest": {
+        "gammamatrix/playground-matrix-resource": "Provides a resource API and optional Blade UI to interact with the models provided in this package."
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
