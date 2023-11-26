@@ -15,12 +15,6 @@
             "role": "Developer"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:gammamatrix/playground-test.git"
-        }
-    ],
     "require": {
         "php": "^8.1",
         "ezyang/htmlpurifier": "^4.16",
@@ -41,9 +35,6 @@
         "phpunit/phpunit": "^10.1",
         "gammamatrix/playground-test": "dev-develop|dev-master|^73.0",
         "laravel/sanctum": "^3.3"
-    },
-    "suggest": {
-        "gammamatrix/playground-matrix-resource": "Provides a resource API and optional Blade UI to interact with the models provided in this package."
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
