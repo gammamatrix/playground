@@ -107,7 +107,6 @@ $libs = config('playground.libs');
 //     '__LINE__' => __LINE__,
 //     '$libs' => $libs,
 //     'config' => config('playground'),
-//     'playground.cdn' => config('playground.cdn'),
 // ]);
 
 /**
@@ -122,7 +121,7 @@ if ($withScripts) {
     $scriptListHead[] = 'bootstrap-css';
 
     if ($withEditor) {
-        $scriptListBody[] = 'ckeditor';
+        $scriptListHead[] = 'ckeditor';
     }
 
     if ($withPlayground) {
@@ -158,7 +157,7 @@ if ($withScripts) {
 // dump([
 //     '__FILE__' => __FILE__,
 //     '$scriptListHead' => $scriptListHead,
-//     '$scriptListHead' => $scriptListHead,
+//     '$scriptListBody' => $scriptListBody,
 //     '$libs' => $libs,
 // ]);
 ?>
@@ -170,14 +169,12 @@ if ($withScripts) {
 
     <title>{{ !empty($appName) ? sprintf('%1$s: ', $appName) : '' }}@yield('title')</title>
 
-    @includeWhen(
-        !empty($libs['head']) && is_array($libs['head']),
-        sprintf('%1$slayouts/bootstrap/libraries', $package_config['view']),
-        [
+    @if (!empty($libs['head']) && is_array($libs['head']))
+        @include(sprintf('%1$slayouts/bootstrap/libraries', $package_config['view']), [
             'libs' => $libs['head'],
             'required' => $scriptListHead,
-        ]
-    )
+        ])
+    @endif
 
     @stack('scripts')
     @yield('head')
@@ -248,14 +245,12 @@ if ($withScripts) {
     @stack('modals')
     @stack('body-last')
 
-    @includeWhen(
-        !empty($libs['body']) && is_array($libs['body']),
-        sprintf('%1$slayouts/bootstrap/libraries', $package_config['view']),
-        [
+    @if (!empty($libs['head']) && is_array($libs['body']))
+        @include(sprintf('%1$slayouts/bootstrap/libraries', $package_config['view']), [
             'libs' => $libs['body'],
             'required' => $scriptListBody,
-        ]
-    )
+        ])
+    @endif
 
 </body>
 

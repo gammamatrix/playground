@@ -1,25 +1,18 @@
 {
     "name": "gammamatrix/playground",
-    "description": "Playground: Laravel integration",
+    "description": "Playground: A base package for Laravel integration.",
     "keywords": [
         "gammamatrix",
         "laravel",
         "playground"
     ],
-    "homepage": "https://github.com/gammamatrix/playground",
+    "homepage": "https://github.com/gammamatrix/playground/wiki",
     "license": "MIT",
-    "version": "73.0.0",
     "authors": [
         {
             "name": "Jeremy Postlethwaite",
             "email": "jeremy.postlethwaite@gmail.com",
             "role": "Developer"
-        }
-    ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "git@github.com:gammamatrix/playground-test.git"
         }
     ],
     "require": {

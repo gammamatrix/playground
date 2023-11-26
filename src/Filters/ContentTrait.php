@@ -54,25 +54,23 @@ trait ContentTrait
     public function getHtmlPurifier(array $config = [])
     {
         if (null === $this->purifier) {
-            $config = empty($config) ? config('playground') : $config;
-
-            $safeIframeRegexp = !empty($config['iframes'])
-                && is_string($config['iframes'])
-                ? $config['iframes']
-                : '%^(https?:)?(\/\/www\.youtube(?:-nocookie)?\.com\/embed\/|\/\/player\.vimeo\.com\/)%'
-            ;
-
-            $serializerPath = !empty($config['cache'])
-                && !empty($config['cache']['purifier'])
-                && is_string($config['cache']['purifier'])
-                ? $config['cache']['purifier']
-                : null
-            ;
+            $config = empty($config) ? config('playground.purifier') : $config;
 
             $hpc = \HTMLPurifier_Config::createDefault();
-            $hpc->set('HTML.SafeIframe', true);
-            $hpc->set('Cache.SerializerPath', $serializerPath);
-            $hpc->set('URI.SafeIframeRegexp', $safeIframeRegexp);
+
+            if (!empty($config['iframes'])
+                && is_string($config['iframes'])
+            ) {
+                $hpc->set('HTML.SafeIframe', true);
+                $hpc->set('URI.SafeIframeRegexp', $config['iframes']);
+            }
+
+            if (!empty($config['path'])
+                && is_string($config['path'])
+            ) {
+                $hpc->set('Cache.SerializerPath', $config['path']);
+            }
+
             $this->setHtmlPurifier(new \HTMLPurifier($hpc));
         }
 
