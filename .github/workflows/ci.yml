@@ -24,8 +24,8 @@ jobs:
         php_extensions: xdebug
         coverage_clover: clover.xml
     - name: Generate test coverage badge
-        uses: timkrase/phpunit-coverage-badge@v1.2.0
-        with:
-          coverage_badge_path: 'badge-coverage.svg'
-          push_badge: true
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
+      uses: timkrase/phpunit-coverage-badge@v1.2.0
+      with:
+        coverage_badge_path: 'badge-coverage.svg'
+        push_badge: true
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
