@@ -1,5 +1,6 @@
 # Playground
 
+![Test Coverage](https://raw.githubusercontent.com/gammamatrix/playground/develop/badge-coverage.svg)
 ![Playground CI Workflow](https://github.com/gammamatrix/playground/actions/workflows/ci.yml/badge.svg?)
 
 This is the base package for Playground.
