@@ -1,7 +1,7 @@
 # Playground
 
-![Test Coverage](https://raw.githubusercontent.com/gammamatrix/playground/image-data/coverage.svg)
-![Playground CI Workflow](https://github.com/gammamatrix/playground/actions/workflows/ci.yml/badge.svg?)
+[![Playground CI Workflow](https://github.com/gammamatrix/playground/actions/workflows/ci.yml/badge.svg?branch=develop)](https://raw.githubusercontent.com/gammamatrix/playground/testing/develop/testdox.txt)
+[![Test Coverage](https://raw.githubusercontent.com/gammamatrix/playground/testing/develop/coverage.svg)](tests)
 
 This is the base package for Playground.
 

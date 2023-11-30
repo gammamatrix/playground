@@ -83,4 +83,15 @@ class TraitTest extends TestCase
             $ability
         ));
     }
+
+    public function test_hasRole_advanced_role()
+    {
+        $user = User::factory()->make();
+
+        $ability = 'some-advanded-role';
+        $this->assertInstanceOf(Response::class, $this->mock->hasRole(
+            $user,
+            $ability
+        ));
+    }
 }

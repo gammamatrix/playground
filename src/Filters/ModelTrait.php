@@ -15,6 +15,9 @@ use Ramsey\Uuid\Uuid;
  *
  * GammaMatrix filter handler
  *
+ * It is expected that the data may not have the proper type from forms.
+ * These filters correct those values. Parameters must not be cast.
+ * Allow the method to decide what to return to prevent model cast errors.
  */
 trait ModelTrait
 {
@@ -25,7 +28,7 @@ trait ModelTrait
      *
      * @return array Returns an array.
      */
-    public function filterArray($value)
+    public function filterArray($value): array
     {
         if (is_array($value)) {
             return $value;
@@ -45,7 +48,7 @@ trait ModelTrait
      *
      * @return string Returns an array converted to JSON.
      */
-    public function filterArrayToJson($value)
+    public function filterArrayToJson($value): ?string
     {
         if (is_array($value)) {
             return json_encode($value);
@@ -61,20 +64,18 @@ trait ModelTrait
      *
      * @param integer $value The value to filter.
      * @param integer $exponent The maximum power of the exponent to sum.
-     *
-     * @return integer
      */
-    public function filterBits($value, $exponent = 0)
+    public function filterBits($value, $exponent = 0): int
     {
         $exponent = intval(abs($exponent));
 
         /**
-         * @var integer $pBits The allowed permission bits: rwx
+         * @var integer $pBits The summed bit power values.
          */
         $pBits = 0;
         // $pBits = 4 + 2 + 1;
 
-        for ($i=0; $i <= $exponent; $i++) {
+        for ($i = 0; $i <= $exponent; $i++) {
             $pBits += pow(2, $i);
         }
 
@@ -85,10 +86,8 @@ trait ModelTrait
      * Filter a boolean value
      *
      * @param string $value The value to filter.
-     *
-     * @return boolean
      */
-    public function filterBoolean($value)
+    public function filterBoolean($value): bool
     {
         if (is_string($value) && !is_numeric($value)) {
             return 'true' === strtolower($value);
@@ -100,18 +99,19 @@ trait ModelTrait
     }
 
     /**
-     * Filter a date value as a MySQL UTC string.
+     * Filter a date value as an SQL UTC string.
      *
      * @param string $value The date to filter.
      * @param string $locale i18n
-     *
-     * @return string|NULL
      */
-    public function filterDate($value, $locale = 'en-US')
+    public function filterDate($value, $locale = 'en-US'): ?string
     {
         return is_string($value)
             && !empty($value)
-            ? gmdate(DATE_MYSQL, strtotime($value)) : null
+            ? gmdate(
+                config('playground.date.sql', 'Y-m-d H:i:s'),
+                strtotime($value)
+            ) : null
         ;
     }
 
@@ -120,10 +120,8 @@ trait ModelTrait
      *
      * @param string $value The date to filter.
      * @param string $locale i18n
-     *
-     * @return string|NULL
      */
-    public function filterDateAsCarbon($value, $locale = 'en-US')
+    public function filterDateAsCarbon($value, $locale = 'en-US'): ?Carbon
     {
         if (empty($value)) {
             return null;
@@ -136,10 +134,8 @@ trait ModelTrait
      * Filter an email address.
      *
      * @param string $email The address to filter.
-     *
-     * @return string
      */
-    public function filterEmail($email)
+    public function filterEmail($email): string
     {
         return filter_var($email, FILTER_SANITIZE_EMAIL);
     }
@@ -147,20 +143,20 @@ trait ModelTrait
     /**
      * Filter a float value
      *
-     * NOTE: Implement handling for locales.
-     *
      * @param string $value The value to filter.
      * @param string $locale i18n
-     *
-     * @return float|NULL
      */
-    public function filterFloat($value, $locale = 'en-US')
+    public function filterFloat($value, $locale = 'en-US'): ?float
     {
         if ('' === $value || null === $value) {
             return null;
         }
 
-        return (new \NumberFormatter($locale, \NumberFormatter::DECIMAL))->parse($value);
+        return is_numeric($value) ? floatval($value) : null;
+        // return (new \NumberFormatter(
+        //     $locale,
+        //     \NumberFormatter::DECIMAL
+        // ))->parse($value);
     }
 
     /**
@@ -169,12 +165,14 @@ trait ModelTrait
      * FILTER_FLAG_NO_ENCODE_QUOTES - do not encode quotes.
      *
      * @param string $content The string to filter.
-     *
-     * @return string
      */
-    public function filterHtml($content)
+    public function filterHtml($content): string
     {
-        return filter_var($content, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+        return filter_var(
+            $content,
+            FILTER_SANITIZE_STRING,
+            FILTER_FLAG_NO_ENCODE_QUOTES
+        );
     }
 
     /**
@@ -182,42 +180,42 @@ trait ModelTrait
      *
      * @param string $value The value to filter.
      * @param string $locale i18n
-     *
-     * @return integer
      */
-    public function filterInteger($value, $locale = 'en-US')
+    public function filterInteger($value, $locale = 'en-US'): int
     {
         if ('' === $value || null === $value) {
             return 0;
         }
 
-        $value = (new \NumberFormatter($locale, \NumberFormatter::DECIMAL))->parse($value, \NumberFormatter::TYPE_INT64);
+        // $value = (new \NumberFormatter(
+        //     $locale,
+        //     \NumberFormatter::DECIMAL
+        // ))->parse($value, \NumberFormatter::TYPE_INT64);
 
-        return is_numeric($value) ? $value : 0;
+        return is_numeric($value) ? intval($value) : 0;
+        // return is_int($value) ? $value : 0;
     }
 
     /**
      * Filter an integer value ID.
      *
      * @param string $value The value to filter.
-     *
-     * @return integer|null
      */
-    public function filterIntegerId($value)
+    public function filterIntegerId($value): ?int
     {
         return is_numeric($value) && ($value > 0) ? (int) $value : null;
     }
 
     /**
-     * Filter a positive integer value or return null.
+     * Filter a positive integer value or return zero.
      *
      * @param string $value The value to filter.
-     *
-     * @return integer|null
+     * @param bool $absolute Use `abs()` on the value to convert negative to positive.
      */
-    public function filterIntegerPositive($value)
+    public function filterIntegerPositive($value, $absolute = true): int
     {
-        return is_numeric($value) && ($value > 0) ? (int) $value : null;
+        $value = intval($value);
+        return $absolute && ($value < 0) ? (int) abs($value) : $value;
     }
 
     /**
@@ -230,7 +228,7 @@ trait ModelTrait
      *
      * @return float
      */
-    public function filterPercent($value, $locale = 'en-US')
+    public function filterPercent($value, $locale = 'en-US'): ?float
     {
         if ('' === $value || null === $value) {
             return null;
@@ -240,29 +238,7 @@ trait ModelTrait
     }
 
     /**
-     * Filter a phone number.
-     *
-     * @param string $value The value to filter.
-     * @param string $locale i18n
-     *
-     * @return string
-     */
-    public function filterPhone($value, $locale = 'en-US')
-    {
-        if (empty($value)) {
-            return '';
-        }
-
-        return filter_var(
-            str_replace(['-', '.', '+'], '', $value),
-            FILTER_SANITIZE_NUMBER_INT
-        );
-    }
-
-    /**
      * Filter the status
-     *
-     * TODO Determine if $input should be passed by reference: &$input
      *
      * @param array $input The status input.
      *
@@ -284,25 +260,6 @@ trait ModelTrait
                 $input['status'][$key] = (bool) $value;
             }
         }
-
-        return $input;
-    }
-
-    /**
-     * Filter common fields
-     *
-     * @param array $input The common fields: locale, style, klass, icon, avatar, image
-     *
-     * @return integer|NULL
-     */
-    public function filterCommonFields(array $input = [])
-    {
-        $input['locale'] = isset($input['locale']) ? $this->filterHtml($input['locale']) : '';
-        $input['style'] = isset($input['style']) ? $this->filterHtml($input['style']) : '';
-        $input['klass'] = isset($input['klass']) ? $this->filterHtml($input['klass']) : '';
-        $input['icon'] = isset($input['icon']) ? $this->filterHtml($input['icon']) : '';
-        $input['avatar'] = isset($input['avatar']) ? $this->filterHtml($input['avatar']) : '';
-        $input['image'] = isset($input['image']) ? $this->filterHtml($input['image']) : '';
 
         return $input;
     }
@@ -347,7 +304,6 @@ trait ModelTrait
         }
 
         return $input;
-        return $this->filterStatus($input);
     }
 
     /**

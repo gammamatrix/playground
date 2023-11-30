@@ -17,11 +17,17 @@ return [
          */
         'verify' => (string) env('PLAYGROUND_AUTH_VERIFY', 'privileges'),
         // 'verify' => (string) env('PLAYGROUND_AUTH_VERIFY', 'roles'),
+        'token' => [
+            'name' => 'app',
+        ],
         'hasPrivilege' => (bool) env('PLAYGROUND_AUTH_HAS_PRIVILEGE', false),
         'userPrivileges' => (bool) env('PLAYGROUND_AUTH_USER_PRIVILEGES', false),
         'hasRole' => (bool) env('PLAYGROUND_AUTH_HAS_ROLE', false),
         'userRole' => (bool) env('PLAYGROUND_AUTH_USER_ROLE', false),
         'userRoles' => (bool) env('PLAYGROUND_AUTH_USER_ROLES', false),
+    ],
+    'date' => [
+        'sql' => (string) env('PLAYGROUND_DATE_MYSQL', 'Y-m-d H:i:s'),
     ],
     'load' => [
         'routes' => (bool) env('PLAYGROUND_LOAD_ROUTES', false),

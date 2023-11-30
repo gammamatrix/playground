@@ -6,6 +6,8 @@
 
 namespace Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index;
 
+use GammaMatrix\Playground\Test\Models\User;
+use GammaMatrix\Playground\Test\Models\UserWithRole;
 use Tests\Feature\GammaMatrix\Playground\TestCase;
 
 /**
@@ -30,27 +32,29 @@ class BootstrapRouteTest extends TestCase
 
     public function test_route_bootstrap_as_guest_and_succeed()
     {
-        $response = $this->get('/bootstrap');
+        $response = $this->get(route('bootstrap'));
         $response->assertStatus(200);
     }
 
     public function test_route_json_bootstrap_as_guest_and_succeed()
     {
-        $response = $this->json('GET', '/bootstrap');
+        $response = $this->json('GET', route('bootstrap'));
         $response->assertStatus(200);
     }
 
-    // public function test_route_bootstrap_as_vendor_and_succeed()
-    // {
-    //     $this->initAuthRoles();
-    //     $response = $this->as('vendor')->get('/bootstrap');
-    //     $response->assertStatus(200);
-    // }
+    public function test_route_bootstrap_as_vendor_and_succeed()
+    {
+        $user = UserWithRole::find(User::factory()->create()->id);
+        $user->role = 'vendor';
+        $response = $this->actingAs($user)->get(route('bootstrap'));
+        $response->assertStatus(200);
+    }
 
-    // public function test_route_json_bootstrap_as_wheel_and_succeed()
-    // {
-    //     $this->initAuthRoles();
-    //     $response = $this->as('wheel')->getJson('/bootstrap');
-    //     $response->assertStatus(200);
-    // }
+    public function test_route_json_bootstrap_as_wheel_and_succeed()
+    {
+        $user = UserWithRole::find(User::factory()->create()->id);
+        $user->role = 'wheel';
+        $response = $this->actingAs($user)->getJson(route('bootstrap'));
+        $response->assertStatus(200);
+    }
 }

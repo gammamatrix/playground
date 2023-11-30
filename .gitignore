@@ -27,10 +27,10 @@ node_modules
 tmp*
 temp*
 vendor
-*.derp
 ################################################################################
 # Test and Docs ignores
 ################################################################################
+output
 coverage
 phpunit.xml
 phpstan.neon

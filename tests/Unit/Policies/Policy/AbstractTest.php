@@ -139,6 +139,27 @@ class AbstractTest extends TestCase
         ];
 
         $user->role = $role;
+        $user->roles = $roles;
+
+        $this->assertTrue($this->mock->view($user));
+    }
+
+    /**
+     * Test view().
+     *
+     */
+    public function test_view_with_admin_in_roles()
+    {
+        $user = User::factory()->make();
+
+        $role = 'user-external';
+        $roles = [
+            'wheel',
+            'user',
+        ];
+
+        $user->role = $role;
+        $user->roles = $roles;
 
         $this->assertTrue($this->mock->view($user));
     }

@@ -27,6 +27,22 @@ class TestCase extends OrchestraTestCase
     }
 
     /**
+     * Setup the test environment.
+     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     'path' => dirname(dirname(__DIR__)) . '/database/migrations',
+        // ]);
+        if (!empty(env('TEST_DB_MIGRATIONS'))) {
+            // $this->loadLaravelMigrations();
+            $this->loadMigrationsFrom(dirname(dirname(__DIR__)) . '/database/migrations-laravel');
+        }
+    }
+
+    /**
      * Set up the environment.
      *
      * @param  \Illuminate\Foundation\Application  $app
