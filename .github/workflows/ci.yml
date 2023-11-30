@@ -22,9 +22,9 @@ jobs:
     - name: Run php-actions/composer@v6
       uses: php-actions/composer@v6
       with:
-        php_version: "8.2"
-        php_extensions: dom curl libxml mbstring zip pdo sqlite pdo_sqlite gd pdo_mysql fileinfo ftp redis memcached gmp intl
-        version: 2.x
+        # php_version: "8.2"
+        php_extensions: intl
+        # version: 2.x
     - uses: php-actions/phpunit@v3
       env:
         XDEBUG_MODE: coverage
