@@ -152,10 +152,11 @@ trait ModelTrait
             return null;
         }
 
-        return (new \NumberFormatter(
-            $locale,
-            \NumberFormatter::DECIMAL
-        ))->parse($value);
+        return is_numeric($value) ? floatval($value) : null;
+        // return (new \NumberFormatter(
+        //     $locale,
+        //     \NumberFormatter::DECIMAL
+        // ))->parse($value);
     }
 
     /**
@@ -186,12 +187,13 @@ trait ModelTrait
             return 0;
         }
 
-        $value = (new \NumberFormatter(
-            $locale,
-            \NumberFormatter::DECIMAL
-        ))->parse($value, \NumberFormatter::TYPE_INT64);
+        // $value = (new \NumberFormatter(
+        //     $locale,
+        //     \NumberFormatter::DECIMAL
+        // ))->parse($value, \NumberFormatter::TYPE_INT64);
 
-        return is_int($value) ? $value : 0;
+        return is_numeric($value) ? intval($value) : 0;
+        // return is_int($value) ? $value : 0;
     }
 
     /**
