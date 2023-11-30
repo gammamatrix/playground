@@ -1,0 +1,271 @@
+About Route (Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\AboutRoute)
+ [x] Route about as guest and succeed
+ [x] Route json about as guest and succeed
+ [x] Route about as client and succeed
+ [x] Route json about as manager and succeed
+
+Abstract (Tests\Unit\GammaMatrix\Playground\Policies\Policy\Abstract)
+ [x] Before with root
+ [x] Before with root as secondary fails
+ [x] Index without role
+ [x] Index with admin
+ [x] View without role
+ [x] View with admin
+ [x] View with admin in roles
+
+Abstract Role (Tests\Unit\GammaMatrix\Playground\Policies\ModelPolicy\AbstractRole)
+ [x] Create without role
+ [x] Create with admin
+ [x] Delete without role
+ [x] Delete with admin
+ [x] Delete locked with admin
+ [x] Detail without role
+ [x] Detail with admin
+ [x] Edit without role
+ [x] Edit with admin
+ [x] ForceDelete without role
+ [x] ForceDelete with admin
+ [x] Lock without role
+ [x] Lock with admin
+ [x] Manage without role
+ [x] Manage with admin
+ [x] Restore without role
+ [x] Restore with admin
+ [x] Store without role
+ [x] Store with admin
+ [x] Update without role
+ [x] Update with admin
+ [x] Update locked with admin
+ [x] Unlock without role
+ [x] Unlock with admin
+
+Array Trait (Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\ArrayTrait)
+ [x] Filter array
+ [x] FilterArray to json
+
+Bits Trait (Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\BitsTrait)
+ [x] FilterBits for exponent zero
+ [x] FilterBits for exponent greater than zero
+
+Bootstrap Route (Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\BootstrapRoute)
+ [x] Route bootstrap as guest and succeed
+ [x] Route json bootstrap as guest and succeed
+ [x] Route bootstrap as vendor and succeed
+ [x] Route json bootstrap as wheel and succeed
+
+Component (Tests\Unit\GammaMatrix\Playground\View\Components\Forms\ColumnEditor\Component)
+ [x] Component instance
+ [x] Component can render view without parameters
+ [x] Component can render view with content textarea
+
+Component (Tests\Unit\GammaMatrix\Playground\View\Components\Forms\ColumnSelect\Component)
+ [x] Component instance
+ [x] Component can render view without parameters
+ [x] Component can render view with select
+
+Component (Tests\Unit\GammaMatrix\Playground\View\Components\Forms\Column\Component)
+ [x] Component instance
+ [x] Component can render view without parameters
+ [x] Component can render view with label input
+
+Component (Tests\Unit\GammaMatrix\Playground\View\Components\ModelFlag\Component)
+ [x] Component instance
+ [x] Component can render view with null value
+ [x] Component can render view with true value
+ [x] Component can render view with false value
+
+Component (Tests\Unit\GammaMatrix\Playground\View\Components\PaginationSort\Component)
+ [x] Component instance
+ [x] Component can render view with empty sort
+ [x] Component can render view with invalid sort
+ [x] Component can render view
+
+Component (Tests\Unit\GammaMatrix\Playground\View\Components\Table\Data\Component)
+ [x] Component instance
+ [x] Component can render view
+
+Dashboard Route (Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\DashboardRoute)
+ [x] Route dashboard as guest and fail when disabled for guest and no redirect
+ [x] Route dashboard as guest and redirect when disabled for all
+ [x] Route dashboard as guest and redirect when disabled for guest
+ [x] Route json dashboard as guest and succeed
+ [x] Route dashboard as user and succeed
+ [x] Route dashboard as user and fail when disabled for all
+ [x] Route dashboard as user and fail when disabled for all and no redirect
+ [x] Route json dashboard as admin and succeed
+
+Date Trait (Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\DateTrait)
+ [x] Filter date
+ [x] Filter date as carbon
+
+Home Route (Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\HomeRoute)
+ [x] Route home as guest and succeed
+ [x] Route json home as guest and succeed
+ [x] Route home as user admin and succeed
+ [x] Route json home as admin and succeed
+
+Model (Tests\Unit\GammaMatrix\Playground\Models\Model\Model)
+ [x] WithChildren children returns HasMany
+ [x] WithCreator creator returns HasOne
+ [x] WithModifier modifier returns HasOne
+ [x] WithOwner owner returns HasOne
+ [x] WithParent parent returns HasOne
+
+Model (Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterColumns\Model)
+ [x] ScopeFilterColumns returns query without columns or filters
+ [x] ScopeFilterColumns returns query without filters
+ [x] ScopeFilterColumns returns query with invalid column
+ [x] ScopeFilterColumns returns query with filters without meta for strings
+ [x] ScopeFilterColumns returns query with null comparison and ignore
+ [x] ScopeFilterColumns returns query with comparison
+
+Model (Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterDates\Model)
+ [x] ScopeFilterDates returns query without dates or filters
+ [x] ScopeFilterDates returns query without filters
+ [x] ScopeFilterDates returns query with invalid column
+ [x] ScopeFilterDates returns query with filters without meta for strings
+ [x] ScopeFilterDates returns query with null comparison and ignore
+ [x] ScopeFilterDates returns query with null comparison and allow
+ [x] ScopeFilterDates returns query with comparison
+
+Model (Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterFlags\Model)
+ [x] ScopeFilterFlags returns query without flags or filters
+ [x] ScopeFilterFlags returns query without filters
+ [x] ScopeFilterFlags returns query with filters
+
+Model (Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterIds\Model)
+ [x] ScopeFilterIds returns query without ids or filters
+ [x] ScopeFilterIds returns query without filters
+ [x] ScopeFilterIds returns query with invalid column
+ [x] ScopeFilterIds returns query with null comparison
+ [x] ScopeFilterIds returns query with comparison
+ [x] ScopeFilterIds returns query with filters array
+ [x] ScopeFilterIds returns query with filters with integer
+ [x] ScopeFilterIds returns query with array of ids without type
+ [x] ScopeFilterIds returns query with array of uuids for integer type ids and ignore
+ [x] ScopeFilterIds returns query with array of integer ids ignore duplicate id
+ [x] ScopeFilterIds returns query with filters with null and string and array
+
+Model (Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterTrash\Model)
+ [x] ScopeFilterTrash returns query with empty visibility
+ [x] ScopeFilterTrash returns query with trash
+ [x] ScopeFilterTrash returns query with only trash
+
+Model (Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeSort\Model)
+ [x] ScopeSort returns query with empty sort
+ [x] ScopeSort returns query with array boolean sort asc
+ [x] ScopeSort returns query with array boolean sort desc
+ [x] ScopeSort returns query with array boolean sort pair
+ [x] ScopeSort returns query with array boolean sort triplet
+ [x] ScopeSort returns query with csv sort asc
+ [x] ScopeSort returns query with csv sort desc
+ [x] ScopeSort returns query with simple array asc
+ [x] ScopeSort returns query with simple array desc
+ [x] ScopeSort returns query with hash array asc
+ [x] ScopeSort returns query with hash array desc
+
+Number Trait (Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\NumberTrait)
+ [x] Filter float
+ [x] Filter integer
+ [x] Filter integer id
+ [x] Filter integer positive
+ [x] Filter percent
+
+Sitemap Route (Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\SitemapRoute)
+ [x] Route sitemap as guest and fail when disabled for guest and no redirect
+ [x] Route sitemap as guest and redirect when disabled for all
+ [x] Route sitemap as guest and redirect when disabled for guest
+ [x] Route json sitemap as guest and succeed
+ [x] Route sitemap as user and succeed
+ [x] Route sitemap as support and fail when disabled for all
+ [x] Route sitemap as user and fail when disabled for all and no redirect
+ [x] Route json sitemap as admin and succeed
+ [x] Route sitemap as user and succeed with package sitemaps
+
+Status Trait (Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\StatusTrait)
+ [x] Filter status
+
+System Fields Trait (Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\SystemFieldsTrait)
+ [x] FilterSystemFields for groups
+ [x] FilterSystemFields for permissions
+ [x] FilterSystemFields for rank
+ [x] FilterSystemFields for size
+
+Theme Route (Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\ThemeRoute)
+ [x] Route theme as guest and succeed
+ [x] Route theme as guest with preview and succeed
+ [x] Route theme as partner and succeed
+ [x] Route theme as sales and succeed with theme and redirect
+
+Trait (Tests\Feature\GammaMatrix\Playground\Policies\PrivilegeTrait\Trait)
+ [x] HasPrivilege and fail with empty privilege
+ [x] HasPrivilege with app without token and fail
+ [x] HasPrivilege with app with wildcard token privileges and succeed
+ [x] HasPrivilege with app with wildcard secondary token privileges and succeed
+ [x] HasPrivilege with app with token privileges and succeed
+
+Trait (Tests\Unit\GammaMatrix\Playground\Filters\ContentTrait\Trait)
+ [x] Purify
+ [x] Exorcise
+ [x] Get html purifier
+ [x] GetHtmlPurifier with iframes
+ [x] GetHtmlPurifier with purifier path
+ [x] Encode u r i component
+
+Trait (Tests\Unit\GammaMatrix\Playground\Models\Traits\UserPrivileges\Trait)
+ [x] HasPrivilege is false with null privilege
+ [x] HasPrivilege is false with false privilege
+ [x] HasPrivilege is true with privilege that does exist
+ [x] HasPrivilege is false with privilege that does not exist
+ [x] HasRole is false with null role
+ [x] HasRole is false with false role
+ [x] HasRole is true with role that does exist
+ [x] HasRole is false with role that does not exist
+ [x] HasRole is false with secondary role that does not exist
+ [x] HasRole is true with secondary role that does exist
+ [x] HasRole is true with other secondary role that does exist
+ [x] HasRole is true with primary role that does exist
+ [x] IsAdmin is false without roles
+ [x] IsAdmin is true with role that does exist
+ [x] IsAdmin is false with user role that does not exist
+ [x] IsAdmin is false with secondary role that does not exist
+ [x] IsAdmin is false with secondary roles that exist and not admin
+ [x] IsAdmin is true with other secondary role that does exist
+ [x] IsAdmin is true with primary role that does exist
+ [x] IsAdmin is false with secondary root role
+
+Trait (Tests\Unit\GammaMatrix\Playground\Policies\PolicyTrait\Trait)
+ [x] Get entity
+ [x] Get package
+ [x] Has token
+ [x] Get token
+ [x] Set token
+ [x] Verify
+ [x] Verify privileges
+ [x] Verify roles
+ [x] Verify user
+
+Trait (Tests\Unit\GammaMatrix\Playground\Policies\PrivilegeTrait\Trait)
+ [x] Has privilege
+
+Trait (Tests\Unit\GammaMatrix\Playground\Policies\RoleTrait\Trait)
+ [x] Get roles for admin
+ [x] Get roles for action
+ [x] Get roles to view
+ [x] Has role
+ [x] HasRole advanced role
+
+Uuid Trait (Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\UuidTrait)
+ [x] Filter uuid
+
+Value Trait (Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\ValueTrait)
+ [x] Filter boolean
+ [x] Filter email
+ [x] Filter html
+
+Welcome Route (Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\WelcomeRoute)
+ [x] Route welcome as guest and succeed
+ [x] Route json welcome as guest and succeed
+ [x] Route welcome as user and succeed
+ [x] Route json welcome as manager admin and succeed
+

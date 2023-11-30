@@ -1,0 +1,1071 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<crap_result>
+  <project/>
+  <timestamp>2023-11-30 23:56:18</timestamp>
+  <stats>
+    <name>Method Crap Stats</name>
+    <methodCount>96</methodCount>
+    <crapMethodCount>2</crapMethodCount>
+    <crapLoad>36</crapLoad>
+    <totalCrap>714.67</totalCrap>
+    <crapMethodPercent>2.08</crapMethodPercent>
+  </stats>
+  <methods>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ContentTrait</className>
+      <methodName>purify</methodName>
+      <methodSignature>purify($item)</methodSignature>
+      <fullMethod>purify($item)</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ContentTrait</className>
+      <methodName>exorcise</methodName>
+      <methodSignature>exorcise($item)</methodSignature>
+      <fullMethod>exorcise($item)</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ContentTrait</className>
+      <methodName>getHtmlPurifier</methodName>
+      <methodSignature>getHtmlPurifier(array $config)</methodSignature>
+      <fullMethod>getHtmlPurifier(array $config)</fullMethod>
+      <crap>7</crap>
+      <complexity>7</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ContentTrait</className>
+      <methodName>setHtmlPurifier</methodName>
+      <methodSignature>setHtmlPurifier(HTMLPurifier $purifier)</methodSignature>
+      <fullMethod>setHtmlPurifier(HTMLPurifier $purifier)</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ContentTrait</className>
+      <methodName>encodeURIComponent</methodName>
+      <methodSignature>encodeURIComponent($str)</methodSignature>
+      <fullMethod>encodeURIComponent($str)</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ModelTrait</className>
+      <methodName>filterArray</methodName>
+      <methodSignature>filterArray($value): array</methodSignature>
+      <fullMethod>filterArray($value): array</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ModelTrait</className>
+      <methodName>filterArrayToJson</methodName>
+      <methodSignature>filterArrayToJson($value): ?string</methodSignature>
+      <fullMethod>filterArrayToJson($value): ?string</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ModelTrait</className>
+      <methodName>filterBits</methodName>
+      <methodSignature>filterBits($value, $exponent): int</methodSignature>
+      <fullMethod>filterBits($value, $exponent): int</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ModelTrait</className>
+      <methodName>filterBoolean</methodName>
+      <methodSignature>filterBoolean($value): bool</methodSignature>
+      <fullMethod>filterBoolean($value): bool</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ModelTrait</className>
+      <methodName>filterDate</methodName>
+      <methodSignature>filterDate($value, $locale): ?string</methodSignature>
+      <fullMethod>filterDate($value, $locale): ?string</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ModelTrait</className>
+      <methodName>filterDateAsCarbon</methodName>
+      <methodSignature>filterDateAsCarbon($value, $locale): ?Carbon\Carbon</methodSignature>
+      <fullMethod>filterDateAsCarbon($value, $locale): ?Carbon\Carbon</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ModelTrait</className>
+      <methodName>filterEmail</methodName>
+      <methodSignature>filterEmail($email): string</methodSignature>
+      <fullMethod>filterEmail($email): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ModelTrait</className>
+      <methodName>filterFloat</methodName>
+      <methodSignature>filterFloat($value, $locale): ?float</methodSignature>
+      <fullMethod>filterFloat($value, $locale): ?float</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ModelTrait</className>
+      <methodName>filterHtml</methodName>
+      <methodSignature>filterHtml($content): string</methodSignature>
+      <fullMethod>filterHtml($content): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ModelTrait</className>
+      <methodName>filterInteger</methodName>
+      <methodSignature>filterInteger($value, $locale): int</methodSignature>
+      <fullMethod>filterInteger($value, $locale): int</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ModelTrait</className>
+      <methodName>filterIntegerId</methodName>
+      <methodSignature>filterIntegerId($value): ?int</methodSignature>
+      <fullMethod>filterIntegerId($value): ?int</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ModelTrait</className>
+      <methodName>filterIntegerPositive</methodName>
+      <methodSignature>filterIntegerPositive($value, $absolute): int</methodSignature>
+      <fullMethod>filterIntegerPositive($value, $absolute): int</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ModelTrait</className>
+      <methodName>filterPercent</methodName>
+      <methodSignature>filterPercent($value, $locale): ?float</methodSignature>
+      <fullMethod>filterPercent($value, $locale): ?float</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ModelTrait</className>
+      <methodName>filterStatus</methodName>
+      <methodSignature>filterStatus(array $input)</methodSignature>
+      <fullMethod>filterStatus(array $input)</fullMethod>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ModelTrait</className>
+      <methodName>filterSystemFields</methodName>
+      <methodSignature>filterSystemFields(array $input)</methodSignature>
+      <fullMethod>filterSystemFields(array $input)</fullMethod>
+      <crap>7</crap>
+      <complexity>7</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Filters</package>
+      <className>GammaMatrix\Playground\Filters\ModelTrait</className>
+      <methodName>filterUuid</methodName>
+      <methodSignature>filterUuid($value)</methodSignature>
+      <fullMethod>filterUuid($value)</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Http\Controllers</package>
+      <className>GammaMatrix\Playground\Http\Controllers\IndexController</className>
+      <methodName>about</methodName>
+      <methodSignature>about(Illuminate\Http\Request $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View</methodSignature>
+      <fullMethod>about(Illuminate\Http\Request $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Http\Controllers</package>
+      <className>GammaMatrix\Playground\Http\Controllers\IndexController</className>
+      <methodName>bootstrap</methodName>
+      <methodSignature>bootstrap(Illuminate\Http\Request $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View</methodSignature>
+      <fullMethod>bootstrap(Illuminate\Http\Request $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Http\Controllers</package>
+      <className>GammaMatrix\Playground\Http\Controllers\IndexController</className>
+      <methodName>dashboard</methodName>
+      <methodSignature>dashboard(Illuminate\Http\Request $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\View\View</methodSignature>
+      <fullMethod>dashboard(Illuminate\Http\Request $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\View\View</fullMethod>
+      <crap>6</crap>
+      <complexity>6</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Http\Controllers</package>
+      <className>GammaMatrix\Playground\Http\Controllers\IndexController</className>
+      <methodName>home</methodName>
+      <methodSignature>home(Illuminate\Http\Request $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\View\View</methodSignature>
+      <fullMethod>home(Illuminate\Http\Request $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\View\View</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Http\Controllers</package>
+      <className>GammaMatrix\Playground\Http\Controllers\IndexController</className>
+      <methodName>sitemap</methodName>
+      <methodSignature>sitemap(Illuminate\Http\Request $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\View\View</methodSignature>
+      <fullMethod>sitemap(Illuminate\Http\Request $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\View\View</fullMethod>
+      <crap>15</crap>
+      <complexity>15</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Http\Controllers</package>
+      <className>GammaMatrix\Playground\Http\Controllers\IndexController</className>
+      <methodName>theme</methodName>
+      <methodSignature>theme(Illuminate\Http\Request $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\View\View</methodSignature>
+      <fullMethod>theme(Illuminate\Http\Request $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\View\View</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Http\Controllers</package>
+      <className>GammaMatrix\Playground\Http\Controllers\IndexController</className>
+      <methodName>welcome</methodName>
+      <methodSignature>welcome(Illuminate\Http\Request $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View</methodSignature>
+      <fullMethod>welcome(Illuminate\Http\Request $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Models\Traits</package>
+      <className>GammaMatrix\Playground\Models\Traits\ScopeFilterColumns</className>
+      <methodName>scopeFilterColumns</methodName>
+      <methodSignature>scopeFilterColumns(Illuminate\Database\Eloquent\Builder $query, array $columns, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
+      <fullMethod>scopeFilterColumns(Illuminate\Database\Eloquent\Builder $query, array $columns, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
+      <crap>98.12</crap>
+      <complexity>29</complexity>
+      <coverage>56.52</coverage>
+      <crapLoad>13</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Models\Traits</package>
+      <className>GammaMatrix\Playground\Models\Traits\ScopeFilterDates</className>
+      <methodName>scopeFilterDates</methodName>
+      <methodSignature>scopeFilterDates(Illuminate\Database\Eloquent\Builder $query, array $dates, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
+      <fullMethod>scopeFilterDates(Illuminate\Database\Eloquent\Builder $query, array $dates, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
+      <crap>280.59</crap>
+      <complexity>46</complexity>
+      <coverage>51.96</coverage>
+      <crapLoad>23</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Models\Traits</package>
+      <className>GammaMatrix\Playground\Models\Traits\ScopeFilterFlags</className>
+      <methodName>scopeFilterFlags</methodName>
+      <methodSignature>scopeFilterFlags(Illuminate\Database\Eloquent\Builder $query, array $flags, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
+      <fullMethod>scopeFilterFlags(Illuminate\Database\Eloquent\Builder $query, array $flags, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
+      <crap>9</crap>
+      <complexity>9</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Models\Traits</package>
+      <className>GammaMatrix\Playground\Models\Traits\ScopeFilterIds</className>
+      <methodName>scopeFilterIds</methodName>
+      <methodSignature>scopeFilterIds(Illuminate\Database\Eloquent\Builder $query, array $ids, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
+      <fullMethod>scopeFilterIds(Illuminate\Database\Eloquent\Builder $query, array $ids, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
+      <crap>25</crap>
+      <complexity>25</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Models\Traits</package>
+      <className>GammaMatrix\Playground\Models\Traits\ScopeFilterTrash</className>
+      <methodName>scopeFilterTrash</methodName>
+      <methodSignature>scopeFilterTrash(Illuminate\Database\Eloquent\Builder $query, ?string $visibility): Illuminate\Database\Eloquent\Builder</methodSignature>
+      <fullMethod>scopeFilterTrash(Illuminate\Database\Eloquent\Builder $query, ?string $visibility): Illuminate\Database\Eloquent\Builder</fullMethod>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Models\Traits</package>
+      <className>GammaMatrix\Playground\Models\Traits\ScopeSort</className>
+      <methodName>scopeSort</methodName>
+      <methodSignature>scopeSort(Illuminate\Database\Eloquent\Builder $query, array|string $sort): Illuminate\Database\Eloquent\Builder</methodSignature>
+      <fullMethod>scopeSort(Illuminate\Database\Eloquent\Builder $query, array|string $sort): Illuminate\Database\Eloquent\Builder</fullMethod>
+      <crap>15</crap>
+      <complexity>15</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Models\Traits</package>
+      <className>GammaMatrix\Playground\Models\Traits\UserPrivileges</className>
+      <methodName>getAttribute</methodName>
+      <methodSignature>getAttribute($key)</methodSignature>
+      <fullMethod>getAttribute($key)</fullMethod>
+      <crap>0</crap>
+      <complexity>0</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Models\Traits</package>
+      <className>GammaMatrix\Playground\Models\Traits\UserPrivileges</className>
+      <methodName>hasPrivilege</methodName>
+      <methodSignature>hasPrivilege($privilege): bool</methodSignature>
+      <fullMethod>hasPrivilege($privilege): bool</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Models\Traits</package>
+      <className>GammaMatrix\Playground\Models\Traits\UserPrivileges</className>
+      <methodName>hasRole</methodName>
+      <methodSignature>hasRole($role): bool</methodSignature>
+      <fullMethod>hasRole($role): bool</fullMethod>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Models\Traits</package>
+      <className>GammaMatrix\Playground\Models\Traits\UserPrivileges</className>
+      <methodName>isAdmin</methodName>
+      <methodSignature>isAdmin(): bool</methodSignature>
+      <fullMethod>isAdmin(): bool</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Models\Traits</package>
+      <className>GammaMatrix\Playground\Models\Traits\WithChildren</className>
+      <methodName>children</methodName>
+      <methodSignature>children(): Illuminate\Database\Eloquent\Relations\HasMany</methodSignature>
+      <fullMethod>children(): Illuminate\Database\Eloquent\Relations\HasMany</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Models\Traits</package>
+      <className>GammaMatrix\Playground\Models\Traits\WithCreator</className>
+      <methodName>creator</methodName>
+      <methodSignature>creator(): Illuminate\Database\Eloquent\Relations\HasOne</methodSignature>
+      <fullMethod>creator(): Illuminate\Database\Eloquent\Relations\HasOne</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Models\Traits</package>
+      <className>GammaMatrix\Playground\Models\Traits\WithModifier</className>
+      <methodName>modifier</methodName>
+      <methodSignature>modifier(): Illuminate\Database\Eloquent\Relations\HasOne</methodSignature>
+      <fullMethod>modifier(): Illuminate\Database\Eloquent\Relations\HasOne</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Models\Traits</package>
+      <className>GammaMatrix\Playground\Models\Traits\WithOwner</className>
+      <methodName>owner</methodName>
+      <methodSignature>owner(): Illuminate\Database\Eloquent\Relations\HasOne</methodSignature>
+      <fullMethod>owner(): Illuminate\Database\Eloquent\Relations\HasOne</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Models\Traits</package>
+      <className>GammaMatrix\Playground\Models\Traits\WithParent</className>
+      <methodName>parent</methodName>
+      <methodSignature>parent(): Illuminate\Database\Eloquent\Relations\HasOne</methodSignature>
+      <fullMethod>parent(): Illuminate\Database\Eloquent\Relations\HasOne</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\ModelPolicy</className>
+      <methodName>create</methodName>
+      <methodSignature>create(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</methodSignature>
+      <fullMethod>create(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\ModelPolicy</className>
+      <methodName>delete</methodName>
+      <methodSignature>delete(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</methodSignature>
+      <fullMethod>delete(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\ModelPolicy</className>
+      <methodName>detail</methodName>
+      <methodSignature>detail(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</methodSignature>
+      <fullMethod>detail(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\ModelPolicy</className>
+      <methodName>edit</methodName>
+      <methodSignature>edit(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</methodSignature>
+      <fullMethod>edit(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\ModelPolicy</className>
+      <methodName>forceDelete</methodName>
+      <methodSignature>forceDelete(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</methodSignature>
+      <fullMethod>forceDelete(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\ModelPolicy</className>
+      <methodName>lock</methodName>
+      <methodSignature>lock(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</methodSignature>
+      <fullMethod>lock(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\ModelPolicy</className>
+      <methodName>manage</methodName>
+      <methodSignature>manage(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</methodSignature>
+      <fullMethod>manage(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\ModelPolicy</className>
+      <methodName>restore</methodName>
+      <methodSignature>restore(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</methodSignature>
+      <fullMethod>restore(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\ModelPolicy</className>
+      <methodName>store</methodName>
+      <methodSignature>store(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</methodSignature>
+      <fullMethod>store(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\ModelPolicy</className>
+      <methodName>update</methodName>
+      <methodSignature>update(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</methodSignature>
+      <fullMethod>update(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\ModelPolicy</className>
+      <methodName>unlock</methodName>
+      <methodSignature>unlock(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</methodSignature>
+      <fullMethod>unlock(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\Policy</className>
+      <methodName>before</methodName>
+      <methodSignature>before(Illuminate\Contracts\Auth\Authenticatable $user, $ability)</methodSignature>
+      <fullMethod>before(Illuminate\Contracts\Auth\Authenticatable $user, $ability)</fullMethod>
+      <crap>5</crap>
+      <complexity>5</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\Policy</className>
+      <methodName>index</methodName>
+      <methodSignature>index(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</methodSignature>
+      <fullMethod>index(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\Policy</className>
+      <methodName>view</methodName>
+      <methodSignature>view(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</methodSignature>
+      <fullMethod>view(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\PolicyTrait</className>
+      <methodName>hasPrivilege</methodName>
+      <methodSignature>hasPrivilege(Illuminate\Contracts\Auth\Authenticatable $user, string $privilege): bool|\Illuminate\Auth\Access\Response</methodSignature>
+      <fullMethod>hasPrivilege(Illuminate\Contracts\Auth\Authenticatable $user, string $privilege): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <crap>0</crap>
+      <complexity>0</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\PolicyTrait</className>
+      <methodName>hasRole</methodName>
+      <methodSignature>hasRole(Illuminate\Contracts\Auth\Authenticatable $user, string $ability): bool|\Illuminate\Auth\Access\Response</methodSignature>
+      <fullMethod>hasRole(Illuminate\Contracts\Auth\Authenticatable $user, string $ability): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <crap>0</crap>
+      <complexity>0</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\PolicyTrait</className>
+      <methodName>privilege</methodName>
+      <methodSignature>privilege(string $ability): string</methodSignature>
+      <fullMethod>privilege(string $ability): string</fullMethod>
+      <crap>0</crap>
+      <complexity>0</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\PolicyTrait</className>
+      <methodName>getEntity</methodName>
+      <methodSignature>getEntity(): string</methodSignature>
+      <fullMethod>getEntity(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\PolicyTrait</className>
+      <methodName>getPackage</methodName>
+      <methodSignature>getPackage(): string</methodSignature>
+      <fullMethod>getPackage(): string</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\PolicyTrait</className>
+      <methodName>hasToken</methodName>
+      <methodSignature>hasToken(): bool</methodSignature>
+      <fullMethod>hasToken(): bool</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\PolicyTrait</className>
+      <methodName>getToken</methodName>
+      <methodSignature>getToken(): ?object</methodSignature>
+      <fullMethod>getToken(): ?object</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\PolicyTrait</className>
+      <methodName>setToken</methodName>
+      <methodSignature>setToken(?object $token): self</methodSignature>
+      <fullMethod>setToken(?object $token): self</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\PolicyTrait</className>
+      <methodName>verify</methodName>
+      <methodSignature>verify(Illuminate\Contracts\Auth\Authenticatable $user, string $ability): bool|\Illuminate\Auth\Access\Response</methodSignature>
+      <fullMethod>verify(Illuminate\Contracts\Auth\Authenticatable $user, string $ability): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\PrivilegeTrait</className>
+      <methodName>getPackage</methodName>
+      <methodSignature>getPackage(): string</methodSignature>
+      <fullMethod>getPackage(): string</fullMethod>
+      <crap>0</crap>
+      <complexity>0</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\PrivilegeTrait</className>
+      <methodName>getEntity</methodName>
+      <methodSignature>getEntity(): string</methodSignature>
+      <fullMethod>getEntity(): string</fullMethod>
+      <crap>0</crap>
+      <complexity>0</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\PrivilegeTrait</className>
+      <methodName>getToken</methodName>
+      <methodSignature>getToken(): ?object</methodSignature>
+      <fullMethod>getToken(): ?object</fullMethod>
+      <crap>0</crap>
+      <complexity>0</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\PrivilegeTrait</className>
+      <methodName>hasToken</methodName>
+      <methodSignature>hasToken(): bool</methodSignature>
+      <fullMethod>hasToken(): bool</fullMethod>
+      <crap>0</crap>
+      <complexity>0</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\PrivilegeTrait</className>
+      <methodName>setToken</methodName>
+      <methodSignature>setToken(?object $token): self</methodSignature>
+      <fullMethod>setToken(?object $token): self</fullMethod>
+      <crap>0</crap>
+      <complexity>0</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\PrivilegeTrait</className>
+      <methodName>privilege</methodName>
+      <methodSignature>privilege(string $ability): string</methodSignature>
+      <fullMethod>privilege(string $ability): string</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\PrivilegeTrait</className>
+      <methodName>hasPrivilegeWildcard</methodName>
+      <methodSignature>hasPrivilegeWildcard(string $privilege): bool</methodSignature>
+      <fullMethod>hasPrivilegeWildcard(string $privilege): bool</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\PrivilegeTrait</className>
+      <methodName>hasPrivilege</methodName>
+      <methodSignature>hasPrivilege(Illuminate\Contracts\Auth\Authenticatable $user, string $privilege): bool|\Illuminate\Auth\Access\Response</methodSignature>
+      <fullMethod>hasPrivilege(Illuminate\Contracts\Auth\Authenticatable $user, string $privilege): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <crap>23.96</crap>
+      <complexity>14</complexity>
+      <coverage>62.96</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\RoleTrait</className>
+      <methodName>getRolesForAdmin</methodName>
+      <methodSignature>getRolesForAdmin(): array</methodSignature>
+      <fullMethod>getRolesForAdmin(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\RoleTrait</className>
+      <methodName>getRolesForAction</methodName>
+      <methodSignature>getRolesForAction(): array</methodSignature>
+      <fullMethod>getRolesForAction(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\RoleTrait</className>
+      <methodName>isRoot</methodName>
+      <methodSignature>isRoot(Illuminate\Contracts\Auth\Authenticatable $user): bool</methodSignature>
+      <fullMethod>isRoot(Illuminate\Contracts\Auth\Authenticatable $user): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\RoleTrait</className>
+      <methodName>getRolesToView</methodName>
+      <methodSignature>getRolesToView(): array</methodSignature>
+      <fullMethod>getRolesToView(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\Policies</package>
+      <className>GammaMatrix\Playground\Policies\RoleTrait</className>
+      <methodName>hasRole</methodName>
+      <methodSignature>hasRole(Illuminate\Contracts\Auth\Authenticatable $user, string $ability): bool|\Illuminate\Auth\Access\Response</methodSignature>
+      <fullMethod>hasRole(Illuminate\Contracts\Auth\Authenticatable $user, string $ability): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <crap>18</crap>
+      <complexity>18</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground</package>
+      <className>GammaMatrix\Playground\ServiceProvider</className>
+      <methodName>boot</methodName>
+      <methodSignature>boot()</methodSignature>
+      <fullMethod>boot()</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground</package>
+      <className>GammaMatrix\Playground\ServiceProvider</className>
+      <methodName>about</methodName>
+      <methodSignature>about()</methodSignature>
+      <fullMethod>about()</fullMethod>
+      <crap>18</crap>
+      <complexity>18</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground</package>
+      <className>GammaMatrix\Playground\ServiceProvider</className>
+      <methodName>register</methodName>
+      <methodSignature>register()</methodSignature>
+      <fullMethod>register()</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground</package>
+      <className>GammaMatrix\Playground\ServiceProvider</className>
+      <methodName>version</methodName>
+      <methodSignature>version()</methodSignature>
+      <fullMethod>version()</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\View\Components\Forms</package>
+      <className>GammaMatrix\Playground\View\Components\Forms\Column</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct(bool $advanced, ?bool $autocomplete, string $class, string $column, string $default, string $described, ?bool $disabled, string $errorMessage, string $label, string $pattern, bool|string $placeholder, ?bool $readonly, array $rules, ?int $step, string $type, bool $withoutMargin)</methodSignature>
+      <fullMethod>__construct(bool $advanced, ?bool $autocomplete, string $class, string $column, string $default, string $described, ?bool $disabled, string $errorMessage, string $label, string $pattern, bool|string $placeholder, ?bool $readonly, array $rules, ?int $step, string $type, bool $withoutMargin)</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\View\Components\Forms</package>
+      <className>GammaMatrix\Playground\View\Components\Forms\Column</className>
+      <methodName>render</methodName>
+      <methodSignature>render(): Illuminate\Contracts\View\View</methodSignature>
+      <fullMethod>render(): Illuminate\Contracts\View\View</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\View\Components\Forms</package>
+      <className>GammaMatrix\Playground\View\Components\Forms\ColumnEditor</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct(bool $advanced, string $class, string $column, string $errorMessage, string $label, array $rules, bool $withoutMargin, string $described, ?bool $disabled, ?bool $readonly)</methodSignature>
+      <fullMethod>__construct(bool $advanced, string $class, string $column, string $errorMessage, string $label, array $rules, bool $withoutMargin, string $described, ?bool $disabled, ?bool $readonly)</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\View\Components\Forms</package>
+      <className>GammaMatrix\Playground\View\Components\Forms\ColumnEditor</className>
+      <methodName>render</methodName>
+      <methodSignature>render(): Illuminate\Contracts\View\View</methodSignature>
+      <fullMethod>render(): Illuminate\Contracts\View\View</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\View\Components\Forms</package>
+      <className>GammaMatrix\Playground\View\Components\Forms\ColumnSelect</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct(bool $advanced, ?bool $autocomplete, string $class, string $column, bool $default, string $described, ?bool $disabled, string $errorMessage, string $id, string $key, string $label, string $pattern, bool|string $placeholder, array $records, array $rules, string $step, ?bool $readonly, string $type, bool $withoutMargin)</methodSignature>
+      <fullMethod>__construct(bool $advanced, ?bool $autocomplete, string $class, string $column, bool $default, string $described, ?bool $disabled, string $errorMessage, string $id, string $key, string $label, string $pattern, bool|string $placeholder, array $records, array $rules, string $step, ?bool $readonly, string $type, bool $withoutMargin)</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\View\Components\Forms</package>
+      <className>GammaMatrix\Playground\View\Components\Forms\ColumnSelect</className>
+      <methodName>render</methodName>
+      <methodSignature>render(): Illuminate\Contracts\View\View</methodSignature>
+      <fullMethod>render(): Illuminate\Contracts\View\View</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\View\Components</package>
+      <className>GammaMatrix\Playground\View\Components\ModelFlag</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct(array $columnMeta, mixed $value)</methodSignature>
+      <fullMethod>__construct(array $columnMeta, mixed $value)</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\View\Components</package>
+      <className>GammaMatrix\Playground\View\Components\ModelFlag</className>
+      <methodName>render</methodName>
+      <methodSignature>render(): Illuminate\Contracts\View\View</methodSignature>
+      <fullMethod>render(): Illuminate\Contracts\View\View</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\View\Components</package>
+      <className>GammaMatrix\Playground\View\Components\PaginationSort</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct($sort, $validated, $action, $id, $sorts)</methodSignature>
+      <fullMethod>__construct($sort, $validated, $action, $id, $sorts)</fullMethod>
+      <crap>7</crap>
+      <complexity>7</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\View\Components</package>
+      <className>GammaMatrix\Playground\View\Components\PaginationSort</className>
+      <methodName>setSort</methodName>
+      <methodSignature>setSort($sort): array</methodSignature>
+      <fullMethod>setSort($sort): array</fullMethod>
+      <crap>7</crap>
+      <complexity>7</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\View\Components</package>
+      <className>GammaMatrix\Playground\View\Components\PaginationSort</className>
+      <methodName>render</methodName>
+      <methodSignature>render()</methodSignature>
+      <fullMethod>render()</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\View\Components\Table</package>
+      <className>GammaMatrix\Playground\View\Components\Table\Data</className>
+      <methodName>__construct</methodName>
+      <methodSignature>__construct(string $id, string $icon, string $badge, bool $showPagination, bool $showLinks, bool $modelActions, bool $trashable, string $privilege, string $routeParameter, string $routeParameterKey, string $routeEdit, string $routeRestore, string $routeDelete, string $routeDeleteRelationship, string $routeDeleteRelationshipId, bool $collapsible, string $returnUrl, array $columns, array $filters, array $validated, array $meta, array $sort, array $page_options, int $sorts, array $styling, string $class, ?Illuminate\Pagination\LengthAwarePaginator $paginator)</methodSignature>
+      <fullMethod>__construct(string $id, string $icon, string $badge, bool $showPagination, bool $showLinks, bool $modelActions, bool $trashable, string $privilege, string $routeParameter, string $routeParameterKey, string $routeEdit, string $routeRestore, string $routeDelete, string $routeDeleteRelationship, string $routeDeleteRelationshipId, bool $collapsible, string $returnUrl, array $columns, array $filters, array $validated, array $meta, array $sort, array $page_options, int $sorts, array $styling, string $class, ?Illuminate\Pagination\LengthAwarePaginator $paginator)</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GammaMatrix\Playground\View\Components\Table</package>
+      <className>GammaMatrix\Playground\View\Components\Table\Data</className>
+      <methodName>render</methodName>
+      <methodSignature>render(): Illuminate\Contracts\View\View</methodSignature>
+      <fullMethod>render(): Illuminate\Contracts\View\View</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+  </methods>
+</crap_result>
