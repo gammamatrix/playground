@@ -27,7 +27,7 @@ return [
         'userRoles' => (bool) env('PLAYGROUND_AUTH_USER_ROLES', false),
     ],
     'date' => [
-        'sql' => (bool) env('PLAYGROUND_DATE_MYSQL', 'Y-m-d H:i:s'),
+        'sql' => (string) env('PLAYGROUND_DATE_MYSQL', 'Y-m-d H:i:s'),
     ],
     'load' => [
         'routes' => (bool) env('PLAYGROUND_LOAD_ROUTES', false),

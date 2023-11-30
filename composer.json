@@ -17,6 +17,7 @@
     ],
     "require": {
         "php": "^8.1",
+        "ext-intl": "*",
         "ezyang/htmlpurifier": "^4.16",
         "illuminate/auth": "^10.0",
         "illuminate/console": "^10.0",
