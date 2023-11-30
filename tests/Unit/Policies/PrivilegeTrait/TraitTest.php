@@ -50,16 +50,4 @@ class TraitTest extends TestCase
             $privilege
         ));
     }
-
-    // Requires a database
-    // public function test_hasPrivilege_with_app()
-    // {
-    //     $user = UserWithSanctum::factory()->make();
-    //     $privilege = 'app:*';
-
-    //     $this->assertInstanceOf(Response::class, $this->mock->hasPrivilege(
-    //         $user,
-    //         $privilege
-    //     ));
-    // }
 }

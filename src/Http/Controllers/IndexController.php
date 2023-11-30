@@ -130,7 +130,7 @@ class IndexController extends Controller
 
         $configs = [];
         foreach ($package_config['packages'] as $package) {
-            if (is_string($package) && ! empty($package) && ! array_key_exists($package, $configs)) {
+            if (is_string($package) && !empty($package) && !array_key_exists($package, $configs)) {
                 $configs[$package] = config($package);
             }
         }
@@ -138,11 +138,11 @@ class IndexController extends Controller
         $sitemaps = [];
 
         foreach ($configs as $package => $config) {
-            if (! empty($config['sitemap'])
+            if (!empty($config['sitemap'])
                 && is_array($config['sitemap'])
-                && ! empty($config['sitemap']['enable'])
+                && !empty($config['sitemap']['enable'])
                 && is_array($config['load'])
-                && ! empty($config['load']['views'])
+                && !empty($config['load']['views'])
             ) {
                 $sitemaps[$package] = $config['sitemap'];
             }

@@ -6,6 +6,8 @@
 
 namespace Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index;
 
+use GammaMatrix\Playground\Test\Models\User;
+use GammaMatrix\Playground\Test\Models\UserWithRole;
 use Tests\Feature\GammaMatrix\Playground\TestCase;
 
 /**
@@ -29,7 +31,7 @@ class DashboardRouteTest extends TestCase
         config([
             'playground.dashboard.enable' => false,
         ]);
-        $response = $this->get('/dashboard');
+        $response = $this->get(route('dashboard'));
         $response->assertRedirect('/');
     }
 
@@ -39,7 +41,7 @@ class DashboardRouteTest extends TestCase
             'playground.dashboard.enable' => true,
             'playground.dashboard.guest' => false,
         ]);
-        $response = $this->get('/dashboard');
+        $response = $this->get(route('dashboard'));
         $response->assertRedirect('/');
     }
 
@@ -49,48 +51,49 @@ class DashboardRouteTest extends TestCase
             'playground.dashboard.enable' => true,
             'playground.dashboard.guest' => true,
         ]);
-        $response = $this->json('GET', '/dashboard');
+        $response = $this->json('GET', route('dashboard'));
         $response->assertStatus(200);
     }
 
-    // public function test_route_dashboard_as_user_and_succeed()
-    // {
-    //     config([
-    //         'playground.dashboard.enable' => true,
-    //         'playground.dashboard.guest' => false,
-    //     ]);
-    //     $this->initAuthRoles();
-    //     $response = $this->as('user')->get('/dashboard');
-    //     $response->assertStatus(200);
-    // }
+    public function test_route_dashboard_as_user_and_succeed()
+    {
+        config([
+            'playground.dashboard.enable' => true,
+            'playground.dashboard.guest' => false,
+        ]);
+        $user = User::factory()->create();
+        $response = $this->actingAs($user)->get(route('dashboard'));
+        $response->assertStatus(200);
+    }
 
-    // public function test_route_dashboard_as_user_and_fail_when_disabled_for_all()
-    // {
-    //     config([
-    //         'playground.dashboard.enable' => false,
-    //     ]);
-    //     $this->initAuthRoles();
-    //     $response = $this->as('user')->get('/dashboard');
-    //     $response->assertRedirect('/');
-    // }
+    public function test_route_dashboard_as_user_and_fail_when_disabled_for_all()
+    {
+        config([
+            'playground.dashboard.enable' => false,
+        ]);
+        $user = User::factory()->create();
+        $response = $this->actingAs($user)->get(route('dashboard'));
+        $response->assertRedirect('/');
+    }
 
-    // public function test_route_dashboard_as_user_and_fail_when_disabled_for_all_and_no_redirect()
-    // {
-    //     config([
-    //         'playground.dashboard.enable' => false,
-    //     ]);
-    //     $this->initAuthRoles();
-    //     $response = $this->get('/dashboard?noredirect');
-    //     $response->assertStatus(400);
-    // }
+    public function test_route_dashboard_as_user_and_fail_when_disabled_for_all_and_no_redirect()
+    {
+        config([
+            'playground.dashboard.enable' => false,
+        ]);
+        $user = User::factory()->create();
+        $response = $this->actingAs($user)->get(route('dashboard', ['noredirect' => 1]));
+        $response->assertStatus(400);
+    }
 
-    // public function test_route_json_dashboard_as_admin_and_succeed()
-    // {
-    //     config([
-    //         'playground.dashboard.enable' => true,
-    //     ]);
-    //     $this->initAuthRoles();
-    //     $response = $this->as('admin')->getJson('/dashboard');
-    //     $response->assertStatus(200);
-    // }
+    public function test_route_json_dashboard_as_admin_and_succeed()
+    {
+        config([
+            'playground.dashboard.enable' => true,
+        ]);
+        $user = UserWithRole::find(User::factory()->create()->id);
+        $user->role = 'admin';
+        $response = $this->actingAs($user)->getJson(route('dashboard'));
+        $response->assertStatus(200);
+    }
 }

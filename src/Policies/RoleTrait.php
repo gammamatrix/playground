@@ -124,7 +124,7 @@ trait RoleTrait
         if (config('playground.auth.userRole')) {
             // Check for any role.
             foreach ($roles as $role) {
-                if (!empty($user->role) && $role == $user->role) {
+                if (!empty($user->role) && $role === $user->role) {
                     return true;
                 }
             }
@@ -143,6 +143,16 @@ trait RoleTrait
             }
         }
 
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '__METHOD__' => __METHOD__,
+        //     '$user' => $user,
+        //     'userRole' => config('playground.auth.userRole'),
+        //     'userRoles' => config('playground.auth.userRoles'),
+        //     'hasRole' => config('playground.auth.hasRole') && method_exists($user, 'hasRole'),
+        //     '$ability' => $ability,
+        //     '$roles' => $roles,
+        // ]);
         return Response::denyWithStatus(401, __('playground::auth.unauthorized'));
     }
 }

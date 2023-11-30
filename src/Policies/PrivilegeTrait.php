@@ -20,6 +20,7 @@ trait PrivilegeTrait
     abstract public function getEntity(): string;
     abstract public function getToken(): ?object;
     abstract public function hasToken(): bool;
+    abstract public function setToken(?object $token = null): self;
 
     public function privilege(string $ability = '*'): string
     {
@@ -69,7 +70,7 @@ trait PrivilegeTrait
         if (class_implements($user, \Laravel\Sanctum\Contracts\HasApiTokens::class)) {
             if (!$this->hasToken()) {
                 $token = $user->tokens()
-                    ->where('name', config('playground-auth.token.name'))
+                    ->where('name', config('playground.auth.token.name'))
                     // Get the latest created token.
                     ->orderBy('created_at', 'desc')
                     ->first()

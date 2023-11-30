@@ -124,4 +124,17 @@ class TraitTest extends TestCase
 
         $this->assertFalse($this->mock->verify($user, $ability));
     }
+
+    public function test_verify_user()
+    {
+        $user = User::factory()->make();
+
+        $verify = 'user';
+
+        config(['playground.auth.verify' => $verify]);
+
+        $ability = 'view';
+
+        $this->assertTrue($this->mock->verify($user, $ability));
+    }
 }
