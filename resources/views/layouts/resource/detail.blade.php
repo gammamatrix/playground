@@ -16,17 +16,32 @@ $withParent = isset($withParent) && is_bool($withParent) ? $withParent : true;
 
 $parent = $withParent ? $data->parent()->first() : null;
 
-/**
- * @var boolean $withCreate
- */
 $withCreate = isset($withCreate) && is_bool($withCreate) ? $withCreate : true;
+$withDelete = isset($withDelete) && is_bool($withDelete) ? $withDelete : true;
+$withEdit = isset($withEdit) && is_bool($withEdit) ? $withEdit : true;
 
-$withPrivilege = !empty($meta['info']) && !empty($meta['info']['privilege']) && is_string($meta['info']['privilege']) ? $meta['info']['privilege'] : 'playground';
+ $withPrivilege = !empty($meta['info']) && !empty($meta['info']['privilege']) && is_string($meta['info']['privilege']) ? $meta['info']['privilege'] : 'playground';
 
-$withCreate = $withCreate && (
-    Auth::user()?->currentAccessToken()?->can($withPrivilege.':create')
-    || Auth::user()?->currentAccessToken()?->can($withPrivilege.':*')
-);
+$routeDelete = route(sprintf('%1$s.destroy', $meta['info']['model_route']), [$meta['info']['model_slug'] => $data->id]);
+$routeEdit = route(sprintf('%1$s.edit', $meta['info']['model_route']), [$meta['info']['model_slug'] => $data->id]);
+
+$currentAccessToken = false;
+$user = Auth::user();
+if ($user && class_implements($user, \Laravel\Sanctum\Contracts\HasApiTokens::class)) {
+    $currentAccessToken = $user->currentAccessToken();
+    $withCreate = $withCreate && $currentAccessToken && (
+        $currentAccessToken->can($withPrivilege . ':create')
+        || $currentAccessToken->can($withPrivilege . ':*')
+    );
+    $withDelete = $withDelete && $currentAccessToken && (
+        $currentAccessToken->can($withPrivilege . ':delete')
+        || $currentAccessToken->can($withPrivilege . ':*')
+    );
+    $withEdit = $withEdit && $currentAccessToken && (
+        $currentAccessToken->can($withPrivilege . ':edit')
+        || $currentAccessToken->can($withPrivilege . ':*')
+    );
+}
 
 /**
  * @var boolean|string $withInfo

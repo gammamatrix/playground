@@ -25,6 +25,9 @@ trait ScopeFilterColumns
             return $query;
         }
 
+        $filter_operator = null;
+        $filter_value = null;
+
         $filter_operators = [
             '|' => [],
             '&' => [],
@@ -62,7 +65,6 @@ trait ScopeFilterColumns
 
             $filter_operator = null;
             $filter_value = null;
-            $filter_parse = false;
 
             if ('boolean' === $filter_type) {
                 $filter_operator = 'BOOLEAN';
@@ -75,9 +77,10 @@ trait ScopeFilterColumns
                 $query->where($column, $filter_value);
             } else {
                 if (is_array($validated['filter'][$column])) {
-                    if (!empty($validated['filter'][$column]['operator'])
-                        && array_key_exists(strtoupper($validated['filter'][$column]['operator']), $filter_operators)
-                    ) {
+                    if (!empty($validated['filter'][$column]['operator']) && array_key_exists(
+                        strtoupper($validated['filter'][$column]['operator']),
+                        $filter_operators
+                    )) {
                         $filter_operator = strtoupper($validated['filter'][$column]['operator']);
                     }
 
@@ -123,9 +126,9 @@ trait ScopeFilterColumns
             }
         }
 
-        // dd([
+        // dump([
         //     '__METHOD__' => __METHOD__,
-        //     '$dates' => $dates,
+        //     '$columns' => $columns,
         //     '$validated' => $validated,
         //     '$query->toSql()' => $query->toSql(),
         //     '$query->getBindings()' => $query->getBindings(),
