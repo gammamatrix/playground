@@ -118,6 +118,15 @@ Model (Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterColumns\Model)
  [x] ScopeFilterColumns returns query with filters without meta for strings
  [x] ScopeFilterColumns returns query with null comparison and ignore
  [x] ScopeFilterColumns returns query with comparison
+ [x] ScopeFilterColumns with boolean filter type and null value
+ [x] ScopeFilterColumns with boolean filter type and true value
+ [x] ScopeFilterColumns with boolean filter type and false value
+ [x] ScopeFilterColumns with filter operator without operator and default to like
+ [x] ScopeFilterColumns with filter operators
+ [x] ScopeFilterColumns with between filter operator without single parameter and ignore between
+ [x] ScopeFilterColumns with between filter operator
+ [x] ScopeFilterColumns with not between filter operator without single parameter and ignore between
+ [x] ScopeFilterColumns with not between filter operator
 
 Model (Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterDates\Model)
  [x] ScopeFilterDates returns query without dates or filters
@@ -127,6 +136,17 @@ Model (Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterDates\Model)
  [x] ScopeFilterDates returns query with null comparison and ignore
  [x] ScopeFilterDates returns query with null comparison and allow
  [x] ScopeFilterDates returns query with comparison
+ [x] ScopeFilterDates returns query with wildcard
+ [x] ScopeFilterDates returns query with operator wildcard
+ [x] ScopeFilterDates returns query with object value and ignore
+ [x] ScopeFilterDates returns query with unnullable value and ignore
+ [x] ScopeFilterDates returns query with invalid operator and use like
+ [x] ScopeFilterDates returns query with invalid parsable value and ignore
+ [x] ScopeFilterDates returns query with short date and gte operator
+ [x] ScopeFilterDates returns query with phrase date and automatically parse
+ [x] ScopeFilterDates with between filter operator with parse
+ [x] ScopeFilterDates with not between filter operator with parse
+ [x] ScopeFilterDates with filter operators
 
 Model (Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterFlags\Model)
  [x] ScopeFilterFlags returns query without flags or filters
@@ -200,6 +220,7 @@ Theme Route (Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\ThemeRo
 Trait (Tests\Feature\GammaMatrix\Playground\Policies\PrivilegeTrait\Trait)
  [x] HasPrivilege and fail with empty privilege
  [x] HasPrivilege with app without token and fail
+ [x] HasPrivilege with app with token and unauthorized privilege and fail
  [x] HasPrivilege with app with wildcard token privileges and succeed
  [x] HasPrivilege with app with wildcard secondary token privileges and succeed
  [x] HasPrivilege with app with token privileges and succeed
@@ -246,7 +267,13 @@ Trait (Tests\Unit\GammaMatrix\Playground\Policies\PolicyTrait\Trait)
  [x] Verify user
 
 Trait (Tests\Unit\GammaMatrix\Playground\Policies\PrivilegeTrait\Trait)
+ [x] Privilege without parameter
+ [x] Privilege with package and without parameter
+ [x] Privilege with package and entity and without parameter
  [x] Has privilege
+ [x] HasPrivilege with user hasPrivilege
+ [x] HasPrivilege with user privileges
+ [x] HasPrivilege without privileges enabled
 
 Trait (Tests\Unit\GammaMatrix\Playground\Policies\RoleTrait\Trait)
  [x] Get roles for admin

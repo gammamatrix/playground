@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2023-11-30 23:59:35</timestamp>
+  <timestamp>2023-12-05 07:57:08</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>96</methodCount>
-    <crapMethodCount>2</crapMethodCount>
-    <crapLoad>36</crapLoad>
-    <totalCrap>714.67</totalCrap>
-    <crapMethodPercent>2.08</crapMethodPercent>
+    <crapMethodCount>0</crapMethodCount>
+    <crapLoad>0</crapLoad>
+    <totalCrap>360</totalCrap>
+    <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -325,10 +325,10 @@
       <methodName>scopeFilterColumns</methodName>
       <methodSignature>scopeFilterColumns(Illuminate\Database\Eloquent\Builder $query, array $columns, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
       <fullMethod>scopeFilterColumns(Illuminate\Database\Eloquent\Builder $query, array $columns, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
-      <crap>98.12</crap>
+      <crap>29</crap>
       <complexity>29</complexity>
-      <coverage>56.52</coverage>
-      <crapLoad>13</crapLoad>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>GammaMatrix\Playground\Models\Traits</package>
@@ -336,10 +336,10 @@
       <methodName>scopeFilterDates</methodName>
       <methodSignature>scopeFilterDates(Illuminate\Database\Eloquent\Builder $query, array $dates, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
       <fullMethod>scopeFilterDates(Illuminate\Database\Eloquent\Builder $query, array $dates, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
-      <crap>280.59</crap>
-      <complexity>46</complexity>
-      <coverage>51.96</coverage>
-      <crapLoad>23</crapLoad>
+      <crap>42</crap>
+      <complexity>42</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>GammaMatrix\Playground\Models\Traits</package>
@@ -798,9 +798,9 @@
       <methodName>privilege</methodName>
       <methodSignature>privilege(string $ability): string</methodSignature>
       <fullMethod>privilege(string $ability): string</fullMethod>
-      <crap>42</crap>
+      <crap>6</crap>
       <complexity>6</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -820,9 +820,9 @@
       <methodName>hasPrivilege</methodName>
       <methodSignature>hasPrivilege(Illuminate\Contracts\Auth\Authenticatable $user, string $privilege): bool|\Illuminate\Auth\Access\Response</methodSignature>
       <fullMethod>hasPrivilege(Illuminate\Contracts\Auth\Authenticatable $user, string $privilege): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>23.96</crap>
-      <complexity>14</complexity>
-      <coverage>62.96</coverage>
+      <crap>13</crap>
+      <complexity>13</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>

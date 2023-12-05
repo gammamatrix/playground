@@ -188,6 +188,15 @@
             <li class="success">ScopeFilterColumns returns query with filters without meta for strings</li>
             <li class="success">ScopeFilterColumns returns query with null comparison and ignore</li>
             <li class="success">ScopeFilterColumns returns query with comparison</li>
+            <li class="success">ScopeFilterColumns with boolean filter type and null value</li>
+            <li class="success">ScopeFilterColumns with boolean filter type and true value</li>
+            <li class="success">ScopeFilterColumns with boolean filter type and false value</li>
+            <li class="success">ScopeFilterColumns with filter operator without operator and default to like</li>
+            <li class="success">ScopeFilterColumns with filter operators</li>
+            <li class="success">ScopeFilterColumns with between filter operator without single parameter and ignore between</li>
+            <li class="success">ScopeFilterColumns with between filter operator</li>
+            <li class="success">ScopeFilterColumns with not between filter operator without single parameter and ignore between</li>
+            <li class="success">ScopeFilterColumns with not between filter operator</li>
         </ul>
         <h2>Model (Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterDates\Model)</h2>
         <ul>
@@ -198,6 +207,17 @@
             <li class="success">ScopeFilterDates returns query with null comparison and ignore</li>
             <li class="success">ScopeFilterDates returns query with null comparison and allow</li>
             <li class="success">ScopeFilterDates returns query with comparison</li>
+            <li class="success">ScopeFilterDates returns query with wildcard</li>
+            <li class="success">ScopeFilterDates returns query with operator wildcard</li>
+            <li class="success">ScopeFilterDates returns query with object value and ignore</li>
+            <li class="success">ScopeFilterDates returns query with unnullable value and ignore</li>
+            <li class="success">ScopeFilterDates returns query with invalid operator and use like</li>
+            <li class="success">ScopeFilterDates returns query with invalid parsable value and ignore</li>
+            <li class="success">ScopeFilterDates returns query with short date and gte operator</li>
+            <li class="success">ScopeFilterDates returns query with phrase date and automatically parse</li>
+            <li class="success">ScopeFilterDates with between filter operator with parse</li>
+            <li class="success">ScopeFilterDates with not between filter operator with parse</li>
+            <li class="success">ScopeFilterDates with filter operators</li>
         </ul>
         <h2>Model (Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterFlags\Model)</h2>
         <ul>
@@ -281,6 +301,7 @@
         <ul>
             <li class="success">HasPrivilege and fail with empty privilege</li>
             <li class="success">HasPrivilege with app without token and fail</li>
+            <li class="success">HasPrivilege with app with token and unauthorized privilege and fail</li>
             <li class="success">HasPrivilege with app with wildcard token privileges and succeed</li>
             <li class="success">HasPrivilege with app with wildcard secondary token privileges and succeed</li>
             <li class="success">HasPrivilege with app with token privileges and succeed</li>
@@ -331,7 +352,13 @@
         </ul>
         <h2>Trait (Tests\Unit\GammaMatrix\Playground\Policies\PrivilegeTrait\Trait)</h2>
         <ul>
+            <li class="success">Privilege without parameter</li>
+            <li class="success">Privilege with package and without parameter</li>
+            <li class="success">Privilege with package and entity and without parameter</li>
             <li class="success">Has privilege</li>
+            <li class="success">HasPrivilege with user hasPrivilege</li>
+            <li class="success">HasPrivilege with user privileges</li>
+            <li class="success">HasPrivilege without privileges enabled</li>
         </ul>
         <h2>Trait (Tests\Unit\GammaMatrix\Playground\Policies\RoleTrait\Trait)</h2>
         <ul>
