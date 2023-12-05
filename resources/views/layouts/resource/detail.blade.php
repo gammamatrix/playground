@@ -20,7 +20,7 @@ $withCreate = isset($withCreate) && is_bool($withCreate) ? $withCreate : true;
 $withDelete = isset($withDelete) && is_bool($withDelete) ? $withDelete : true;
 $withEdit = isset($withEdit) && is_bool($withEdit) ? $withEdit : true;
 
- $withPrivilege = !empty($meta['info']) && !empty($meta['info']['privilege']) && is_string($meta['info']['privilege']) ? $meta['info']['privilege'] : 'playground';
+$withPrivilege = !empty($meta['info']) && !empty($meta['info']['privilege']) && is_string($meta['info']['privilege']) ? $meta['info']['privilege'] : 'playground';
 
 $routeDelete = route(sprintf('%1$s.destroy', $meta['info']['model_route']), [$meta['info']['model_slug'] => $data->id]);
 $routeEdit = route(sprintf('%1$s.edit', $meta['info']['model_route']), [$meta['info']['model_slug'] => $data->id]);

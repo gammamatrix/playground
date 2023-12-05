@@ -9,7 +9,6 @@ namespace GammaMatrix\Playground\Policies;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Support\Str;
-use \Laravel\Sanctum\Contracts\HasApiTokens;
 
 /**
  * \GammaMatrix\Playground\Policies\PrivilegeTrait
