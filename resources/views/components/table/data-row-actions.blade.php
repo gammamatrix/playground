@@ -2,10 +2,15 @@
     <div class="text-nowrap" role="group" aria-label="{{ __('playground::pagination.row.actions.label') }}">
 
         @php
-            $token = Auth::user()?->currentAccessToken();
-            $withDelete = $routeDelete && ($token?->can($privilege . ':delete') || $token?->can($privilege . ':*'));
-            $withEdit = $routeEdit && ($token?->can($privilege . ':edit') || $token?->can($privilege . ':*'));
-            $withRestore = $routeRestore && ($token?->can($privilege . ':restore') || $token?->can($privilege . ':*'));
+            if (false === $currentAccessToken) {
+                $withDelete = !empty($routeDelete);
+                $withEdit = !empty($routeEdit);
+                $withRestore = !empty($routeRestore);
+            } elseif(is_object($currentAccessToken)) {
+                $withDelete = $routeDelete && ($currentAccessToken->can($privilege . ':delete') || $currentAccessToken->can($privilege . ':*'));
+                $withEdit = $routeEdit && ($currentAccessToken->can($privilege . ':edit') || $currentAccessToken->can($privilege . ':*'));
+                $withRestore = $routeRestore && ($currentAccessToken->can($privilege . ':restore') || $currentAccessToken->can($privilege . ':*'));
+            }
         @endphp
 
         @if ($withDelete && $routeDeleteRelationship && $routeDelete)

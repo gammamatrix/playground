@@ -1,11 +1,3 @@
-<?php
-$routeDelete = route(sprintf('%1$s.destroy', $meta['info']['model_route']), [$meta['info']['model_slug'] => $data->id]);
-$routeEdit = route(sprintf('%1$s.edit', $meta['info']['model_route']), [$meta['info']['model_slug'] => $data->id]);
-$token = Auth::user()?->currentAccessToken();
-$withDelete = $routeDelete && ($token?->can($meta['info']['privilege'].':delete') || $token?->can($meta['info']['privilege'].':*'));
-$withEdit = $routeEdit && ($token?->can($meta['info']['privilege'].':edit') || $token?->can($meta['info']['privilege'].':*'));
-
-?>
 <div class="card my-1">
     <div class="card-header">
         @if ($withDelete || $withEdit)

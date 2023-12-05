@@ -7,6 +7,12 @@
  * @component components/table
  */
 
+$currentAccessToken = false;
+$user = Auth::user();
+if ($user && class_implements($user, \Laravel\Sanctum\Contracts\HasApiTokens::class)) {
+    $currentAccessToken = $user->currentAccessToken();
+}
+
 /**
  * @var array $columns The columns in the table, keyed by slug.
  */

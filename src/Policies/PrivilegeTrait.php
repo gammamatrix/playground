@@ -67,7 +67,7 @@ trait PrivilegeTrait
             return Response::denyWithStatus(406, __('playground::auth.unacceptable'));
         }
 
-        if (class_implements($user, \Laravel\Sanctum\Contracts\HasApiTokens::class)) {
+        if (config('playground.auth.sanctum')) {
             if (!$this->hasToken()) {
                 $token = $user->tokens()
                     ->where('name', config('playground.auth.token.name'))
@@ -79,11 +79,9 @@ trait PrivilegeTrait
                 if ($token) {
                     $this->setToken($token);
                     $user->withAccessToken($token);
+                } else {
+                    return Response::denyWithStatus(401, __('playground::auth.unauthorized'));
                 }
-            }
-
-            if (!$this->hasToken()) {
-                return Response::denyWithStatus(401, __('playground::auth.unauthorized'));
             }
 
             if ($this->hasPrivilegeWildcard($privilege)) {

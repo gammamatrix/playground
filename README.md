@@ -40,6 +40,7 @@ See the contents of the published config file: [config/playground.php](config/pl
 | `PLAYGROUND_USER`                 | `playground.user`                |
 | `PLAYGROUND_USER_ID`              | `playground.user_id`             |
 | `PLAYGROUND_USER_TABLE`           | `playground.user_table`          |
+| `PLAYGROUND_AUTH_SANCTUM`         | `playground.auth.sanctum`        |
 | `PLAYGROUND_AUTH_VERIFY`          | `playground.auth.verify`         |
 | `PLAYGROUND_AUTH_HAS_PRIVILEGE`   | `playground.auth.hasPrivilege`   |
 | `PLAYGROUND_AUTH_USER_PRIVILEGES` | `playground.auth.userPrivileges` |

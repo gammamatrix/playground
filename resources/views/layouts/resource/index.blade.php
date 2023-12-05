@@ -16,14 +16,15 @@ $withCreate = isset($withCreate) && is_bool($withCreate) ? $withCreate : true;
 
 $withPrivilege = !empty($meta['info']) && !empty($meta['info']['privilege']) && is_string($meta['info']['privilege']) ? $meta['info']['privilege'] : 'playground';
 
-$withCreate =
-    $withCreate &&
-    (Auth::user()
-        ?->currentAccessToken()
-        ?->can($withPrivilege . ':create') ||
-        Auth::user()
-            ?->currentAccessToken()
-            ?->can($withPrivilege . ':*'));
+$currentAccessToken = false;
+$user = Auth::user();
+if ($user && class_implements($user, \Laravel\Sanctum\Contracts\HasApiTokens::class)) {
+    $currentAccessToken = $user->currentAccessToken();
+    $withCreate = $withCreate && $currentAccessToken && (
+        $currentAccessToken->can($withPrivilege . ':create')
+        || $currentAccessToken->can($withPrivilege . ':*')
+    );
+}
 
 /**
  * @var boolean $withTable
