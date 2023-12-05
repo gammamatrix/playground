@@ -20,6 +20,7 @@ return [
         'token' => [
             'name' => 'app',
         ],
+        'sanctum' => (bool) env('PLAYGROUND_AUTH_SANCTUM', false),
         'hasPrivilege' => (bool) env('PLAYGROUND_AUTH_HAS_PRIVILEGE', false),
         'userPrivileges' => (bool) env('PLAYGROUND_AUTH_USER_PRIVILEGES', false),
         'hasRole' => (bool) env('PLAYGROUND_AUTH_HAS_ROLE', false),
