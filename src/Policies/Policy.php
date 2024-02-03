@@ -1,20 +1,17 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Playground\Policies;
 
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Auth\Access\Response;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Auth\Access\Response;
+use Illuminate\Contracts\Auth\Authenticatable;
 // use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
 /**
  * \Playground\Policies\Policy
- *
  */
 abstract class Policy
 {
@@ -28,9 +25,7 @@ abstract class Policy
      *
      * NOTE Override this method when the root user should not have access.
      *
-     * @param  \Illuminate\Contracts\Auth\Authenticatable  $user
      * @param  string  $ability The ability represents an action in the MCA.
-     *
      * @return mixed Returns true if the user has the root role assigned.
      */
     public function before(Authenticatable $user, $ability)
@@ -76,7 +71,6 @@ abstract class Policy
 
     /**
      * Determine whether the user can view the index.
-     *
      */
     public function index(Authenticatable $user): bool|Response
     {
@@ -88,7 +82,6 @@ abstract class Policy
 
     /**
      * Determine whether the user can view.
-     *
      */
     public function view(Authenticatable $user): bool|Response
     {

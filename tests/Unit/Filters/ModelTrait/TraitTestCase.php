@@ -1,17 +1,13 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Unit\Playground\Filters\ModelTrait;
 
 use Tests\Unit\Playground\TestCase;
 
 /**
  * \Tests\Unit\App\Filter\ModelTrait\AbstractTraitTest
- *
- *
  */
 abstract class TraitTestCase extends TestCase
 {
@@ -21,8 +17,6 @@ abstract class TraitTestCase extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {

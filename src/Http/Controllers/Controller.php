@@ -1,9 +1,7 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Playground\Http\Controllers;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -13,7 +11,6 @@ use Illuminate\Routing\Controller as BaseController;
 
 /**
  * \Playground\Http\Controllers\Controller
- *
  */
 abstract class Controller extends BaseController
 {

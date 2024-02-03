@@ -1,20 +1,17 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Unit\Playground\Policies\PolicyTrait;
 
-use Tests\Unit\Playground\TestCase;
-use Playground\Test\Models\User;
 use Illuminate\Support\Facades\Log;
+use Playground\Test\Models\User;
+use Tests\Unit\Playground\TestCase;
 use TiMacDonald\Log\LogEntry;
 use TiMacDonald\Log\LogFake;
 
 /**
  * \Tests\Unit\Playground\Policies\PolicyTrait\TraitTest
- *
  */
 class TraitTest extends TestCase
 {
@@ -30,8 +27,6 @@ class TraitTest extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {

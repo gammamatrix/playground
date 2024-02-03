@@ -1,9 +1,7 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Playground\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
@@ -13,7 +11,6 @@ use Illuminate\Database\Eloquent\Model;
  * \Playground\Models\UuidModel
  *
  * Models that extend this class use a UUID for a primary key.
- *
  */
 abstract class UuidModel extends Model
 {
@@ -22,14 +19,14 @@ abstract class UuidModel extends Model
     /**
      * Disable auto-incrementing primary when using a UUID column.
      *
-     * @var boolean
+     * @var bool
      */
     public $incrementing = false;
 
     /**
      * Indicates whether attributes are snake cased on arrays.
      *
-     * @var boolean
+     * @var bool
      */
     public static $snakeAttributes = true;
 }

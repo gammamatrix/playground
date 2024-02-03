@@ -1,9 +1,7 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Unit\Playground\Filters\ModelTrait;
 
 /**

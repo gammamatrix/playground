@@ -1,19 +1,15 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Unit\Playground;
 
-use Playground\Test\OrchestraTestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Playground\ServiceProvider;
-use Illuminate\Contracts\Config\Repository;
+use Playground\Test\OrchestraTestCase;
 
 /**
  * \Tests\Unit\Playground\TestCase
- *
  */
 class TestCase extends OrchestraTestCase
 {

@@ -1,25 +1,20 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Unit\Playground\View\Components\Forms\Column;
 
+use Illuminate\Contracts\View\View;
 use Playground\View\Components\Forms\Column;
 use Tests\Unit\Playground\TestCase;
-use Illuminate\Contracts\View\View;
 
 /**
  * \Tests\Unit\Playground\View\Components\Forms\Column\ComponentTest
- *
  */
 class ComponentTest extends TestCase
 {
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {

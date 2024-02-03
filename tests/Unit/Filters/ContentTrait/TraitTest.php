@@ -1,16 +1,13 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Unit\Playground\Filters\ContentTrait;
 
 use Tests\Unit\Playground\TestCase;
 
 /**
  * \Tests\Unit\Playground\Filters\ContentTrait\TraitTest
- *
  */
 class TraitTest extends TestCase
 {
@@ -20,8 +17,6 @@ class TraitTest extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {

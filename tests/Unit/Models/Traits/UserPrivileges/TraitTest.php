@@ -1,16 +1,13 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Unit\Playground\Models\Traits\UserPrivileges;
 
 use Tests\Unit\Playground\TestCase;
 
 /**
  * \Tests\Unit\Playground\Models\Traits\UserPrivileges\TraitTest
- *
  */
 class TraitTest extends TestCase
 {
@@ -26,14 +23,12 @@ class TraitTest extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
         parent::setUp();
 
-        if (!trait_exists(static::TRAIT_CLASS)) {
+        if (! trait_exists(static::TRAIT_CLASS)) {
             $this->markTestSkipped(sprintf(
                 'Expecting the trait to exist: %1$s',
                 static::TRAIT_CLASS
@@ -59,8 +54,7 @@ class TraitTest extends TestCase
     {
         $this->mock->expects($this->any())
             ->method('getAttribute')
-            ->will($this->returnValue(['user']))
-        ;
+            ->will($this->returnValue(['user']));
 
         $privilege = 'user';
         $this->assertTrue($this->mock->hasPrivilege($privilege));
@@ -70,8 +64,7 @@ class TraitTest extends TestCase
     {
         $this->mock->expects($this->any())
             ->method('getAttribute')
-            ->will($this->returnValue([]))
-        ;
+            ->will($this->returnValue([]));
 
         $privilege = 'dog';
         $this->assertFalse($this->mock->hasPrivilege($privilege));
@@ -93,8 +86,7 @@ class TraitTest extends TestCase
     {
         $this->mock->expects($this->any())
             ->method('getAttribute')
-            ->will($this->returnValue(['user']))
-        ;
+            ->will($this->returnValue(['user']));
 
         $role = 'user';
         $this->assertTrue($this->mock->hasRole($role));
@@ -104,8 +96,7 @@ class TraitTest extends TestCase
     {
         $this->mock->expects($this->any())
             ->method('getAttribute')
-            ->will($this->returnValue([]))
-        ;
+            ->will($this->returnValue([]));
 
         $role = 'dog';
         $this->assertFalse($this->mock->hasRole($role));
@@ -119,8 +110,7 @@ class TraitTest extends TestCase
         ];
         $this->mock->expects($this->any())
             ->method('getAttribute')
-            ->will($this->returnValueMap($map))
-        ;
+            ->will($this->returnValueMap($map));
 
         $role = 'pickles';
         $this->assertFalse($this->mock->hasRole($role));
@@ -134,8 +124,7 @@ class TraitTest extends TestCase
         ];
         $this->mock->expects($this->any())
             ->method('getAttribute')
-            ->will($this->returnValueMap($map))
-        ;
+            ->will($this->returnValueMap($map));
 
         $role = 'wheel';
         $this->assertTrue($this->mock->hasRole($role));
@@ -149,8 +138,7 @@ class TraitTest extends TestCase
         ];
         $this->mock->expects($this->any())
             ->method('getAttribute')
-            ->will($this->returnValueMap($map))
-        ;
+            ->will($this->returnValueMap($map));
 
         $role = 'admin';
         $this->assertTrue($this->mock->hasRole($role));
@@ -164,8 +152,7 @@ class TraitTest extends TestCase
         ];
         $this->mock->expects($this->any())
             ->method('getAttribute')
-            ->will($this->returnValueMap($map))
-        ;
+            ->will($this->returnValueMap($map));
 
         $role = 'root';
         $this->assertTrue($this->mock->hasRole($role));
@@ -180,8 +167,7 @@ class TraitTest extends TestCase
     {
         $this->mock->expects($this->any())
             ->method('getAttribute')
-            ->will($this->returnValue(['admin']))
-        ;
+            ->will($this->returnValue(['admin']));
 
         $this->assertTrue($this->mock->isAdmin());
     }
@@ -190,8 +176,7 @@ class TraitTest extends TestCase
     {
         $this->mock->expects($this->any())
             ->method('getAttribute')
-            ->will($this->returnValue([]))
-        ;
+            ->will($this->returnValue([]));
 
         $this->assertFalse($this->mock->isAdmin());
     }
@@ -204,8 +189,7 @@ class TraitTest extends TestCase
         ];
         $this->mock->expects($this->any())
             ->method('getAttribute')
-            ->will($this->returnValueMap($map))
-        ;
+            ->will($this->returnValueMap($map));
 
         $this->assertFalse($this->mock->isAdmin());
     }
@@ -218,8 +202,7 @@ class TraitTest extends TestCase
         ];
         $this->mock->expects($this->any())
             ->method('getAttribute')
-            ->will($this->returnValueMap($map))
-        ;
+            ->will($this->returnValueMap($map));
 
         $this->assertFalse($this->mock->isAdmin());
     }
@@ -232,8 +215,7 @@ class TraitTest extends TestCase
         ];
         $this->mock->expects($this->any())
             ->method('getAttribute')
-            ->will($this->returnValueMap($map))
-        ;
+            ->will($this->returnValueMap($map));
 
         $this->assertTrue($this->mock->isAdmin());
     }
@@ -246,8 +228,7 @@ class TraitTest extends TestCase
         ];
         $this->mock->expects($this->any())
             ->method('getAttribute')
-            ->will($this->returnValueMap($map))
-        ;
+            ->will($this->returnValueMap($map));
 
         $this->assertTrue($this->mock->isAdmin());
     }
@@ -260,8 +241,7 @@ class TraitTest extends TestCase
         ];
         $this->mock->expects($this->any())
             ->method('getAttribute')
-            ->will($this->returnValueMap($map))
-        ;
+            ->will($this->returnValueMap($map));
 
         $this->assertFalse($this->mock->isAdmin());
     }

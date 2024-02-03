@@ -1,20 +1,17 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Feature\Playground\Policies\PrivilegeTrait;
 
-use Tests\Feature\Playground\TestCase;
-use Playground\Test\Models\UserWithSanctum;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Support\Carbon;
 use Laravel\Sanctum\PersonalAccessToken;
+use Playground\Test\Models\UserWithSanctum;
+use Tests\Feature\Playground\TestCase;
 
 /**
  * \Tests\Feature\Playground\Policies\PrivilegeTrait\TraitTest
- *
  */
 class TraitTest extends TestCase
 {
@@ -24,8 +21,6 @@ class TraitTest extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -91,15 +86,13 @@ class TraitTest extends TestCase
             ->where('name', config('playground.auth.token.name'))
             // Get the latest created token.
             ->orderBy('created_at', 'desc')
-            ->firstOrFail()
-        ;
+            ->firstOrFail();
 
         $this->assertInstanceOf(PersonalAccessToken::class, $access_token);
 
         $this->mock->expects($this->any())
             ->method('getToken')
-            ->will($this->returnValue($access_token))
-        ;
+            ->will($this->returnValue($access_token));
 
         $this->assertInstanceOf(Response::class, $this->mock->hasPrivilege(
             $user,
@@ -132,15 +125,13 @@ class TraitTest extends TestCase
             ->where('name', config('playground.auth.token.name'))
             // Get the latest created token.
             ->orderBy('created_at', 'desc')
-            ->firstOrFail()
-        ;
+            ->firstOrFail();
 
         $this->assertInstanceOf(PersonalAccessToken::class, $access_token);
 
         $this->mock->expects($this->any())
             ->method('getToken')
-            ->will($this->returnValue($access_token))
-        ;
+            ->will($this->returnValue($access_token));
 
         $this->assertTrue($this->mock->hasPrivilege(
             $user,
@@ -153,8 +144,7 @@ class TraitTest extends TestCase
         config(['playground.auth.sanctum' => true]);
         $this->mock->expects($this->any())
             ->method('hasToken')
-            ->will($this->returnValue(true))
-        ;
+            ->will($this->returnValue(true));
 
         $user = UserWithSanctum::factory()->create();
         $privilege = 'playground-matrix-resource:backlog:view';
@@ -175,15 +165,13 @@ class TraitTest extends TestCase
             ->where('name', config('playground.auth.token.name'))
             // Get the latest created token.
             ->orderBy('created_at', 'desc')
-            ->firstOrFail()
-        ;
+            ->firstOrFail();
 
         $this->assertInstanceOf(PersonalAccessToken::class, $access_token);
 
         $this->mock->expects($this->any())
             ->method('getToken')
-            ->will($this->returnValue($access_token))
-        ;
+            ->will($this->returnValue($access_token));
 
         $this->assertTrue($this->mock->hasPrivilege(
             $user,
@@ -196,8 +184,7 @@ class TraitTest extends TestCase
         config(['playground.auth.sanctum' => true]);
         $this->mock->expects($this->any())
             ->method('hasToken')
-            ->will($this->returnValue(true))
-        ;
+            ->will($this->returnValue(true));
 
         $user = UserWithSanctum::factory()->create();
         $privilege = 'app';
@@ -216,15 +203,13 @@ class TraitTest extends TestCase
             ->where('name', config('playground.auth.token.name'))
             // Get the latest created token.
             ->orderBy('created_at', 'desc')
-            ->firstOrFail()
-        ;
+            ->firstOrFail();
 
         $this->assertInstanceOf(PersonalAccessToken::class, $access_token);
 
         $this->mock->expects($this->any())
             ->method('getToken')
-            ->will($this->returnValue($access_token))
-        ;
+            ->will($this->returnValue($access_token));
 
         $this->assertTrue($this->mock->hasPrivilege(
             $user,

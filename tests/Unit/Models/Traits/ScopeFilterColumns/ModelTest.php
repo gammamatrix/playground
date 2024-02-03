@@ -1,18 +1,15 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Unit\Playground\Models\Traits\ScopeFilterColumns;
 
-use Tests\Unit\Playground\TestCase;
-use Playground\Test\SqlTrait;
 use Illuminate\Database\Eloquent\Builder;
+use Playground\Test\SqlTrait;
+use Tests\Unit\Playground\TestCase;
 
 /**
  * \Tests\Unit\Playground\Models\Traits\ScopeFilterColumns\ModelTest
- *
  */
 class ModelTest extends TestCase
 {
@@ -32,8 +29,6 @@ class ModelTest extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,7 +36,7 @@ class ModelTest extends TestCase
 
         parent::setUp();
 
-        if (!class_exists(static::ABSTRACT_CLASS)) {
+        if (! class_exists(static::ABSTRACT_CLASS)) {
             $this->markTestSkipped(sprintf(
                 'Expecting the abstract model class to exist: %1$s',
                 static::ABSTRACT_CLASS
@@ -218,7 +213,7 @@ class ModelTest extends TestCase
 
         $columns = [
             'active' => [
-                'type' => 'boolean'
+                'type' => 'boolean',
             ],
         ];
 
@@ -250,7 +245,7 @@ class ModelTest extends TestCase
 
         $columns = [
             'active' => [
-                'type' => 'boolean'
+                'type' => 'boolean',
             ],
         ];
 
@@ -282,7 +277,7 @@ class ModelTest extends TestCase
 
         $columns = [
             'active' => [
-                'type' => 'boolean'
+                'type' => 'boolean',
             ],
         ];
 
@@ -386,7 +381,7 @@ class ModelTest extends TestCase
 
             $validated['filter']['title']['operator'] = $operator;
 
-            if (!empty($meta['remap']) && is_string($meta['remap'])) {
+            if (! empty($meta['remap']) && is_string($meta['remap'])) {
                 $operator = $meta['remap'];
             }
 
@@ -412,7 +407,7 @@ class ModelTest extends TestCase
             $bindings = $query->getBindings();
             $this->assertIsArray($bindings);
 
-            if (!empty($meta['no-bindings'])) {
+            if (! empty($meta['no-bindings'])) {
                 $this->assertEmpty($bindings);
             } else {
                 $this->assertCount(1, $bindings);

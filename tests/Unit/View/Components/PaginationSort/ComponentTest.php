@@ -1,25 +1,20 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Unit\Playground\View\Components\PaginationSort;
 
+use Illuminate\Contracts\View\View;
 use Playground\View\Components\PaginationSort;
 use Tests\Unit\Playground\TestCase;
-use Illuminate\Contracts\View\View;
 
 /**
  * \Tests\Unit\Playground\View\Components\Table\ComponentTest
- *
  */
 class ComponentTest extends TestCase
 {
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -49,7 +44,7 @@ class ComponentTest extends TestCase
     {
         $sort = [];
         $validated = [
-            'sort' => ['title' , '-active'],
+            'sort' => ['title', '-active'],
             'perPage' => 1,
             'page' => 1,
         ];
@@ -65,7 +60,7 @@ class ComponentTest extends TestCase
             'title',
         ];
         $validated = [
-            'sort' => ['title' , '-active'],
+            'sort' => ['title', '-active'],
             'perPage' => 1,
             'page' => 1,
         ];
@@ -81,7 +76,7 @@ class ComponentTest extends TestCase
             'active' => ['label' => 'Active'],
         ];
         $validated = [
-            'sort' => ['title' , '-active'],
+            'sort' => ['title', '-active'],
             'perPage' => 1,
             'page' => 1,
         ];

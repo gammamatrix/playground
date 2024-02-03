@@ -1,18 +1,15 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Unit\Playground\Models\Model;
 
-use Tests\Unit\Playground\TestCase;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Tests\Unit\Playground\TestCase;
 
 /**
  * \Tests\Unit\Playground\Models\Model\ModelTest
- *
  */
 class ModelTest extends TestCase
 {
@@ -28,14 +25,12 @@ class ModelTest extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
         parent::setUp();
 
-        if (!class_exists(static::ABSTRACT_CLASS)) {
+        if (! class_exists(static::ABSTRACT_CLASS)) {
             $this->markTestSkipped(sprintf(
                 'Expecting the abstract model class to exist: %1$s',
                 static::ABSTRACT_CLASS

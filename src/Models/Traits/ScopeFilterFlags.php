@@ -1,16 +1,13 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Playground\Models\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 
 /**
  * \Playground\Models\Traits\ScopeFilterFlags
- *
  */
 trait ScopeFilterFlags
 {
@@ -19,19 +16,19 @@ trait ScopeFilterFlags
         array $flags,
         array $validated = []
     ): Builder {
-        if (empty($validated['filter']) || !is_array($validated['filter'])) {
+        if (empty($validated['filter']) || ! is_array($validated['filter'])) {
             return $query;
         }
 
         foreach ($flags as $column => $meta) {
-            if (!empty(($column))
+            if (! empty(($column))
                 && is_string($column)
                 && preg_match('/^[a-z][a-z0-9_]+$/i', $column)
                 && array_key_exists($column, $validated['filter'])
                 // NULL means either true or false is acceptable
-                && !is_null($validated['filter'][$column])
+                && ! is_null($validated['filter'][$column])
             ) {
-                $query->where($column, !empty($validated['filter'][$column]));
+                $query->where($column, ! empty($validated['filter'][$column]));
             }
         }
 

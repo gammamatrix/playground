@@ -1,16 +1,13 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Playground\Models\Traits;
 
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * \Playground\Models\Traits\WithCreator
- *
  */
 trait WithCreator
 {

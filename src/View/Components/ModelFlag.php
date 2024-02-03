@@ -1,18 +1,14 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Playground\View\Components;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 /**
  * \Playground\View\Components\ModelFlag
- *
  */
 class ModelFlag extends Component
 {

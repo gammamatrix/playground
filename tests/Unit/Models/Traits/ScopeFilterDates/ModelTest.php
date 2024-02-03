@@ -1,19 +1,16 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Unit\Playground\Models\Traits\ScopeFilterDates;
 
-use Tests\Unit\Playground\TestCase;
-use Playground\Test\SqlTrait;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+use Playground\Test\SqlTrait;
+use Tests\Unit\Playground\TestCase;
 
 /**
  * \Tests\Unit\Playground\Models\Traits\ScopeFilterDates\ModelTest
- *
  */
 class ModelTest extends TestCase
 {
@@ -33,12 +30,10 @@ class ModelTest extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
-        if (!class_exists(static::ABSTRACT_CLASS)) {
+        if (! class_exists(static::ABSTRACT_CLASS)) {
             $this->markTestSkipped(sprintf(
                 'Expecting the abstract model class to exist: %1$s',
                 static::ABSTRACT_CLASS
@@ -161,7 +156,7 @@ class ModelTest extends TestCase
             'updated_at' => [],
             'created_at' => [],
             'closed_at' => [
-                'nullable' => false
+                'nullable' => false,
             ],
         ];
 
@@ -195,7 +190,7 @@ class ModelTest extends TestCase
             'updated_at' => [],
             'created_at' => [],
             'closed_at' => [
-                'nullable' => true
+                'nullable' => true,
             ],
         ];
 
@@ -291,7 +286,7 @@ class ModelTest extends TestCase
         $validated = [
             'filter' => [
                 'updated_at' => [
-                    'value' => '2020-10%'
+                    'value' => '2020-10%',
                 ],
             ],
         ];
@@ -641,7 +636,7 @@ class ModelTest extends TestCase
 
             $validated['filter']['created_at']['operator'] = $operator;
 
-            if (!empty($meta['remap']) && is_string($meta['remap'])) {
+            if (! empty($meta['remap']) && is_string($meta['remap'])) {
                 $operator = $meta['remap'];
             }
 
@@ -667,7 +662,7 @@ class ModelTest extends TestCase
             $bindings = $query->getBindings();
             $this->assertIsArray($bindings);
 
-            if (!empty($meta['no-bindings'])) {
+            if (! empty($meta['no-bindings'])) {
                 $this->assertEmpty($bindings);
             } else {
                 $this->assertCount(1, $bindings);

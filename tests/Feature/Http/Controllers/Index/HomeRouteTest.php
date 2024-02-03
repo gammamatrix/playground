@@ -1,9 +1,7 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Feature\Playground\Http\Controllers\Index;
 
 use Playground\Test\Models\User;
@@ -12,7 +10,6 @@ use Tests\Feature\Playground\TestCase;
 
 /**
  * \Tests\Feature\Playground\Http\Controllers\Index\HomeRouteTest
- *
  */
 class HomeRouteTest extends TestCase
 {

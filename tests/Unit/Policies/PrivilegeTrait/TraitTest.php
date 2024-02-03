@@ -1,19 +1,16 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Unit\Playground\Policies\PrivilegeTrait;
 
-use Tests\Unit\Playground\TestCase;
-use Playground\Test\Models\UserWithSanctum;
-use Playground\Test\Models\UserWithRoleAndRolesAndPrivileges;
 use Illuminate\Auth\Access\Response;
+use Playground\Test\Models\UserWithRoleAndRolesAndPrivileges;
+use Playground\Test\Models\UserWithSanctum;
+use Tests\Unit\Playground\TestCase;
 
 /**
  * \Tests\Unit\Playground\Policies\PrivilegeTrait\TraitTest
- *
  */
 class TraitTest extends TestCase
 {
@@ -23,8 +20,6 @@ class TraitTest extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -55,8 +50,7 @@ class TraitTest extends TestCase
 
         $this->mock->expects($this->any())
             ->method('getPackage')
-            ->will($this->returnValue($package))
-        ;
+            ->will($this->returnValue($package));
 
         $this->assertSame($expected, $this->mock->privilege());
     }
@@ -69,13 +63,11 @@ class TraitTest extends TestCase
 
         $this->mock->expects($this->any())
             ->method('getPackage')
-            ->will($this->returnValue($package))
-        ;
+            ->will($this->returnValue($package));
 
         $this->mock->expects($this->any())
             ->method('getEntity')
-            ->will($this->returnValue($entity))
-        ;
+            ->will($this->returnValue($entity));
 
         $this->assertSame($expected, $this->mock->privilege());
     }

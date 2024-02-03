@@ -1,18 +1,15 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Unit\Playground\Policies\RoleTrait;
 
-use Tests\Unit\Playground\TestCase;
-use Playground\Test\Models\User;
 use Illuminate\Auth\Access\Response;
+use Playground\Test\Models\User;
+use Tests\Unit\Playground\TestCase;
 
 /**
  * \Tests\Unit\Playground\Policies\RoleTrait\TraitTest
- *
  */
 class TraitTest extends TestCase
 {
@@ -22,8 +19,6 @@ class TraitTest extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {

@@ -1,16 +1,13 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Playground\Models\Interfaces;
 
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * \Playground\Models\Interfaces\WithCreatorInterface
- *
  */
 interface WithCreatorInterface
 {

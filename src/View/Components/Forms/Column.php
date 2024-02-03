@@ -1,9 +1,7 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Playground\View\Components\Forms;
 
 use Illuminate\Contracts\View\View;
@@ -11,7 +9,6 @@ use Illuminate\View\Component;
 
 /**
  * \Playground\View\Components\Forms\Column
- *
  */
 class Column extends Component
 {

@@ -1,25 +1,21 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Playground\Policies;
 
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Access\Response;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 /**
  * \Playground\Policies\ModelPolicy
- *
  */
 abstract class ModelPolicy extends Policy
 {
     /**
      * Determine whether the user can create model.
-     *
      */
     public function create(Authenticatable $user): bool|Response
     {
@@ -30,7 +26,6 @@ abstract class ModelPolicy extends Policy
      * Determine whether the user can delete the model.
      *
      * - This is for soft deletes or trash.
-     *
      */
     public function delete(
         Authenticatable $user,
@@ -51,7 +46,6 @@ abstract class ModelPolicy extends Policy
 
     /**
      * Determine whether the user can view the model.
-     *
      */
     public function detail(Authenticatable $user, Model $model): bool|Response
     {
@@ -60,7 +54,6 @@ abstract class ModelPolicy extends Policy
 
     /**
      * Determine whether the user can edit a model.
-     *
      */
     public function edit(Authenticatable $user, Model $model = null): bool|Response
     {
@@ -71,7 +64,6 @@ abstract class ModelPolicy extends Policy
      * Determine whether the user can permanently delete the model.
      *
      * Force deletes permanently from a database.
-     *
      */
     public function forceDelete(Authenticatable $user, Model $model): bool|Response
     {
@@ -80,7 +72,6 @@ abstract class ModelPolicy extends Policy
 
     /**
      * Determine whether the user can lock a model.
-     *
      */
     public function lock(Authenticatable $user, Model $model): bool|Response
     {
@@ -89,7 +80,6 @@ abstract class ModelPolicy extends Policy
 
     /**
      * Determine whether the user can manage the model.
-     *
      */
     public function manage(Authenticatable $user, Model $model): bool|Response
     {
@@ -98,7 +88,6 @@ abstract class ModelPolicy extends Policy
 
     /**
      * Determine whether the user can restore the model.
-     *
      */
     public function restore(Authenticatable $user, Model $model): bool|Response
     {
@@ -107,7 +96,6 @@ abstract class ModelPolicy extends Policy
 
     /**
      * Determine whether the user can store the model.
-     *
      */
     public function store(Authenticatable $user): bool|Response
     {
@@ -116,7 +104,6 @@ abstract class ModelPolicy extends Policy
 
     /**
      * Determine whether the user can edit a model.
-     *
      */
     public function update(Authenticatable $user, Model $model): bool|Response
     {
@@ -134,7 +121,6 @@ abstract class ModelPolicy extends Policy
 
     /**
      * Determine whether the user can unlock a model.
-     *
      */
     public function unlock(Authenticatable $user, Model $model): bool|Response
     {

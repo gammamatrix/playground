@@ -1,18 +1,15 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Unit\Playground\Policies\Policy;
 
+use Illuminate\Auth\Access\Response;
 use Playground\Test\Models\User;
 use Tests\Unit\Playground\TestCase;
-use Illuminate\Auth\Access\Response;
 
 /**
  * \Tests\Unit\Playground\Policies\Policy\AbstractTest
- *
  */
 class AbstractTest extends TestCase
 {
@@ -28,8 +25,6 @@ class AbstractTest extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -45,7 +40,6 @@ class AbstractTest extends TestCase
 
     /**
      * Test before().
-     *
      */
     public function test_before_with_root()
     {
@@ -64,7 +58,6 @@ class AbstractTest extends TestCase
 
     /**
      * Test before().
-     *
      */
     public function test_before_with_root_as_secondary_fails()
     {
@@ -86,7 +79,6 @@ class AbstractTest extends TestCase
 
     /**
      * Test index().
-     *
      */
     public function test_index_without_role()
     {
@@ -97,7 +89,6 @@ class AbstractTest extends TestCase
 
     /**
      * Test index().
-     *
      */
     public function test_index_with_admin()
     {
@@ -115,7 +106,6 @@ class AbstractTest extends TestCase
 
     /**
      * Test view().
-     *
      */
     public function test_view_without_role()
     {
@@ -126,7 +116,6 @@ class AbstractTest extends TestCase
 
     /**
      * Test view().
-     *
      */
     public function test_view_with_admin()
     {
@@ -146,7 +135,6 @@ class AbstractTest extends TestCase
 
     /**
      * Test view().
-     *
      */
     public function test_view_with_admin_in_roles()
     {

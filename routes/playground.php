@@ -15,86 +15,86 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-if (!empty(config('playground.routes.about'))) {
+if (! empty(config('playground.routes.about'))) {
     Route::get('/about', [
-        'as'        => 'about',
+        'as' => 'about',
         'middleware' => [
             'web',
         ],
         // 'namespace' => 'Playground\Http\Controllers',
-        'uses'      => '\Playground\Http\Controllers\IndexController@about',
+        'uses' => '\Playground\Http\Controllers\IndexController@about',
     ]);
 }
 
-if (!empty(config('playground.routes.bootstrap'))) {
+if (! empty(config('playground.routes.bootstrap'))) {
     Route::get('/bootstrap', [
-        'as'        => 'bootstrap',
+        'as' => 'bootstrap',
         'middleware' => [
             'web',
         ],
         // 'namespace' => 'Playground\Http\Controllers',
-        'uses'      => '\Playground\Http\Controllers\IndexController@bootstrap',
+        'uses' => '\Playground\Http\Controllers\IndexController@bootstrap',
     ]);
 }
 
-if (!empty(config('playground.routes.home'))) {
+if (! empty(config('playground.routes.home'))) {
     Route::get('/', [
         'middleware' => [
             'web',
         ],
         // 'namespace' => 'Playground\Http\Controllers',
-        'uses'      => '\Playground\Http\Controllers\IndexController@home',
+        'uses' => '\Playground\Http\Controllers\IndexController@home',
     ]);
     Route::get('/home', [
-        'as'        => 'home',
+        'as' => 'home',
         'middleware' => [
             'web',
         ],
         // 'namespace' => 'Playground\Http\Controllers',
-        'uses'      => '\Playground\Http\Controllers\IndexController@home',
+        'uses' => '\Playground\Http\Controllers\IndexController@home',
     ]);
 }
 
-if (!empty(config('playground.routes.dashboard'))) {
+if (! empty(config('playground.routes.dashboard'))) {
     Route::get('/dashboard', [
-        'as'        => 'dashboard',
+        'as' => 'dashboard',
         'middleware' => [
             'web',
         ],
         // 'namespace' => 'Playground\Http\Controllers',
-        'uses'      => '\Playground\Http\Controllers\IndexController@dashboard',
+        'uses' => '\Playground\Http\Controllers\IndexController@dashboard',
     ]);
 }
 
-if (!empty(config('playground.routes.sitemap'))) {
+if (! empty(config('playground.routes.sitemap'))) {
     Route::get('/sitemap', [
-        'as'        => 'sitemap',
+        'as' => 'sitemap',
         'middleware' => [
             'web',
         ],
         // 'namespace' => 'Playground\Http\Controllers',
-        'uses'      => '\Playground\Http\Controllers\IndexController@sitemap',
+        'uses' => '\Playground\Http\Controllers\IndexController@sitemap',
     ]);
 }
 
-if (!empty(config('playground.routes.theme'))) {
+if (! empty(config('playground.routes.theme'))) {
     Route::get('/theme', [
-        'as'        => 'theme',
+        'as' => 'theme',
         'middleware' => [
             'web',
         ],
         // 'namespace' => 'Playground\Http\Controllers',
-        'uses'      => '\Playground\Http\Controllers\IndexController@theme',
+        'uses' => '\Playground\Http\Controllers\IndexController@theme',
     ]);
 }
 
-if (!empty(config('playground.routes.welcome'))) {
+if (! empty(config('playground.routes.welcome'))) {
     Route::get('/welcome', [
-        'as'        => 'welcome',
+        'as' => 'welcome',
         'middleware' => [
             'web',
         ],
         // 'namespace' => 'Playground\Http\Controllers',
-        'uses'      => '\Playground\Http\Controllers\IndexController@welcome',
+        'uses' => '\Playground\Http\Controllers\IndexController@welcome',
     ]);
 }

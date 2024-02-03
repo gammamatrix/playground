@@ -1,18 +1,15 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Unit\Playground\Models\Traits\ScopeFilterTrash;
 
-use Tests\Unit\Playground\TestCase;
-use Playground\Test\SqlTrait;
 use Illuminate\Database\Eloquent\Builder;
+use Playground\Test\SqlTrait;
+use Tests\Unit\Playground\TestCase;
 
 /**
  * \Tests\Unit\Playground\Models\Traits\ScopeFilterTrash\ModelTest
- *
  */
 class ModelTest extends TestCase
 {
@@ -32,8 +29,6 @@ class ModelTest extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,7 +36,7 @@ class ModelTest extends TestCase
 
         parent::setUp();
 
-        if (!class_exists(static::ABSTRACT_CLASS)) {
+        if (! class_exists(static::ABSTRACT_CLASS)) {
             $this->markTestSkipped(sprintf(
                 'Expecting the abstract model class to exist: %1$s',
                 static::ABSTRACT_CLASS

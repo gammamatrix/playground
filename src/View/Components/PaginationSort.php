@@ -1,9 +1,7 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Playground\View\Components;
 
 use Illuminate\View\Component;
@@ -36,7 +34,7 @@ class PaginationSort extends Component
     public $sort = [];
 
     /**
-     * @var integer The number of sortable columns.
+     * @var int The number of sortable columns.
      */
     public $sorts = 2;
 
@@ -63,12 +61,10 @@ class PaginationSort extends Component
      * Set the sort information.
      *
      * @param array $sort
-     *
-     * @return array
      */
     public function setSort($sort): array
     {
-        if (empty($sort) || !is_array($sort)) {
+        if (empty($sort) || ! is_array($sort)) {
             $this->sort = [];
         }
 
@@ -79,7 +75,7 @@ class PaginationSort extends Component
             }
             $this->sort[] = [
                 'column' => $slug,
-                'label' => empty($meta['label']) || !is_string($meta['label']) ? $slug : $meta['label'],
+                'label' => empty($meta['label']) || ! is_string($meta['label']) ? $slug : $meta['label'],
             ];
         }
 

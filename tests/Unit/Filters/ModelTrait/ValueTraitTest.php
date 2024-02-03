@@ -1,9 +1,7 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Unit\Playground\Filters\ModelTrait;
 
 /**
@@ -54,7 +52,7 @@ class ValueTraitTest extends TraitTestCase
             'i' => 'am-a-test-array',
             'someNullValue' => null,
             'aString' => 'thanks!',
-            'object' => (object) ['ok' => true,],
+            'object' => (object) ['ok' => true],
         ];
 
         $this->assertTrue($this->mock->filterBoolean($value));

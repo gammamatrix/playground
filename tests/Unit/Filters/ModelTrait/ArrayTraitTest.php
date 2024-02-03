@@ -1,9 +1,7 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Tests\Unit\Playground\Filters\ModelTrait;
 
 /**
@@ -45,7 +43,7 @@ class ArrayTraitTest extends TraitTestCase
             'i' => 'am-a-test-array',
             'someNullValue' => null,
             'aString' => 'thanks!',
-            'object' => (object) ['ok' => true,],
+            'object' => (object) ['ok' => true],
         ];
 
         // Returns the same array.
@@ -83,7 +81,7 @@ class ArrayTraitTest extends TraitTestCase
             'i' => 'am-a-test-array',
             'someNullValue' => null,
             'aString' => 'thanks!',
-            'object' => (object) ['ok' => true,],
+            'object' => (object) ['ok' => true],
         ];
 
         // Returns the same array.

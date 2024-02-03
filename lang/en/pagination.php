@@ -15,7 +15,6 @@ return [
     'previous' => '&laquo; Previous',
     'next' => 'Next &raquo;',
 
-
     'go' => 'Go',
 
     'form.label' => 'Pagination Options',

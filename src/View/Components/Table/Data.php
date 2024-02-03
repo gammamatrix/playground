@@ -1,18 +1,15 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Playground\View\Components\Table;
 
 use Illuminate\Contracts\View\View;
-use Illuminate\View\Component;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\View\Component;
 
 /**
  * \Playground\View\Components\Table\Data
- *
  */
 class Data extends Component
 {

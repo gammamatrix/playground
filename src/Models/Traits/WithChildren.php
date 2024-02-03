@@ -1,16 +1,13 @@
 <?php
 /**
  * Playground
- *
  */
-
 namespace Playground\Models\Traits;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * \Playground\Models\Traits\WithChildren
- *
  */
 trait WithChildren
 {
