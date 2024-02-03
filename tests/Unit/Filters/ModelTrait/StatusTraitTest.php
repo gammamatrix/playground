@@ -1,22 +1,22 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait;
+namespace Tests\Unit\Playground\Filters\ModelTrait;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\DateTraitTest
+ * \Tests\Unit\Playground\Filters\ModelTrait\DateTraitTest
  *
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterStatus()
+ * @see \Playground\Filters\ModelTrait::filterStatus()
  */
 class StatusTraitTest extends TraitTestCase
 {
     /**
      * filterStatus
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterStatus()
+     * @see \Playground\Filters\ModelTrait::filterStatus()
      */
     public function test_filterStatus()
     {

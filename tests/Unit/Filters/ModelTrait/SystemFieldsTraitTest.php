@@ -1,23 +1,23 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait;
+namespace Tests\Unit\Playground\Filters\ModelTrait;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\SystemFieldsTraitTest
+ * \Tests\Unit\Playground\Filters\ModelTrait\SystemFieldsTraitTest
  *
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterSystemFields()
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterSystemFields()
+ * @see \Playground\Filters\ModelTrait::filterSystemFields()
+ * @see \Playground\Filters\ModelTrait::filterSystemFields()
  */
 class SystemFieldsTraitTest extends TraitTestCase
 {
     /**
      * filterSystemFields: gids
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterSystemFields()
+     * @see \Playground\Filters\ModelTrait::filterSystemFields()
      */
     public function test_filterSystemFields_for_groups()
     {
@@ -30,7 +30,7 @@ class SystemFieldsTraitTest extends TraitTestCase
     /**
      * filterSystemFields: gids
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterSystemFields()
+     * @see \Playground\Filters\ModelTrait::filterSystemFields()
      */
     public function test_filterSystemFields_for_permissions()
     {
@@ -64,7 +64,7 @@ class SystemFieldsTraitTest extends TraitTestCase
     /**
      * filterSystemFields: rank
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterSystemFields()
+     * @see \Playground\Filters\ModelTrait::filterSystemFields()
      */
     public function test_filterSystemFields_for_rank()
     {
@@ -81,7 +81,7 @@ class SystemFieldsTraitTest extends TraitTestCase
     /**
      * filterSystemFields: size
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterSystemFields()
+     * @see \Playground\Filters\ModelTrait::filterSystemFields()
      */
     public function test_filterSystemFields_for_size()
     {

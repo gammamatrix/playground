@@ -1,15 +1,15 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\Models\Interfaces;
+namespace Playground\Models\Interfaces;
 
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * \GammaMatrix\Playground\Models\Interfaces\WithOwnerInterface
+ * \Playground\Models\Interfaces\WithOwnerInterface
  *
  */
 interface WithOwnerInterface

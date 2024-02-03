@@ -1,21 +1,21 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\Models;
+namespace Playground\Models;
 
-use GammaMatrix\Playground\Models\Interfaces\WithChildrenInterface;
-use GammaMatrix\Playground\Models\Interfaces\WithCreatorInterface;
-use GammaMatrix\Playground\Models\Interfaces\WithModifierInterface;
-use GammaMatrix\Playground\Models\Interfaces\WithOwnerInterface;
-use GammaMatrix\Playground\Models\Interfaces\WithParentInterface;
+use Playground\Models\Interfaces\WithChildrenInterface;
+use Playground\Models\Interfaces\WithCreatorInterface;
+use Playground\Models\Interfaces\WithModifierInterface;
+use Playground\Models\Interfaces\WithOwnerInterface;
+use Playground\Models\Interfaces\WithParentInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * \GammaMatrix\Playground\Models\Model
+ * \Playground\Models\Model
  *
  */
 abstract class Model extends UuidModel implements

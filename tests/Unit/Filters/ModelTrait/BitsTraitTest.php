@@ -1,23 +1,23 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait;
+namespace Tests\Unit\Playground\Filters\ModelTrait;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\BitsTraitTest
+ * \Tests\Unit\Playground\Filters\ModelTrait\BitsTraitTest
  *
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterBits()
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterBits()
+ * @see \Playground\Filters\ModelTrait::filterBits()
+ * @see \Playground\Filters\ModelTrait::filterBits()
  */
 class BitsTraitTest extends TraitTestCase
 {
     /**
      * filterBits: $exponent = 0
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterBits()
+     * @see \Playground\Filters\ModelTrait::filterBits()
      */
     public function test_filterBits_for_exponent_zero()
     {
@@ -31,7 +31,7 @@ class BitsTraitTest extends TraitTestCase
     /**
      * filterBits: $exponent > 0
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterBits()
+     * @see \Playground\Filters\ModelTrait::filterBits()
      */
     public function test_filterBits_for_exponent_greater_than_zero()
     {

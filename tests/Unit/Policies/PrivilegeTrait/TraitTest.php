@@ -1,23 +1,23 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Policies\PrivilegeTrait;
+namespace Tests\Unit\Playground\Policies\PrivilegeTrait;
 
-use Tests\Unit\GammaMatrix\Playground\TestCase;
-use GammaMatrix\Playground\Test\Models\UserWithSanctum;
-use GammaMatrix\Playground\Test\Models\UserWithRoleAndRolesAndPrivileges;
+use Tests\Unit\Playground\TestCase;
+use Playground\Test\Models\UserWithSanctum;
+use Playground\Test\Models\UserWithRoleAndRolesAndPrivileges;
 use Illuminate\Auth\Access\Response;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Policies\PrivilegeTrait\TraitTest
+ * \Tests\Unit\Playground\Policies\PrivilegeTrait\TraitTest
  *
  */
 class TraitTest extends TestCase
 {
-    public const TRAIT_CLASS = \GammaMatrix\Playground\Policies\PrivilegeTrait::class;
+    public const TRAIT_CLASS = \Playground\Policies\PrivilegeTrait::class;
 
     public $mock;
 

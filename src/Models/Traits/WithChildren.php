@@ -1,15 +1,15 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\Models\Traits;
+namespace Playground\Models\Traits;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * \GammaMatrix\Playground\Models\Traits\WithChildren
+ * \Playground\Models\Traits\WithChildren
  *
  */
 trait WithChildren

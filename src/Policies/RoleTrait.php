@@ -1,16 +1,16 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\Policies;
+namespace Playground\Policies;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Access\Response;
 
 /**
- * \GammaMatrix\Playground\Policies\RoleTrait
+ * \Playground\Policies\RoleTrait
  *
  */
 trait RoleTrait

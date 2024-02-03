@@ -4,14 +4,14 @@
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\View\Components\PaginationSort;
+namespace Tests\Unit\Playground\View\Components\PaginationSort;
 
-use GammaMatrix\Playground\View\Components\PaginationSort;
-use Tests\Unit\GammaMatrix\Playground\TestCase;
+use Playground\View\Components\PaginationSort;
+use Tests\Unit\Playground\TestCase;
 use Illuminate\Contracts\View\View;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\View\Components\Table\ComponentTest
+ * \Tests\Unit\Playground\View\Components\Table\ComponentTest
  *
  */
 class ComponentTest extends TestCase

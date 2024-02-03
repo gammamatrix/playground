@@ -4,14 +4,14 @@
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\View\Components\Forms\ColumnEditor;
+namespace Tests\Unit\Playground\View\Components\Forms\ColumnEditor;
 
-use GammaMatrix\Playground\View\Components\Forms\ColumnEditor;
-use Tests\Unit\GammaMatrix\Playground\TestCase;
+use Playground\View\Components\Forms\ColumnEditor;
+use Tests\Unit\Playground\TestCase;
 use Illuminate\Contracts\View\View;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\View\Components\Forms\ColumnEditor\ComponentTest
+ * \Tests\Unit\Playground\View\Components\Forms\ColumnEditor\ComponentTest
  *
  */
 class ComponentTest extends TestCase

@@ -1,24 +1,24 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace Tests\Feature\GammaMatrix\Playground\Policies\PrivilegeTrait;
+namespace Tests\Feature\Playground\Policies\PrivilegeTrait;
 
-use Tests\Feature\GammaMatrix\Playground\TestCase;
-use GammaMatrix\Playground\Test\Models\UserWithSanctum;
+use Tests\Feature\Playground\TestCase;
+use Playground\Test\Models\UserWithSanctum;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Support\Carbon;
 use Laravel\Sanctum\PersonalAccessToken;
 
 /**
- * \Tests\Feature\GammaMatrix\Playground\Policies\PrivilegeTrait\TraitTest
+ * \Tests\Feature\Playground\Policies\PrivilegeTrait\TraitTest
  *
  */
 class TraitTest extends TestCase
 {
-    public const TRAIT_CLASS = \GammaMatrix\Playground\Policies\PrivilegeTrait::class;
+    public const TRAIT_CLASS = \Playground\Policies\PrivilegeTrait::class;
 
     public $mock;
 

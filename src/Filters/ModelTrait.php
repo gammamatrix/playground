@@ -1,19 +1,19 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\Filters;
+namespace Playground\Filters;
 
 use Carbon\Carbon;
 
 use Ramsey\Uuid\Uuid;
 
 /**
- * \GammaMatrix\Playground\Filters\ModelTrait
+ * \Playground\Filters\ModelTrait
  *
- * GammaMatrix filter handler
+ * Playground filter handler
  *
  * It is expected that the data may not have the proper type from forms.
  * These filters correct those values. Parameters must not be cast.

@@ -4,14 +4,14 @@
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Policies\ModelPolicy;
+namespace Tests\Unit\Playground\Policies\ModelPolicy;
 
-use GammaMatrix\Playground\Test\Models\UserWithRoleAndRolesAndPrivileges as User;
-use Tests\Unit\GammaMatrix\Playground\TestCase;
+use Playground\Test\Models\UserWithRoleAndRolesAndPrivileges as User;
+use Tests\Unit\Playground\TestCase;
 use Illuminate\Auth\Access\Response;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Policies\ModelPolicy\AbstractRoleTest
+ * \Tests\Unit\Playground\Policies\ModelPolicy\AbstractRoleTest
  *
  */
 class AbstractRoleTest extends TestCase
@@ -19,12 +19,12 @@ class AbstractRoleTest extends TestCase
     /**
      * @var string
      */
-    public const ABSTRACT_CLASS = \GammaMatrix\Playground\Policies\ModelPolicy::class;
+    public const ABSTRACT_CLASS = \Playground\Policies\ModelPolicy::class;
 
     /**
      * @var string
      */
-    public const MODEL_CLASS = \GammaMatrix\Playground\Test\Models\User::class;
+    public const MODEL_CLASS = \Playground\Test\Models\User::class;
 
     /**
      * @var object

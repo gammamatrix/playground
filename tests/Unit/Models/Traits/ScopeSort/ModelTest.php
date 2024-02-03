@@ -1,17 +1,17 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeSort;
+namespace Tests\Unit\Playground\Models\Traits\ScopeSort;
 
-use Tests\Unit\GammaMatrix\Playground\TestCase;
-use GammaMatrix\Playground\Test\SqlTrait;
+use Tests\Unit\Playground\TestCase;
+use Playground\Test\SqlTrait;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeSort\ModelTest
+ * \Tests\Unit\Playground\Models\Traits\ScopeSort\ModelTest
  *
  */
 class ModelTest extends TestCase
@@ -23,7 +23,7 @@ class ModelTest extends TestCase
     /**
      * @var string
      */
-    public const ABSTRACT_CLASS = \GammaMatrix\Playground\Models\Model::class;
+    public const ABSTRACT_CLASS = \Playground\Models\Model::class;
 
     /**
      * @var object

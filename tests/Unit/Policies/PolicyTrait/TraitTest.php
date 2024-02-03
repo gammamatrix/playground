@@ -1,19 +1,19 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Policies\PolicyTrait;
+namespace Tests\Unit\Playground\Policies\PolicyTrait;
 
-use Tests\Unit\GammaMatrix\Playground\TestCase;
-use GammaMatrix\Playground\Test\Models\User;
+use Tests\Unit\Playground\TestCase;
+use Playground\Test\Models\User;
 use Illuminate\Support\Facades\Log;
 use TiMacDonald\Log\LogEntry;
 use TiMacDonald\Log\LogFake;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Policies\PolicyTrait\TraitTest
+ * \Tests\Unit\Playground\Policies\PolicyTrait\TraitTest
  *
  */
 class TraitTest extends TestCase
@@ -21,7 +21,7 @@ class TraitTest extends TestCase
     /**
      * @var string
      */
-    public const TRAIT_CLASS = \GammaMatrix\Playground\Policies\PolicyTrait::class;
+    public const TRAIT_CLASS = \Playground\Policies\PolicyTrait::class;
 
     /**
      * @var object

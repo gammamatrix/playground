@@ -1,10 +1,10 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\Policies;
+namespace Playground\Policies;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Access\Response;
@@ -12,7 +12,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Log;
 
 /**
- * \GammaMatrix\Playground\Policies\PolicyTrait
+ * \Playground\Policies\PolicyTrait
  *
  */
 trait PolicyTrait

@@ -1,17 +1,17 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\View\Components\Table;
+namespace Playground\View\Components\Table;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 /**
- * \GammaMatrix\Playground\View\Components\Table\Data
+ * \Playground\View\Components\Table\Data
  *
  */
 class Data extends Component

@@ -1,15 +1,15 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\Models\Traits;
+namespace Playground\Models\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- * \GammaMatrix\Playground\Models\Traits\ScopeFilterTrash
+ * \Playground\Models\Traits\ScopeFilterTrash
  *
  */
 trait ScopeFilterTrash

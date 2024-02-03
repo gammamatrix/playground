@@ -1,16 +1,16 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\View\Components\Forms;
+namespace Playground\View\Components\Forms;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 /**
- * \GammaMatrix\Playground\View\Components\Forms\ColumnEditor
+ * \Playground\View\Components\Forms\ColumnEditor
  *
  */
 class ColumnEditor extends Component

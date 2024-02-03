@@ -1,23 +1,23 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait;
+namespace Tests\Unit\Playground\Filters\ModelTrait;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\ArrayTraitTest
+ * \Tests\Unit\Playground\Filters\ModelTrait\ArrayTraitTest
  *
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterArray()
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterArrayToJson()
+ * @see \Playground\Filters\ModelTrait::filterArray()
+ * @see \Playground\Filters\ModelTrait::filterArrayToJson()
  */
 class ArrayTraitTest extends TraitTestCase
 {
     /**
      * filterArray
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterArray()
+     * @see \Playground\Filters\ModelTrait::filterArray()
      */
     public function test_filterArray()
     {
@@ -55,7 +55,7 @@ class ArrayTraitTest extends TraitTestCase
     /**
      * filterArrayToJson
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterArrayToJson()
+     * @see \Playground\Filters\ModelTrait::filterArrayToJson()
      */
     public function test_filterArray_to_json()
     {

@@ -1,15 +1,15 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\View\Components;
+namespace Playground\View\Components;
 
 use Illuminate\View\Component;
 
 /**
- * \GammaMatrix\Playground\View\Components\PaginationSort
+ * \Playground\View\Components\PaginationSort
  *
  * @see \App\Http\Requests\AbstractIndexRequest::SORT
  */

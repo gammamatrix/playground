@@ -4,14 +4,14 @@
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\View\Components\ModelFlag;
+namespace Tests\Unit\Playground\View\Components\ModelFlag;
 
-use GammaMatrix\Playground\View\Components\ModelFlag;
-use Tests\Unit\GammaMatrix\Playground\TestCase;
+use Playground\View\Components\ModelFlag;
+use Tests\Unit\Playground\TestCase;
 use Illuminate\Contracts\View\View;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\View\Components\Table\ComponentTest
+ * \Tests\Unit\Playground\View\Components\Table\ComponentTest
  *
  */
 class ComponentTest extends TestCase

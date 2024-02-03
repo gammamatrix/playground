@@ -1,17 +1,17 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground;
+namespace Playground;
 
 use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider;
 
 /**
- * \GammaMatrix\Playground\ServiceProvider
+ * \Playground\ServiceProvider
  *
  */
 class ServiceProvider extends AuthServiceProvider
@@ -37,7 +37,7 @@ class ServiceProvider extends AuthServiceProvider
 
             $this->loadRoutesFrom(dirname(__DIR__) . '/routes/playground.php');
 
-            Blade::componentNamespace('GammaMatrix\\Playground\\View\\Components', 'playground');
+            Blade::componentNamespace('Playground\\View\\Components', 'playground');
 
             if ($this->app->runningInConsole()) {
                 // Publish configuration

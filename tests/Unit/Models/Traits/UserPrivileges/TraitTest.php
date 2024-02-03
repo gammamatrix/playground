@@ -1,15 +1,15 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Models\Traits\UserPrivileges;
+namespace Tests\Unit\Playground\Models\Traits\UserPrivileges;
 
-use Tests\Unit\GammaMatrix\Playground\TestCase;
+use Tests\Unit\Playground\TestCase;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Models\Traits\UserPrivileges\TraitTest
+ * \Tests\Unit\Playground\Models\Traits\UserPrivileges\TraitTest
  *
  */
 class TraitTest extends TestCase
@@ -17,7 +17,7 @@ class TraitTest extends TestCase
     /**
      * @var string
      */
-    public const TRAIT_CLASS = \GammaMatrix\Playground\Models\Traits\UserPrivileges::class;
+    public const TRAIT_CLASS = \Playground\Models\Traits\UserPrivileges::class;
 
     /**
      * @var object

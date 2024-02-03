@@ -1,17 +1,17 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Policies\Policy;
+namespace Tests\Unit\Playground\Policies\Policy;
 
-use GammaMatrix\Playground\Test\Models\User;
-use Tests\Unit\GammaMatrix\Playground\TestCase;
+use Playground\Test\Models\User;
+use Tests\Unit\Playground\TestCase;
 use Illuminate\Auth\Access\Response;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Policies\Policy\AbstractTest
+ * \Tests\Unit\Playground\Policies\Policy\AbstractTest
  *
  */
 class AbstractTest extends TestCase
@@ -19,7 +19,7 @@ class AbstractTest extends TestCase
     /**
      * @var string
      */
-    public const ABSTRACT_CLASS = \GammaMatrix\Playground\Policies\Policy::class;
+    public const ABSTRACT_CLASS = \Playground\Policies\Policy::class;
 
     /**
      * @var object

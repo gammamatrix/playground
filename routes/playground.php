@@ -3,7 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 
-// use GammaMatrix\Playground\Http\Controllers;
+// use Playground\Http\Controllers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,8 +21,8 @@ if (!empty(config('playground.routes.about'))) {
         'middleware' => [
             'web',
         ],
-        // 'namespace' => 'GammaMatrix\Playground\Http\Controllers',
-        'uses'      => '\GammaMatrix\Playground\Http\Controllers\IndexController@about',
+        // 'namespace' => 'Playground\Http\Controllers',
+        'uses'      => '\Playground\Http\Controllers\IndexController@about',
     ]);
 }
 
@@ -32,8 +32,8 @@ if (!empty(config('playground.routes.bootstrap'))) {
         'middleware' => [
             'web',
         ],
-        // 'namespace' => 'GammaMatrix\Playground\Http\Controllers',
-        'uses'      => '\GammaMatrix\Playground\Http\Controllers\IndexController@bootstrap',
+        // 'namespace' => 'Playground\Http\Controllers',
+        'uses'      => '\Playground\Http\Controllers\IndexController@bootstrap',
     ]);
 }
 
@@ -42,16 +42,16 @@ if (!empty(config('playground.routes.home'))) {
         'middleware' => [
             'web',
         ],
-        // 'namespace' => 'GammaMatrix\Playground\Http\Controllers',
-        'uses'      => '\GammaMatrix\Playground\Http\Controllers\IndexController@home',
+        // 'namespace' => 'Playground\Http\Controllers',
+        'uses'      => '\Playground\Http\Controllers\IndexController@home',
     ]);
     Route::get('/home', [
         'as'        => 'home',
         'middleware' => [
             'web',
         ],
-        // 'namespace' => 'GammaMatrix\Playground\Http\Controllers',
-        'uses'      => '\GammaMatrix\Playground\Http\Controllers\IndexController@home',
+        // 'namespace' => 'Playground\Http\Controllers',
+        'uses'      => '\Playground\Http\Controllers\IndexController@home',
     ]);
 }
 
@@ -61,8 +61,8 @@ if (!empty(config('playground.routes.dashboard'))) {
         'middleware' => [
             'web',
         ],
-        // 'namespace' => 'GammaMatrix\Playground\Http\Controllers',
-        'uses'      => '\GammaMatrix\Playground\Http\Controllers\IndexController@dashboard',
+        // 'namespace' => 'Playground\Http\Controllers',
+        'uses'      => '\Playground\Http\Controllers\IndexController@dashboard',
     ]);
 }
 
@@ -72,8 +72,8 @@ if (!empty(config('playground.routes.sitemap'))) {
         'middleware' => [
             'web',
         ],
-        // 'namespace' => 'GammaMatrix\Playground\Http\Controllers',
-        'uses'      => '\GammaMatrix\Playground\Http\Controllers\IndexController@sitemap',
+        // 'namespace' => 'Playground\Http\Controllers',
+        'uses'      => '\Playground\Http\Controllers\IndexController@sitemap',
     ]);
 }
 
@@ -83,8 +83,8 @@ if (!empty(config('playground.routes.theme'))) {
         'middleware' => [
             'web',
         ],
-        // 'namespace' => 'GammaMatrix\Playground\Http\Controllers',
-        'uses'      => '\GammaMatrix\Playground\Http\Controllers\IndexController@theme',
+        // 'namespace' => 'Playground\Http\Controllers',
+        'uses'      => '\Playground\Http\Controllers\IndexController@theme',
     ]);
 }
 
@@ -94,7 +94,7 @@ if (!empty(config('playground.routes.welcome'))) {
         'middleware' => [
             'web',
         ],
-        // 'namespace' => 'GammaMatrix\Playground\Http\Controllers',
-        'uses'      => '\GammaMatrix\Playground\Http\Controllers\IndexController@welcome',
+        // 'namespace' => 'Playground\Http\Controllers',
+        'uses'      => '\Playground\Http\Controllers\IndexController@welcome',
     ]);
 }

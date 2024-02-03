@@ -1,10 +1,10 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\Models\Traits;
+namespace Playground\Models\Traits;
 
 use Carbon\Exceptions\InvalidFormatException;
 use Illuminate\Database\Eloquent\Builder;
@@ -12,7 +12,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
 
 /**
- * \GammaMatrix\Playground\Models\Traits\scopeFilterDates
+ * \Playground\Models\Traits\scopeFilterDates
  *
  */
 trait ScopeFilterDates

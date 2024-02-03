@@ -1,15 +1,15 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\Filters;
+namespace Playground\Filters;
 
 /**
- * \GammaMatrix\Playground\Filters\ContentTrait
+ * \Playground\Filters\ContentTrait
  *
- * GammaMatrix filter handler
+ * Playground filter handler
  *
  */
 trait ContentTrait

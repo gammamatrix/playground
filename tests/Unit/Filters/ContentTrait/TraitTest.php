@@ -1,20 +1,20 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Filters\ContentTrait;
+namespace Tests\Unit\Playground\Filters\ContentTrait;
 
-use Tests\Unit\GammaMatrix\Playground\TestCase;
+use Tests\Unit\Playground\TestCase;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Filters\ContentTrait\TraitTest
+ * \Tests\Unit\Playground\Filters\ContentTrait\TraitTest
  *
  */
 class TraitTest extends TestCase
 {
-    public const TRAIT_CLASS = \GammaMatrix\Playground\Filters\ContentTrait::class;
+    public const TRAIT_CLASS = \Playground\Filters\ContentTrait::class;
 
     public $mock;
 

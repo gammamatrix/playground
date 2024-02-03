@@ -1,10 +1,10 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\Http\Controllers;
+namespace Playground\Http\Controllers;
 
 use Illuminate\Http\Request;
 // use Illuminate\Http\Response;
@@ -14,7 +14,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\View\View;
 
 /**
- * \GammaMatrix\Playground\Http\Controllers\IndexController
+ * \Playground\Http\Controllers\IndexController
  *
  * TODO: Add back in handling for CMS snippets.
  */

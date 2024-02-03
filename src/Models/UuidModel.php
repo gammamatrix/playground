@@ -1,16 +1,16 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\Models;
+namespace Playground\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * \GammaMatrix\Playground\Models\UuidModel
+ * \Playground\Models\UuidModel
  *
  * Models that extend this class use a UUID for a primary key.
  *

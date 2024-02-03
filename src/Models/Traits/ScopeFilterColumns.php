@@ -1,17 +1,17 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\Models\Traits;
+namespace Playground\Models\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 
 // use Illuminate\Support\Facades\Log;
 
 /**
- * \GammaMatrix\Playground\Models\Traits\ScopeFilterColumns
+ * \Playground\Models\Traits\ScopeFilterColumns
  *
  */
 trait ScopeFilterColumns

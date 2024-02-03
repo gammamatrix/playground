@@ -1,13 +1,13 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\Models\Traits;
+namespace Playground\Models\Traits;
 
 /**
- * \GammaMatrix\Playground\Models\Traits\UserPrivileges
+ * \Playground\Models\Traits\UserPrivileges
  *
  */
 trait UserPrivileges

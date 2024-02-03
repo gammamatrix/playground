@@ -1,17 +1,17 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\View\Components;
+namespace Playground\View\Components;
 
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 /**
- * \GammaMatrix\Playground\View\Components\ModelFlag
+ * \Playground\View\Components\ModelFlag
  *
  */
 class ModelFlag extends Component

@@ -1,16 +1,16 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\Models\Traits;
+namespace Playground\Models\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 use Ramsey\Uuid\Uuid;
 
 /**
- * \GammaMatrix\Playground\Models\Traits\ScopeFilterIds
+ * \Playground\Models\Traits\ScopeFilterIds
  *
  */
 trait ScopeFilterIds

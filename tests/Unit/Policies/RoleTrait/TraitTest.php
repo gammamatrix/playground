@@ -1,22 +1,22 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Policies\RoleTrait;
+namespace Tests\Unit\Playground\Policies\RoleTrait;
 
-use Tests\Unit\GammaMatrix\Playground\TestCase;
-use GammaMatrix\Playground\Test\Models\User;
+use Tests\Unit\Playground\TestCase;
+use Playground\Test\Models\User;
 use Illuminate\Auth\Access\Response;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Policies\RoleTrait\TraitTest
+ * \Tests\Unit\Playground\Policies\RoleTrait\TraitTest
  *
  */
 class TraitTest extends TestCase
 {
-    public const TRAIT_CLASS = \GammaMatrix\Playground\Policies\RoleTrait::class;
+    public const TRAIT_CLASS = \Playground\Policies\RoleTrait::class;
 
     public $mock;
 

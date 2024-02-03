@@ -1,17 +1,17 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index;
+namespace Tests\Feature\Playground\Http\Controllers\Index;
 
-use GammaMatrix\Playground\Test\Models\User;
-use GammaMatrix\Playground\Test\Models\UserWithRole;
-use Tests\Feature\GammaMatrix\Playground\TestCase;
+use Playground\Test\Models\User;
+use Playground\Test\Models\UserWithRole;
+use Tests\Feature\Playground\TestCase;
 
 /**
- * \Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\ThemeRouteTest
+ * \Tests\Feature\Playground\Http\Controllers\Index\ThemeRouteTest
  *
  */
 class ThemeRouteTest extends TestCase

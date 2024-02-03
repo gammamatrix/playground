@@ -1,23 +1,23 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait;
+namespace Tests\Unit\Playground\Filters\ModelTrait;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\NumberTraitTest
+ * \Tests\Unit\Playground\Filters\ModelTrait\NumberTraitTest
  *
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterBits()
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterBits()
+ * @see \Playground\Filters\ModelTrait::filterBits()
+ * @see \Playground\Filters\ModelTrait::filterBits()
  */
 class NumberTraitTest extends TraitTestCase
 {
     /**
      * filterFloat
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterFloat()
+     * @see \Playground\Filters\ModelTrait::filterFloat()
      */
     public function test_filterFloat()
     {
@@ -31,7 +31,7 @@ class NumberTraitTest extends TraitTestCase
     /**
      * filterInteger
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterInteger()
+     * @see \Playground\Filters\ModelTrait::filterInteger()
      */
     public function test_filterInteger()
     {
@@ -50,7 +50,7 @@ class NumberTraitTest extends TraitTestCase
     /**
      * filterIntegerId
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterIntegerId()
+     * @see \Playground\Filters\ModelTrait::filterIntegerId()
      */
     public function test_filterIntegerId()
     {
@@ -72,7 +72,7 @@ class NumberTraitTest extends TraitTestCase
     /**
      * filterIntegerPositive
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterIntegerPositive()
+     * @see \Playground\Filters\ModelTrait::filterIntegerPositive()
      */
     public function test_filterIntegerPositive()
     {
@@ -115,7 +115,7 @@ class NumberTraitTest extends TraitTestCase
     /**
      * filterPercent
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterPercent()
+     * @see \Playground\Filters\ModelTrait::filterPercent()
      */
     public function test_filterPercent()
     {

@@ -1,17 +1,17 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Models\Model;
+namespace Tests\Unit\Playground\Models\Model;
 
-use Tests\Unit\GammaMatrix\Playground\TestCase;
+use Tests\Unit\Playground\TestCase;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Models\Model\ModelTest
+ * \Tests\Unit\Playground\Models\Model\ModelTest
  *
  */
 class ModelTest extends TestCase
@@ -19,7 +19,7 @@ class ModelTest extends TestCase
     /**
      * @var string
      */
-    public const ABSTRACT_CLASS = \GammaMatrix\Playground\Models\Model::class;
+    public const ABSTRACT_CLASS = \Playground\Models\Model::class;
 
     /**
      * @var object
@@ -43,7 +43,7 @@ class ModelTest extends TestCase
         }
 
         $this->mock = $this->getMockForAbstractClass(static::ABSTRACT_CLASS);
-        config(['playground.user' => \GammaMatrix\Playground\Test\Models\User::class]);
+        config(['playground.user' => \Playground\Test\Models\User::class]);
     }
 
     public function test_WithChildren_children_returns_HasMany()

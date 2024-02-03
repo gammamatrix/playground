@@ -1,15 +1,15 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace GammaMatrix\Playground\Models\Traits;
+namespace Playground\Models\Traits;
 
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * \GammaMatrix\Playground\Models\Traits\WithModifier
+ * \Playground\Models\Traits\WithModifier
  *
  */
 trait WithModifier

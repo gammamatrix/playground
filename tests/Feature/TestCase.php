@@ -1,18 +1,18 @@
 <?php
 /**
- * GammaMatrix
+ * Playground
  *
  */
 
-namespace Tests\Feature\GammaMatrix\Playground;
+namespace Tests\Feature\Playground;
 
-use GammaMatrix\Playground\Test\OrchestraTestCase;
+use Playground\Test\OrchestraTestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use GammaMatrix\Playground\ServiceProvider;
+use Playground\ServiceProvider;
 use Illuminate\Contracts\Config\Repository;
 
 /**
- * \Tests\Feature\GammaMatrix\Playground\TestCase
+ * \Tests\Feature\Playground\TestCase
  *
  */
 class TestCase extends OrchestraTestCase
@@ -49,7 +49,7 @@ class TestCase extends OrchestraTestCase
      */
     protected function getEnvironmentSetUp($app)
     {
-        $app['config']->set('auth.providers.users.model', 'GammaMatrix\\Playground\\Test\\Models\\User');
+        $app['config']->set('auth.providers.users.model', 'Playground\\Test\\Models\\User');
         $app['config']->set('playground.auth.verify', 'user');
 
         $app['config']->set('playground.load.routes', true);

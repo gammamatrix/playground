@@ -4,22 +4,22 @@
  *
  */
 
-namespace Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait;
+namespace Tests\Unit\Playground\Filters\ModelTrait;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\ValueTraitTest
+ * \Tests\Unit\Playground\Filters\ModelTrait\ValueTraitTest
  *
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterBoolean()
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterFloat()
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterInteger()
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterPercent()
+ * @see \Playground\Filters\ModelTrait::filterBoolean()
+ * @see \Playground\Filters\ModelTrait::filterFloat()
+ * @see \Playground\Filters\ModelTrait::filterInteger()
+ * @see \Playground\Filters\ModelTrait::filterPercent()
  */
 class ValueTraitTest extends TraitTestCase
 {
     /**
      * filterBoolean
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterBoolean()
+     * @see \Playground\Filters\ModelTrait::filterBoolean()
      */
     public function test_filterBoolean()
     {
@@ -63,7 +63,7 @@ class ValueTraitTest extends TraitTestCase
     /**
      * filterEmail
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterEmail()
+     * @see \Playground\Filters\ModelTrait::filterEmail()
      */
     public function test_filterEmail()
     {
@@ -88,8 +88,8 @@ class ValueTraitTest extends TraitTestCase
     /**
      * filterHtml
      *
-     * @see \GammaMatrix\Playground\Filters\ContentTrait::purify() HTMLPurifier
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterHtml()
+     * @see \Playground\Filters\ContentTrait::purify() HTMLPurifier
+     * @see \Playground\Filters\ModelTrait::filterHtml()
      */
     public function test_filterHtml()
     {
