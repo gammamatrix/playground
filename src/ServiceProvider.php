@@ -97,7 +97,7 @@ class ServiceProvider extends AuthServiceProvider
         ]);
     }
 
-    public function register()
+    public function register(): void
     {
         $this->mergeConfigFrom(
             dirname(__DIR__).'/config/playground.php',
@@ -105,7 +105,7 @@ class ServiceProvider extends AuthServiceProvider
         );
     }
 
-    public function version()
+    public function version(): string
     {
         return static::VERSION;
     }
