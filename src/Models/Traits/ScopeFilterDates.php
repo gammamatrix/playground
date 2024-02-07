@@ -165,7 +165,7 @@ trait ScopeFilterDates
             } else {
                 $query->where(
                     $column,
-                    $filter_operator ?? '=',
+                    $filter_operator ?: '=',
                     $filter_value
                 );
             }

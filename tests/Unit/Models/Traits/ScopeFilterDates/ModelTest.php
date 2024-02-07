@@ -19,9 +19,9 @@ class ModelTest extends TestCase
     }
 
     /**
-     * @var string
+     * @var class-string
      */
-    public const ABSTRACT_CLASS = \Playground\Models\Model::class;
+    public const MODEL_CLASS = \Playground\Models\Model::class;
 
     /**
      * @var object
@@ -33,10 +33,10 @@ class ModelTest extends TestCase
      */
     protected function setUp(): void
     {
-        if (! class_exists(static::ABSTRACT_CLASS)) {
+        if (! class_exists(static::MODEL_CLASS)) {
             $this->markTestSkipped(sprintf(
                 'Expecting the abstract model class to exist: %1$s',
-                static::ABSTRACT_CLASS
+                static::MODEL_CLASS
             ));
         }
 
@@ -46,10 +46,10 @@ class ModelTest extends TestCase
 
         Carbon::setTestNow(Carbon::now());
 
-        $this->mock = $this->getMockForAbstractClass(static::ABSTRACT_CLASS);
+        $this->mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
     }
 
-    public function test_scopeFilterDates_returns_query_without_dates_or_filters()
+    public function test_scopeFilterDates_returns_query_without_dates_or_filters(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
@@ -63,7 +63,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeFilterDates_returns_query_without_filters()
+    public function test_scopeFilterDates_returns_query_without_filters(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
@@ -84,7 +84,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterDates_returns_query_with_invalid_column()
+    public function test_scopeFilterDates_returns_query_with_invalid_column(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
@@ -112,7 +112,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterDates_returns_query_with_filters_without_meta_for_strings()
+    public function test_scopeFilterDates_returns_query_with_filters_without_meta_for_strings(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `updated_at` >= ? and `%1$s`.`deleted_at` is null',
@@ -145,7 +145,7 @@ class ModelTest extends TestCase
         $this->assertSame($validated['filter']['updated_at'].' 00:00:00', $bindings[0]);
     }
 
-    public function test_scopeFilterDates_returns_query_with_null_comparison_and_ignore()
+    public function test_scopeFilterDates_returns_query_with_null_comparison_and_ignore(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
@@ -178,7 +178,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterDates_returns_query_with_null_comparison_and_allow()
+    public function test_scopeFilterDates_returns_query_with_null_comparison_and_allow(): void
     {
         $sql = sprintf(
             // 'select * from `%1$s` where `%1$s`.`closed_at` is null and `%1$s`.`deleted_at` is null',
@@ -211,7 +211,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterDates_returns_query_with_comparison()
+    public function test_scopeFilterDates_returns_query_with_comparison(): void
     {
         $sql = sprintf(
             // 'select * from `%1$s` where `%1$s`.`updated_at` LIKE ? and `%1$s`.`deleted_at` is null',
@@ -242,7 +242,7 @@ class ModelTest extends TestCase
         $this->assertSame(Carbon::now()->format('Y-m-d H:i:s'), $bindings[0]);
     }
 
-    public function test_scopeFilterDates_returns_query_with_wildcard()
+    public function test_scopeFilterDates_returns_query_with_wildcard(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `updated_at` LIKE ? and `%1$s`.`deleted_at` is null',
@@ -272,7 +272,7 @@ class ModelTest extends TestCase
         $this->assertSame($validated['filter']['updated_at'], $bindings[0]);
     }
 
-    public function test_scopeFilterDates_returns_query_with_operator_wildcard()
+    public function test_scopeFilterDates_returns_query_with_operator_wildcard(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `updated_at` LIKE ? and `%1$s`.`deleted_at` is null',
@@ -304,7 +304,7 @@ class ModelTest extends TestCase
         $this->assertSame($validated['filter']['updated_at']['value'], $bindings[0]);
     }
 
-    public function test_scopeFilterDates_returns_query_with_object_value_and_ignore()
+    public function test_scopeFilterDates_returns_query_with_object_value_and_ignore(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
@@ -335,7 +335,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterDates_returns_query_with_unnullable_value_and_ignore()
+    public function test_scopeFilterDates_returns_query_with_unnullable_value_and_ignore(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
@@ -365,7 +365,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterDates_returns_query_with_invalid_operator_and_use_like()
+    public function test_scopeFilterDates_returns_query_with_invalid_operator_and_use_like(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `updated_at` >= ? and `%1$s`.`deleted_at` is null',
@@ -401,7 +401,7 @@ class ModelTest extends TestCase
         );
     }
 
-    public function test_scopeFilterDates_returns_query_with_invalid_parsable_value_and_ignore()
+    public function test_scopeFilterDates_returns_query_with_invalid_parsable_value_and_ignore(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
@@ -432,7 +432,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterDates_returns_query_with_short_date_and_gte_operator()
+    public function test_scopeFilterDates_returns_query_with_short_date_and_gte_operator(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `updated_at` >= ? and `%1$s`.`deleted_at` is null',
@@ -465,7 +465,7 @@ class ModelTest extends TestCase
         $this->assertSame($validated['filter']['updated_at']['value'], $bindings[0]);
     }
 
-    public function test_scopeFilterDates_returns_query_with_phrase_date_and_automatically_parse()
+    public function test_scopeFilterDates_returns_query_with_phrase_date_and_automatically_parse(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `updated_at` = ? and `%1$s`.`deleted_at` is null',
@@ -501,7 +501,7 @@ class ModelTest extends TestCase
         );
     }
 
-    public function test_scopeFilterDates_with_between_filter_operator_with_parse()
+    public function test_scopeFilterDates_with_between_filter_operator_with_parse(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `created_at` between ? and ? and `%1$s`.`deleted_at` is null',
@@ -544,7 +544,7 @@ class ModelTest extends TestCase
         $this->assertCount(2, $bindings);
     }
 
-    public function test_scopeFilterDates_with_not_between_filter_operator_with_parse()
+    public function test_scopeFilterDates_with_not_between_filter_operator_with_parse(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `created_at` not between ? and ? and `%1$s`.`deleted_at` is null',
@@ -587,7 +587,7 @@ class ModelTest extends TestCase
         $this->assertCount(2, $bindings);
     }
 
-    public function test_scopeFilterDates_with_filter_operators()
+    public function test_scopeFilterDates_with_filter_operators(): void
     {
         $filter_operators = [
             '|' => [],

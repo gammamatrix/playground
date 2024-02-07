@@ -16,7 +16,7 @@ class StatusTraitTest extends TraitTestCase
      *
      * @see \Playground\Filters\ModelTrait::filterStatus()
      */
-    public function test_filterStatus()
+    public function test_filterStatus(): void
     {
         $this->assertSame([], $this->mock->filterStatus([]));
 

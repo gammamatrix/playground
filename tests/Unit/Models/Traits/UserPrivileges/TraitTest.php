@@ -38,19 +38,19 @@ class TraitTest extends TestCase
         $this->mock = $this->getMockForTrait(static::TRAIT_CLASS);
     }
 
-    public function test_hasPrivilege_is_false_with_null_privilege()
+    public function test_hasPrivilege_is_false_with_null_privilege(): void
     {
         $privilege = null;
         $this->assertFalse($this->mock->hasPrivilege($privilege));
     }
 
-    public function test_hasPrivilege_is_false_with_false_privilege()
+    public function test_hasPrivilege_is_false_with_false_privilege(): void
     {
         $privilege = false;
         $this->assertFalse($this->mock->hasPrivilege($privilege));
     }
 
-    public function test_hasPrivilege_is_true_with_privilege_that_does_exist()
+    public function test_hasPrivilege_is_true_with_privilege_that_does_exist(): void
     {
         $this->mock->expects($this->any())
             ->method('getAttribute')
@@ -60,7 +60,7 @@ class TraitTest extends TestCase
         $this->assertTrue($this->mock->hasPrivilege($privilege));
     }
 
-    public function test_hasPrivilege_is_false_with_privilege_that_does_not_exist()
+    public function test_hasPrivilege_is_false_with_privilege_that_does_not_exist(): void
     {
         $this->mock->expects($this->any())
             ->method('getAttribute')
@@ -70,19 +70,19 @@ class TraitTest extends TestCase
         $this->assertFalse($this->mock->hasPrivilege($privilege));
     }
 
-    public function test_hasRole_is_false_with_null_role()
+    public function test_hasRole_is_false_with_null_role(): void
     {
         $role = null;
         $this->assertFalse($this->mock->hasRole($role));
     }
 
-    public function test_hasRole_is_false_with_false_role()
+    public function test_hasRole_is_false_with_false_role(): void
     {
         $role = false;
         $this->assertFalse($this->mock->hasRole($role));
     }
 
-    public function test_hasRole_is_true_with_role_that_does_exist()
+    public function test_hasRole_is_true_with_role_that_does_exist(): void
     {
         $this->mock->expects($this->any())
             ->method('getAttribute')
@@ -92,7 +92,7 @@ class TraitTest extends TestCase
         $this->assertTrue($this->mock->hasRole($role));
     }
 
-    public function test_hasRole_is_false_with_role_that_does_not_exist()
+    public function test_hasRole_is_false_with_role_that_does_not_exist(): void
     {
         $this->mock->expects($this->any())
             ->method('getAttribute')
@@ -102,7 +102,7 @@ class TraitTest extends TestCase
         $this->assertFalse($this->mock->hasRole($role));
     }
 
-    public function test_hasRole_is_false_with_secondary_role_that_does_not_exist()
+    public function test_hasRole_is_false_with_secondary_role_that_does_not_exist(): void
     {
         $map = [
             ['role', 'root'],
@@ -116,7 +116,7 @@ class TraitTest extends TestCase
         $this->assertFalse($this->mock->hasRole($role));
     }
 
-    public function test_hasRole_is_true_with_secondary_role_that_does_exist()
+    public function test_hasRole_is_true_with_secondary_role_that_does_exist(): void
     {
         $map = [
             ['role', 'root'],
@@ -130,7 +130,7 @@ class TraitTest extends TestCase
         $this->assertTrue($this->mock->hasRole($role));
     }
 
-    public function test_hasRole_is_true_with_other_secondary_role_that_does_exist()
+    public function test_hasRole_is_true_with_other_secondary_role_that_does_exist(): void
     {
         $map = [
             ['role', 'root'],
@@ -144,7 +144,7 @@ class TraitTest extends TestCase
         $this->assertTrue($this->mock->hasRole($role));
     }
 
-    public function test_hasRole_is_true_with_primary_role_that_does_exist()
+    public function test_hasRole_is_true_with_primary_role_that_does_exist(): void
     {
         $map = [
             ['role', 'root'],
@@ -158,12 +158,12 @@ class TraitTest extends TestCase
         $this->assertTrue($this->mock->hasRole($role));
     }
 
-    public function test_isAdmin_is_false_without_roles()
+    public function test_isAdmin_is_false_without_roles(): void
     {
         $this->assertFalse($this->mock->isAdmin());
     }
 
-    public function test_isAdmin_is_true_with_role_that_does_exist()
+    public function test_isAdmin_is_true_with_role_that_does_exist(): void
     {
         $this->mock->expects($this->any())
             ->method('getAttribute')
@@ -172,7 +172,7 @@ class TraitTest extends TestCase
         $this->assertTrue($this->mock->isAdmin());
     }
 
-    public function test_isAdmin_is_false_with_user_role_that_does_not_exist()
+    public function test_isAdmin_is_false_with_user_role_that_does_not_exist(): void
     {
         $this->mock->expects($this->any())
             ->method('getAttribute')
@@ -181,7 +181,7 @@ class TraitTest extends TestCase
         $this->assertFalse($this->mock->isAdmin());
     }
 
-    public function test_isAdmin_is_false_with_secondary_role_that_does_not_exist()
+    public function test_isAdmin_is_false_with_secondary_role_that_does_not_exist(): void
     {
         $map = [
             ['role', 'user'],
@@ -194,7 +194,7 @@ class TraitTest extends TestCase
         $this->assertFalse($this->mock->isAdmin());
     }
 
-    public function test_isAdmin_is_false_with_secondary_roles_that_exist_and_not_admin()
+    public function test_isAdmin_is_false_with_secondary_roles_that_exist_and_not_admin(): void
     {
         $map = [
             ['role', 'manager'],
@@ -207,7 +207,7 @@ class TraitTest extends TestCase
         $this->assertFalse($this->mock->isAdmin());
     }
 
-    public function test_isAdmin_is_true_with_other_secondary_role_that_does_exist()
+    public function test_isAdmin_is_true_with_other_secondary_role_that_does_exist(): void
     {
         $map = [
             ['role', 'support-admin'],
@@ -220,7 +220,7 @@ class TraitTest extends TestCase
         $this->assertTrue($this->mock->isAdmin());
     }
 
-    public function test_isAdmin_is_true_with_primary_role_that_does_exist()
+    public function test_isAdmin_is_true_with_primary_role_that_does_exist(): void
     {
         $map = [
             ['role', 'manager'],
@@ -233,7 +233,7 @@ class TraitTest extends TestCase
         $this->assertTrue($this->mock->isAdmin());
     }
 
-    public function test_isAdmin_is_false_with_secondary_root_role()
+    public function test_isAdmin_is_false_with_secondary_root_role(): void
     {
         $map = [
             ['role', 'manager'],

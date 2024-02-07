@@ -19,7 +19,7 @@ class ValueTraitTest extends TraitTestCase
      *
      * @see \Playground\Filters\ModelTrait::filterBoolean()
      */
-    public function test_filterBoolean()
+    public function test_filterBoolean(): void
     {
         // Always return an array, no matter the input.
 
@@ -63,7 +63,7 @@ class ValueTraitTest extends TraitTestCase
      *
      * @see \Playground\Filters\ModelTrait::filterEmail()
      */
-    public function test_filterEmail()
+    public function test_filterEmail(): void
     {
         $value = false;
         $this->assertSame('', $this->mock->filterEmail($value));
@@ -89,7 +89,7 @@ class ValueTraitTest extends TraitTestCase
      * @see \Playground\Filters\ContentTrait::purify() HTMLPurifier
      * @see \Playground\Filters\ModelTrait::filterHtml()
      */
-    public function test_filterHtml()
+    public function test_filterHtml(): void
     {
         $value = '<b>Tags should be removed.</b>';
         $this->assertSame('Tags should be removed.', $this->mock->filterHtml($value));

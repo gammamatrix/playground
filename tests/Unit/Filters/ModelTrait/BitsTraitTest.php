@@ -17,7 +17,7 @@ class BitsTraitTest extends TraitTestCase
      *
      * @see \Playground\Filters\ModelTrait::filterBits()
      */
-    public function test_filterBits_for_exponent_zero()
+    public function test_filterBits_for_exponent_zero(): void
     {
         $this->assertSame(0, $this->mock->filterBits(0));
 
@@ -31,7 +31,7 @@ class BitsTraitTest extends TraitTestCase
      *
      * @see \Playground\Filters\ModelTrait::filterBits()
      */
-    public function test_filterBits_for_exponent_greater_than_zero()
+    public function test_filterBits_for_exponent_greater_than_zero(): void
     {
         $value = 1 + 2 + 4 + 8 + 16 + 32;
 

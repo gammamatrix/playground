@@ -17,7 +17,7 @@ class DateTraitTest extends TraitTestCase
      *
      * @see \Playground\Filters\ModelTrait::filterDate()
      */
-    public function test_filterDate()
+    public function test_filterDate(): void
     {
         $this->assertNull($this->mock->filterDate(''));
 
@@ -33,7 +33,7 @@ class DateTraitTest extends TraitTestCase
      *
      * @see \Playground\Filters\ModelTrait::filterDateAsCarbon()
      */
-    public function test_filterDateAsCarbon()
+    public function test_filterDateAsCarbon(): void
     {
         $this->assertNull($this->mock->filterDateAsCarbon(''));
 

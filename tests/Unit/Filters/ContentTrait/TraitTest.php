@@ -33,21 +33,21 @@ class TraitTest extends TestCase
         );
     }
 
-    public function test_purify()
+    public function test_purify(): void
     {
         $expected = 'some-string';
 
         $this->assertSame($expected, $this->mock->purify($expected));
     }
 
-    public function test_exorcise()
+    public function test_exorcise(): void
     {
         $expected = 'some-string';
 
         $this->assertSame($expected, $this->mock->exorcise($expected));
     }
 
-    public function test_getHtmlPurifier()
+    public function test_getHtmlPurifier(): void
     {
         $this->assertInstanceOf(
             \HTMLPurifier::class,
@@ -55,7 +55,7 @@ class TraitTest extends TestCase
         );
     }
 
-    public function test_getHtmlPurifier_with_iframes()
+    public function test_getHtmlPurifier_with_iframes(): void
     {
         $this->assertInstanceOf(
             \HTMLPurifier::class,
@@ -65,7 +65,7 @@ class TraitTest extends TestCase
         );
     }
 
-    public function test_getHtmlPurifier_with_purifier_path()
+    public function test_getHtmlPurifier_with_purifier_path(): void
     {
         $this->assertInstanceOf(
             \HTMLPurifier::class,

@@ -48,7 +48,7 @@ class AbstractTest extends TestCase
 
         $role = 'root';
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
 
         $this->assertTrue($this->mock->before(
             $user,
@@ -69,7 +69,7 @@ class AbstractTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
 
         $this->assertNull($this->mock->before(
             $user,
@@ -99,7 +99,7 @@ class AbstractTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
 
         $this->assertTrue($this->mock->index($user));
     }
@@ -127,8 +127,8 @@ class AbstractTest extends TestCase
             'user',
         ];
 
-        $user->role = $role;
-        $user->roles = $roles;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->view($user));
     }
@@ -146,8 +146,8 @@ class AbstractTest extends TestCase
             'user',
         ];
 
-        $user->role = $role;
-        $user->roles = $roles;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->view($user));
     }

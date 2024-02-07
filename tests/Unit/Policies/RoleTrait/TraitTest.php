@@ -8,6 +8,8 @@ use Illuminate\Auth\Access\Response;
 use Playground\Test\Models\User;
 use Tests\Unit\Playground\TestCase;
 
+// use PHPUnit\Framework\MockObject\MockObject;
+
 /**
  * \Tests\Unit\Playground\Policies\RoleTrait\TraitTest
  */
@@ -15,6 +17,9 @@ class TraitTest extends TestCase
 {
     public const TRAIT_CLASS = \Playground\Policies\RoleTrait::class;
 
+    /**
+     * var MockObject&\Playground\Policies\RoleTrait::class
+     */
     public $mock;
 
     /**
@@ -35,7 +40,7 @@ class TraitTest extends TestCase
         );
     }
 
-    public function test_getRolesForAdmin()
+    public function test_getRolesForAdmin(): void
     {
         $expected = [
             'admin',
@@ -46,7 +51,7 @@ class TraitTest extends TestCase
         $this->assertSame($expected, $this->mock->getRolesForAdmin());
     }
 
-    public function test_getRolesForAction()
+    public function test_getRolesForAction(): void
     {
         $expected = [
             'admin',
@@ -57,7 +62,7 @@ class TraitTest extends TestCase
         $this->assertSame($expected, $this->mock->getRolesForAction());
     }
 
-    public function test_getRolesToView()
+    public function test_getRolesToView(): void
     {
         $expected = [
             'admin',
@@ -68,7 +73,7 @@ class TraitTest extends TestCase
         $this->assertSame($expected, $this->mock->getRolesToView());
     }
 
-    public function test_hasRole()
+    public function test_hasRole(): void
     {
         $user = User::factory()->make();
 
@@ -79,7 +84,7 @@ class TraitTest extends TestCase
         ));
     }
 
-    public function test_hasRole_advanced_role()
+    public function test_hasRole_advanced_role(): void
     {
         $user = User::factory()->make();
 

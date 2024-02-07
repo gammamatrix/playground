@@ -4,7 +4,6 @@
  */
 namespace Tests\Unit\Playground\Policies\PolicyTrait;
 
-use Illuminate\Support\Facades\Log;
 use Playground\Test\Models\User;
 use Tests\Unit\Playground\TestCase;
 use TiMacDonald\Log\LogEntry;
@@ -43,34 +42,34 @@ class TraitTest extends TestCase
         );
     }
 
-    public function test_getEntity()
+    public function test_getEntity(): void
     {
         $this->assertSame('', $this->mock->getEntity());
     }
 
-    public function test_getPackage()
+    public function test_getPackage(): void
     {
         $this->assertSame('', $this->mock->getPackage());
     }
 
-    public function test_hasToken()
+    public function test_hasToken(): void
     {
         $this->assertFalse($this->mock->hasToken());
     }
 
-    public function test_getToken()
+    public function test_getToken(): void
     {
         $this->assertNull($this->mock->getToken());
     }
 
-    public function test_setToken()
+    public function test_setToken(): void
     {
         $this->assertIsObject($this->mock->setToken());
     }
 
-    public function test_verify()
+    public function test_verify(): void
     {
-        LogFake::bind();
+        $log = LogFake::bind();
 
         $user = User::factory()->make();
 
@@ -82,11 +81,11 @@ class TraitTest extends TestCase
 
         $this->assertFalse($this->mock->verify($user, $ability));
 
-        Log::assertLogged(
+        $log->assertLogged(
             fn (LogEntry $log) => $log->level === 'debug'
         );
 
-        Log::assertLogged(
+        $log->assertLogged(
             fn (LogEntry $log) => str_contains(
                 $log->context['$ability'],
                 $ability
@@ -94,7 +93,7 @@ class TraitTest extends TestCase
         );
     }
 
-    public function test_verify_privileges()
+    public function test_verify_privileges(): void
     {
         $user = User::factory()->make();
 
@@ -107,7 +106,7 @@ class TraitTest extends TestCase
         $this->assertFalse($this->mock->verify($user, $ability));
     }
 
-    public function test_verify_roles()
+    public function test_verify_roles(): void
     {
         $user = User::factory()->make();
 
@@ -120,7 +119,7 @@ class TraitTest extends TestCase
         $this->assertFalse($this->mock->verify($user, $ability));
     }
 
-    public function test_verify_user()
+    public function test_verify_user(): void
     {
         $user = User::factory()->make();
 

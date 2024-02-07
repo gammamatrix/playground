@@ -18,9 +18,9 @@ class ModelTest extends TestCase
     }
 
     /**
-     * @var string
+     * @var class-string
      */
-    public const ABSTRACT_CLASS = \Playground\Models\Model::class;
+    public const MODEL_CLASS = \Playground\Models\Model::class;
 
     /**
      * @var object
@@ -36,17 +36,17 @@ class ModelTest extends TestCase
 
         parent::setUp();
 
-        if (! class_exists(static::ABSTRACT_CLASS)) {
+        if (! class_exists(static::MODEL_CLASS)) {
             $this->markTestSkipped(sprintf(
                 'Expecting the abstract model class to exist: %1$s',
-                static::ABSTRACT_CLASS
+                static::MODEL_CLASS
             ));
         }
 
-        $this->mock = $this->getMockForAbstractClass(static::ABSTRACT_CLASS);
+        $this->mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
     }
 
-    public function test_scopeFilterFlags_returns_query_without_flags_or_filters()
+    public function test_scopeFilterFlags_returns_query_without_flags_or_filters(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
@@ -60,7 +60,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeFilterFlags_returns_query_without_filters()
+    public function test_scopeFilterFlags_returns_query_without_filters(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
@@ -81,7 +81,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterFlags_returns_query_with_filters()
+    public function test_scopeFilterFlags_returns_query_with_filters(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `active` = ? and `problem` = ? and `%1$s`.`deleted_at` is null',

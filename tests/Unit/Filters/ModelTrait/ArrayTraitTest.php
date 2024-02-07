@@ -17,7 +17,7 @@ class ArrayTraitTest extends TraitTestCase
      *
      * @see \Playground\Filters\ModelTrait::filterArray()
      */
-    public function test_filterArray()
+    public function test_filterArray(): void
     {
         // Always return an array, no matter the input.
 
@@ -55,7 +55,7 @@ class ArrayTraitTest extends TraitTestCase
      *
      * @see \Playground\Filters\ModelTrait::filterArrayToJson()
      */
-    public function test_filterArray_to_json()
+    public function test_filterArray_to_json(): void
     {
         // Unexpected values return a json encoded empty array..
 

@@ -74,7 +74,7 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
 
         $this->assertTrue($this->mock->create($user));
     }
@@ -109,7 +109,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->delete($user, $model));
     }
@@ -131,7 +132,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $response = $this->mock->delete($user, $model);
 
@@ -179,7 +181,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->detail($user, $model));
     }
@@ -214,7 +217,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->edit($user, $model));
     }
@@ -249,7 +253,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->forceDelete($user, $model));
     }
@@ -284,7 +289,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->lock($user, $model));
     }
@@ -319,7 +325,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->manage($user, $model));
     }
@@ -354,7 +361,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->restore($user, $model));
     }
@@ -381,7 +389,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->store($user));
     }
@@ -416,7 +425,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->update($user, $model));
     }
@@ -438,7 +448,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $response = $this->mock->update($user, $model);
 
@@ -486,7 +497,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->unlock($user, $model));
     }

@@ -60,7 +60,7 @@ trait RoleTrait
         $isRoot = false;
 
         if (! empty(config('playground.auth.userRole'))) {
-            $isRoot = $user->role === 'root';
+            $isRoot = $user->getAttributeValue('role') === 'root';
         }
 
         return $isRoot;

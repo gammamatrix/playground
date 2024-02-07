@@ -6,6 +6,7 @@ namespace Playground\Policies;
 
 use Illuminate\Auth\Access\Response;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Laravel\Sanctum\Contracts\HasApiTokens;
 
 /**
  * \Playground\Policies\PrivilegeTrait
@@ -62,6 +63,9 @@ trait PrivilegeTrait
         return false;
     }
 
+    /**
+     * @param Authenticatable&HasApiTokens $user
+     */
     public function hasPrivilege(Authenticatable $user, string $privilege): bool|Response
     {
         if (empty($privilege)) {

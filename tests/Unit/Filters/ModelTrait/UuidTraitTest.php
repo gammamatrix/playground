@@ -16,7 +16,7 @@ class UuidTraitTest extends TraitTestCase
      *
      * @see \Playground\Filters\ModelTrait::filterUuid()
      */
-    public function test_filterUuid()
+    public function test_filterUuid(): void
     {
         $faker = \Faker\Factory::create();
         $uuid = $faker->uuid;

@@ -117,6 +117,11 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         user_name: 'github-actions[bot]'
         user_email: 'github-actions[bot]@users.noreply.github.com'
+    - uses: php-actions/phpstan@v3
+      with:
+        level: 3
+        php_version: "8.2"
+        path: config/ src/ tests/Feature/ tests/Unit/
     - name: Stopping timer
       if: ${{ !cancelled() }}
       id: timer_end

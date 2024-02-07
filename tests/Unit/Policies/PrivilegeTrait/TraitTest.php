@@ -36,14 +36,14 @@ class TraitTest extends TestCase
         );
     }
 
-    public function test_privilege_without_parameter()
+    public function test_privilege_without_parameter(): void
     {
         $expected = '*';
 
         $this->assertSame($expected, $this->mock->privilege());
     }
 
-    public function test_privilege_with_package_and_without_parameter()
+    public function test_privilege_with_package_and_without_parameter(): void
     {
         $package = 'testing';
         $expected = 'testing:*';
@@ -55,7 +55,7 @@ class TraitTest extends TestCase
         $this->assertSame($expected, $this->mock->privilege());
     }
 
-    public function test_privilege_with_package_and_entity_and_without_parameter()
+    public function test_privilege_with_package_and_entity_and_without_parameter(): void
     {
         $package = 'testing';
         $entity = 'model';
@@ -72,7 +72,7 @@ class TraitTest extends TestCase
         $this->assertSame($expected, $this->mock->privilege());
     }
 
-    public function test_hasPrivilege()
+    public function test_hasPrivilege(): void
     {
         config(['playground.auth.sanctum' => true]);
         $user = UserWithSanctum::factory()->make();
@@ -84,7 +84,7 @@ class TraitTest extends TestCase
         ));
     }
 
-    public function test_hasPrivilege_with_user_hasPrivilege()
+    public function test_hasPrivilege_with_user_hasPrivilege(): void
     {
         config(['playground.auth.hasPrivilege' => true]);
 
@@ -99,7 +99,7 @@ class TraitTest extends TestCase
         ));
     }
 
-    public function test_hasPrivilege_with_user_privileges()
+    public function test_hasPrivilege_with_user_privileges(): void
     {
         config(['playground.auth.userPrivileges' => true]);
 

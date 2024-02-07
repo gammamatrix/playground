@@ -17,7 +17,7 @@ class NumberTraitTest extends TraitTestCase
      *
      * @see \Playground\Filters\ModelTrait::filterFloat()
      */
-    public function test_filterFloat()
+    public function test_filterFloat(): void
     {
         $this->assertNull($this->mock->filterFloat(''));
         $this->assertNull($this->mock->filterFloat(null));
@@ -31,7 +31,7 @@ class NumberTraitTest extends TraitTestCase
      *
      * @see \Playground\Filters\ModelTrait::filterInteger()
      */
-    public function test_filterInteger()
+    public function test_filterInteger(): void
     {
         $this->assertSame(0, $this->mock->filterInteger(''));
         $this->assertSame(0, $this->mock->filterInteger(null));
@@ -50,7 +50,7 @@ class NumberTraitTest extends TraitTestCase
      *
      * @see \Playground\Filters\ModelTrait::filterIntegerId()
      */
-    public function test_filterIntegerId()
+    public function test_filterIntegerId(): void
     {
         $this->assertNull($this->mock->filterIntegerId(''));
         $this->assertNull($this->mock->filterIntegerId(null));
@@ -72,7 +72,7 @@ class NumberTraitTest extends TraitTestCase
      *
      * @see \Playground\Filters\ModelTrait::filterIntegerPositive()
      */
-    public function test_filterIntegerPositive()
+    public function test_filterIntegerPositive(): void
     {
         $this->assertSame(0, $this->mock->filterIntegerPositive(''));
         $this->assertSame(0, $this->mock->filterIntegerPositive(null));
@@ -115,7 +115,7 @@ class NumberTraitTest extends TraitTestCase
      *
      * @see \Playground\Filters\ModelTrait::filterPercent()
      */
-    public function test_filterPercent()
+    public function test_filterPercent(): void
     {
         $this->assertNull($this->mock->filterPercent(''));
         $this->assertNull($this->mock->filterPercent(null));
