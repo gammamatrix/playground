@@ -51,14 +51,7 @@
         </style>
     </head>
     <body>
-        <h2>About Route (Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\AboutRoute)</h2>
-        <ul>
-            <li class="success">Route about as guest and succeed</li>
-            <li class="success">Route json about as guest and succeed</li>
-            <li class="success">Route about as client and succeed</li>
-            <li class="success">Route json about as manager and succeed</li>
-        </ul>
-        <h2>Abstract (Tests\Unit\GammaMatrix\Playground\Policies\Policy\Abstract)</h2>
+        <h2>Abstract (Tests\Unit\Playground\Policies\Policy\Abstract)</h2>
         <ul>
             <li class="success">Before with root</li>
             <li class="success">Before with root as secondary fails</li>
@@ -68,7 +61,7 @@
             <li class="success">View with admin</li>
             <li class="success">View with admin in roles</li>
         </ul>
-        <h2>Abstract Role (Tests\Unit\GammaMatrix\Playground\Policies\ModelPolicy\AbstractRole)</h2>
+        <h2>Abstract Role (Tests\Unit\Playground\Policies\ModelPolicy\AbstractRole)</h2>
         <ul>
             <li class="success">Create without role</li>
             <li class="success">Create with admin</li>
@@ -95,84 +88,26 @@
             <li class="success">Unlock without role</li>
             <li class="success">Unlock with admin</li>
         </ul>
-        <h2>Array Trait (Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\ArrayTrait)</h2>
+        <h2>Array Trait (Tests\Unit\Playground\Filters\ModelTrait\ArrayTrait)</h2>
         <ul>
             <li class="success">Filter array</li>
             <li class="success">FilterArray to json</li>
         </ul>
-        <h2>Bits Trait (Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\BitsTrait)</h2>
+        <h2>Bits Trait (Tests\Unit\Playground\Filters\ModelTrait\BitsTrait)</h2>
         <ul>
             <li class="success">FilterBits for exponent zero</li>
             <li class="success">FilterBits for exponent greater than zero</li>
         </ul>
-        <h2>Bootstrap Route (Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\BootstrapRoute)</h2>
+        <h2>Command (Tests\Feature\Playground\Console\Commands\About\Command)</h2>
         <ul>
-            <li class="success">Route bootstrap as guest and succeed</li>
-            <li class="success">Route json bootstrap as guest and succeed</li>
-            <li class="success">Route bootstrap as vendor and succeed</li>
-            <li class="success">Route json bootstrap as wheel and succeed</li>
+            <li class="success">Command about displays package information and succeed with code 0</li>
         </ul>
-        <h2>Component (Tests\Unit\GammaMatrix\Playground\View\Components\Forms\ColumnEditor\Component)</h2>
-        <ul>
-            <li class="success">Component instance</li>
-            <li class="success">Component can render view without parameters</li>
-            <li class="success">Component can render view with content textarea</li>
-        </ul>
-        <h2>Component (Tests\Unit\GammaMatrix\Playground\View\Components\Forms\ColumnSelect\Component)</h2>
-        <ul>
-            <li class="success">Component instance</li>
-            <li class="success">Component can render view without parameters</li>
-            <li class="success">Component can render view with select</li>
-        </ul>
-        <h2>Component (Tests\Unit\GammaMatrix\Playground\View\Components\Forms\Column\Component)</h2>
-        <ul>
-            <li class="success">Component instance</li>
-            <li class="success">Component can render view without parameters</li>
-            <li class="success">Component can render view with label input</li>
-        </ul>
-        <h2>Component (Tests\Unit\GammaMatrix\Playground\View\Components\ModelFlag\Component)</h2>
-        <ul>
-            <li class="success">Component instance</li>
-            <li class="success">Component can render view with null value</li>
-            <li class="success">Component can render view with true value</li>
-            <li class="success">Component can render view with false value</li>
-        </ul>
-        <h2>Component (Tests\Unit\GammaMatrix\Playground\View\Components\PaginationSort\Component)</h2>
-        <ul>
-            <li class="success">Component instance</li>
-            <li class="success">Component can render view with empty sort</li>
-            <li class="success">Component can render view with invalid sort</li>
-            <li class="success">Component can render view</li>
-        </ul>
-        <h2>Component (Tests\Unit\GammaMatrix\Playground\View\Components\Table\Data\Component)</h2>
-        <ul>
-            <li class="success">Component instance</li>
-            <li class="success">Component can render view</li>
-        </ul>
-        <h2>Dashboard Route (Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\DashboardRoute)</h2>
-        <ul>
-            <li class="success">Route dashboard as guest and fail when disabled for guest and no redirect</li>
-            <li class="success">Route dashboard as guest and redirect when disabled for all</li>
-            <li class="success">Route dashboard as guest and redirect when disabled for guest</li>
-            <li class="success">Route json dashboard as guest and succeed</li>
-            <li class="success">Route dashboard as user and succeed</li>
-            <li class="success">Route dashboard as user and fail when disabled for all</li>
-            <li class="success">Route dashboard as user and fail when disabled for all and no redirect</li>
-            <li class="success">Route json dashboard as admin and succeed</li>
-        </ul>
-        <h2>Date Trait (Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\DateTrait)</h2>
+        <h2>Date Trait (Tests\Unit\Playground\Filters\ModelTrait\DateTrait)</h2>
         <ul>
             <li class="success">Filter date</li>
             <li class="success">Filter date as carbon</li>
         </ul>
-        <h2>Home Route (Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\HomeRoute)</h2>
-        <ul>
-            <li class="success">Route home as guest and succeed</li>
-            <li class="success">Route json home as guest and succeed</li>
-            <li class="success">Route home as user admin and succeed</li>
-            <li class="success">Route json home as admin and succeed</li>
-        </ul>
-        <h2>Model (Tests\Unit\GammaMatrix\Playground\Models\Model\Model)</h2>
+        <h2>Model (Tests\Unit\Playground\Models\Model\Model)</h2>
         <ul>
             <li class="success">WithChildren children returns HasMany</li>
             <li class="success">WithCreator creator returns HasOne</li>
@@ -180,7 +115,7 @@
             <li class="success">WithOwner owner returns HasOne</li>
             <li class="success">WithParent parent returns HasOne</li>
         </ul>
-        <h2>Model (Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterColumns\Model)</h2>
+        <h2>Model (Tests\Unit\Playground\Models\Traits\ScopeFilterColumns\Model)</h2>
         <ul>
             <li class="success">ScopeFilterColumns returns query without columns or filters</li>
             <li class="success">ScopeFilterColumns returns query without filters</li>
@@ -198,7 +133,7 @@
             <li class="success">ScopeFilterColumns with not between filter operator without single parameter and ignore between</li>
             <li class="success">ScopeFilterColumns with not between filter operator</li>
         </ul>
-        <h2>Model (Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterDates\Model)</h2>
+        <h2>Model (Tests\Unit\Playground\Models\Traits\ScopeFilterDates\Model)</h2>
         <ul>
             <li class="success">ScopeFilterDates returns query without dates or filters</li>
             <li class="success">ScopeFilterDates returns query without filters</li>
@@ -219,13 +154,13 @@
             <li class="success">ScopeFilterDates with not between filter operator with parse</li>
             <li class="success">ScopeFilterDates with filter operators</li>
         </ul>
-        <h2>Model (Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterFlags\Model)</h2>
+        <h2>Model (Tests\Unit\Playground\Models\Traits\ScopeFilterFlags\Model)</h2>
         <ul>
             <li class="success">ScopeFilterFlags returns query without flags or filters</li>
             <li class="success">ScopeFilterFlags returns query without filters</li>
             <li class="success">ScopeFilterFlags returns query with filters</li>
         </ul>
-        <h2>Model (Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterIds\Model)</h2>
+        <h2>Model (Tests\Unit\Playground\Models\Traits\ScopeFilterIds\Model)</h2>
         <ul>
             <li class="success">ScopeFilterIds returns query without ids or filters</li>
             <li class="success">ScopeFilterIds returns query without filters</li>
@@ -239,13 +174,13 @@
             <li class="success">ScopeFilterIds returns query with array of integer ids ignore duplicate id</li>
             <li class="success">ScopeFilterIds returns query with filters with null and string and array</li>
         </ul>
-        <h2>Model (Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterTrash\Model)</h2>
+        <h2>Model (Tests\Unit\Playground\Models\Traits\ScopeFilterTrash\Model)</h2>
         <ul>
             <li class="success">ScopeFilterTrash returns query with empty visibility</li>
             <li class="success">ScopeFilterTrash returns query with trash</li>
             <li class="success">ScopeFilterTrash returns query with only trash</li>
         </ul>
-        <h2>Model (Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeSort\Model)</h2>
+        <h2>Model (Tests\Unit\Playground\Models\Traits\ScopeSort\Model)</h2>
         <ul>
             <li class="success">ScopeSort returns query with empty sort</li>
             <li class="success">ScopeSort returns query with array boolean sort asc</li>
@@ -259,7 +194,7 @@
             <li class="success">ScopeSort returns query with hash array asc</li>
             <li class="success">ScopeSort returns query with hash array desc</li>
         </ul>
-        <h2>Number Trait (Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\NumberTrait)</h2>
+        <h2>Number Trait (Tests\Unit\Playground\Filters\ModelTrait\NumberTrait)</h2>
         <ul>
             <li class="success">Filter float</li>
             <li class="success">Filter integer</li>
@@ -267,37 +202,18 @@
             <li class="success">Filter integer positive</li>
             <li class="success">Filter percent</li>
         </ul>
-        <h2>Sitemap Route (Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\SitemapRoute)</h2>
-        <ul>
-            <li class="success">Route sitemap as guest and fail when disabled for guest and no redirect</li>
-            <li class="success">Route sitemap as guest and redirect when disabled for all</li>
-            <li class="success">Route sitemap as guest and redirect when disabled for guest</li>
-            <li class="success">Route json sitemap as guest and succeed</li>
-            <li class="success">Route sitemap as user and succeed</li>
-            <li class="success">Route sitemap as support and fail when disabled for all</li>
-            <li class="success">Route sitemap as user and fail when disabled for all and no redirect</li>
-            <li class="success">Route json sitemap as admin and succeed</li>
-            <li class="success">Route sitemap as user and succeed with package sitemaps</li>
-        </ul>
-        <h2>Status Trait (Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\StatusTrait)</h2>
+        <h2>Status Trait (Tests\Unit\Playground\Filters\ModelTrait\StatusTrait)</h2>
         <ul>
             <li class="success">Filter status</li>
         </ul>
-        <h2>System Fields Trait (Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\SystemFieldsTrait)</h2>
+        <h2>System Fields Trait (Tests\Unit\Playground\Filters\ModelTrait\SystemFieldsTrait)</h2>
         <ul>
             <li class="success">FilterSystemFields for groups</li>
             <li class="success">FilterSystemFields for permissions</li>
             <li class="success">FilterSystemFields for rank</li>
             <li class="success">FilterSystemFields for size</li>
         </ul>
-        <h2>Theme Route (Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\ThemeRoute)</h2>
-        <ul>
-            <li class="success">Route theme as guest and succeed</li>
-            <li class="success">Route theme as guest with preview and succeed</li>
-            <li class="success">Route theme as partner and succeed</li>
-            <li class="success">Route theme as sales and succeed with theme and redirect</li>
-        </ul>
-        <h2>Trait (Tests\Feature\GammaMatrix\Playground\Policies\PrivilegeTrait\Trait)</h2>
+        <h2>Trait (Tests\Feature\Playground\Policies\PrivilegeTrait\Trait)</h2>
         <ul>
             <li class="success">HasPrivilege and fail with empty privilege</li>
             <li class="success">HasPrivilege with app without token and fail</li>
@@ -306,7 +222,7 @@
             <li class="success">HasPrivilege with app with wildcard secondary token privileges and succeed</li>
             <li class="success">HasPrivilege with app with token privileges and succeed</li>
         </ul>
-        <h2>Trait (Tests\Unit\GammaMatrix\Playground\Filters\ContentTrait\Trait)</h2>
+        <h2>Trait (Tests\Unit\Playground\Filters\ContentTrait\Trait)</h2>
         <ul>
             <li class="success">Purify</li>
             <li class="success">Exorcise</li>
@@ -315,7 +231,7 @@
             <li class="success">GetHtmlPurifier with purifier path</li>
             <li class="success">Encode u r i component</li>
         </ul>
-        <h2>Trait (Tests\Unit\GammaMatrix\Playground\Models\Traits\UserPrivileges\Trait)</h2>
+        <h2>Trait (Tests\Unit\Playground\Models\Traits\UserPrivileges\Trait)</h2>
         <ul>
             <li class="success">HasPrivilege is false with null privilege</li>
             <li class="success">HasPrivilege is false with false privilege</li>
@@ -338,7 +254,7 @@
             <li class="success">IsAdmin is true with primary role that does exist</li>
             <li class="success">IsAdmin is false with secondary root role</li>
         </ul>
-        <h2>Trait (Tests\Unit\GammaMatrix\Playground\Policies\PolicyTrait\Trait)</h2>
+        <h2>Trait (Tests\Unit\Playground\Policies\PolicyTrait\Trait)</h2>
         <ul>
             <li class="success">Get entity</li>
             <li class="success">Get package</li>
@@ -350,7 +266,7 @@
             <li class="success">Verify roles</li>
             <li class="success">Verify user</li>
         </ul>
-        <h2>Trait (Tests\Unit\GammaMatrix\Playground\Policies\PrivilegeTrait\Trait)</h2>
+        <h2>Trait (Tests\Unit\Playground\Policies\PrivilegeTrait\Trait)</h2>
         <ul>
             <li class="success">Privilege without parameter</li>
             <li class="success">Privilege with package and without parameter</li>
@@ -360,7 +276,7 @@
             <li class="success">HasPrivilege with user privileges</li>
             <li class="success">HasPrivilege without privileges enabled</li>
         </ul>
-        <h2>Trait (Tests\Unit\GammaMatrix\Playground\Policies\RoleTrait\Trait)</h2>
+        <h2>Trait (Tests\Unit\Playground\Policies\RoleTrait\Trait)</h2>
         <ul>
             <li class="success">Get roles for admin</li>
             <li class="success">Get roles for action</li>
@@ -368,22 +284,15 @@
             <li class="success">Has role</li>
             <li class="success">HasRole advanced role</li>
         </ul>
-        <h2>Uuid Trait (Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\UuidTrait)</h2>
+        <h2>Uuid Trait (Tests\Unit\Playground\Filters\ModelTrait\UuidTrait)</h2>
         <ul>
             <li class="success">Filter uuid</li>
         </ul>
-        <h2>Value Trait (Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\ValueTrait)</h2>
+        <h2>Value Trait (Tests\Unit\Playground\Filters\ModelTrait\ValueTrait)</h2>
         <ul>
             <li class="success">Filter boolean</li>
             <li class="success">Filter email</li>
             <li class="success">Filter html</li>
-        </ul>
-        <h2>Welcome Route (Tests\Feature\GammaMatrix\Playground\Http\Controllers\Index\WelcomeRoute)</h2>
-        <ul>
-            <li class="success">Route welcome as guest and succeed</li>
-            <li class="success">Route json welcome as guest and succeed</li>
-            <li class="success">Route welcome as user and succeed</li>
-            <li class="success">Route json welcome as manager admin and succeed</li>
         </ul>
     </body>
 </html>
