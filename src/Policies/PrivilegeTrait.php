@@ -1,43 +1,44 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
+namespace Playground\Policies;
 
-namespace GammaMatrix\Playground\Policies;
-
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Access\Response;
-use Illuminate\Support\Str;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Laravel\Sanctum\Contracts\HasApiTokens;
 
 /**
- * \GammaMatrix\Playground\Policies\PrivilegeTrait
- *
+ * \Playground\Policies\PrivilegeTrait
  */
 trait PrivilegeTrait
 {
     abstract public function getPackage(): string;
+
     abstract public function getEntity(): string;
+
     abstract public function getToken(): ?object;
+
     abstract public function hasToken(): bool;
-    abstract public function setToken(?object $token = null): self;
+
+    abstract public function setToken(object $token = null): self;
 
     public function privilege(string $ability = '*'): string
     {
         $privilege = '';
-        if (!empty($this->getPackage())) {
+        if (! empty($this->getPackage())) {
             $privilege .= $this->getPackage();
         }
 
-        if (!empty($this->getEntity())) {
-            if (!empty($privilege)) {
+        if (! empty($this->getEntity())) {
+            if (! empty($privilege)) {
                 $privilege .= ':';
             }
             $privilege .= $this->getEntity();
         }
 
-        if (!empty($ability)) {
-            if (!empty($privilege)) {
+        if (! empty($ability)) {
+            if (! empty($privilege)) {
                 $privilege .= ':';
             }
             $privilege .= $ability;
@@ -58,9 +59,13 @@ trait PrivilegeTrait
                 return true;
             }
         }
+
         return false;
     }
 
+    /**
+     * @param Authenticatable&HasApiTokens $user
+     */
     public function hasPrivilege(Authenticatable $user, string $privilege): bool|Response
     {
         if (empty($privilege)) {
@@ -68,13 +73,12 @@ trait PrivilegeTrait
         }
 
         if (config('playground.auth.sanctum')) {
-            if (!$this->hasToken()) {
+            if (! $this->hasToken()) {
                 $token = $user->tokens()
                     ->where('name', config('playground.auth.token.name'))
                     // Get the latest created token.
                     ->orderBy('created_at', 'desc')
-                    ->first()
-                ;
+                    ->first();
 
                 if ($token) {
                     $this->setToken($token);
@@ -91,6 +95,7 @@ trait PrivilegeTrait
             if ($this->getToken()->cant($privilege)) {
                 return Response::denyWithStatus(401, __('playground::auth.unauthorized'));
             }
+
             // dd([
             //     '__METHOD__' => __METHOD__,
             //     '$privilege' => $privilege,

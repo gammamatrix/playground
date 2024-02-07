@@ -1,18 +1,15 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
-
-namespace GammaMatrix\Playground\Models\Traits;
+namespace Playground\Models\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 
 // use Illuminate\Support\Facades\Log;
 
 /**
- * \GammaMatrix\Playground\Models\Traits\ScopeFilterColumns
- *
+ * \Playground\Models\Traits\ScopeFilterColumns
  */
 trait ScopeFilterColumns
 {
@@ -21,7 +18,7 @@ trait ScopeFilterColumns
         array $columns,
         array $validated = []
     ): Builder {
-        if (empty($validated['filter']) || !is_array($validated['filter'])) {
+        if (empty($validated['filter']) || ! is_array($validated['filter'])) {
             return $query;
         }
 
@@ -53,20 +50,20 @@ trait ScopeFilterColumns
             //     '$column' => $column,
             // ]);
             if (empty(($column))
-                || !is_string($column)
-                || !preg_match('/^[a-z][a-z0-9_]+$/i', $column)
-                || !array_key_exists($column, $validated['filter'])
+                || ! is_string($column)
+                || ! preg_match('/^[a-z][a-z0-9_]+$/i', $column)
+                || ! array_key_exists($column, $validated['filter'])
             ) {
                 // Log::debug(__METHOD__, ['VALIDATION' => 'empty', '$column' => $column, '$validated' => $validated,]);
                 continue;
             }
 
-            $filter_type = !empty($meta['type']) && is_string($meta['type']) ? $meta['type'] : 'string';
+            $filter_type = ! empty($meta['type']) && is_string($meta['type']) ? $meta['type'] : 'string';
 
             $filter_operator = null;
             $filter_value = null;
 
-            if ('boolean' === $filter_type) {
+            if ($filter_type === 'boolean') {
                 $filter_operator = 'BOOLEAN';
                 $filter_value = (bool) $validated['filter'][$column];
                 $columns[$column] = [
@@ -77,7 +74,7 @@ trait ScopeFilterColumns
                 $query->where($column, $filter_value);
             } else {
                 if (is_array($validated['filter'][$column])) {
-                    if (!empty($validated['filter'][$column]['operator']) && array_key_exists(
+                    if (! empty($validated['filter'][$column]['operator']) && array_key_exists(
                         strtoupper($validated['filter'][$column]['operator']),
                         $filter_operators
                     )) {
@@ -100,24 +97,24 @@ trait ScopeFilterColumns
                     $filter_operator = 'LIKE';
                 }
 
-                if ('LIKE' === $filter_operator) {
+                if ($filter_operator === 'LIKE') {
                     $query->where($column, 'LIKE', $filter_value);
-                } elseif ('NOTLIKE' === $filter_operator) {
+                } elseif ($filter_operator === 'NOTLIKE') {
                     $query->where(
                         $column,
                         'NOT LIKE',
                         is_string($filter_value) ? $filter_value : ''
                     );
-                } elseif ('NULL' === $filter_operator) {
+                } elseif ($filter_operator === 'NULL') {
                     $query->whereNull($column);
-                } elseif ('NOTNULL' === $filter_operator) {
+                } elseif ($filter_operator === 'NOTNULL') {
                     $query->whereNotNull($column);
-                } elseif ('BETWEEN' === $filter_operator) {
-                    if (is_array($filter_value) && 2 === count($filter_value)) {
+                } elseif ($filter_operator === 'BETWEEN') {
+                    if (is_array($filter_value) && count($filter_value) === 2) {
                         $query->whereBetween($column, $filter_value);
                     }
-                } elseif ('NOTBETWEEN' === $filter_operator) {
-                    if (is_array($filter_value) && 2 === count($filter_value)) {
+                } elseif ($filter_operator === 'NOTBETWEEN') {
+                    if (is_array($filter_value) && count($filter_value) === 2) {
                         $query->whereNotBetween($column, $filter_value);
                     }
                 } else {

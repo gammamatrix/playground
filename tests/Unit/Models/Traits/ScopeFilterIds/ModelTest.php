@@ -1,18 +1,15 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
+namespace Tests\Unit\Playground\Models\Traits\ScopeFilterIds;
 
-namespace Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterIds;
-
-use Tests\Unit\GammaMatrix\Playground\TestCase;
-use GammaMatrix\Playground\Test\SqlTrait;
 use Illuminate\Database\Eloquent\Builder;
+use Playground\Test\SqlTrait;
+use Tests\Unit\Playground\TestCase;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterIds\ModelTest
- *
+ * \Tests\Unit\Playground\Models\Traits\ScopeFilterIds\ModelTest
  */
 class ModelTest extends TestCase
 {
@@ -21,9 +18,9 @@ class ModelTest extends TestCase
     }
 
     /**
-     * @var string
+     * @var class-string
      */
-    public const ABSTRACT_CLASS = \GammaMatrix\Playground\Models\Model::class;
+    public const MODEL_CLASS = \Playground\Models\Model::class;
 
     /**
      * @var object
@@ -32,8 +29,6 @@ class ModelTest extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,17 +36,17 @@ class ModelTest extends TestCase
 
         parent::setUp();
 
-        if (!class_exists(static::ABSTRACT_CLASS)) {
+        if (! class_exists(static::MODEL_CLASS)) {
             $this->markTestSkipped(sprintf(
                 'Expecting the abstract model class to exist: %1$s',
-                static::ABSTRACT_CLASS
+                static::MODEL_CLASS
             ));
         }
 
-        $this->mock = $this->getMockForAbstractClass(static::ABSTRACT_CLASS);
+        $this->mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
     }
 
-    public function test_scopeFilterIds_returns_query_without_ids_or_filters()
+    public function test_scopeFilterIds_returns_query_without_ids_or_filters(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
@@ -86,7 +81,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterIds_returns_query_with_invalid_column()
+    public function test_scopeFilterIds_returns_query_with_invalid_column(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
@@ -114,7 +109,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterIds_returns_query_with_null_comparison()
+    public function test_scopeFilterIds_returns_query_with_null_comparison(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `id` is null and `%1$s`.`deleted_at` is null',
@@ -143,7 +138,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterIds_returns_query_with_comparison()
+    public function test_scopeFilterIds_returns_query_with_comparison(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `id` = ? and `%1$s`.`deleted_at` is null',
@@ -173,7 +168,7 @@ class ModelTest extends TestCase
         $this->assertSame($validated['filter']['id'], $bindings[0]);
     }
 
-    public function test_scopeFilterIds_returns_query_with_filters_array()
+    public function test_scopeFilterIds_returns_query_with_filters_array(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `modified_by_id` in (?, ?, ?) and `%1$s`.`deleted_at` is null',
@@ -221,7 +216,7 @@ class ModelTest extends TestCase
         $this->assertSame($validated['filter']['modified_by_id'][2], $bindings[2]);
     }
 
-    public function test_scopeFilterIds_returns_query_with_filters_with_integer()
+    public function test_scopeFilterIds_returns_query_with_filters_with_integer(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `id` = ? and `%1$s`.`deleted_at` is null',
@@ -260,7 +255,7 @@ class ModelTest extends TestCase
         $this->assertSame($validated['filter']['id'], $bindings[0]);
     }
 
-    public function test_scopeFilterIds_returns_query_with_array_of_ids_without_type()
+    public function test_scopeFilterIds_returns_query_with_array_of_ids_without_type(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `modified_by_id` in (?, ?, ?) and `%1$s`.`deleted_at` is null',
@@ -306,7 +301,7 @@ class ModelTest extends TestCase
         $this->assertSame($validated['filter']['modified_by_id'][2], $bindings[2]);
     }
 
-    public function test_scopeFilterIds_returns_query_with_array_of_uuids_for_integer_type_ids_and_ignore()
+    public function test_scopeFilterIds_returns_query_with_array_of_uuids_for_integer_type_ids_and_ignore(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
@@ -317,7 +312,7 @@ class ModelTest extends TestCase
             'id' => [],
             'owned_by_id' => [],
             'modified_by_id' => [
-                'type' => 'integer'
+                'type' => 'integer',
             ],
             'project_id' => [],
             'invalid ID' => [],
@@ -345,7 +340,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterIds_returns_query_with_array_of_integer_ids_ignore_duplicate_id()
+    public function test_scopeFilterIds_returns_query_with_array_of_integer_ids_ignore_duplicate_id(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `modified_by_id` in (?, ?) and `%1$s`.`deleted_at` is null',
@@ -356,7 +351,7 @@ class ModelTest extends TestCase
             'id' => [],
             'owned_by_id' => [],
             'modified_by_id' => [
-                'type' => 'integer'
+                'type' => 'integer',
             ],
             'project_id' => [],
             'invalid ID' => [],
@@ -389,7 +384,7 @@ class ModelTest extends TestCase
         $this->assertSame($validated['filter']['modified_by_id'][2], $bindings[1]);
     }
 
-    public function test_scopeFilterIds_returns_query_with_filters_with_null_and_string_and_array()
+    public function test_scopeFilterIds_returns_query_with_filters_with_null_and_string_and_array(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `id` = ? and `owned_by_id` is null and `modified_by_id` in (?, ?, ?) and `%1$s`.`deleted_at` is null',

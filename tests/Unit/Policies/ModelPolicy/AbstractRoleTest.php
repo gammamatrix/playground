@@ -1,30 +1,27 @@
 <?php
 /**
  * Playground
- *
  */
+namespace Tests\Unit\Playground\Policies\ModelPolicy;
 
-namespace Tests\Unit\GammaMatrix\Playground\Policies\ModelPolicy;
-
-use GammaMatrix\Playground\Test\Models\UserWithRoleAndRolesAndPrivileges as User;
-use Tests\Unit\GammaMatrix\Playground\TestCase;
 use Illuminate\Auth\Access\Response;
+use Playground\Test\Models\UserWithRoleAndRolesAndPrivileges as User;
+use Tests\Unit\Playground\TestCase;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Policies\ModelPolicy\AbstractRoleTest
- *
+ * \Tests\Unit\Playground\Policies\ModelPolicy\AbstractRoleTest
  */
 class AbstractRoleTest extends TestCase
 {
     /**
      * @var string
      */
-    public const ABSTRACT_CLASS = \GammaMatrix\Playground\Policies\ModelPolicy::class;
+    public const ABSTRACT_CLASS = \Playground\Policies\ModelPolicy::class;
 
     /**
      * @var string
      */
-    public const MODEL_CLASS = \GammaMatrix\Playground\Test\Models\User::class;
+    public const MODEL_CLASS = \Playground\Test\Models\User::class;
 
     /**
      * @var object
@@ -33,14 +30,12 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
         parent::setUp();
 
-        if (!class_exists(static::MODEL_CLASS)) {
+        if (! class_exists(static::MODEL_CLASS)) {
             $this->markTestSkipped(sprintf(
                 'Expecting the model class to exist: %1$s',
                 static::MODEL_CLASS
@@ -59,7 +54,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test create().
-     *
      */
     public function test_create_without_role()
     {
@@ -70,7 +64,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test create().
-     *
      */
     public function test_create_with_admin()
     {
@@ -81,7 +74,7 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
 
         $this->assertTrue($this->mock->create($user));
     }
@@ -90,7 +83,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test delete().
-     *
      */
     public function test_delete_without_role()
     {
@@ -104,7 +96,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test delete().
-     *
      */
     public function test_delete_with_admin()
     {
@@ -118,14 +109,14 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->delete($user, $model));
     }
 
     /**
      * Test delete().
-     *
      */
     public function test_delete_locked_with_admin()
     {
@@ -141,7 +132,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $response = $this->mock->delete($user, $model);
 
@@ -163,7 +155,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test detail().
-     *
      */
     public function test_detail_without_role()
     {
@@ -177,7 +168,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test detail().
-     *
      */
     public function test_detail_with_admin()
     {
@@ -191,7 +181,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->detail($user, $model));
     }
@@ -200,7 +191,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test edit().
-     *
      */
     public function test_edit_without_role()
     {
@@ -214,7 +204,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test edit().
-     *
      */
     public function test_edit_with_admin()
     {
@@ -228,7 +217,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->edit($user, $model));
     }
@@ -237,7 +227,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test forceDelete().
-     *
      */
     public function test_forceDelete_without_role()
     {
@@ -251,7 +240,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test forceDelete().
-     *
      */
     public function test_forceDelete_with_admin()
     {
@@ -265,7 +253,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->forceDelete($user, $model));
     }
@@ -274,7 +263,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test lock().
-     *
      */
     public function test_lock_without_role()
     {
@@ -288,7 +276,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test lock().
-     *
      */
     public function test_lock_with_admin()
     {
@@ -302,7 +289,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->lock($user, $model));
     }
@@ -311,7 +299,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test manage().
-     *
      */
     public function test_manage_without_role()
     {
@@ -325,7 +312,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test manage().
-     *
      */
     public function test_manage_with_admin()
     {
@@ -339,7 +325,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->manage($user, $model));
     }
@@ -348,7 +335,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test restore().
-     *
      */
     public function test_restore_without_role()
     {
@@ -362,7 +348,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test restore().
-     *
      */
     public function test_restore_with_admin()
     {
@@ -376,14 +361,14 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->restore($user, $model));
     }
 
     /**
      * Test store().
-     *
      */
     public function test_store_without_role()
     {
@@ -394,7 +379,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test store().
-     *
      */
     public function test_store_with_admin()
     {
@@ -405,7 +389,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->store($user));
     }
@@ -414,7 +399,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test update().
-     *
      */
     public function test_update_without_role()
     {
@@ -428,7 +412,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test update().
-     *
      */
     public function test_update_with_admin()
     {
@@ -442,14 +425,14 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->update($user, $model));
     }
 
     /**
      * Test update().
-     *
      */
     public function test_update_locked_with_admin()
     {
@@ -465,12 +448,13 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $response = $this->mock->update($user, $model);
 
         $this->assertInstanceOf(
-            \Illuminate\Auth\Access\Response::class,
+            Response::class,
             $response
         );
 
@@ -487,7 +471,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test unlock().
-     *
      */
     public function test_unlock_without_role()
     {
@@ -501,7 +484,6 @@ class AbstractRoleTest extends TestCase
 
     /**
      * Test unlock().
-     *
      */
     public function test_unlock_with_admin()
     {
@@ -515,7 +497,8 @@ class AbstractRoleTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->unlock($user, $model));
     }

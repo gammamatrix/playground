@@ -1,30 +1,19 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
-
-namespace Tests\Feature\GammaMatrix\Playground;
-
-use GammaMatrix\Playground\Test\OrchestraTestCase;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-use GammaMatrix\Playground\ServiceProvider;
-use Illuminate\Contracts\Config\Repository;
+namespace Tests\Feature\Playground;
 
 /**
- * \Tests\Feature\GammaMatrix\Playground\TestCase
- *
+ * \Tests\Feature\Playground\TestCase
  */
-class TestCase extends OrchestraTestCase
+class TestCase extends \Tests\Unit\Playground\TestCase
 {
-    use DatabaseTransactions;
+    protected bool $load_migrations_laravel = false;
 
-    protected function getPackageProviders($app)
-    {
-        return [
-            ServiceProvider::class,
-        ];
-    }
+    protected bool $load_UserWithRoleAndRolesAndPrivileges = false;
+
+    protected bool $load_UserWithSanctum = false;
 
     /**
      * Setup the test environment.
@@ -36,9 +25,17 @@ class TestCase extends OrchestraTestCase
         //     '__METHOD__' => __METHOD__,
         //     'path' => dirname(dirname(__DIR__)) . '/database/migrations',
         // ]);
-        if (!empty(env('TEST_DB_MIGRATIONS'))) {
+        if (! empty(env('TEST_DB_MIGRATIONS'))) {
             // $this->loadLaravelMigrations();
-            $this->loadMigrationsFrom(dirname(dirname(__DIR__)) . '/database/migrations-laravel');
+            if ($this->load_migrations_laravel) {
+                $this->loadMigrationsFrom(dirname(dirname(__DIR__)).'/database/migrations-laravel');
+            }
+            if ($this->load_UserWithRoleAndRolesAndPrivileges) {
+                $this->loadMigrationsFrom(dirname(dirname(__DIR__)).'/database/migrations-user-privileges');
+            }
+            if ($this->load_UserWithSanctum) {
+                $this->loadMigrationsFrom(dirname(dirname(__DIR__)).'/database/migrations-sanctum');
+            }
         }
     }
 
@@ -49,7 +46,7 @@ class TestCase extends OrchestraTestCase
      */
     protected function getEnvironmentSetUp($app)
     {
-        $app['config']->set('auth.providers.users.model', 'GammaMatrix\\Playground\\Test\\Models\\User');
+        $app['config']->set('auth.providers.users.model', 'Playground\\Test\\Models\\User');
         $app['config']->set('playground.auth.verify', 'user');
 
         $app['config']->set('playground.load.routes', true);

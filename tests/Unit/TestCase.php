@@ -1,19 +1,15 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
+namespace Tests\Unit\Playground;
 
-namespace Tests\Unit\GammaMatrix\Playground;
-
-use GammaMatrix\Playground\Test\OrchestraTestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use GammaMatrix\Playground\ServiceProvider;
-use Illuminate\Contracts\Config\Repository;
+use Playground\ServiceProvider;
+use Playground\Test\OrchestraTestCase;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\TestCase
- *
+ * \Tests\Unit\Playground\TestCase
  */
 class TestCase extends OrchestraTestCase
 {
@@ -33,7 +29,7 @@ class TestCase extends OrchestraTestCase
      */
     protected function getEnvironmentSetUp($app)
     {
-        $app['config']->set('auth.providers.users.model', 'GammaMatrix\\Playground\\Test\\Models\\User');
+        $app['config']->set('auth.providers.users.model', 'Playground\\Test\\Models\\User');
         $app['config']->set('playground.auth.verify', 'user');
     }
 }

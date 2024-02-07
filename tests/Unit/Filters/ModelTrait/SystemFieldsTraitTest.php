@@ -1,25 +1,23 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
-
-namespace Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait;
+namespace Tests\Unit\Playground\Filters\ModelTrait;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\SystemFieldsTraitTest
+ * \Tests\Unit\Playground\Filters\ModelTrait\SystemFieldsTraitTest
  *
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterSystemFields()
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterSystemFields()
+ * @see \Playground\Filters\ModelTrait::filterSystemFields()
+ * @see \Playground\Filters\ModelTrait::filterSystemFields()
  */
 class SystemFieldsTraitTest extends TraitTestCase
 {
     /**
      * filterSystemFields: gids
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterSystemFields()
+     * @see \Playground\Filters\ModelTrait::filterSystemFields()
      */
-    public function test_filterSystemFields_for_groups()
+    public function test_filterSystemFields_for_groups(): void
     {
         $this->assertSame([], $this->mock->filterSystemFields([]));
 
@@ -30,9 +28,9 @@ class SystemFieldsTraitTest extends TraitTestCase
     /**
      * filterSystemFields: gids
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterSystemFields()
+     * @see \Playground\Filters\ModelTrait::filterSystemFields()
      */
-    public function test_filterSystemFields_for_permissions()
+    public function test_filterSystemFields_for_permissions(): void
     {
         $this->assertSame([], $this->mock->filterSystemFields([]));
 
@@ -64,9 +62,9 @@ class SystemFieldsTraitTest extends TraitTestCase
     /**
      * filterSystemFields: rank
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterSystemFields()
+     * @see \Playground\Filters\ModelTrait::filterSystemFields()
      */
-    public function test_filterSystemFields_for_rank()
+    public function test_filterSystemFields_for_rank(): void
     {
         $expected = ['rank' => 0];
         $this->assertSame($expected, $this->mock->filterSystemFields(['rank' => 0]));
@@ -81,9 +79,9 @@ class SystemFieldsTraitTest extends TraitTestCase
     /**
      * filterSystemFields: size
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterSystemFields()
+     * @see \Playground\Filters\ModelTrait::filterSystemFields()
      */
-    public function test_filterSystemFields_for_size()
+    public function test_filterSystemFields_for_size(): void
     {
         $expected = ['size' => 0];
         $this->assertSame($expected, $this->mock->filterSystemFields(['size' => 0]));

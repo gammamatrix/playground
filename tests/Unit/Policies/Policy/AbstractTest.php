@@ -1,25 +1,22 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
+namespace Tests\Unit\Playground\Policies\Policy;
 
-namespace Tests\Unit\GammaMatrix\Playground\Policies\Policy;
-
-use GammaMatrix\Playground\Test\Models\User;
-use Tests\Unit\GammaMatrix\Playground\TestCase;
 use Illuminate\Auth\Access\Response;
+use Playground\Test\Models\User;
+use Tests\Unit\Playground\TestCase;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Policies\Policy\AbstractTest
- *
+ * \Tests\Unit\Playground\Policies\Policy\AbstractTest
  */
 class AbstractTest extends TestCase
 {
     /**
      * @var string
      */
-    public const ABSTRACT_CLASS = \GammaMatrix\Playground\Policies\Policy::class;
+    public const ABSTRACT_CLASS = \Playground\Policies\Policy::class;
 
     /**
      * @var object
@@ -28,8 +25,6 @@ class AbstractTest extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -45,7 +40,6 @@ class AbstractTest extends TestCase
 
     /**
      * Test before().
-     *
      */
     public function test_before_with_root()
     {
@@ -54,7 +48,7 @@ class AbstractTest extends TestCase
 
         $role = 'root';
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
 
         $this->assertTrue($this->mock->before(
             $user,
@@ -64,7 +58,6 @@ class AbstractTest extends TestCase
 
     /**
      * Test before().
-     *
      */
     public function test_before_with_root_as_secondary_fails()
     {
@@ -76,7 +69,7 @@ class AbstractTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
 
         $this->assertNull($this->mock->before(
             $user,
@@ -86,7 +79,6 @@ class AbstractTest extends TestCase
 
     /**
      * Test index().
-     *
      */
     public function test_index_without_role()
     {
@@ -97,7 +89,6 @@ class AbstractTest extends TestCase
 
     /**
      * Test index().
-     *
      */
     public function test_index_with_admin()
     {
@@ -108,14 +99,13 @@ class AbstractTest extends TestCase
             'root',
         ];
 
-        $user->role = $role;
+        $user->setAttribute('role', $role);
 
         $this->assertTrue($this->mock->index($user));
     }
 
     /**
      * Test view().
-     *
      */
     public function test_view_without_role()
     {
@@ -126,7 +116,6 @@ class AbstractTest extends TestCase
 
     /**
      * Test view().
-     *
      */
     public function test_view_with_admin()
     {
@@ -138,15 +127,14 @@ class AbstractTest extends TestCase
             'user',
         ];
 
-        $user->role = $role;
-        $user->roles = $roles;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->view($user));
     }
 
     /**
      * Test view().
-     *
      */
     public function test_view_with_admin_in_roles()
     {
@@ -158,8 +146,8 @@ class AbstractTest extends TestCase
             'user',
         ];
 
-        $user->role = $role;
-        $user->roles = $roles;
+        $user->setAttribute('role', $role);
+        $user->setAttribute('roles', $roles);
 
         $this->assertTrue($this->mock->view($user));
     }

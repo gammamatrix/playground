@@ -1,16 +1,13 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
-
-namespace GammaMatrix\Playground\Models\Interfaces;
+namespace Playground\Models\Interfaces;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * \GammaMatrix\Playground\Models\Interfaces\WithChildrenInterface
- *
+ * \Playground\Models\Interfaces\WithChildrenInterface
  */
 interface WithChildrenInterface
 {

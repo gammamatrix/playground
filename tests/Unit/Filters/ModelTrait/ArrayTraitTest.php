@@ -1,25 +1,23 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
-
-namespace Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait;
+namespace Tests\Unit\Playground\Filters\ModelTrait;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\ArrayTraitTest
+ * \Tests\Unit\Playground\Filters\ModelTrait\ArrayTraitTest
  *
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterArray()
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterArrayToJson()
+ * @see \Playground\Filters\ModelTrait::filterArray()
+ * @see \Playground\Filters\ModelTrait::filterArrayToJson()
  */
 class ArrayTraitTest extends TraitTestCase
 {
     /**
      * filterArray
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterArray()
+     * @see \Playground\Filters\ModelTrait::filterArray()
      */
-    public function test_filterArray()
+    public function test_filterArray(): void
     {
         // Always return an array, no matter the input.
 
@@ -45,7 +43,7 @@ class ArrayTraitTest extends TraitTestCase
             'i' => 'am-a-test-array',
             'someNullValue' => null,
             'aString' => 'thanks!',
-            'object' => (object) ['ok' => true,],
+            'object' => (object) ['ok' => true],
         ];
 
         // Returns the same array.
@@ -55,9 +53,9 @@ class ArrayTraitTest extends TraitTestCase
     /**
      * filterArrayToJson
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterArrayToJson()
+     * @see \Playground\Filters\ModelTrait::filterArrayToJson()
      */
-    public function test_filterArray_to_json()
+    public function test_filterArray_to_json(): void
     {
         // Unexpected values return a json encoded empty array..
 
@@ -83,7 +81,7 @@ class ArrayTraitTest extends TraitTestCase
             'i' => 'am-a-test-array',
             'someNullValue' => null,
             'aString' => 'thanks!',
-            'object' => (object) ['ok' => true,],
+            'object' => (object) ['ok' => true],
         ];
 
         // Returns the same array.

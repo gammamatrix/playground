@@ -1,25 +1,23 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
-
-namespace Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait;
+namespace Tests\Unit\Playground\Filters\ModelTrait;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Filters\ModelTrait\DateTraitTest
+ * \Tests\Unit\Playground\Filters\ModelTrait\DateTraitTest
  *
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterDate()
- * @see \GammaMatrix\Playground\Filters\ModelTrait::filterDateAsCarbon()
+ * @see \Playground\Filters\ModelTrait::filterDate()
+ * @see \Playground\Filters\ModelTrait::filterDateAsCarbon()
  */
 class DateTraitTest extends TraitTestCase
 {
     /**
      * filterDate
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterDate()
+     * @see \Playground\Filters\ModelTrait::filterDate()
      */
-    public function test_filterDate()
+    public function test_filterDate(): void
     {
         $this->assertNull($this->mock->filterDate(''));
 
@@ -33,9 +31,9 @@ class DateTraitTest extends TraitTestCase
     /**
      * filterDateAsCarbon
      *
-     * @see \GammaMatrix\Playground\Filters\ModelTrait::filterDateAsCarbon()
+     * @see \Playground\Filters\ModelTrait::filterDateAsCarbon()
      */
-    public function test_filterDateAsCarbon()
+    public function test_filterDateAsCarbon(): void
     {
         $this->assertNull($this->mock->filterDateAsCarbon(''));
 

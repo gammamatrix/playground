@@ -1,30 +1,25 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
+namespace Tests\Unit\Playground\Policies\PrivilegeTrait;
 
-namespace Tests\Unit\GammaMatrix\Playground\Policies\PrivilegeTrait;
-
-use Tests\Unit\GammaMatrix\Playground\TestCase;
-use GammaMatrix\Playground\Test\Models\UserWithSanctum;
-use GammaMatrix\Playground\Test\Models\UserWithRoleAndRolesAndPrivileges;
 use Illuminate\Auth\Access\Response;
+use Playground\Test\Models\UserWithRoleAndRolesAndPrivileges;
+use Playground\Test\Models\UserWithSanctum;
+use Tests\Unit\Playground\TestCase;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Policies\PrivilegeTrait\TraitTest
- *
+ * \Tests\Unit\Playground\Policies\PrivilegeTrait\TraitTest
  */
 class TraitTest extends TestCase
 {
-    public const TRAIT_CLASS = \GammaMatrix\Playground\Policies\PrivilegeTrait::class;
+    public const TRAIT_CLASS = \Playground\Policies\PrivilegeTrait::class;
 
     public $mock;
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,27 +36,26 @@ class TraitTest extends TestCase
         );
     }
 
-    public function test_privilege_without_parameter()
+    public function test_privilege_without_parameter(): void
     {
         $expected = '*';
 
         $this->assertSame($expected, $this->mock->privilege());
     }
 
-    public function test_privilege_with_package_and_without_parameter()
+    public function test_privilege_with_package_and_without_parameter(): void
     {
         $package = 'testing';
         $expected = 'testing:*';
 
         $this->mock->expects($this->any())
             ->method('getPackage')
-            ->will($this->returnValue($package))
-        ;
+            ->will($this->returnValue($package));
 
         $this->assertSame($expected, $this->mock->privilege());
     }
 
-    public function test_privilege_with_package_and_entity_and_without_parameter()
+    public function test_privilege_with_package_and_entity_and_without_parameter(): void
     {
         $package = 'testing';
         $entity = 'model';
@@ -69,18 +63,16 @@ class TraitTest extends TestCase
 
         $this->mock->expects($this->any())
             ->method('getPackage')
-            ->will($this->returnValue($package))
-        ;
+            ->will($this->returnValue($package));
 
         $this->mock->expects($this->any())
             ->method('getEntity')
-            ->will($this->returnValue($entity))
-        ;
+            ->will($this->returnValue($entity));
 
         $this->assertSame($expected, $this->mock->privilege());
     }
 
-    public function test_hasPrivilege()
+    public function test_hasPrivilege(): void
     {
         config(['playground.auth.sanctum' => true]);
         $user = UserWithSanctum::factory()->make();
@@ -92,7 +84,7 @@ class TraitTest extends TestCase
         ));
     }
 
-    public function test_hasPrivilege_with_user_hasPrivilege()
+    public function test_hasPrivilege_with_user_hasPrivilege(): void
     {
         config(['playground.auth.hasPrivilege' => true]);
 
@@ -107,7 +99,7 @@ class TraitTest extends TestCase
         ));
     }
 
-    public function test_hasPrivilege_with_user_privileges()
+    public function test_hasPrivilege_with_user_privileges(): void
     {
         config(['playground.auth.userPrivileges' => true]);
 

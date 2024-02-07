@@ -1,18 +1,15 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
+namespace Tests\Unit\Playground\Models\Traits\ScopeSort;
 
-namespace Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeSort;
-
-use Tests\Unit\GammaMatrix\Playground\TestCase;
-use GammaMatrix\Playground\Test\SqlTrait;
 use Illuminate\Database\Eloquent\Builder;
+use Playground\Test\SqlTrait;
+use Tests\Unit\Playground\TestCase;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeSort\ModelTest
- *
+ * \Tests\Unit\Playground\Models\Traits\ScopeSort\ModelTest
  */
 class ModelTest extends TestCase
 {
@@ -21,9 +18,9 @@ class ModelTest extends TestCase
     }
 
     /**
-     * @var string
+     * @var class-string
      */
-    public const ABSTRACT_CLASS = \GammaMatrix\Playground\Models\Model::class;
+    public const MODEL_CLASS = \Playground\Models\Model::class;
 
     /**
      * @var object
@@ -32,8 +29,6 @@ class ModelTest extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,17 +36,17 @@ class ModelTest extends TestCase
 
         parent::setUp();
 
-        if (!class_exists(static::ABSTRACT_CLASS)) {
+        if (! class_exists(static::MODEL_CLASS)) {
             $this->markTestSkipped(sprintf(
                 'Expecting the abstract model class to exist: %1$s',
-                static::ABSTRACT_CLASS
+                static::MODEL_CLASS
             ));
         }
 
-        $this->mock = $this->getMockForAbstractClass(static::ABSTRACT_CLASS);
+        $this->mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
     }
 
-    public function test_scopeSort_returns_query_with_empty_sort()
+    public function test_scopeSort_returns_query_with_empty_sort(): void
     {
         $this->assertInstanceOf(Builder::class, $this->mock->sort());
 
@@ -67,7 +62,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_array_boolean_sort_asc()
+    public function test_scopeSort_returns_query_with_array_boolean_sort_asc(): void
     {
         $sort = [
             'label' => true,
@@ -85,7 +80,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_array_boolean_sort_desc()
+    public function test_scopeSort_returns_query_with_array_boolean_sort_desc(): void
     {
         $sort = [
             'title' => false,
@@ -103,7 +98,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_array_boolean_sort_pair()
+    public function test_scopeSort_returns_query_with_array_boolean_sort_pair(): void
     {
         $sort = [
             'label' => false,
@@ -122,7 +117,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_array_boolean_sort_triplet()
+    public function test_scopeSort_returns_query_with_array_boolean_sort_triplet(): void
     {
         $sort = [
             'created_at' => true,
@@ -142,7 +137,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_csv_sort_asc()
+    public function test_scopeSort_returns_query_with_csv_sort_asc(): void
     {
         $sort = 'label';
 
@@ -156,7 +151,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_csv_sort_desc()
+    public function test_scopeSort_returns_query_with_csv_sort_desc(): void
     {
         $sort = '-created_at';
 
@@ -179,7 +174,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_simple_array_asc()
+    public function test_scopeSort_returns_query_with_simple_array_asc(): void
     {
         $sort = ['label'];
 
@@ -195,7 +190,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_simple_array_desc()
+    public function test_scopeSort_returns_query_with_simple_array_desc(): void
     {
         $sort = ['-label'];
 
@@ -208,11 +203,10 @@ class ModelTest extends TestCase
 
         $this->assertInstanceOf(Builder::class, $query);
 
-
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_hash_array_asc()
+    public function test_scopeSort_returns_query_with_hash_array_asc(): void
     {
         $sort = [
             'label' => 'aSc',
@@ -230,7 +224,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_hash_array_desc()
+    public function test_scopeSort_returns_query_with_hash_array_desc(): void
     {
         $sort = [
             'label' => 'dEsC',

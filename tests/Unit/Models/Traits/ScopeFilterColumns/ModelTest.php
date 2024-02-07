@@ -1,18 +1,15 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
+namespace Tests\Unit\Playground\Models\Traits\ScopeFilterColumns;
 
-namespace Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterColumns;
-
-use Tests\Unit\GammaMatrix\Playground\TestCase;
-use GammaMatrix\Playground\Test\SqlTrait;
 use Illuminate\Database\Eloquent\Builder;
+use Playground\Test\SqlTrait;
+use Tests\Unit\Playground\TestCase;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Models\Traits\ScopeFilterColumns\ModelTest
- *
+ * \Tests\Unit\Playground\Models\Traits\ScopeFilterColumns\ModelTest
  */
 class ModelTest extends TestCase
 {
@@ -21,9 +18,9 @@ class ModelTest extends TestCase
     }
 
     /**
-     * @var string
+     * @var class-string
      */
-    public const ABSTRACT_CLASS = \GammaMatrix\Playground\Models\Model::class;
+    public const MODEL_CLASS = \Playground\Models\Model::class;
 
     /**
      * @var object
@@ -32,8 +29,6 @@ class ModelTest extends TestCase
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -41,17 +36,17 @@ class ModelTest extends TestCase
 
         parent::setUp();
 
-        if (!class_exists(static::ABSTRACT_CLASS)) {
+        if (! class_exists(static::MODEL_CLASS)) {
             $this->markTestSkipped(sprintf(
                 'Expecting the abstract model class to exist: %1$s',
-                static::ABSTRACT_CLASS
+                static::MODEL_CLASS
             ));
         }
 
-        $this->mock = $this->getMockForAbstractClass(static::ABSTRACT_CLASS);
+        $this->mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
     }
 
-    public function test_scopeFilterColumns_returns_query_without_columns_or_filters()
+    public function test_scopeFilterColumns_returns_query_without_columns_or_filters(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
@@ -65,7 +60,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeFilterColumns_returns_query_without_filters()
+    public function test_scopeFilterColumns_returns_query_without_filters(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
@@ -86,7 +81,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterColumns_returns_query_with_invalid_column()
+    public function test_scopeFilterColumns_returns_query_with_invalid_column(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
@@ -114,7 +109,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterColumns_returns_query_with_filters_without_meta_for_strings()
+    public function test_scopeFilterColumns_returns_query_with_filters_without_meta_for_strings(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `title` LIKE ? and `label` LIKE ? and `%1$s`.`deleted_at` is null',
@@ -150,7 +145,7 @@ class ModelTest extends TestCase
         $this->assertCount(2, $bindings);
     }
 
-    public function test_scopeFilterColumns_returns_query_with_null_comparison_and_ignore()
+    public function test_scopeFilterColumns_returns_query_with_null_comparison_and_ignore(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
@@ -179,7 +174,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterColumns_returns_query_with_comparison()
+    public function test_scopeFilterColumns_returns_query_with_comparison(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `title` LIKE ? and `%1$s`.`deleted_at` is null',
@@ -209,7 +204,7 @@ class ModelTest extends TestCase
         $this->assertSame($validated['filter']['title'], $bindings[0]);
     }
 
-    public function test_scopeFilterColumns_with_boolean_filter_type_and_null_value()
+    public function test_scopeFilterColumns_with_boolean_filter_type_and_null_value(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `active` = ? and `%1$s`.`deleted_at` is null',
@@ -218,7 +213,7 @@ class ModelTest extends TestCase
 
         $columns = [
             'active' => [
-                'type' => 'boolean'
+                'type' => 'boolean',
             ],
         ];
 
@@ -241,7 +236,7 @@ class ModelTest extends TestCase
         $this->assertCount(1, $bindings);
     }
 
-    public function test_scopeFilterColumns_with_boolean_filter_type_and_true_value()
+    public function test_scopeFilterColumns_with_boolean_filter_type_and_true_value(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `active` = ? and `%1$s`.`deleted_at` is null',
@@ -250,7 +245,7 @@ class ModelTest extends TestCase
 
         $columns = [
             'active' => [
-                'type' => 'boolean'
+                'type' => 'boolean',
             ],
         ];
 
@@ -273,7 +268,7 @@ class ModelTest extends TestCase
         $this->assertCount(1, $bindings);
     }
 
-    public function test_scopeFilterColumns_with_boolean_filter_type_and_false_value()
+    public function test_scopeFilterColumns_with_boolean_filter_type_and_false_value(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `active` = ? and `%1$s`.`deleted_at` is null',
@@ -282,7 +277,7 @@ class ModelTest extends TestCase
 
         $columns = [
             'active' => [
-                'type' => 'boolean'
+                'type' => 'boolean',
             ],
         ];
 
@@ -305,7 +300,7 @@ class ModelTest extends TestCase
         $this->assertCount(1, $bindings);
     }
 
-    public function test_scopeFilterColumns_with_filter_operator_without_operator_and_default_to_like()
+    public function test_scopeFilterColumns_with_filter_operator_without_operator_and_default_to_like(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `title` LIKE ? and `%1$s`.`deleted_at` is null',
@@ -337,7 +332,7 @@ class ModelTest extends TestCase
         $this->assertCount(1, $bindings);
     }
 
-    public function test_scopeFilterColumns_with_filter_operators()
+    public function test_scopeFilterColumns_with_filter_operators(): void
     {
         $filter_operators = [
             '|' => [],
@@ -386,7 +381,7 @@ class ModelTest extends TestCase
 
             $validated['filter']['title']['operator'] = $operator;
 
-            if (!empty($meta['remap']) && is_string($meta['remap'])) {
+            if (! empty($meta['remap']) && is_string($meta['remap'])) {
                 $operator = $meta['remap'];
             }
 
@@ -412,7 +407,7 @@ class ModelTest extends TestCase
             $bindings = $query->getBindings();
             $this->assertIsArray($bindings);
 
-            if (!empty($meta['no-bindings'])) {
+            if (! empty($meta['no-bindings'])) {
                 $this->assertEmpty($bindings);
             } else {
                 $this->assertCount(1, $bindings);
@@ -422,7 +417,7 @@ class ModelTest extends TestCase
         }
     }
 
-    public function test_scopeFilterColumns_with_between_filter_operator_without_single_parameter_and_ignore_between()
+    public function test_scopeFilterColumns_with_between_filter_operator_without_single_parameter_and_ignore_between(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
@@ -453,7 +448,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterColumns_with_between_filter_operator()
+    public function test_scopeFilterColumns_with_between_filter_operator(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `rank` between ? and ? and `%1$s`.`deleted_at` is null',
@@ -488,7 +483,7 @@ class ModelTest extends TestCase
         $this->assertCount(2, $bindings);
     }
 
-    public function test_scopeFilterColumns_with_not_between_filter_operator_without_single_parameter_and_ignore_between()
+    public function test_scopeFilterColumns_with_not_between_filter_operator_without_single_parameter_and_ignore_between(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
@@ -519,7 +514,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterColumns_with_not_between_filter_operator()
+    public function test_scopeFilterColumns_with_not_between_filter_operator(): void
     {
         $sql = sprintf(
             'select * from `%1$s` where `rank` not between ? and ? and `%1$s`.`deleted_at` is null',

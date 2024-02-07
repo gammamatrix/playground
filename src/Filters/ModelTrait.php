@@ -1,19 +1,16 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
-
-namespace GammaMatrix\Playground\Filters;
+namespace Playground\Filters;
 
 use Carbon\Carbon;
-
 use Ramsey\Uuid\Uuid;
 
 /**
- * \GammaMatrix\Playground\Filters\ModelTrait
+ * \Playground\Filters\ModelTrait
  *
- * GammaMatrix filter handler
+ * Playground filter handler
  *
  * It is expected that the data may not have the proper type from forms.
  * These filters correct those values. Parameters must not be cast.
@@ -25,14 +22,13 @@ trait ModelTrait
      * Filter an array.
      *
      * @param string|array $value The value to filter.
-     *
      * @return array Returns an array.
      */
     public function filterArray($value): array
     {
         if (is_array($value)) {
             return $value;
-        } elseif (!empty($value) && is_string($value)) {
+        } elseif (! empty($value) && is_string($value)) {
             return (array) $value;
         }
 
@@ -45,7 +41,6 @@ trait ModelTrait
      * NOTE: This may not be necessary if the field has been cast in the model.
      *
      * @param string $value The value to filter.
-     *
      * @return string Returns an array converted to JSON.
      */
     public function filterArrayToJson($value): ?string
@@ -62,15 +57,15 @@ trait ModelTrait
     /**
      * Filter a bit value
      *
-     * @param integer $value The value to filter.
-     * @param integer $exponent The maximum power of the exponent to sum.
+     * @param int $value The value to filter.
+     * @param int $exponent The maximum power of the exponent to sum.
      */
     public function filterBits($value, $exponent = 0): int
     {
         $exponent = intval(abs($exponent));
 
         /**
-         * @var integer $pBits The summed bit power values.
+         * @var int $pBits The summed bit power values.
          */
         $pBits = 0;
         // $pBits = 4 + 2 + 1;
@@ -89,8 +84,8 @@ trait ModelTrait
      */
     public function filterBoolean($value): bool
     {
-        if (is_string($value) && !is_numeric($value)) {
-            return 'true' === strtolower($value);
+        if (is_string($value) && ! is_numeric($value)) {
+            return strtolower($value) === 'true';
         } elseif (is_numeric($value)) {
             return $value > 0;
         } else {
@@ -107,12 +102,11 @@ trait ModelTrait
     public function filterDate($value, $locale = 'en-US'): ?string
     {
         return is_string($value)
-            && !empty($value)
+            && ! empty($value)
             ? gmdate(
                 config('playground.date.sql', 'Y-m-d H:i:s'),
                 strtotime($value)
-            ) : null
-        ;
+            ) : null;
     }
 
     /**
@@ -148,7 +142,7 @@ trait ModelTrait
      */
     public function filterFloat($value, $locale = 'en-US'): ?float
     {
-        if ('' === $value || null === $value) {
+        if ($value === '' || $value === null) {
             return null;
         }
 
@@ -183,7 +177,7 @@ trait ModelTrait
      */
     public function filterInteger($value, $locale = 'en-US'): int
     {
-        if ('' === $value || null === $value) {
+        if ($value === '' || $value === null) {
             return 0;
         }
 
@@ -215,6 +209,7 @@ trait ModelTrait
     public function filterIntegerPositive($value, $absolute = true): int
     {
         $value = intval($value);
+
         return $absolute && ($value < 0) ? (int) abs($value) : $value;
     }
 
@@ -225,12 +220,10 @@ trait ModelTrait
      *
      * @param string $value The value to filter.
      * @param string $locale i18n
-     *
-     * @return float
      */
     public function filterPercent($value, $locale = 'en-US'): ?float
     {
-        if ('' === $value || null === $value) {
+        if ($value === '' || $value === null) {
             return null;
         }
 
@@ -241,17 +234,17 @@ trait ModelTrait
      * Filter the status
      *
      * @param array $input The status input.
-     *
-     * @return integer|NULL
+     * @return int|null
      */
     public function filterStatus(array $input = [])
     {
-        if (!isset($input['status'])) {
+        if (! isset($input['status'])) {
             return $input;
         }
 
         if (is_numeric($input['status'])) {
             $input['status'] = (int) abs($input['status']);
+
             return $input;
         }
 
@@ -268,8 +261,7 @@ trait ModelTrait
      * Filter system fields
      *
      * @param array $input The system fields input.
-     *
-     * @return integer|NULL
+     * @return int|null
      */
     public function filterSystemFields(array $input = [])
     {
@@ -279,7 +271,7 @@ trait ModelTrait
         }
 
         /**
-         * @var integer $pBits The allowed permission bits: rwx
+         * @var int $pBits The allowed permission bits: rwx
          */
         $pBits = 4 + 2 + 1;
 
@@ -310,13 +302,11 @@ trait ModelTrait
      * Filter a UUID
      *
      * @param string $value The value to filter.
-     *
-     * @return integer|NULL
+     * @return int|null
      */
     public function filterUuid($value)
     {
         return Uuid::isValid($value)
-            ? $value : null
-        ;
+            ? $value : null;
     }
 }

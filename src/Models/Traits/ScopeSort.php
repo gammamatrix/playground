@@ -1,16 +1,13 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
-
-namespace GammaMatrix\Playground\Models\Traits;
+namespace Playground\Models\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- * \GammaMatrix\Playground\Models\Traits\ScopeSort
- *
+ * \Playground\Models\Traits\ScopeSort
  */
 trait ScopeSort
 {
@@ -50,8 +47,8 @@ trait ScopeSort
                 }
             }
 
-            if (!empty($column)
-                && !in_array($column, $sorted)
+            if (! empty($column)
+                && ! in_array($column, $sorted)
                 && preg_match('/^[a-z][a-z0-9_]+$/i', $column)
             ) {
                 $sorted[] = $column;

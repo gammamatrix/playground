@@ -4,7 +4,12 @@ on:
   push:
     branches: [ "develop" ]
   pull_request:
-    branches: [ "develop" ]
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+      - review_requested
 
 permissions:
   contents: write
@@ -16,7 +21,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    if: ${{ github.event_name == 'push' || !github.event.pull_request.draft }}
     steps:
     - name: Preparing timer
       id: timer_start
@@ -83,7 +88,7 @@ jobs:
           }
       env:
         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Run php-actions/composer@v6
       uses: php-actions/composer@v6
       with:
@@ -96,7 +101,7 @@ jobs:
       with:
         version: "10.1"
         php_version: "8.2"
-        php_extensions: xdebug
+        php_extensions: intl xdebug
         coverage_clover: clover.xml
         coverage_text: true
     - name: Make code coverage badge
@@ -112,6 +117,11 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         user_name: 'github-actions[bot]'
         user_email: 'github-actions[bot]@users.noreply.github.com'
+    - uses: php-actions/phpstan@v3
+      with:
+        level: 3
+        php_version: "8.2"
+        path: config/ src/ tests/Feature/ tests/Unit/
     - name: Stopping timer
       if: ${{ !cancelled() }}
       id: timer_end

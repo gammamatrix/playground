@@ -1,29 +1,29 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
+namespace Tests\Unit\Playground\Policies\RoleTrait;
 
-namespace Tests\Unit\GammaMatrix\Playground\Policies\RoleTrait;
-
-use Tests\Unit\GammaMatrix\Playground\TestCase;
-use GammaMatrix\Playground\Test\Models\User;
 use Illuminate\Auth\Access\Response;
+use Playground\Test\Models\User;
+use Tests\Unit\Playground\TestCase;
+
+// use PHPUnit\Framework\MockObject\MockObject;
 
 /**
- * \Tests\Unit\GammaMatrix\Playground\Policies\RoleTrait\TraitTest
- *
+ * \Tests\Unit\Playground\Policies\RoleTrait\TraitTest
  */
 class TraitTest extends TestCase
 {
-    public const TRAIT_CLASS = \GammaMatrix\Playground\Policies\RoleTrait::class;
+    public const TRAIT_CLASS = \Playground\Policies\RoleTrait::class;
 
+    /**
+     * var MockObject&\Playground\Policies\RoleTrait::class
+     */
     public $mock;
 
     /**
      * Setup the test environment.
-     *
-     * @return void
      */
     protected function setUp(): void
     {
@@ -40,7 +40,7 @@ class TraitTest extends TestCase
         );
     }
 
-    public function test_getRolesForAdmin()
+    public function test_getRolesForAdmin(): void
     {
         $expected = [
             'admin',
@@ -51,7 +51,7 @@ class TraitTest extends TestCase
         $this->assertSame($expected, $this->mock->getRolesForAdmin());
     }
 
-    public function test_getRolesForAction()
+    public function test_getRolesForAction(): void
     {
         $expected = [
             'admin',
@@ -62,7 +62,7 @@ class TraitTest extends TestCase
         $this->assertSame($expected, $this->mock->getRolesForAction());
     }
 
-    public function test_getRolesToView()
+    public function test_getRolesToView(): void
     {
         $expected = [
             'admin',
@@ -73,7 +73,7 @@ class TraitTest extends TestCase
         $this->assertSame($expected, $this->mock->getRolesToView());
     }
 
-    public function test_hasRole()
+    public function test_hasRole(): void
     {
         $user = User::factory()->make();
 
@@ -84,7 +84,7 @@ class TraitTest extends TestCase
         ));
     }
 
-    public function test_hasRole_advanced_role()
+    public function test_hasRole_advanced_role(): void
     {
         $user = User::factory()->make();
 

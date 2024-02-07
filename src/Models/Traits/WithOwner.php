@@ -1,16 +1,13 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
-
-namespace GammaMatrix\Playground\Models\Traits;
+namespace Playground\Models\Traits;
 
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
- * \GammaMatrix\Playground\Models\Traits\WithOwner
- *
+ * \Playground\Models\Traits\WithOwner
  */
 trait WithOwner
 {

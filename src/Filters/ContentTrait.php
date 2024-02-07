@@ -1,21 +1,18 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
-
-namespace GammaMatrix\Playground\Filters;
+namespace Playground\Filters;
 
 /**
- * \GammaMatrix\Playground\Filters\ContentTrait
+ * \Playground\Filters\ContentTrait
  *
- * GammaMatrix filter handler
- *
+ * Playground filter handler
  */
 trait ContentTrait
 {
     /**
-     * @var \HTMLPurifier $purifier HTMLPurifier
+     * @var \HTMLPurifier HTMLPurifier
      */
     protected $purifier;
 
@@ -23,7 +20,6 @@ trait ContentTrait
      * Purify a string
      *
      * @param  string $item The string to purify
-     *
      * @return string
      */
     public function purify($item)
@@ -35,7 +31,6 @@ trait ContentTrait
      * Exorcise all html from the string.
      *
      * @param  string $item The string to purify
-     *
      * @return string
      */
     public static function exorcise($item)
@@ -53,19 +48,19 @@ trait ContentTrait
      */
     public function getHtmlPurifier(array $config = [])
     {
-        if (null === $this->purifier) {
+        if ($this->purifier === null) {
             $config = empty($config) ? config('playground.purifier') : $config;
 
             $hpc = \HTMLPurifier_Config::createDefault();
 
-            if (!empty($config['iframes'])
+            if (! empty($config['iframes'])
                 && is_string($config['iframes'])
             ) {
                 $hpc->set('HTML.SafeIframe', true);
                 $hpc->set('URI.SafeIframeRegexp', $config['iframes']);
             }
 
-            if (!empty($config['path'])
+            if (! empty($config['path'])
                 && is_string($config['path'])
             ) {
                 $hpc->set('Cache.SerializerPath', $config['path']);
@@ -84,18 +79,18 @@ trait ContentTrait
      */
     public function setHtmlPurifier(\HTMLPurifier $purifier)
     {
-        if (null === $this->purifier) {
+        if ($this->purifier === null) {
             $this->purifier = $purifier;
         }
 
         return $this;
     }
 
-    ############################################################################
-    #
-    # URI handling
-    #
-    ############################################################################
+    //###########################################################################
+    //
+    // URI handling
+    //
+    //###########################################################################
 
     /**
      * encodeURIComponent
@@ -105,7 +100,6 @@ trait ContentTrait
      * @link http://stackoverflow.com/questions/1734250/what-is-the-equivalent-of-javascripts-encodeuricomponent-in-php
      *
      * @param  string $str The string to encode.
-     *
      * @return string Returns an encoded URL for embedding
      */
     public static function encodeURIComponent($str)

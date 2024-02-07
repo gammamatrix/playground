@@ -1,14 +1,11 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
-
-namespace GammaMatrix\Playground\Models\Traits;
+namespace Playground\Models\Traits;
 
 /**
- * \GammaMatrix\Playground\Models\Traits\UserPrivileges
- *
+ * \Playground\Models\Traits\UserPrivileges
  */
 trait UserPrivileges
 {
@@ -21,7 +18,7 @@ trait UserPrivileges
      */
     public function hasPrivilege($privilege): bool
     {
-        if (empty($privilege) || !is_string($privilege)) {
+        if (empty($privilege) || ! is_string($privilege)) {
             return false;
         }
 
@@ -37,7 +34,7 @@ trait UserPrivileges
      */
     public function hasRole($role): bool
     {
-        if (empty($role) || !is_string($role)) {
+        if (empty($role) || ! is_string($role)) {
             return false;
         }
 
@@ -52,13 +49,11 @@ trait UserPrivileges
 
     /**
      * Checks to see if the user is an admin.
-     *
      */
     public function isAdmin(): bool
     {
         return $this->hasRole('admin')
             || $this->hasRole('wheel')
-            || 'root' === $this->getAttribute('role')
-        ;
+            || $this->getAttribute('role') === 'root';
     }
 }

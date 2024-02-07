@@ -1,24 +1,20 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
+namespace Playground\Policies;
 
-namespace GammaMatrix\Playground\Policies;
-
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Access\Response;
-use Illuminate\Support\Str;
+use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Log;
 
 /**
- * \GammaMatrix\Playground\Policies\PolicyTrait
- *
+ * \Playground\Policies\PolicyTrait
  */
 trait PolicyTrait
 {
     /**
-     * @var boolean $allowRootOverride Allow root to override rules in before().
+     * @var bool Allow root to override rules in before().
      */
     protected $allowRootOverride = true;
 
@@ -46,7 +42,7 @@ trait PolicyTrait
 
     public function hasToken(): bool
     {
-        return !empty($this->token);
+        return ! empty($this->token);
     }
 
     public function getToken(): ?object
@@ -54,9 +50,10 @@ trait PolicyTrait
         return $this->token;
     }
 
-    public function setToken(?object $token = null): self
+    public function setToken(object $token = null): self
     {
         $this->token = $token;
+
         return $this;
     }
 
@@ -69,18 +66,19 @@ trait PolicyTrait
         //     '$ability' => $ability,
         //     '$user' => $user,
         // ]);
-        if ('privileges' === $verify) {
+        if ($verify === 'privileges') {
             return $this->hasPrivilege($user, $this->privilege($ability));
-        } elseif ('roles' === $verify) {
+        } elseif ($verify === 'roles') {
             return $this->hasRole($user, $ability);
-        } elseif ('user' === $verify) {
+        } elseif ($verify === 'user') {
             // A user with an email address passes.
-            return !empty($user->getAttribute('email'));
+            return ! empty($user->getAttribute('email'));
         }
         Log::debug(__METHOD__, [
             '$ability' => $ability,
             '$user' => $user,
         ]);
+
         return false;
     }
 }

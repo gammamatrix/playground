@@ -1,28 +1,30 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
-
-namespace GammaMatrix\Playground\Models\Traits;
+namespace Playground\Models\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 
 /**
- * \GammaMatrix\Playground\Models\Traits\ScopeFilterTrash
- *
+ * \Playground\Models\Traits\ScopeFilterTrash
  */
 trait ScopeFilterTrash
 {
     public static function scopeFilterTrash(
         Builder $query,
-        ?string $visibility = null
+        string $visibility = null
     ): Builder {
-        if ($visibility && 'with' === strtolower($visibility)) {
+        if ($visibility && strtolower($visibility) === 'with'
+            && is_callable([$query, 'withTrashed'])
+        ) {
             $query->withTrashed();
-        } elseif ($visibility && 'only' === strtolower($visibility)) {
+        } elseif ($visibility && strtolower($visibility) === 'only'
+            && is_callable([$query, 'onlyTrashed'])
+        ) {
             $query->onlyTrashed();
         }
+
         return $query;
     }
 }

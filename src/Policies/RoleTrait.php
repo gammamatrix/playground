@@ -1,22 +1,19 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
+namespace Playground\Policies;
 
-namespace GammaMatrix\Playground\Policies;
-
-use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Access\Response;
+use Illuminate\Contracts\Auth\Authenticatable;
 
 /**
- * \GammaMatrix\Playground\Policies\RoleTrait
- *
+ * \Playground\Policies\RoleTrait
  */
 trait RoleTrait
 {
     /**
-     * @var array $rolesForAction The roles allowed for actions in the MVC.
+     * @var array The roles allowed for actions in the MVC.
      */
     protected $rolesForAction = [
         'admin',
@@ -25,7 +22,7 @@ trait RoleTrait
     ];
 
     /**
-     * @var array $rolesForAdmin The roles allowed for admin actions in the MVC.
+     * @var array The roles allowed for admin actions in the MVC.
      */
     protected $rolesForAdmin = [
         'admin',
@@ -34,7 +31,7 @@ trait RoleTrait
     ];
 
     /**
-     * @var array $rolesToView The roles allowed to view the MVC.
+     * @var array The roles allowed to view the MVC.
      */
     protected $rolesToView = [
         'admin',
@@ -44,7 +41,6 @@ trait RoleTrait
 
     /**
      * Get the roles for admin actions.
-     *
      */
     public function getRolesForAdmin(): array
     {
@@ -53,7 +49,6 @@ trait RoleTrait
 
     /**
      * Get the roles for standard actions.
-     *
      */
     public function getRolesForAction(): array
     {
@@ -64,8 +59,8 @@ trait RoleTrait
     {
         $isRoot = false;
 
-        if (!empty(config('playground.auth.userRole'))) {
-            $isRoot = 'root' === $user->role;
+        if (! empty(config('playground.auth.userRole'))) {
+            $isRoot = $user->getAttributeValue('role') === 'root';
         }
 
         return $isRoot;
@@ -73,7 +68,6 @@ trait RoleTrait
 
     /**
      * Get the roles for view actions.
-     *
      */
     public function getRolesToView(): array
     {
@@ -124,7 +118,7 @@ trait RoleTrait
         if (config('playground.auth.userRole')) {
             // Check for any role.
             foreach ($roles as $role) {
-                if (!empty($user->role) && $role === $user->role) {
+                if (! empty($user->role) && $role === $user->role) {
                     return true;
                 }
             }
@@ -132,7 +126,7 @@ trait RoleTrait
 
         if (config('playground.auth.userRoles')) {
             if (is_array($roles)
-                && !empty($user->roles)
+                && ! empty($user->roles)
             && is_array($user->roles)
             ) {
                 foreach ($roles as $role) {

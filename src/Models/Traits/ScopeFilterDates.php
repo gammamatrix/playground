@@ -1,10 +1,8 @@
 <?php
 /**
- * GammaMatrix
- *
+ * Playground
  */
-
-namespace GammaMatrix\Playground\Models\Traits;
+namespace Playground\Models\Traits;
 
 use Carbon\Exceptions\InvalidFormatException;
 use Illuminate\Database\Eloquent\Builder;
@@ -12,8 +10,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
 
 /**
- * \GammaMatrix\Playground\Models\Traits\scopeFilterDates
- *
+ * \Playground\Models\Traits\scopeFilterDates
  */
 trait ScopeFilterDates
 {
@@ -22,7 +19,7 @@ trait ScopeFilterDates
         array $dates,
         array $validated = []
     ): Builder {
-        if (empty($validated['filter']) || !is_array($validated['filter'])) {
+        if (empty($validated['filter']) || ! is_array($validated['filter'])) {
             return $query;
         }
 
@@ -51,9 +48,9 @@ trait ScopeFilterDates
         foreach ($dates as $column => $meta) {
 
             if (empty(($column))
-                || !is_string($column)
-                || !preg_match('/^[a-z][a-z0-9_]+$/i', $column)
-                || !array_key_exists($column, $validated['filter'])
+                || ! is_string($column)
+                || ! preg_match('/^[a-z][a-z0-9_]+$/i', $column)
+                || ! array_key_exists($column, $validated['filter'])
             ) {
                 // Log::debug(__METHOD__, ['VALIDATION' => 'empty', '$column' => $column, '$validated' => $validated,]);
                 continue;
@@ -66,14 +63,14 @@ trait ScopeFilterDates
             $filter_expects_array = false;
 
             if (is_null($validated['filter'][$column])) {
-                if (!empty($meta['nullable'])) {
+                if (! empty($meta['nullable'])) {
                     $filter_operator = 'NULL';
                 } else {
                     continue;
                 }
             } elseif (is_array($validated['filter'][$column])) {
 
-                if (!empty($validated['filter'][$column]['operator']) && array_key_exists(
+                if (! empty($validated['filter'][$column]['operator']) && array_key_exists(
                     strtoupper($validated['filter'][$column]['operator']),
                     $filter_operators
                 )) {
@@ -91,12 +88,12 @@ trait ScopeFilterDates
                  * - If the string does not start with at least 2 digits, enable parsing.
                  */
                 if (array_key_exists('parse', $validated['filter'][$column])) {
-                    $filter_parse = !empty($validated['filter'][$column]['parse']);
+                    $filter_parse = ! empty($validated['filter'][$column]['parse']);
                 } elseif (is_string($filter_value)) {
                     if (strpos($filter_value, '%') !== false) {
-                        if (!in_array($filter_operator, [
+                        if (! in_array($filter_operator, [
                             'LIKE',
-                            'NOTLIKE'
+                            'NOTLIKE',
                         ])) {
                             $filter_operator = 'LIKE';
                         }
@@ -112,7 +109,7 @@ trait ScopeFilterDates
                 }
 
             } elseif (is_string($validated['filter'][$column])
-                && !empty($validated['filter'][$column])
+                && ! empty($validated['filter'][$column])
             ) {
                 $filter_value = $validated['filter'][$column];
                 if (strpos($validated['filter'][$column], '%') !== false) {
@@ -126,11 +123,11 @@ trait ScopeFilterDates
                 continue;
             }
 
-            if ($filter_parse && !empty($filter_value)) {
+            if ($filter_parse && ! empty($filter_value)) {
                 try {
                     if (is_string($filter_value)) {
                         $filter_value = Carbon::parse($filter_value)->format('Y-m-d H:i:s');
-                    } elseif (is_array($filter_value) && 2 === count($filter_value)) {
+                    } elseif (is_array($filter_value) && count($filter_value) === 2) {
                         $filter_value[0] = Carbon::parse($filter_value[0])->format('Y-m-d H:i:s');
                         $filter_value[1] = Carbon::parse($filter_value[1])->format('Y-m-d H:i:s');
                     }
@@ -145,30 +142,30 @@ trait ScopeFilterDates
                 continue;
             }
 
-            if ('LIKE' === $filter_operator) {
+            if ($filter_operator === 'LIKE') {
                 $query->where($column, 'LIKE', $filter_value);
-            } elseif ('NOTLIKE' === $filter_operator) {
+            } elseif ($filter_operator === 'NOTLIKE') {
                 $query->where(
                     $column,
                     'NOT LIKE',
                     is_string($filter_value) ? $filter_value : ''
                 );
-            } elseif ('NULL' === $filter_operator) {
+            } elseif ($filter_operator === 'NULL') {
                 $query->whereNull($column);
-            } elseif ('NOTNULL' === $filter_operator) {
+            } elseif ($filter_operator === 'NOTNULL') {
                 $query->whereNotNull($column);
-            } elseif ('BETWEEN' === $filter_operator) {
-                if (is_array($filter_value) && 2 === count($filter_value)) {
+            } elseif ($filter_operator === 'BETWEEN') {
+                if (is_array($filter_value) && count($filter_value) === 2) {
                     $query->whereBetween($column, $filter_value);
                 }
-            } elseif ('NOTBETWEEN' === $filter_operator) {
-                if (is_array($filter_value) && 2 === count($filter_value)) {
+            } elseif ($filter_operator === 'NOTBETWEEN') {
+                if (is_array($filter_value) && count($filter_value) === 2) {
                     $query->whereNotBetween($column, $filter_value);
                 }
             } else {
                 $query->where(
                     $column,
-                    $filter_operator ?? '=',
+                    $filter_operator ?: '=',
                     $filter_value
                 );
             }
