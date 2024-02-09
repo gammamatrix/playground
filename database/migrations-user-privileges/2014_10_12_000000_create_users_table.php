@@ -5,7 +5,7 @@ use Illuminate\Database\Query\Expression;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class() extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -55,7 +55,7 @@ return new class() extends Migration
 
             $table->string('role')->default('');
 
-            // A link to the external source of the page.
+            // A link to the external source of the user.
             $table->string('url', 512)->default('');
 
             // Description is an internal field.
@@ -68,39 +68,46 @@ return new class() extends Migration
             // The introduction is visible to the client. No HTML.
             $table->string('introduction', 512)->default('');
 
-            // The HTML content of the page.
+            // The HTML content of the user.
             $table->mediumText('content')->nullable();
 
             // The summary of the content, HTML allowed, to be shown to the client.
             $table->mediumText('summary')->nullable();
 
+            $table->json('abilities')
+                ->default(new Expression('(JSON_ARRAY())'))
+                ->comment('Array of ability strings');
             $table->json('accounts')
                 ->default(new Expression('(JSON_OBJECT())'))
-                ->comment('Versioned JSON object');
+                ->comment('User accounts object');
             $table->json('address')
                 ->default(new Expression('(JSON_OBJECT())'))
-                ->comment('Versioned JSON object');
+                ->comment('User address object');
+            $table->json('contact')
+                ->default(new Expression('(JSON_OBJECT())'))
+                ->comment('User contact object');
             $table->json('meta')
                 ->default(new Expression('(JSON_OBJECT())'))
-                ->comment('Versioned JSON object');
+                ->comment('Model meta object');
             $table->json('notes')
                 ->default(new Expression('(JSON_ARRAY())'))
-                ->comment('JSON array of strings');
+                ->comment('Array of note objects');
             $table->json('options')
                 ->default(new Expression('(JSON_OBJECT())'))
-                ->comment('Versioned JSON object');
+                ->comment('Model options object');
             $table->json('registration')
-                ->default(new Expression('(JSON_ARRAY())'))
-                ->comment('JSON array of strings');
+                ->default(new Expression('(JSON_OBJECT())'))
+                ->comment('Registration information object');
             $table->json('roles')
                 ->default(new Expression('(JSON_ARRAY())'))
-                ->comment('JSON array of strings');
+                ->comment('Array of role strings');
             $table->json('permissions')
                 ->default(new Expression('(JSON_ARRAY())'))
-                ->comment('JSON array of strings');
+                ->comment('Array of permission strings');
             $table->json('privileges')
                 ->default(new Expression('(JSON_ARRAY())'))
-                ->comment('JSON array of strings');
+                ->comment('Array of privilege strings');
+
         });
     }
 

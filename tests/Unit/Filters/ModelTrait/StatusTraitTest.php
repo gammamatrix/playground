@@ -4,12 +4,14 @@
  */
 namespace Tests\Unit\Playground\Filters\ModelTrait;
 
+use Tests\Unit\Playground\TestCase;
+
 /**
  * \Tests\Unit\Playground\Filters\ModelTrait\DateTraitTest
  *
  * @see \Playground\Filters\ModelTrait::filterStatus()
  */
-class StatusTraitTest extends TraitTestCase
+class StatusTraitTest extends TestCase
 {
     /**
      * filterStatus
@@ -18,12 +20,14 @@ class StatusTraitTest extends TraitTestCase
      */
     public function test_filterStatus(): void
     {
-        $this->assertSame([], $this->mock->filterStatus([]));
+        $instance = new FilterModel;
+
+        $this->assertSame([], $instance->filterStatus([]));
 
         $expected = ['status' => 1];
-        $this->assertSame($expected, $this->mock->filterStatus(['status' => 1]));
-        $this->assertSame($expected, $this->mock->filterStatus(['status' => '1']));
-        $this->assertSame($expected, $this->mock->filterStatus(['status' => '-1.0']));
+        $this->assertSame($expected, $instance->filterStatus(['status' => 1]));
+        $this->assertSame($expected, $instance->filterStatus(['status' => '1']));
+        $this->assertSame($expected, $instance->filterStatus(['status' => '-1.0']));
 
         $expected = [
             'status' => [
@@ -32,7 +36,7 @@ class StatusTraitTest extends TraitTestCase
                 'public' => false,
             ],
         ];
-        $this->assertSame($expected, $this->mock->filterStatus([
+        $this->assertSame($expected, $instance->filterStatus([
             'status' => [
                 'active' => 1,
                 'lock' => true,

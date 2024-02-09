@@ -4,6 +4,8 @@
  */
 namespace Playground\Filters;
 
+use HTMLPurifier;
+
 /**
  * \Playground\Filters\ContentTrait
  *
@@ -12,7 +14,7 @@ namespace Playground\Filters;
 trait ContentTrait
 {
     /**
-     * @var \HTMLPurifier HTMLPurifier
+     * @var HTMLPurifier
      */
     protected $purifier;
 
@@ -44,29 +46,31 @@ trait ContentTrait
     /**
      * Get HTMLPurifier
      *
-     * @return \HTMLPurifier
+     * @param array<string, mixed> $config
      */
-    public function getHtmlPurifier(array $config = [])
+    public function getHtmlPurifier(array $config = []): HTMLPurifier
     {
         if ($this->purifier === null) {
             $config = empty($config) ? config('playground.purifier') : $config;
 
             $hpc = \HTMLPurifier_Config::createDefault();
 
-            if (! empty($config['iframes'])
+            if (is_array($config)
+                && ! empty($config['iframes'])
                 && is_string($config['iframes'])
             ) {
                 $hpc->set('HTML.SafeIframe', true);
                 $hpc->set('URI.SafeIframeRegexp', $config['iframes']);
             }
 
-            if (! empty($config['path'])
+            if (is_array($config)
+                && ! empty($config['path'])
                 && is_string($config['path'])
             ) {
                 $hpc->set('Cache.SerializerPath', $config['path']);
             }
 
-            $this->setHtmlPurifier(new \HTMLPurifier($hpc));
+            $this->setHtmlPurifier(new HTMLPurifier($hpc));
         }
 
         return $this->purifier;
@@ -75,9 +79,9 @@ trait ContentTrait
     /**
      * Set HTMLPurifier
      *
-     * @param \HTMLPurifier $purifier The HTMLPurifier instance
+     * @param HTMLPurifier $purifier The HTMLPurifier instance
      */
-    public function setHtmlPurifier(\HTMLPurifier $purifier)
+    public function setHtmlPurifier(HTMLPurifier $purifier): self
     {
         if ($this->purifier === null) {
             $this->purifier = $purifier;
@@ -102,7 +106,7 @@ trait ContentTrait
      * @param  string $str The string to encode.
      * @return string Returns an encoded URL for embedding
      */
-    public static function encodeURIComponent($str)
+    public static function encodeURIComponent(string $str): string
     {
         return strtr(rawurlencode($str), [
             '%21' => '!',

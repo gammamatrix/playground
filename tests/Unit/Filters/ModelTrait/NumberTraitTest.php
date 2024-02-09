@@ -4,13 +4,15 @@
  */
 namespace Tests\Unit\Playground\Filters\ModelTrait;
 
+use Tests\Unit\Playground\TestCase;
+
 /**
  * \Tests\Unit\Playground\Filters\ModelTrait\NumberTraitTest
  *
  * @see \Playground\Filters\ModelTrait::filterBits()
  * @see \Playground\Filters\ModelTrait::filterBits()
  */
-class NumberTraitTest extends TraitTestCase
+class NumberTraitTest extends TestCase
 {
     /**
      * filterFloat
@@ -19,11 +21,13 @@ class NumberTraitTest extends TraitTestCase
      */
     public function test_filterFloat(): void
     {
-        $this->assertNull($this->mock->filterFloat(''));
-        $this->assertNull($this->mock->filterFloat(null));
+        $instance = new FilterModel;
 
-        $this->assertSame(0.0, $this->mock->filterFloat(0));
-        $this->assertSame(1.0, $this->mock->filterFloat(1));
+        $this->assertNull($instance->filterFloat(''));
+        $this->assertNull($instance->filterFloat(null));
+
+        $this->assertSame(0.0, $instance->filterFloat(0));
+        $this->assertSame(1.0, $instance->filterFloat(1));
     }
 
     /**
@@ -33,16 +37,18 @@ class NumberTraitTest extends TraitTestCase
      */
     public function test_filterInteger(): void
     {
-        $this->assertSame(0, $this->mock->filterInteger(''));
-        $this->assertSame(0, $this->mock->filterInteger(null));
-        $this->assertSame(0, $this->mock->filterInteger(false));
+        $instance = new FilterModel;
+
+        $this->assertSame(0, $instance->filterInteger(''));
+        $this->assertSame(0, $instance->filterInteger(null));
+        $this->assertSame(0, $instance->filterInteger(false));
 
         // Needs i18n for numberformatter
-        // $this->assertSame(1000, $this->mock->filterInteger('1,000'));
-        // $this->assertSame(2000, $this->mock->filterInteger('2,000.01'));
-        $this->assertSame(0, $this->mock->filterInteger(0));
-        $this->assertSame(1, $this->mock->filterInteger(1));
-        $this->assertSame(-1001, $this->mock->filterInteger(-1001));
+        // $this->assertSame(1000, $instance->filterInteger('1,000'));
+        // $this->assertSame(2000, $instance->filterInteger('2,000.01'));
+        $this->assertSame(0, $instance->filterInteger(0));
+        $this->assertSame(1, $instance->filterInteger(1));
+        $this->assertSame(-1001, $instance->filterInteger(-1001));
     }
 
     /**
@@ -52,19 +58,21 @@ class NumberTraitTest extends TraitTestCase
      */
     public function test_filterIntegerId(): void
     {
-        $this->assertNull($this->mock->filterIntegerId(''));
-        $this->assertNull($this->mock->filterIntegerId(null));
-        $this->assertNull($this->mock->filterIntegerId(false));
+        $instance = new FilterModel;
 
-        $this->assertNull($this->mock->filterIntegerId('1,000'));
-        $this->assertNull($this->mock->filterIntegerId('2,000.01'));
-        $this->assertNull($this->mock->filterIntegerId(0));
-        $this->assertSame(1, $this->mock->filterIntegerId(1));
-        $this->assertNull($this->mock->filterIntegerId(-1001));
-        $this->assertNull($this->mock->filterIntegerId('-1001'));
-        $this->assertSame(1, $this->mock->filterIntegerId('1'));
-        $this->assertSame(100, $this->mock->filterIntegerId('100'));
-        $this->assertSame(2000000, $this->mock->filterIntegerId('2000000.0'));
+        $this->assertNull($instance->filterIntegerId(''));
+        $this->assertNull($instance->filterIntegerId(null));
+        $this->assertNull($instance->filterIntegerId(false));
+
+        $this->assertNull($instance->filterIntegerId('1,000'));
+        $this->assertNull($instance->filterIntegerId('2,000.01'));
+        $this->assertNull($instance->filterIntegerId(0));
+        $this->assertSame(1, $instance->filterIntegerId(1));
+        $this->assertNull($instance->filterIntegerId(-1001));
+        $this->assertNull($instance->filterIntegerId('-1001'));
+        $this->assertSame(1, $instance->filterIntegerId('1'));
+        $this->assertSame(100, $instance->filterIntegerId('100'));
+        $this->assertSame(2000000, $instance->filterIntegerId('2000000.0'));
     }
 
     /**
@@ -74,40 +82,42 @@ class NumberTraitTest extends TraitTestCase
      */
     public function test_filterIntegerPositive(): void
     {
-        $this->assertSame(0, $this->mock->filterIntegerPositive(''));
-        $this->assertSame(0, $this->mock->filterIntegerPositive(null));
-        $this->assertSame(0, $this->mock->filterIntegerPositive(false));
+        $instance = new FilterModel;
 
-        $this->assertSame(1, $this->mock->filterIntegerPositive('1,000'));
-        $this->assertSame(2, $this->mock->filterIntegerPositive('2,000.01'));
-        $this->assertSame(0, $this->mock->filterIntegerPositive(0));
-        $this->assertSame(1, $this->mock->filterIntegerPositive(1));
-        $this->assertSame(1001, $this->mock->filterIntegerPositive(-1001));
-        $this->assertSame(1001, $this->mock->filterIntegerPositive(-1001));
+        $this->assertSame(0, $instance->filterIntegerPositive(''));
+        $this->assertSame(0, $instance->filterIntegerPositive(null));
+        $this->assertSame(0, $instance->filterIntegerPositive(false));
+
+        $this->assertSame(1, $instance->filterIntegerPositive('1,000'));
+        $this->assertSame(2, $instance->filterIntegerPositive('2,000.01'));
+        $this->assertSame(0, $instance->filterIntegerPositive(0));
+        $this->assertSame(1, $instance->filterIntegerPositive(1));
+        $this->assertSame(1001, $instance->filterIntegerPositive(-1001));
+        $this->assertSame(1001, $instance->filterIntegerPositive(-1001));
 
         $absolute = true;
-        $this->assertSame(0, $this->mock->filterIntegerPositive('', $absolute));
-        $this->assertSame(0, $this->mock->filterIntegerPositive(null, $absolute));
-        $this->assertSame(0, $this->mock->filterIntegerPositive(false, $absolute));
+        $this->assertSame(0, $instance->filterIntegerPositive('', $absolute));
+        $this->assertSame(0, $instance->filterIntegerPositive(null, $absolute));
+        $this->assertSame(0, $instance->filterIntegerPositive(false, $absolute));
 
-        $this->assertSame(1, $this->mock->filterIntegerPositive('1,000', $absolute));
-        $this->assertSame(2, $this->mock->filterIntegerPositive('2,000.01', $absolute));
-        $this->assertSame(0, $this->mock->filterIntegerPositive(0, $absolute));
-        $this->assertSame(1, $this->mock->filterIntegerPositive(1, $absolute));
-        $this->assertSame(1001, $this->mock->filterIntegerPositive(-1001, $absolute));
-        $this->assertSame(1001, $this->mock->filterIntegerPositive(-1001, $absolute));
+        $this->assertSame(1, $instance->filterIntegerPositive('1,000', $absolute));
+        $this->assertSame(2, $instance->filterIntegerPositive('2,000.01', $absolute));
+        $this->assertSame(0, $instance->filterIntegerPositive(0, $absolute));
+        $this->assertSame(1, $instance->filterIntegerPositive(1, $absolute));
+        $this->assertSame(1001, $instance->filterIntegerPositive(-1001, $absolute));
+        $this->assertSame(1001, $instance->filterIntegerPositive(-1001, $absolute));
 
         $absolute = false;
-        $this->assertSame(0, $this->mock->filterIntegerPositive('', $absolute));
-        $this->assertSame(0, $this->mock->filterIntegerPositive(null, $absolute));
-        $this->assertSame(0, $this->mock->filterIntegerPositive(false, $absolute));
+        $this->assertSame(0, $instance->filterIntegerPositive('', $absolute));
+        $this->assertSame(0, $instance->filterIntegerPositive(null, $absolute));
+        $this->assertSame(0, $instance->filterIntegerPositive(false, $absolute));
 
-        $this->assertSame(1, $this->mock->filterIntegerPositive('1,000', $absolute));
-        $this->assertSame(2, $this->mock->filterIntegerPositive('2,000.01', $absolute));
-        $this->assertSame(0, $this->mock->filterIntegerPositive(0, $absolute));
-        $this->assertSame(1, $this->mock->filterIntegerPositive(1, $absolute));
-        $this->assertSame(-1001, $this->mock->filterIntegerPositive(-1001, $absolute));
-        $this->assertSame(-1001, $this->mock->filterIntegerPositive(-1001, $absolute));
+        $this->assertSame(1, $instance->filterIntegerPositive('1,000', $absolute));
+        $this->assertSame(2, $instance->filterIntegerPositive('2,000.01', $absolute));
+        $this->assertSame(0, $instance->filterIntegerPositive(0, $absolute));
+        $this->assertSame(1, $instance->filterIntegerPositive(1, $absolute));
+        $this->assertSame(-1001, $instance->filterIntegerPositive(-1001, $absolute));
+        $this->assertSame(-1001, $instance->filterIntegerPositive(-1001, $absolute));
     }
 
     /**
@@ -117,16 +127,18 @@ class NumberTraitTest extends TraitTestCase
      */
     public function test_filterPercent(): void
     {
-        $this->assertNull($this->mock->filterPercent(''));
-        $this->assertNull($this->mock->filterPercent(null));
-        $this->assertNull($this->mock->filterPercent(false));
+        $instance = new FilterModel;
 
-        // $this->assertSame(1000.0, $this->mock->filterPercent('1,000%'));
+        $this->assertNull($instance->filterPercent(''));
+        $this->assertNull($instance->filterPercent(null));
+        $this->assertNull($instance->filterPercent(false));
 
-        // $this->assertSame(1000.0, $this->mock->filterPercent('1,000'));
-        // $this->assertSame(2000.01, $this->mock->filterPercent('2,000.01'));
-        $this->assertSame(0.0, $this->mock->filterPercent(0));
-        $this->assertSame(1.0, $this->mock->filterPercent(1));
-        // $this->assertSame(-1001.0, $this->mock->filterPercent('-1001 %'));
+        // $this->assertSame(1000.0, $instance->filterPercent('1,000%'));
+
+        // $this->assertSame(1000.0, $instance->filterPercent('1,000'));
+        // $this->assertSame(2000.01, $instance->filterPercent('2,000.01'));
+        $this->assertSame(0.0, $instance->filterPercent(0));
+        $this->assertSame(1.0, $instance->filterPercent(1));
+        // $this->assertSame(-1001.0, $instance->filterPercent('-1001 %'));
     }
 }

@@ -67,6 +67,6 @@
     "scripts": {
         "test": "vendor/bin/phpunit",
         "format": "vendor/bin/php-cs-fixer fix",
-        "analyse": "vendor/bin/phpstan analyse --verbose --debug --level 3"
+        "analyse": "vendor/bin/phpstan analyse --verbose --debug --level max"
     }
 }

@@ -6,6 +6,8 @@ namespace Tests\Unit\Playground\Models\Traits\ScopeFilterDates;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
+use PHPUnit\Framework\MockObject\MockObject;
+use Playground\Models\Model as TestModel;
 use Playground\Test\SqlTrait;
 use Tests\Unit\Playground\TestCase;
 
@@ -21,12 +23,7 @@ class ModelTest extends TestCase
     /**
      * @var class-string
      */
-    public const MODEL_CLASS = \Playground\Models\Model::class;
-
-    /**
-     * @var object
-     */
-    public $mock;
+    public const MODEL_CLASS = TestModel::class;
 
     /**
      * Setup the test environment.
@@ -45,18 +42,21 @@ class ModelTest extends TestCase
         parent::setUp();
 
         Carbon::setTestNow(Carbon::now());
-
-        $this->mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
     }
 
     public function test_scopeFilterDates_returns_query_without_dates_or_filters(): void
     {
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $this->mock->getTable()
+            $mock->getTable()
         );
 
-        $query = $this->mock->filterDates([], []);
+        $query = $mock->filterDates([], []);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -65,12 +65,17 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterDates_returns_query_without_filters(): void
     {
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $this->mock->getTable()
+            $mock->getTable()
         );
 
-        $query = $this->mock->filterDates([
+        $query = $mock->filterDates([
             'created_at' => [],
             'updated_at' => [],
         ], []);
@@ -86,9 +91,14 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterDates_returns_query_with_invalid_column(): void
     {
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $this->mock->getTable()
+            $mock->getTable()
         );
 
         $dates = [
@@ -101,7 +111,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $this->mock->filterDates($dates, $validated);
+        $query = $mock->filterDates($dates, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -114,9 +124,14 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterDates_returns_query_with_filters_without_meta_for_strings(): void
     {
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
         $sql = sprintf(
             'select * from `%1$s` where `updated_at` >= ? and `%1$s`.`deleted_at` is null',
-            $this->mock->getTable()
+            $mock->getTable()
         );
 
         $dates = [
@@ -132,7 +147,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $this->mock->filterDates($dates, $validated);
+        $query = $mock->filterDates($dates, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -147,9 +162,14 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterDates_returns_query_with_null_comparison_and_ignore(): void
     {
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $this->mock->getTable()
+            $mock->getTable()
         );
 
         $dates = [
@@ -167,7 +187,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $this->mock->filterDates($dates, $validated);
+        $query = $mock->filterDates($dates, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -180,10 +200,15 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterDates_returns_query_with_null_comparison_and_allow(): void
     {
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
         $sql = sprintf(
             // 'select * from `%1$s` where `%1$s`.`closed_at` is null and `%1$s`.`deleted_at` is null',
             'select * from `%1$s` where `closed_at` is null and `%1$s`.`deleted_at` is null',
-            $this->mock->getTable()
+            $mock->getTable()
         );
 
         $dates = [
@@ -200,7 +225,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $this->mock->filterDates($dates, $validated);
+        $query = $mock->filterDates($dates, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -213,10 +238,15 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterDates_returns_query_with_comparison(): void
     {
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
         $sql = sprintf(
             // 'select * from `%1$s` where `%1$s`.`updated_at` LIKE ? and `%1$s`.`deleted_at` is null',
             'select * from `%1$s` where `updated_at` >= ? and `%1$s`.`deleted_at` is null',
-            $this->mock->getTable()
+            $mock->getTable()
         );
 
         $dates = [
@@ -229,7 +259,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $this->mock->filterDates($dates, $validated);
+        $query = $mock->filterDates($dates, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -244,9 +274,14 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterDates_returns_query_with_wildcard(): void
     {
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
         $sql = sprintf(
             'select * from `%1$s` where `updated_at` LIKE ? and `%1$s`.`deleted_at` is null',
-            $this->mock->getTable()
+            $mock->getTable()
         );
 
         $dates = [
@@ -259,7 +294,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $this->mock->filterDates($dates, $validated);
+        $query = $mock->filterDates($dates, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -274,9 +309,14 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterDates_returns_query_with_operator_wildcard(): void
     {
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
         $sql = sprintf(
             'select * from `%1$s` where `updated_at` LIKE ? and `%1$s`.`deleted_at` is null',
-            $this->mock->getTable()
+            $mock->getTable()
         );
 
         $dates = [
@@ -291,7 +331,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $this->mock->filterDates($dates, $validated);
+        $query = $mock->filterDates($dates, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -306,9 +346,14 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterDates_returns_query_with_object_value_and_ignore(): void
     {
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $this->mock->getTable()
+            $mock->getTable()
         );
 
         $dates = [
@@ -324,7 +369,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $this->mock->filterDates($dates, $validated);
+        $query = $mock->filterDates($dates, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -337,9 +382,14 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterDates_returns_query_with_unnullable_value_and_ignore(): void
     {
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $this->mock->getTable()
+            $mock->getTable()
         );
 
         $dates = [
@@ -354,7 +404,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $this->mock->filterDates($dates, $validated);
+        $query = $mock->filterDates($dates, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -367,9 +417,14 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterDates_returns_query_with_invalid_operator_and_use_like(): void
     {
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
         $sql = sprintf(
             'select * from `%1$s` where `updated_at` >= ? and `%1$s`.`deleted_at` is null',
-            $this->mock->getTable()
+            $mock->getTable()
         );
 
         $dates = [
@@ -385,7 +440,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $this->mock->filterDates($dates, $validated);
+        $query = $mock->filterDates($dates, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -403,9 +458,14 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterDates_returns_query_with_invalid_parsable_value_and_ignore(): void
     {
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $this->mock->getTable()
+            $mock->getTable()
         );
 
         $dates = [
@@ -421,7 +481,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $this->mock->filterDates($dates, $validated);
+        $query = $mock->filterDates($dates, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -434,9 +494,14 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterDates_returns_query_with_short_date_and_gte_operator(): void
     {
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
         $sql = sprintf(
             'select * from `%1$s` where `updated_at` >= ? and `%1$s`.`deleted_at` is null',
-            $this->mock->getTable()
+            $mock->getTable()
         );
 
         $dates = [
@@ -452,7 +517,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $this->mock->filterDates($dates, $validated);
+        $query = $mock->filterDates($dates, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -467,9 +532,14 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterDates_returns_query_with_phrase_date_and_automatically_parse(): void
     {
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
         $sql = sprintf(
             'select * from `%1$s` where `updated_at` = ? and `%1$s`.`deleted_at` is null',
-            $this->mock->getTable()
+            $mock->getTable()
         );
 
         $dates = [
@@ -485,7 +555,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $this->mock->filterDates($dates, $validated);
+        $query = $mock->filterDates($dates, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -503,9 +573,14 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterDates_with_between_filter_operator_with_parse(): void
     {
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
         $sql = sprintf(
             'select * from `%1$s` where `created_at` between ? and ? and `%1$s`.`deleted_at` is null',
-            $this->mock->getTable()
+            $mock->getTable()
         );
 
         $dates = [
@@ -522,7 +597,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $this->mock->filterDates($dates, $validated);
+        $query = $mock->filterDates($dates, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -546,9 +621,14 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterDates_with_not_between_filter_operator_with_parse(): void
     {
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
         $sql = sprintf(
             'select * from `%1$s` where `created_at` not between ? and ? and `%1$s`.`deleted_at` is null',
-            $this->mock->getTable()
+            $mock->getTable()
         );
 
         $dates = [
@@ -565,7 +645,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $this->mock->filterDates($dates, $validated);
+        $query = $mock->filterDates($dates, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -589,6 +669,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterDates_with_filter_operators(): void
     {
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
         $filter_operators = [
             '|' => [],
             '&' => [],
@@ -648,12 +733,12 @@ class ModelTest extends TestCase
 
             $sql = sprintf(
                 'select * from `%1$s` where `created_at` %2$s%3$s and `%1$s`.`deleted_at` is null',
-                $this->mock->getTable(),
+                $mock->getTable(),
                 $operator,
                 $parameter
             );
 
-            $query = $this->mock->filterDates($dates, $validated);
+            $query = $mock->filterDates($dates, $validated);
 
             $this->assertInstanceOf(Builder::class, $query);
 

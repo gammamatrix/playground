@@ -16,10 +16,11 @@ trait WithModifier
      */
     public function modifier(): HasOne
     {
-        return $this->hasOne(
-            config('playground.user', '\\App\\Models\\User'),
-            'id',
-            'modified_by_id'
-        );
+        /**
+         * @var class-string $userClass
+         */
+        $userClass = config('playground.user', '\\App\\Models\\User');
+
+        return $this->hasOne($userClass, 'id', 'modified_by_id');
     }
 }

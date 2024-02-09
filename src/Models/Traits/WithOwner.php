@@ -16,10 +16,11 @@ trait WithOwner
      */
     public function owner(): HasOne
     {
-        return $this->hasOne(
-            config('playground.user', '\\App\\Models\\User'),
-            'id',
-            'owned_by_id'
-        );
+        /**
+         * @var class-string $userClass
+         */
+        $userClass = config('playground.user', '\\App\\Models\\User');
+
+        return $this->hasOne($userClass, 'id', 'owned_by_id');
     }
 }

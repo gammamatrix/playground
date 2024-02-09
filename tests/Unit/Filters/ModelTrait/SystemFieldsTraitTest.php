@@ -4,13 +4,15 @@
  */
 namespace Tests\Unit\Playground\Filters\ModelTrait;
 
+use Tests\Unit\Playground\TestCase;
+
 /**
  * \Tests\Unit\Playground\Filters\ModelTrait\SystemFieldsTraitTest
  *
  * @see \Playground\Filters\ModelTrait::filterSystemFields()
  * @see \Playground\Filters\ModelTrait::filterSystemFields()
  */
-class SystemFieldsTraitTest extends TraitTestCase
+class SystemFieldsTraitTest extends TestCase
 {
     /**
      * filterSystemFields: gids
@@ -19,10 +21,12 @@ class SystemFieldsTraitTest extends TraitTestCase
      */
     public function test_filterSystemFields_for_groups(): void
     {
-        $this->assertSame([], $this->mock->filterSystemFields([]));
+        $instance = new FilterModel;
+
+        $this->assertSame([], $instance->filterSystemFields([]));
 
         $expected = ['gids' => 1];
-        $this->assertSame($expected, $this->mock->filterSystemFields(['gids' => 1]));
+        $this->assertSame($expected, $instance->filterSystemFields(['gids' => 1]));
     }
 
     /**
@@ -32,14 +36,16 @@ class SystemFieldsTraitTest extends TraitTestCase
      */
     public function test_filterSystemFields_for_permissions(): void
     {
-        $this->assertSame([], $this->mock->filterSystemFields([]));
+        $instance = new FilterModel;
+
+        $this->assertSame([], $instance->filterSystemFields([]));
 
         $expected = [
             'po' => 7,
             'pg' => 4,
             'pw' => 4,
         ];
-        $this->assertSame($expected, $this->mock->filterSystemFields([
+        $this->assertSame($expected, $instance->filterSystemFields([
             'po' => 7,
             'pg' => 4,
             'pw' => 4,
@@ -52,7 +58,7 @@ class SystemFieldsTraitTest extends TraitTestCase
             'pg' => 4,
             'pw' => 4,
         ];
-        $this->assertSame($expected, $this->mock->filterSystemFields([
+        $this->assertSame($expected, $instance->filterSystemFields([
             'po' => 100,
             'pg' => 4,
             'pw' => 4,
@@ -66,14 +72,16 @@ class SystemFieldsTraitTest extends TraitTestCase
      */
     public function test_filterSystemFields_for_rank(): void
     {
+        $instance = new FilterModel;
+
         $expected = ['rank' => 0];
-        $this->assertSame($expected, $this->mock->filterSystemFields(['rank' => 0]));
+        $this->assertSame($expected, $instance->filterSystemFields(['rank' => 0]));
 
         $expected = ['rank' => 1];
-        $this->assertSame($expected, $this->mock->filterSystemFields(['rank' => 1]));
+        $this->assertSame($expected, $instance->filterSystemFields(['rank' => 1]));
 
         $expected = ['rank' => -1];
-        $this->assertSame($expected, $this->mock->filterSystemFields(['rank' => -1]));
+        $this->assertSame($expected, $instance->filterSystemFields(['rank' => -1]));
     }
 
     /**
@@ -83,13 +91,15 @@ class SystemFieldsTraitTest extends TraitTestCase
      */
     public function test_filterSystemFields_for_size(): void
     {
+        $instance = new FilterModel;
+
         $expected = ['size' => 0];
-        $this->assertSame($expected, $this->mock->filterSystemFields(['size' => 0]));
+        $this->assertSame($expected, $instance->filterSystemFields(['size' => 0]));
 
         $expected = ['size' => 1];
-        $this->assertSame($expected, $this->mock->filterSystemFields(['size' => 1]));
+        $this->assertSame($expected, $instance->filterSystemFields(['size' => 1]));
 
         $expected = ['size' => -1];
-        $this->assertSame($expected, $this->mock->filterSystemFields(['size' => -1]));
+        $this->assertSame($expected, $instance->filterSystemFields(['size' => -1]));
     }
 }

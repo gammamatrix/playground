@@ -119,9 +119,9 @@ jobs:
         user_email: 'github-actions[bot]@users.noreply.github.com'
     - uses: php-actions/phpstan@v3
       with:
-        level: 3
+        level: 9
         php_version: "8.2"
-        path: config/ src/ tests/Feature/ tests/Unit/
+        path: config/ database/ lang/ src/ tests/Feature/ tests/Unit/
     - name: Stopping timer
       if: ${{ !cancelled() }}
       id: timer_end

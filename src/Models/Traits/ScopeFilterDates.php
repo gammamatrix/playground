@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Log;
  */
 trait ScopeFilterDates
 {
+    /**
+     * @param array<string, mixed> $dates
+     * @param array<string, mixed> $validated
+     */
     public static function scopeFilterDates(
         Builder $query,
         array $dates,
@@ -54,6 +58,10 @@ trait ScopeFilterDates
             ) {
                 // Log::debug(__METHOD__, ['VALIDATION' => 'empty', '$column' => $column, '$validated' => $validated,]);
                 continue;
+            }
+
+            if (! is_array($meta)) {
+                $meta = [];
             }
 
             $filter_operator = null;
@@ -165,7 +173,7 @@ trait ScopeFilterDates
             } else {
                 $query->where(
                     $column,
-                    $filter_operator ?: '=',
+                    $filter_operator,
                     $filter_value
                 );
             }

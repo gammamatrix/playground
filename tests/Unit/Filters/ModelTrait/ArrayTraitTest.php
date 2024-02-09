@@ -4,13 +4,15 @@
  */
 namespace Tests\Unit\Playground\Filters\ModelTrait;
 
+use Tests\Unit\Playground\TestCase;
+
 /**
  * \Tests\Unit\Playground\Filters\ModelTrait\ArrayTraitTest
  *
  * @see \Playground\Filters\ModelTrait::filterArray()
  * @see \Playground\Filters\ModelTrait::filterArrayToJson()
  */
-class ArrayTraitTest extends TraitTestCase
+class ArrayTraitTest extends TestCase
 {
     /**
      * filterArray
@@ -19,24 +21,26 @@ class ArrayTraitTest extends TraitTestCase
      */
     public function test_filterArray(): void
     {
+        $instance = new FilterModel;
+
         // Always return an array, no matter the input.
 
         // empty array
-        $this->assertSame([], $this->mock->filterArray([]));
+        $this->assertSame([], $instance->filterArray([]));
 
         // NULL
-        $this->assertSame([], $this->mock->filterArray(null));
+        $this->assertSame([], $instance->filterArray(null));
 
         // false
-        $this->assertSame([], $this->mock->filterArray(false));
+        $this->assertSame([], $instance->filterArray(false));
 
         // true
-        $this->assertSame([], $this->mock->filterArray(true));
+        $this->assertSame([], $instance->filterArray(true));
 
         $value = 'just-a-string-value';
 
         // A string is converted to any array.
-        $this->assertSame([$value], $this->mock->filterArray($value));
+        $this->assertSame([$value], $instance->filterArray($value));
 
         // A test array should not be altered.
         $value = [
@@ -47,7 +51,7 @@ class ArrayTraitTest extends TraitTestCase
         ];
 
         // Returns the same array.
-        $this->assertSame($value, $this->mock->filterArray($value));
+        $this->assertSame($value, $instance->filterArray($value));
     }
 
     /**
@@ -57,24 +61,26 @@ class ArrayTraitTest extends TraitTestCase
      */
     public function test_filterArray_to_json(): void
     {
+        $instance = new FilterModel;
+
         // Unexpected values return a json encoded empty array..
 
         // empty array
-        $this->assertSame(json_encode([]), $this->mock->filterArrayToJson([]));
+        $this->assertSame(json_encode([]), $instance->filterArrayToJson([]));
 
         // NULL
-        $this->assertSame(json_encode([]), $this->mock->filterArrayToJson(null));
+        $this->assertSame(json_encode([]), $instance->filterArrayToJson(null));
 
         // false
-        $this->assertSame(json_encode([]), $this->mock->filterArrayToJson(false));
+        $this->assertSame(json_encode([]), $instance->filterArrayToJson(false));
 
         // true
-        $this->assertSame(json_encode([]), $this->mock->filterArrayToJson(true));
+        $this->assertSame(json_encode([]), $instance->filterArrayToJson(true));
 
         $value = 'just-a-string-value';
 
         // A string will remain a string, unchanged.
-        $this->assertSame($value, $this->mock->filterArrayToJson($value));
+        $this->assertSame($value, $instance->filterArrayToJson($value));
 
         // A test array should not be altered.
         $value = [
@@ -85,6 +91,6 @@ class ArrayTraitTest extends TraitTestCase
         ];
 
         // Returns the same array.
-        $this->assertSame(json_encode($value), $this->mock->filterArrayToJson($value));
+        $this->assertSame(json_encode($value), $instance->filterArrayToJson($value));
     }
 }

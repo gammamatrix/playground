@@ -13,6 +13,10 @@ use Illuminate\Database\Eloquent\Builder;
  */
 trait ScopeFilterColumns
 {
+    /**
+     * @param array<string, mixed> $columns
+     * @param array<string, mixed> $validated
+     */
     public static function scopeFilterColumns(
         Builder $query,
         array $columns,
@@ -56,6 +60,10 @@ trait ScopeFilterColumns
             ) {
                 // Log::debug(__METHOD__, ['VALIDATION' => 'empty', '$column' => $column, '$validated' => $validated,]);
                 continue;
+            }
+
+            if (! is_array($meta)) {
+                $meta = [];
             }
 
             $filter_type = ! empty($meta['type']) && is_string($meta['type']) ? $meta['type'] : 'string';

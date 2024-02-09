@@ -4,12 +4,14 @@
  */
 namespace Tests\Unit\Playground\Filters\ModelTrait;
 
+use Tests\Unit\Playground\TestCase;
+
 /**
  * \Tests\Unit\Playground\Filters\ModelTrait\UuidTraitTest
  *
  * @see \Playground\Filters\ModelTrait::filterUuid()
  */
-class UuidTraitTest extends TraitTestCase
+class UuidTraitTest extends TestCase
 {
     /**
      * filterUuid
@@ -18,9 +20,11 @@ class UuidTraitTest extends TraitTestCase
      */
     public function test_filterUuid(): void
     {
+        $instance = new FilterModel;
+
         $faker = \Faker\Factory::create();
         $uuid = $faker->uuid;
         $this->assertNotEmpty($uuid);
-        $this->assertSame($uuid, $this->mock->filterUuid($uuid));
+        $this->assertSame($uuid, $instance->filterUuid($uuid));
     }
 }

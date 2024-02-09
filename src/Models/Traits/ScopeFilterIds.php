@@ -12,6 +12,10 @@ use Ramsey\Uuid\Uuid;
  */
 trait ScopeFilterIds
 {
+    /**
+     * @param array<string, mixed> $ids
+     * @param array<string, mixed> $validated
+     */
     public static function scopeFilterIds(
         Builder $query,
         array $ids,
@@ -30,6 +34,10 @@ trait ScopeFilterIds
                 || ! array_key_exists($column, $validated['filter'])
             ) {
                 continue;
+            }
+
+            if (! is_array($meta)) {
+                $meta = [];
             }
 
             if (is_null($validated['filter'][$column])) {
