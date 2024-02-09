@@ -51,43 +51,6 @@
         </style>
     </head>
     <body>
-        <h2>Abstract (Tests\Unit\Playground\Policies\Policy\Abstract)</h2>
-        <ul>
-            <li class="success">Before with root</li>
-            <li class="success">Before with root as secondary fails</li>
-            <li class="success">Index without role</li>
-            <li class="success">Index with admin</li>
-            <li class="success">View without role</li>
-            <li class="success">View with admin</li>
-            <li class="success">View with admin in roles</li>
-        </ul>
-        <h2>Abstract Role (Tests\Unit\Playground\Policies\ModelPolicy\AbstractRole)</h2>
-        <ul>
-            <li class="success">Create without role</li>
-            <li class="success">Create with admin</li>
-            <li class="success">Delete without role</li>
-            <li class="success">Delete with admin</li>
-            <li class="success">Delete locked with admin</li>
-            <li class="success">Detail without role</li>
-            <li class="success">Detail with admin</li>
-            <li class="success">Edit without role</li>
-            <li class="success">Edit with admin</li>
-            <li class="success">ForceDelete without role</li>
-            <li class="success">ForceDelete with admin</li>
-            <li class="success">Lock without role</li>
-            <li class="success">Lock with admin</li>
-            <li class="success">Manage without role</li>
-            <li class="success">Manage with admin</li>
-            <li class="success">Restore without role</li>
-            <li class="success">Restore with admin</li>
-            <li class="success">Store without role</li>
-            <li class="success">Store with admin</li>
-            <li class="success">Update without role</li>
-            <li class="success">Update with admin</li>
-            <li class="success">Update locked with admin</li>
-            <li class="success">Unlock without role</li>
-            <li class="success">Unlock with admin</li>
-        </ul>
         <h2>Array Trait (Tests\Unit\Playground\Filters\ModelTrait\ArrayTrait)</h2>
         <ul>
             <li class="success">Filter array</li>
@@ -97,10 +60,6 @@
         <ul>
             <li class="success">FilterBits for exponent zero</li>
             <li class="success">FilterBits for exponent greater than zero</li>
-        </ul>
-        <h2>Command (Tests\Feature\Playground\Console\Commands\About\Command)</h2>
-        <ul>
-            <li class="success">Command about displays package information and succeed with code 0</li>
         </ul>
         <h2>Date Trait (Tests\Unit\Playground\Filters\ModelTrait\DateTrait)</h2>
         <ul>
@@ -213,15 +172,6 @@
             <li class="success">FilterSystemFields for rank</li>
             <li class="success">FilterSystemFields for size</li>
         </ul>
-        <h2>Trait (Tests\Feature\Playground\Policies\PrivilegeTrait\Trait)</h2>
-        <ul>
-            <li class="success">HasPrivilege and fail with empty privilege</li>
-            <li class="success">HasPrivilege with app without token and fail</li>
-            <li class="success">HasPrivilege with app with token and unauthorized privilege and fail</li>
-            <li class="success">HasPrivilege with app with wildcard token privileges and succeed</li>
-            <li class="success">HasPrivilege with app with wildcard secondary token privileges and succeed</li>
-            <li class="success">HasPrivilege with app with token privileges and succeed</li>
-        </ul>
         <h2>Trait (Tests\Unit\Playground\Filters\ContentTrait\Trait)</h2>
         <ul>
             <li class="success">Purify</li>
@@ -230,59 +180,6 @@
             <li class="success">GetHtmlPurifier with iframes</li>
             <li class="success">GetHtmlPurifier with purifier path</li>
             <li class="success">Encode u r i component</li>
-        </ul>
-        <h2>Trait (Tests\Unit\Playground\Models\Traits\UserPrivileges\Trait)</h2>
-        <ul>
-            <li class="success">HasPrivilege is false with null privilege</li>
-            <li class="success">HasPrivilege is false with false privilege</li>
-            <li class="success">HasPrivilege is true with privilege that does exist</li>
-            <li class="success">HasPrivilege is false with privilege that does not exist</li>
-            <li class="success">HasRole is false with null role</li>
-            <li class="success">HasRole is false with false role</li>
-            <li class="success">HasRole is true with role that does exist</li>
-            <li class="success">HasRole is false with role that does not exist</li>
-            <li class="success">HasRole is false with secondary role that does not exist</li>
-            <li class="success">HasRole is true with secondary role that does exist</li>
-            <li class="success">HasRole is true with other secondary role that does exist</li>
-            <li class="success">HasRole is true with primary role that does exist</li>
-            <li class="success">IsAdmin is false without roles</li>
-            <li class="success">IsAdmin is true with role that does exist</li>
-            <li class="success">IsAdmin is false with user role that does not exist</li>
-            <li class="success">IsAdmin is false with secondary role that does not exist</li>
-            <li class="success">IsAdmin is false with secondary roles that exist and not admin</li>
-            <li class="success">IsAdmin is true with other secondary role that does exist</li>
-            <li class="success">IsAdmin is true with primary role that does exist</li>
-            <li class="success">IsAdmin is false with secondary root role</li>
-        </ul>
-        <h2>Trait (Tests\Unit\Playground\Policies\PolicyTrait\Trait)</h2>
-        <ul>
-            <li class="success">Get entity</li>
-            <li class="success">Get package</li>
-            <li class="success">Has token</li>
-            <li class="success">Get token</li>
-            <li class="success">Set token</li>
-            <li class="success">Verify</li>
-            <li class="success">Verify privileges</li>
-            <li class="success">Verify roles</li>
-            <li class="success">Verify user</li>
-        </ul>
-        <h2>Trait (Tests\Unit\Playground\Policies\PrivilegeTrait\Trait)</h2>
-        <ul>
-            <li class="success">Privilege without parameter</li>
-            <li class="success">Privilege with package and without parameter</li>
-            <li class="success">Privilege with package and entity and without parameter</li>
-            <li class="success">Has privilege</li>
-            <li class="success">HasPrivilege with user hasPrivilege</li>
-            <li class="success">HasPrivilege with user privileges</li>
-            <li class="success">HasPrivilege without privileges enabled</li>
-        </ul>
-        <h2>Trait (Tests\Unit\Playground\Policies\RoleTrait\Trait)</h2>
-        <ul>
-            <li class="success">Get roles for admin</li>
-            <li class="success">Get roles for action</li>
-            <li class="success">Get roles to view</li>
-            <li class="success">Has role</li>
-            <li class="success">HasRole advanced role</li>
         </ul>
         <h2>Uuid Trait (Tests\Unit\Playground\Filters\ModelTrait\UuidTrait)</h2>
         <ul>

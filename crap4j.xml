@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-02-07 03:19:24</timestamp>
+  <timestamp>2024-02-09 18:27:46</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>76</methodCount>
-    <crapMethodCount>0</crapMethodCount>
-    <crapLoad>0</crapLoad>
-    <totalCrap>293</totalCrap>
-    <crapMethodPercent>0</crapMethodPercent>
+    <methodCount>46</methodCount>
+    <crapMethodCount>1</crapMethodCount>
+    <crapLoad>9</crapLoad>
+    <totalCrap>595.96</totalCrap>
+    <crapMethodPercent>2.17</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -37,10 +37,10 @@
       <package>Playground\Filters</package>
       <className>Playground\Filters\ContentTrait</className>
       <methodName>getHtmlPurifier</methodName>
-      <methodSignature>getHtmlPurifier(array $config)</methodSignature>
-      <fullMethod>getHtmlPurifier(array $config)</fullMethod>
-      <crap>7</crap>
-      <complexity>7</complexity>
+      <methodSignature>getHtmlPurifier(array $config): HTMLPurifier</methodSignature>
+      <fullMethod>getHtmlPurifier(array $config): HTMLPurifier</fullMethod>
+      <crap>9</crap>
+      <complexity>9</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -48,8 +48,8 @@
       <package>Playground\Filters</package>
       <className>Playground\Filters\ContentTrait</className>
       <methodName>setHtmlPurifier</methodName>
-      <methodSignature>setHtmlPurifier(HTMLPurifier $purifier)</methodSignature>
-      <fullMethod>setHtmlPurifier(HTMLPurifier $purifier)</fullMethod>
+      <methodSignature>setHtmlPurifier(HTMLPurifier $purifier): self</methodSignature>
+      <fullMethod>setHtmlPurifier(HTMLPurifier $purifier): self</fullMethod>
       <crap>2</crap>
       <complexity>2</complexity>
       <coverage>100</coverage>
@@ -59,8 +59,8 @@
       <package>Playground\Filters</package>
       <className>Playground\Filters\ContentTrait</className>
       <methodName>encodeURIComponent</methodName>
-      <methodSignature>encodeURIComponent($str)</methodSignature>
-      <fullMethod>encodeURIComponent($str)</fullMethod>
+      <methodSignature>encodeURIComponent(string $str): string</methodSignature>
+      <fullMethod>encodeURIComponent(string $str): string</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -70,8 +70,8 @@
       <package>Playground\Filters</package>
       <className>Playground\Filters\ModelTrait</className>
       <methodName>filterArray</methodName>
-      <methodSignature>filterArray($value): array</methodSignature>
-      <fullMethod>filterArray($value): array</fullMethod>
+      <methodSignature>filterArray(mixed $value): array</methodSignature>
+      <fullMethod>filterArray(mixed $value): array</fullMethod>
       <crap>4</crap>
       <complexity>4</complexity>
       <coverage>100</coverage>
@@ -81,8 +81,8 @@
       <package>Playground\Filters</package>
       <className>Playground\Filters\ModelTrait</className>
       <methodName>filterArrayToJson</methodName>
-      <methodSignature>filterArrayToJson($value): ?string</methodSignature>
-      <fullMethod>filterArrayToJson($value): ?string</fullMethod>
+      <methodSignature>filterArrayToJson(mixed $value): string|false</methodSignature>
+      <fullMethod>filterArrayToJson(mixed $value): string|false</fullMethod>
       <crap>3</crap>
       <complexity>3</complexity>
       <coverage>100</coverage>
@@ -103,8 +103,8 @@
       <package>Playground\Filters</package>
       <className>Playground\Filters\ModelTrait</className>
       <methodName>filterBoolean</methodName>
-      <methodSignature>filterBoolean($value): bool</methodSignature>
-      <fullMethod>filterBoolean($value): bool</fullMethod>
+      <methodSignature>filterBoolean(mixed $value): bool</methodSignature>
+      <fullMethod>filterBoolean(mixed $value): bool</fullMethod>
       <crap>4</crap>
       <complexity>4</complexity>
       <coverage>100</coverage>
@@ -114,19 +114,19 @@
       <package>Playground\Filters</package>
       <className>Playground\Filters\ModelTrait</className>
       <methodName>filterDate</methodName>
-      <methodSignature>filterDate($value, $locale): ?string</methodSignature>
-      <fullMethod>filterDate($value, $locale): ?string</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
+      <methodSignature>filterDate(mixed $value, $locale): ?string</methodSignature>
+      <fullMethod>filterDate(mixed $value, $locale): ?string</fullMethod>
+      <crap>6.07</crap>
+      <complexity>6</complexity>
+      <coverage>87.5</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Filters</package>
       <className>Playground\Filters\ModelTrait</className>
       <methodName>filterDateAsCarbon</methodName>
-      <methodSignature>filterDateAsCarbon($value, $locale): ?Carbon\Carbon</methodSignature>
-      <fullMethod>filterDateAsCarbon($value, $locale): ?Carbon\Carbon</fullMethod>
+      <methodSignature>filterDateAsCarbon($value, $locale): ?Illuminate\Support\Carbon</methodSignature>
+      <fullMethod>filterDateAsCarbon($value, $locale): ?Illuminate\Support\Carbon</fullMethod>
       <crap>2</crap>
       <complexity>2</complexity>
       <coverage>100</coverage>
@@ -136,10 +136,10 @@
       <package>Playground\Filters</package>
       <className>Playground\Filters\ModelTrait</className>
       <methodName>filterEmail</methodName>
-      <methodSignature>filterEmail($email): string</methodSignature>
-      <fullMethod>filterEmail($email): string</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
+      <methodSignature>filterEmail(mixed $email): string</methodSignature>
+      <fullMethod>filterEmail(mixed $email): string</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -147,8 +147,8 @@
       <package>Playground\Filters</package>
       <className>Playground\Filters\ModelTrait</className>
       <methodName>filterFloat</methodName>
-      <methodSignature>filterFloat($value, $locale): ?float</methodSignature>
-      <fullMethod>filterFloat($value, $locale): ?float</fullMethod>
+      <methodSignature>filterFloat(mixed $value, $locale): ?float</methodSignature>
+      <fullMethod>filterFloat(mixed $value, $locale): ?float</fullMethod>
       <crap>4</crap>
       <complexity>4</complexity>
       <coverage>100</coverage>
@@ -158,10 +158,10 @@
       <package>Playground\Filters</package>
       <className>Playground\Filters\ModelTrait</className>
       <methodName>filterHtml</methodName>
-      <methodSignature>filterHtml($content): string</methodSignature>
-      <fullMethod>filterHtml($content): string</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
+      <methodSignature>filterHtml(string $content): string</methodSignature>
+      <fullMethod>filterHtml(string $content): string</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -169,8 +169,8 @@
       <package>Playground\Filters</package>
       <className>Playground\Filters\ModelTrait</className>
       <methodName>filterInteger</methodName>
-      <methodSignature>filterInteger($value, $locale): int</methodSignature>
-      <fullMethod>filterInteger($value, $locale): int</fullMethod>
+      <methodSignature>filterInteger(mixed $value, $locale): int</methodSignature>
+      <fullMethod>filterInteger(mixed $value, $locale): int</fullMethod>
       <crap>4</crap>
       <complexity>4</complexity>
       <coverage>100</coverage>
@@ -180,8 +180,8 @@
       <package>Playground\Filters</package>
       <className>Playground\Filters\ModelTrait</className>
       <methodName>filterIntegerId</methodName>
-      <methodSignature>filterIntegerId($value): ?int</methodSignature>
-      <fullMethod>filterIntegerId($value): ?int</fullMethod>
+      <methodSignature>filterIntegerId(mixed $value): ?int</methodSignature>
+      <fullMethod>filterIntegerId(mixed $value): ?int</fullMethod>
       <crap>3</crap>
       <complexity>3</complexity>
       <coverage>100</coverage>
@@ -191,10 +191,10 @@
       <package>Playground\Filters</package>
       <className>Playground\Filters\ModelTrait</className>
       <methodName>filterIntegerPositive</methodName>
-      <methodSignature>filterIntegerPositive($value, $absolute): int</methodSignature>
-      <fullMethod>filterIntegerPositive($value, $absolute): int</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
+      <methodSignature>filterIntegerPositive(mixed $value, $absolute): int</methodSignature>
+      <fullMethod>filterIntegerPositive(mixed $value, $absolute): int</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -202,19 +202,19 @@
       <package>Playground\Filters</package>
       <className>Playground\Filters\ModelTrait</className>
       <methodName>filterPercent</methodName>
-      <methodSignature>filterPercent($value, $locale): ?float</methodSignature>
-      <fullMethod>filterPercent($value, $locale): ?float</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
+      <methodSignature>filterPercent(mixed $value, $locale): ?float</methodSignature>
+      <fullMethod>filterPercent(mixed $value, $locale): ?float</fullMethod>
+      <crap>4.13</crap>
+      <complexity>4</complexity>
+      <coverage>80</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Filters</package>
       <className>Playground\Filters\ModelTrait</className>
       <methodName>filterStatus</methodName>
-      <methodSignature>filterStatus(array $input)</methodSignature>
-      <fullMethod>filterStatus(array $input)</fullMethod>
+      <methodSignature>filterStatus(array $input): array</methodSignature>
+      <fullMethod>filterStatus(array $input): array</fullMethod>
       <crap>5</crap>
       <complexity>5</complexity>
       <coverage>100</coverage>
@@ -224,10 +224,10 @@
       <package>Playground\Filters</package>
       <className>Playground\Filters\ModelTrait</className>
       <methodName>filterSystemFields</methodName>
-      <methodSignature>filterSystemFields(array $input)</methodSignature>
-      <fullMethod>filterSystemFields(array $input)</fullMethod>
-      <crap>7</crap>
-      <complexity>7</complexity>
+      <methodSignature>filterSystemFields(array $input): array</methodSignature>
+      <fullMethod>filterSystemFields(array $input): array</fullMethod>
+      <crap>13</crap>
+      <complexity>13</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -235,11 +235,121 @@
       <package>Playground\Filters</package>
       <className>Playground\Filters\ModelTrait</className>
       <methodName>filterUuid</methodName>
-      <methodSignature>filterUuid($value)</methodSignature>
-      <fullMethod>filterUuid($value)</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
+      <methodSignature>filterUuid(mixed $value): ?string</methodSignature>
+      <fullMethod>filterUuid(mixed $value): ?string</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
       <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Traits</package>
+      <className>Playground\Models\Traits\Abilities</className>
+      <methodName>hasAbility</methodName>
+      <methodSignature>hasAbility(mixed $ability): bool</methodSignature>
+      <fullMethod>hasAbility(mixed $ability): bool</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Traits</package>
+      <className>Playground\Models\Traits\Abilities</className>
+      <methodName>addAbility</methodName>
+      <methodSignature>addAbility(mixed $ability): void</methodSignature>
+      <fullMethod>addAbility(mixed $ability): void</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Traits</package>
+      <className>Playground\Models\Traits\Abilities</className>
+      <methodName>removeAbility</methodName>
+      <methodSignature>removeAbility(mixed $ability): void</methodSignature>
+      <fullMethod>removeAbility(mixed $ability): void</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Traits</package>
+      <className>Playground\Models\Traits\Admin</className>
+      <methodName>isAdmin</methodName>
+      <methodSignature>isAdmin(): bool</methodSignature>
+      <fullMethod>isAdmin(): bool</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Traits</package>
+      <className>Playground\Models\Traits\Privileges</className>
+      <methodName>hasPrivilege</methodName>
+      <methodSignature>hasPrivilege(mixed $privilege): bool</methodSignature>
+      <fullMethod>hasPrivilege(mixed $privilege): bool</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Traits</package>
+      <className>Playground\Models\Traits\Privileges</className>
+      <methodName>addPrivilege</methodName>
+      <methodSignature>addPrivilege(mixed $privilege): void</methodSignature>
+      <fullMethod>addPrivilege(mixed $privilege): void</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Traits</package>
+      <className>Playground\Models\Traits\Privileges</className>
+      <methodName>removePrivilege</methodName>
+      <methodSignature>removePrivilege(mixed $privilege): void</methodSignature>
+      <fullMethod>removePrivilege(mixed $privilege): void</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Traits</package>
+      <className>Playground\Models\Traits\Role</className>
+      <methodName>hasRole</methodName>
+      <methodSignature>hasRole(mixed $role): bool</methodSignature>
+      <fullMethod>hasRole(mixed $role): bool</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Traits</package>
+      <className>Playground\Models\Traits\Role</className>
+      <methodName>addRole</methodName>
+      <methodSignature>addRole(mixed $role): void</methodSignature>
+      <fullMethod>addRole(mixed $role): void</fullMethod>
+      <crap>42</crap>
+      <complexity>6</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Traits</package>
+      <className>Playground\Models\Traits\Role</className>
+      <methodName>removeRole</methodName>
+      <methodSignature>removeRole(mixed $role): void</methodSignature>
+      <fullMethod>removeRole(mixed $role): void</fullMethod>
+      <crap>30</crap>
+      <complexity>5</complexity>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -248,9 +358,9 @@
       <methodName>scopeFilterColumns</methodName>
       <methodSignature>scopeFilterColumns(Illuminate\Database\Eloquent\Builder $query, array $columns, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
       <fullMethod>scopeFilterColumns(Illuminate\Database\Eloquent\Builder $query, array $columns, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
-      <crap>29</crap>
-      <complexity>29</complexity>
-      <coverage>100</coverage>
+      <crap>30</crap>
+      <complexity>30</complexity>
+      <coverage>98.65</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -261,7 +371,7 @@
       <fullMethod>scopeFilterDates(Illuminate\Database\Eloquent\Builder $query, array $dates, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
       <crap>43</crap>
       <complexity>43</complexity>
-      <coverage>100</coverage>
+      <coverage>99.02</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -281,9 +391,9 @@
       <methodName>scopeFilterIds</methodName>
       <methodSignature>scopeFilterIds(Illuminate\Database\Eloquent\Builder $query, array $ids, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
       <fullMethod>scopeFilterIds(Illuminate\Database\Eloquent\Builder $query, array $ids, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
-      <crap>25</crap>
-      <complexity>25</complexity>
-      <coverage>100</coverage>
+      <crap>26</crap>
+      <complexity>26</complexity>
+      <coverage>96.97</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -301,54 +411,10 @@
       <package>Playground\Models\Traits</package>
       <className>Playground\Models\Traits\ScopeSort</className>
       <methodName>scopeSort</methodName>
-      <methodSignature>scopeSort(Illuminate\Database\Eloquent\Builder $query, array|string $sort): Illuminate\Database\Eloquent\Builder</methodSignature>
-      <fullMethod>scopeSort(Illuminate\Database\Eloquent\Builder $query, array|string $sort): Illuminate\Database\Eloquent\Builder</fullMethod>
-      <crap>15</crap>
-      <complexity>15</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\UserPrivileges</className>
-      <methodName>getAttribute</methodName>
-      <methodSignature>getAttribute($key)</methodSignature>
-      <fullMethod>getAttribute($key)</fullMethod>
-      <crap>0</crap>
-      <complexity>0</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\UserPrivileges</className>
-      <methodName>hasPrivilege</methodName>
-      <methodSignature>hasPrivilege($privilege): bool</methodSignature>
-      <fullMethod>hasPrivilege($privilege): bool</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\UserPrivileges</className>
-      <methodName>hasRole</methodName>
-      <methodSignature>hasRole($role): bool</methodSignature>
-      <fullMethod>hasRole($role): bool</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\UserPrivileges</className>
-      <methodName>isAdmin</methodName>
-      <methodSignature>isAdmin(): bool</methodSignature>
-      <fullMethod>isAdmin(): bool</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
+      <methodSignature>scopeSort(Illuminate\Database\Eloquent\Builder $query, mixed $sort): Illuminate\Database\Eloquent\Builder</methodSignature>
+      <fullMethod>scopeSort(Illuminate\Database\Eloquent\Builder $query, mixed $sort): Illuminate\Database\Eloquent\Builder</fullMethod>
+      <crap>16</crap>
+      <complexity>16</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -408,422 +474,26 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\ModelPolicy</className>
-      <methodName>create</methodName>
-      <methodSignature>create(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>create(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\ModelPolicy</className>
-      <methodName>delete</methodName>
-      <methodSignature>delete(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>delete(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\ModelPolicy</className>
-      <methodName>detail</methodName>
-      <methodSignature>detail(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>detail(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\ModelPolicy</className>
-      <methodName>edit</methodName>
-      <methodSignature>edit(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>edit(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\ModelPolicy</className>
-      <methodName>forceDelete</methodName>
-      <methodSignature>forceDelete(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>forceDelete(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\ModelPolicy</className>
-      <methodName>lock</methodName>
-      <methodSignature>lock(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>lock(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\ModelPolicy</className>
-      <methodName>manage</methodName>
-      <methodSignature>manage(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>manage(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\ModelPolicy</className>
-      <methodName>restore</methodName>
-      <methodSignature>restore(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>restore(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\ModelPolicy</className>
-      <methodName>store</methodName>
-      <methodSignature>store(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>store(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\ModelPolicy</className>
-      <methodName>update</methodName>
-      <methodSignature>update(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>update(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\ModelPolicy</className>
-      <methodName>unlock</methodName>
-      <methodSignature>unlock(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>unlock(Illuminate\Contracts\Auth\Authenticatable $user, Illuminate\Database\Eloquent\Model $model): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\Policy</className>
-      <methodName>before</methodName>
-      <methodSignature>before(Illuminate\Contracts\Auth\Authenticatable $user, $ability)</methodSignature>
-      <fullMethod>before(Illuminate\Contracts\Auth\Authenticatable $user, $ability)</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\Policy</className>
-      <methodName>index</methodName>
-      <methodSignature>index(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>index(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\Policy</className>
-      <methodName>view</methodName>
-      <methodSignature>view(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>view(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\PolicyTrait</className>
-      <methodName>hasPrivilege</methodName>
-      <methodSignature>hasPrivilege(Illuminate\Contracts\Auth\Authenticatable $user, string $privilege): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>hasPrivilege(Illuminate\Contracts\Auth\Authenticatable $user, string $privilege): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>0</crap>
-      <complexity>0</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\PolicyTrait</className>
-      <methodName>hasRole</methodName>
-      <methodSignature>hasRole(Illuminate\Contracts\Auth\Authenticatable $user, string $ability): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>hasRole(Illuminate\Contracts\Auth\Authenticatable $user, string $ability): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>0</crap>
-      <complexity>0</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\PolicyTrait</className>
-      <methodName>privilege</methodName>
-      <methodSignature>privilege(string $ability): string</methodSignature>
-      <fullMethod>privilege(string $ability): string</fullMethod>
-      <crap>0</crap>
-      <complexity>0</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\PolicyTrait</className>
-      <methodName>getEntity</methodName>
-      <methodSignature>getEntity(): string</methodSignature>
-      <fullMethod>getEntity(): string</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\PolicyTrait</className>
-      <methodName>getPackage</methodName>
-      <methodSignature>getPackage(): string</methodSignature>
-      <fullMethod>getPackage(): string</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\PolicyTrait</className>
-      <methodName>hasToken</methodName>
-      <methodSignature>hasToken(): bool</methodSignature>
-      <fullMethod>hasToken(): bool</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\PolicyTrait</className>
-      <methodName>getToken</methodName>
-      <methodSignature>getToken(): ?object</methodSignature>
-      <fullMethod>getToken(): ?object</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\PolicyTrait</className>
-      <methodName>setToken</methodName>
-      <methodSignature>setToken(object $token): self</methodSignature>
-      <fullMethod>setToken(object $token): self</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\PolicyTrait</className>
-      <methodName>verify</methodName>
-      <methodSignature>verify(Illuminate\Contracts\Auth\Authenticatable $user, string $ability): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>verify(Illuminate\Contracts\Auth\Authenticatable $user, string $ability): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\PrivilegeTrait</className>
-      <methodName>getPackage</methodName>
-      <methodSignature>getPackage(): string</methodSignature>
-      <fullMethod>getPackage(): string</fullMethod>
-      <crap>0</crap>
-      <complexity>0</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\PrivilegeTrait</className>
-      <methodName>getEntity</methodName>
-      <methodSignature>getEntity(): string</methodSignature>
-      <fullMethod>getEntity(): string</fullMethod>
-      <crap>0</crap>
-      <complexity>0</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\PrivilegeTrait</className>
-      <methodName>getToken</methodName>
-      <methodSignature>getToken(): ?object</methodSignature>
-      <fullMethod>getToken(): ?object</fullMethod>
-      <crap>0</crap>
-      <complexity>0</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\PrivilegeTrait</className>
-      <methodName>hasToken</methodName>
-      <methodSignature>hasToken(): bool</methodSignature>
-      <fullMethod>hasToken(): bool</fullMethod>
-      <crap>0</crap>
-      <complexity>0</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\PrivilegeTrait</className>
-      <methodName>setToken</methodName>
-      <methodSignature>setToken(object $token): self</methodSignature>
-      <fullMethod>setToken(object $token): self</fullMethod>
-      <crap>0</crap>
-      <complexity>0</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\PrivilegeTrait</className>
-      <methodName>privilege</methodName>
-      <methodSignature>privilege(string $ability): string</methodSignature>
-      <fullMethod>privilege(string $ability): string</fullMethod>
-      <crap>6</crap>
-      <complexity>6</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\PrivilegeTrait</className>
-      <methodName>hasPrivilegeWildcard</methodName>
-      <methodSignature>hasPrivilegeWildcard(string $privilege): bool</methodSignature>
-      <fullMethod>hasPrivilegeWildcard(string $privilege): bool</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\PrivilegeTrait</className>
-      <methodName>hasPrivilege</methodName>
-      <methodSignature>hasPrivilege(Illuminate\Contracts\Auth\Authenticatable $user, string $privilege): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>hasPrivilege(Illuminate\Contracts\Auth\Authenticatable $user, string $privilege): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>13</crap>
-      <complexity>13</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\RoleTrait</className>
-      <methodName>getRolesForAdmin</methodName>
-      <methodSignature>getRolesForAdmin(): array</methodSignature>
-      <fullMethod>getRolesForAdmin(): array</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\RoleTrait</className>
-      <methodName>getRolesForAction</methodName>
-      <methodSignature>getRolesForAction(): array</methodSignature>
-      <fullMethod>getRolesForAction(): array</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\RoleTrait</className>
-      <methodName>isRoot</methodName>
-      <methodSignature>isRoot(Illuminate\Contracts\Auth\Authenticatable $user): bool</methodSignature>
-      <fullMethod>isRoot(Illuminate\Contracts\Auth\Authenticatable $user): bool</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\RoleTrait</className>
-      <methodName>getRolesToView</methodName>
-      <methodSignature>getRolesToView(): array</methodSignature>
-      <fullMethod>getRolesToView(): array</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Policies</package>
-      <className>Playground\Policies\RoleTrait</className>
-      <methodName>hasRole</methodName>
-      <methodSignature>hasRole(Illuminate\Contracts\Auth\Authenticatable $user, string $ability): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>hasRole(Illuminate\Contracts\Auth\Authenticatable $user, string $ability): bool|\Illuminate\Auth\Access\Response</fullMethod>
-      <crap>18</crap>
-      <complexity>18</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
       <package>Playground</package>
       <className>Playground\ServiceProvider</className>
       <methodName>boot</methodName>
-      <methodSignature>boot()</methodSignature>
-      <fullMethod>boot()</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
+      <methodSignature>boot(): void</methodSignature>
+      <fullMethod>boot(): void</fullMethod>
+      <crap>12.76</crap>
+      <complexity>4</complexity>
+      <coverage>18.18</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground</package>
       <className>Playground\ServiceProvider</className>
       <methodName>about</methodName>
-      <methodSignature>about()</methodSignature>
-      <fullMethod>about()</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
+      <methodSignature>about(array $config): void</methodSignature>
+      <fullMethod>about(array $config): void</fullMethod>
+      <crap>90</crap>
+      <complexity>9</complexity>
+      <coverage>0</coverage>
+      <crapLoad>9</crapLoad>
     </method>
     <method>
       <package>Playground</package>
@@ -842,9 +512,9 @@
       <methodName>version</methodName>
       <methodSignature>version(): string</methodSignature>
       <fullMethod>version(): string</fullMethod>
-      <crap>1</crap>
+      <crap>2</crap>
       <complexity>1</complexity>
-      <coverage>100</coverage>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
   </methods>

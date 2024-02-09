@@ -1,38 +1,3 @@
-Abstract (Tests\Unit\Playground\Policies\Policy\Abstract)
- [x] Before with root
- [x] Before with root as secondary fails
- [x] Index without role
- [x] Index with admin
- [x] View without role
- [x] View with admin
- [x] View with admin in roles
-
-Abstract Role (Tests\Unit\Playground\Policies\ModelPolicy\AbstractRole)
- [x] Create without role
- [x] Create with admin
- [x] Delete without role
- [x] Delete with admin
- [x] Delete locked with admin
- [x] Detail without role
- [x] Detail with admin
- [x] Edit without role
- [x] Edit with admin
- [x] ForceDelete without role
- [x] ForceDelete with admin
- [x] Lock without role
- [x] Lock with admin
- [x] Manage without role
- [x] Manage with admin
- [x] Restore without role
- [x] Restore with admin
- [x] Store without role
- [x] Store with admin
- [x] Update without role
- [x] Update with admin
- [x] Update locked with admin
- [x] Unlock without role
- [x] Unlock with admin
-
 Array Trait (Tests\Unit\Playground\Filters\ModelTrait\ArrayTrait)
  [x] Filter array
  [x] FilterArray to json
@@ -40,9 +5,6 @@ Array Trait (Tests\Unit\Playground\Filters\ModelTrait\ArrayTrait)
 Bits Trait (Tests\Unit\Playground\Filters\ModelTrait\BitsTrait)
  [x] FilterBits for exponent zero
  [x] FilterBits for exponent greater than zero
-
-Command (Tests\Feature\Playground\Console\Commands\About\Command)
- [x] Command about displays package information and succeed with code 0
 
 Date Trait (Tests\Unit\Playground\Filters\ModelTrait\DateTrait)
  [x] Filter date
@@ -144,14 +106,6 @@ System Fields Trait (Tests\Unit\Playground\Filters\ModelTrait\SystemFieldsTrait)
  [x] FilterSystemFields for rank
  [x] FilterSystemFields for size
 
-Trait (Tests\Feature\Playground\Policies\PrivilegeTrait\Trait)
- [x] HasPrivilege and fail with empty privilege
- [x] HasPrivilege with app without token and fail
- [x] HasPrivilege with app with token and unauthorized privilege and fail
- [x] HasPrivilege with app with wildcard token privileges and succeed
- [x] HasPrivilege with app with wildcard secondary token privileges and succeed
- [x] HasPrivilege with app with token privileges and succeed
-
 Trait (Tests\Unit\Playground\Filters\ContentTrait\Trait)
  [x] Purify
  [x] Exorcise
@@ -159,55 +113,6 @@ Trait (Tests\Unit\Playground\Filters\ContentTrait\Trait)
  [x] GetHtmlPurifier with iframes
  [x] GetHtmlPurifier with purifier path
  [x] Encode u r i component
-
-Trait (Tests\Unit\Playground\Models\Traits\UserPrivileges\Trait)
- [x] HasPrivilege is false with null privilege
- [x] HasPrivilege is false with false privilege
- [x] HasPrivilege is true with privilege that does exist
- [x] HasPrivilege is false with privilege that does not exist
- [x] HasRole is false with null role
- [x] HasRole is false with false role
- [x] HasRole is true with role that does exist
- [x] HasRole is false with role that does not exist
- [x] HasRole is false with secondary role that does not exist
- [x] HasRole is true with secondary role that does exist
- [x] HasRole is true with other secondary role that does exist
- [x] HasRole is true with primary role that does exist
- [x] IsAdmin is false without roles
- [x] IsAdmin is true with role that does exist
- [x] IsAdmin is false with user role that does not exist
- [x] IsAdmin is false with secondary role that does not exist
- [x] IsAdmin is false with secondary roles that exist and not admin
- [x] IsAdmin is true with other secondary role that does exist
- [x] IsAdmin is true with primary role that does exist
- [x] IsAdmin is false with secondary root role
-
-Trait (Tests\Unit\Playground\Policies\PolicyTrait\Trait)
- [x] Get entity
- [x] Get package
- [x] Has token
- [x] Get token
- [x] Set token
- [x] Verify
- [x] Verify privileges
- [x] Verify roles
- [x] Verify user
-
-Trait (Tests\Unit\Playground\Policies\PrivilegeTrait\Trait)
- [x] Privilege without parameter
- [x] Privilege with package and without parameter
- [x] Privilege with package and entity and without parameter
- [x] Has privilege
- [x] HasPrivilege with user hasPrivilege
- [x] HasPrivilege with user privileges
- [x] HasPrivilege without privileges enabled
-
-Trait (Tests\Unit\Playground\Policies\RoleTrait\Trait)
- [x] Get roles for admin
- [x] Get roles for action
- [x] Get roles to view
- [x] Has role
- [x] HasRole advanced role
 
 Uuid Trait (Tests\Unit\Playground\Filters\ModelTrait\UuidTrait)
  [x] Filter uuid
