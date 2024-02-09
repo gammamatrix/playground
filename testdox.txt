@@ -6,6 +6,9 @@ Bits Trait (Tests\Unit\Playground\Filters\ModelTrait\BitsTrait)
  [x] FilterBits for exponent zero
  [x] FilterBits for exponent greater than zero
 
+Command (Tests\Feature\Playground\Console\Commands\About\Command)
+ [x] Command about displays package information and succeed with code 0
+
 Date Trait (Tests\Unit\Playground\Filters\ModelTrait\DateTrait)
  [x] Filter date
  [x] Filter date as carbon

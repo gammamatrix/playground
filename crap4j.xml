@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-02-09 18:27:46</timestamp>
+  <timestamp>2024-02-09 18:30:37</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>46</methodCount>
-    <crapMethodCount>1</crapMethodCount>
-    <crapLoad>9</crapLoad>
-    <totalCrap>595.96</totalCrap>
-    <crapMethodPercent>2.17</crapMethodPercent>
+    <crapMethodCount>0</crapMethodCount>
+    <crapLoad>0</crapLoad>
+    <totalCrap>505.2</totalCrap>
+    <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -479,9 +479,9 @@
       <methodName>boot</methodName>
       <methodSignature>boot(): void</methodSignature>
       <fullMethod>boot(): void</fullMethod>
-      <crap>12.76</crap>
+      <crap>4</crap>
       <complexity>4</complexity>
-      <coverage>18.18</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -490,10 +490,10 @@
       <methodName>about</methodName>
       <methodSignature>about(array $config): void</methodSignature>
       <fullMethod>about(array $config): void</fullMethod>
-      <crap>90</crap>
+      <crap>9</crap>
       <complexity>9</complexity>
-      <coverage>0</coverage>
-      <crapLoad>9</crapLoad>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground</package>
@@ -512,9 +512,9 @@
       <methodName>version</methodName>
       <methodSignature>version(): string</methodSignature>
       <fullMethod>version(): string</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
   </methods>
