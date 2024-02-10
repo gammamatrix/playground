@@ -11,9 +11,7 @@ class TestCase extends \Tests\Unit\Playground\TestCase
 {
     protected bool $load_migrations_laravel = false;
 
-    protected bool $load_UserWithRoleAndRolesAndPrivileges = false;
-
-    protected bool $load_UserWithSanctum = false;
+    protected bool $load_migrations_playground = false;
 
     /**
      * Setup the test environment.
@@ -21,20 +19,13 @@ class TestCase extends \Tests\Unit\Playground\TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        // dd([
-        //     '__METHOD__' => __METHOD__,
-        //     'path' => dirname(dirname(__DIR__)) . '/database/migrations',
-        // ]);
+
         if (! empty(env('TEST_DB_MIGRATIONS'))) {
-            // $this->loadLaravelMigrations();
             if ($this->load_migrations_laravel) {
                 $this->loadMigrationsFrom(dirname(dirname(__DIR__)).'/database/migrations-laravel');
             }
-            if ($this->load_UserWithRoleAndRolesAndPrivileges) {
-                $this->loadMigrationsFrom(dirname(dirname(__DIR__)).'/database/migrations-user-privileges');
-            }
-            if ($this->load_UserWithSanctum) {
-                $this->loadMigrationsFrom(dirname(dirname(__DIR__)).'/database/migrations-sanctum');
+            if ($this->load_migrations_playground) {
+                $this->loadMigrationsFrom(dirname(dirname(__DIR__)).'/database/migrations-playground');
             }
         }
     }

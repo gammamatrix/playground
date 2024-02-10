@@ -35,4 +35,17 @@ return [
         ),
         'path' => env('PLAYGROUND_PURIFIER_PATH', ''),
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Password Settings for Testing
+    |--------------------------------------------------------------------------
+    |
+    */
+
+    'testing' => [
+        'password' => env('PLAYGROUND_TESTING_PASSWORD'),
+        'hashed' => (bool) env('PLAYGROUND_TESTING_HASHED', false),
+    ],
+
 ];

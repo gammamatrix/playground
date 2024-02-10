@@ -37,6 +37,7 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
+            "Database\\Factories\\Playground\\Models\\": "database/factories/",
             "Playground\\": "src/"
         }
     },

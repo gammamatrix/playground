@@ -109,9 +109,7 @@ trait ModelTrait
         }
 
         $PLAYGROUND_DATE_SQL = config('playground.date.sql');
-        if (empty($PLAYGROUND_DATE_SQL) || ! is_string($PLAYGROUND_DATE_SQL)) {
-            $PLAYGROUND_DATE_SQL = 'Y-m-d H:i:s';
-        }
+        $PLAYGROUND_DATE_SQL = empty($PLAYGROUND_DATE_SQL) || ! is_string($PLAYGROUND_DATE_SQL) ? 'Y-m-d H:i:s' : $PLAYGROUND_DATE_SQL;
 
         return Carbon::parse($value)->format($PLAYGROUND_DATE_SQL);
         // return Carbon::parse($value)->format(config('playground.date.sql', 'Y-m-d H:i:s'));

@@ -49,6 +49,8 @@ trait ScopeFilterDates
             'NOTBETWEEN' => [],
         ];
 
+        $isNullable = false;
+
         foreach ($dates as $column => $meta) {
 
             if (empty(($column))
@@ -60,9 +62,7 @@ trait ScopeFilterDates
                 continue;
             }
 
-            if (! is_array($meta)) {
-                $meta = [];
-            }
+            $isNullable = is_array($meta) && ! empty($meta['nullable']);
 
             $filter_operator = null;
             $filter_value = null;
@@ -71,7 +71,7 @@ trait ScopeFilterDates
             $filter_expects_array = false;
 
             if (is_null($validated['filter'][$column])) {
-                if (! empty($meta['nullable'])) {
+                if ($isNullable) {
                     $filter_operator = 'NULL';
                 } else {
                     continue;
@@ -145,7 +145,7 @@ trait ScopeFilterDates
                 }
             }
 
-            if (is_null($filter_value) && empty($meta['nullable'])) {
+            if (is_null($filter_value) && ! $isNullable) {
                 // Skip empty columns
                 continue;
             }

@@ -28,6 +28,7 @@ trait ScopeFilterColumns
 
         $filter_operator = null;
         $filter_value = null;
+        $filter_type = 'string';
 
         $filter_operators = [
             '|' => [],
@@ -47,6 +48,8 @@ trait ScopeFilterColumns
             'NOTBETWEEN' => [],
         ];
 
+        $isNullable = false;
+
         foreach ($columns as $column => $meta) {
             // dump([
             //     '__METHOD__' => __METHOD__,
@@ -62,14 +65,17 @@ trait ScopeFilterColumns
                 continue;
             }
 
-            if (! is_array($meta)) {
-                $meta = [];
+            $filter_type = 'string';
+            if (is_array($meta)
+                && ! empty($meta['type'])
+                && is_string($meta['type'])
+            ) {
+                $filter_type = $meta['type'];
             }
-
-            $filter_type = ! empty($meta['type']) && is_string($meta['type']) ? $meta['type'] : 'string';
 
             $filter_operator = null;
             $filter_value = null;
+            $isNullable = is_array($meta) && ! empty($meta['nullable']);
 
             if ($filter_type === 'boolean') {
                 $filter_operator = 'BOOLEAN';
@@ -96,7 +102,7 @@ trait ScopeFilterColumns
                     $filter_value = $validated['filter'][$column];
                 }
 
-                if (is_null($filter_value) && empty($meta['nullable'])) {
+                if (is_null($filter_value) && ! $isNullable) {
                     // Skip empty columns
                     continue;
                 }

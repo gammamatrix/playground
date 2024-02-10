@@ -13,10 +13,11 @@ use Illuminate\Notifications\Notifiable;
 /**
  * \Playground\Models\User
  */
-class User extends Authenticatable implements Contracts\Admin, Contracts\Privileges, Contracts\Role, MustVerifyEmail
+class User extends Authenticatable implements Contracts\Abilities, Contracts\Admin, Contracts\Privileges, Contracts\Role, MustVerifyEmail
 {
     use HasFactory, Notifiable;
     use HasUuids;
+    use Traits\Abilities;
     use Traits\Admin;
     use Traits\Privileges;
     use Traits\Role;
@@ -107,7 +108,7 @@ class User extends Authenticatable implements Contracts\Admin, Contracts\Privile
         'internal' => 'boolean',
         'locked' => 'boolean',
         // dates
-        // 'email_verified_at' => 'datetime',
+        'email_verified_at' => 'datetime',
         // 'deleted_at' => 'datetime',
         // json
         'abilities' => 'array',
@@ -131,50 +132,4 @@ class User extends Authenticatable implements Contracts\Admin, Contracts\Privile
     public $incrementing = false;
 
     protected $perPage = 250;
-
-    // /**
-    //  * Checks to see if the user has the privilege.
-    //  *
-    //  * @param string $privilege The privilege to check.
-    //  *
-    //  * @return boolean
-    //  */
-    // public function hasPrivilege($privilege)
-    // {
-    //     if (empty($privilege) || !is_string($privilege)) {
-    //         return false;
-    //     }
-
-    //     return is_array($this->privileges) && in_array($privilege, $this->privileges);
-    // }
-
-    // /**
-    //  * Checks to see if the user has the role.
-    //  *
-    //  * @param string $role The role to check.
-    //  *
-    //  * @return boolean
-    //  */
-    // public function hasRole($role)
-    // {
-    //     if (empty($role) || !is_string($role)) {
-    //         return false;
-    //     }
-
-    //     if ($role === $this->role) {
-    //         return true;
-    //     }
-
-    //     return is_array($this->roles) && in_array($role, $this->roles);
-    // }
-
-    // /**
-    //  * Checks to see if the user is an admin.
-    //  *
-    //  * @return boolean
-    //  */
-    // public function isAdmin()
-    // {
-    //     return $this->hasRole('admin') || $this->hasRole('wheel') || $this->hasRole('root');
-    // }
 }

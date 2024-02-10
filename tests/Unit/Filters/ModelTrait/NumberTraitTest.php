@@ -139,6 +139,6 @@ class NumberTraitTest extends TestCase
         // $this->assertSame(2000.01, $instance->filterPercent('2,000.01'));
         $this->assertSame(0.0, $instance->filterPercent(0));
         $this->assertSame(1.0, $instance->filterPercent(1));
-        // $this->assertSame(-1001.0, $instance->filterPercent('-1001 %'));
+        $this->assertSame(-1001.0, $instance->filterPercent('-1001 %'));
     }
 }
