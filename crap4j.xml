@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-02-09 18:30:37</timestamp>
+  <timestamp>2024-02-10 03:26:50</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>46</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>505.2</totalCrap>
+    <totalCrap>280</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -116,9 +116,9 @@
       <methodName>filterDate</methodName>
       <methodSignature>filterDate(mixed $value, $locale): ?string</methodSignature>
       <fullMethod>filterDate(mixed $value, $locale): ?string</fullMethod>
-      <crap>6.07</crap>
+      <crap>6</crap>
       <complexity>6</complexity>
-      <coverage>87.5</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -204,9 +204,9 @@
       <methodName>filterPercent</methodName>
       <methodSignature>filterPercent(mixed $value, $locale): ?float</methodSignature>
       <fullMethod>filterPercent(mixed $value, $locale): ?float</fullMethod>
-      <crap>4.13</crap>
+      <crap>4</crap>
       <complexity>4</complexity>
-      <coverage>80</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -248,9 +248,9 @@
       <methodName>hasAbility</methodName>
       <methodSignature>hasAbility(mixed $ability): bool</methodSignature>
       <fullMethod>hasAbility(mixed $ability): bool</fullMethod>
-      <crap>20</crap>
+      <crap>4</crap>
       <complexity>4</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -259,9 +259,9 @@
       <methodName>addAbility</methodName>
       <methodSignature>addAbility(mixed $ability): void</methodSignature>
       <fullMethod>addAbility(mixed $ability): void</fullMethod>
-      <crap>30</crap>
+      <crap>5</crap>
       <complexity>5</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -270,9 +270,9 @@
       <methodName>removeAbility</methodName>
       <methodSignature>removeAbility(mixed $ability): void</methodSignature>
       <fullMethod>removeAbility(mixed $ability): void</fullMethod>
-      <crap>30</crap>
+      <crap>5</crap>
       <complexity>5</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -281,9 +281,9 @@
       <methodName>isAdmin</methodName>
       <methodSignature>isAdmin(): bool</methodSignature>
       <fullMethod>isAdmin(): bool</fullMethod>
-      <crap>12</crap>
+      <crap>3</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -292,9 +292,9 @@
       <methodName>hasPrivilege</methodName>
       <methodSignature>hasPrivilege(mixed $privilege): bool</methodSignature>
       <fullMethod>hasPrivilege(mixed $privilege): bool</fullMethod>
-      <crap>20</crap>
+      <crap>4</crap>
       <complexity>4</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -303,9 +303,9 @@
       <methodName>addPrivilege</methodName>
       <methodSignature>addPrivilege(mixed $privilege): void</methodSignature>
       <fullMethod>addPrivilege(mixed $privilege): void</fullMethod>
-      <crap>30</crap>
+      <crap>5</crap>
       <complexity>5</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -314,9 +314,9 @@
       <methodName>removePrivilege</methodName>
       <methodSignature>removePrivilege(mixed $privilege): void</methodSignature>
       <fullMethod>removePrivilege(mixed $privilege): void</fullMethod>
-      <crap>30</crap>
+      <crap>5</crap>
       <complexity>5</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -325,9 +325,9 @@
       <methodName>hasRole</methodName>
       <methodSignature>hasRole(mixed $role): bool</methodSignature>
       <fullMethod>hasRole(mixed $role): bool</fullMethod>
-      <crap>30</crap>
+      <crap>5</crap>
       <complexity>5</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -336,9 +336,9 @@
       <methodName>addRole</methodName>
       <methodSignature>addRole(mixed $role): void</methodSignature>
       <fullMethod>addRole(mixed $role): void</fullMethod>
-      <crap>42</crap>
+      <crap>6</crap>
       <complexity>6</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -347,9 +347,9 @@
       <methodName>removeRole</methodName>
       <methodSignature>removeRole(mixed $role): void</methodSignature>
       <fullMethod>removeRole(mixed $role): void</fullMethod>
-      <crap>30</crap>
+      <crap>5</crap>
       <complexity>5</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -358,9 +358,9 @@
       <methodName>scopeFilterColumns</methodName>
       <methodSignature>scopeFilterColumns(Illuminate\Database\Eloquent\Builder $query, array $columns, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
       <fullMethod>scopeFilterColumns(Illuminate\Database\Eloquent\Builder $query, array $columns, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
-      <crap>30</crap>
-      <complexity>30</complexity>
-      <coverage>98.65</coverage>
+      <crap>31</crap>
+      <complexity>31</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -371,7 +371,7 @@
       <fullMethod>scopeFilterDates(Illuminate\Database\Eloquent\Builder $query, array $dates, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
       <crap>43</crap>
       <complexity>43</complexity>
-      <coverage>99.02</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -391,9 +391,9 @@
       <methodName>scopeFilterIds</methodName>
       <methodSignature>scopeFilterIds(Illuminate\Database\Eloquent\Builder $query, array $ids, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
       <fullMethod>scopeFilterIds(Illuminate\Database\Eloquent\Builder $query, array $ids, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
-      <crap>26</crap>
-      <complexity>26</complexity>
-      <coverage>96.97</coverage>
+      <crap>27</crap>
+      <complexity>27</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>

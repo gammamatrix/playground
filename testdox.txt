@@ -13,6 +13,9 @@ Date Trait (Tests\Unit\Playground\Filters\ModelTrait\DateTrait)
  [x] Filter date
  [x] Filter date as carbon
 
+Model (Tests\Feature\Playground\Models\User\Model)
+ [x] Save model in database
+
 Model (Tests\Unit\Playground\Models\Model\Model)
  [x] WithChildren children returns HasMany
  [x] WithCreator creator returns HasOne
@@ -92,6 +95,12 @@ Model (Tests\Unit\Playground\Models\Traits\ScopeSort\Model)
  [x] ScopeSort returns query with simple array desc
  [x] ScopeSort returns query with hash array asc
  [x] ScopeSort returns query with hash array desc
+
+Model (Tests\Unit\Playground\Models\User\Model)
+ [x] Add has and remove Abilities
+ [x] Add has and remove Privileges
+ [x] Add has and remove Roles
+ [x] IsAdmin with admins and users
 
 Number Trait (Tests\Unit\Playground\Filters\ModelTrait\NumberTrait)
  [x] Filter float
