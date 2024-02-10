@@ -4,6 +4,8 @@
  */
 namespace Tests\Unit\Playground\Filters\ModelTrait;
 
+use Tests\Unit\Playground\TestCase;
+
 /**
  * \Tests\Unit\Playground\Filters\ModelTrait\ValueTraitTest
  *
@@ -12,7 +14,7 @@ namespace Tests\Unit\Playground\Filters\ModelTrait;
  * @see \Playground\Filters\ModelTrait::filterInteger()
  * @see \Playground\Filters\ModelTrait::filterPercent()
  */
-class ValueTraitTest extends TraitTestCase
+class ValueTraitTest extends TestCase
 {
     /**
      * filterBoolean
@@ -21,32 +23,34 @@ class ValueTraitTest extends TraitTestCase
      */
     public function test_filterBoolean(): void
     {
+        $instance = new FilterModel;
+
         // Always return an array, no matter the input.
 
         // empty array
-        $this->assertFalse($this->mock->filterBoolean([]));
+        $this->assertFalse($instance->filterBoolean([]));
 
         // NULL
-        $this->assertFalse($this->mock->filterBoolean(null));
+        $this->assertFalse($instance->filterBoolean(null));
 
         // false
-        $this->assertFalse($this->mock->filterBoolean([]));
+        $this->assertFalse($instance->filterBoolean([]));
 
         // true
-        $this->assertTrue($this->mock->filterBoolean(true));
+        $this->assertTrue($instance->filterBoolean(true));
 
         // Positive numbers are true
-        $this->assertTrue($this->mock->filterBoolean(10));
-        $this->assertTrue($this->mock->filterBoolean(1));
-        $this->assertFalse($this->mock->filterBoolean(0));
-        $this->assertFalse($this->mock->filterBoolean(-10));
+        $this->assertTrue($instance->filterBoolean(10));
+        $this->assertTrue($instance->filterBoolean(1));
+        $this->assertFalse($instance->filterBoolean(0));
+        $this->assertFalse($instance->filterBoolean(-10));
 
         // Empty string
-        $this->assertFalse($this->mock->filterBoolean(''));
+        $this->assertFalse($instance->filterBoolean(''));
 
-        $this->assertTrue($this->mock->filterBoolean('true'));
+        $this->assertTrue($instance->filterBoolean('true'));
 
-        $this->assertFalse($this->mock->filterBoolean('not-true'));
+        $this->assertFalse($instance->filterBoolean('not-true'));
 
         $value = [
             'i' => 'am-a-test-array',
@@ -55,7 +59,7 @@ class ValueTraitTest extends TraitTestCase
             'object' => (object) ['ok' => true],
         ];
 
-        $this->assertTrue($this->mock->filterBoolean($value));
+        $this->assertTrue($instance->filterBoolean($value));
     }
 
     /**
@@ -65,22 +69,24 @@ class ValueTraitTest extends TraitTestCase
      */
     public function test_filterEmail(): void
     {
+        $instance = new FilterModel;
+
         $value = false;
-        $this->assertSame('', $this->mock->filterEmail($value));
+        $this->assertSame('', $instance->filterEmail($value));
 
         $value = 'not valid email with spaces @ example.com';
-        $this->assertSame('notvalidemailwithspaces@example.com', $this->mock->filterEmail($value));
+        $this->assertSame('notvalidemailwithspaces@example.com', $instance->filterEmail($value));
 
         $value = 'test@';
-        $this->assertSame($value, $this->mock->filterEmail($value));
+        $this->assertSame($value, $instance->filterEmail($value));
 
         $value = 'test@example.com';
-        $this->assertSame($value, $this->mock->filterEmail($value));
+        $this->assertSame($value, $instance->filterEmail($value));
         $value = '<test@example.com>';
-        $this->assertSame('test@example.com', $this->mock->filterEmail($value));
+        $this->assertSame('test@example.com', $instance->filterEmail($value));
 
         $value = 'test+with.plus-addressing@example.com';
-        $this->assertSame($value, $this->mock->filterEmail($value));
+        $this->assertSame($value, $instance->filterEmail($value));
     }
 
     /**
@@ -91,10 +97,12 @@ class ValueTraitTest extends TraitTestCase
      */
     public function test_filterHtml(): void
     {
+        $instance = new FilterModel;
+
         $value = '<b>Tags should be removed.</b>';
-        $this->assertSame('Tags should be removed.', $this->mock->filterHtml($value));
+        $this->assertSame('Tags should be removed.', $instance->filterHtml($value));
 
         $value = '<a href="https://google.com">No links allowed either.</a>';
-        $this->assertSame('No links allowed either.', $this->mock->filterHtml($value));
+        $this->assertSame('No links allowed either.', $instance->filterHtml($value));
     }
 }

@@ -4,13 +4,15 @@
  */
 namespace Tests\Unit\Playground\Filters\ModelTrait;
 
+use Tests\Unit\Playground\TestCase;
+
 /**
  * \Tests\Unit\Playground\Filters\ModelTrait\DateTraitTest
  *
  * @see \Playground\Filters\ModelTrait::filterDate()
  * @see \Playground\Filters\ModelTrait::filterDateAsCarbon()
  */
-class DateTraitTest extends TraitTestCase
+class DateTraitTest extends TestCase
 {
     /**
      * filterDate
@@ -19,13 +21,20 @@ class DateTraitTest extends TraitTestCase
      */
     public function test_filterDate(): void
     {
-        $this->assertNull($this->mock->filterDate(''));
+        $instance = new FilterModel;
+
+        $this->assertNull($instance->filterDate(''));
+
+        $PLAYGROUND_DATE_SQL = config('playground.date.sql');
+
+        if (! $PLAYGROUND_DATE_SQL || ! is_string($PLAYGROUND_DATE_SQL)) {
+            throw new \Exception('Expecting PLAYGROUND_DATE_SQL to be a string.');
+        }
 
         $this->assertSame(
-            gmdate(config('playground.date.sql', 'Y-m-d H:i:s'), strtotime('now')),
-            $this->mock->filterDate('now')
+            gmdate($PLAYGROUND_DATE_SQL, strtotime('now')),
+            $instance->filterDate('now')
         );
-
     }
 
     /**
@@ -35,10 +44,12 @@ class DateTraitTest extends TraitTestCase
      */
     public function test_filterDateAsCarbon(): void
     {
-        $this->assertNull($this->mock->filterDateAsCarbon(''));
+        $instance = new FilterModel;
+
+        $this->assertNull($instance->filterDateAsCarbon(''));
 
         $date = 'now';
-        $this->assertInstanceOf(\DateTime::class, $this->mock->filterDateAsCarbon($date));
-        $this->assertInstanceOf(\Carbon\Carbon::class, $this->mock->filterDateAsCarbon($date));
+        $this->assertInstanceOf(\DateTime::class, $instance->filterDateAsCarbon($date));
+        $this->assertInstanceOf(\Carbon\Carbon::class, $instance->filterDateAsCarbon($date));
     }
 }

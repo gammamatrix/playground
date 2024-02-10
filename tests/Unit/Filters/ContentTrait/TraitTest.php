@@ -11,55 +11,41 @@ use Tests\Unit\Playground\TestCase;
  */
 class TraitTest extends TestCase
 {
-    public const TRAIT_CLASS = \Playground\Filters\ContentTrait::class;
-
-    public $mock;
-
-    /**
-     * Setup the test environment.
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->mock = $this->getMockForTrait(
-            static::TRAIT_CLASS,
-            [],
-            '',
-            true,
-            true,
-            true,
-            $methods = []
-        );
-    }
-
     public function test_purify(): void
     {
+        $instance = new ContentModel;
+
         $expected = 'some-string';
 
-        $this->assertSame($expected, $this->mock->purify($expected));
+        $this->assertSame($expected, $instance->purify($expected));
     }
 
     public function test_exorcise(): void
     {
+        $instance = new ContentModel;
+
         $expected = 'some-string';
 
-        $this->assertSame($expected, $this->mock->exorcise($expected));
+        $this->assertSame($expected, $instance->exorcise($expected));
     }
 
     public function test_getHtmlPurifier(): void
     {
+        $instance = new ContentModel;
+
         $this->assertInstanceOf(
             \HTMLPurifier::class,
-            $this->mock->getHtmlPurifier()
+            $instance->getHtmlPurifier()
         );
     }
 
     public function test_getHtmlPurifier_with_iframes(): void
     {
+        $instance = new ContentModel;
+
         $this->assertInstanceOf(
             \HTMLPurifier::class,
-            $this->mock->getHtmlPurifier([
+            $instance->getHtmlPurifier([
                 'iframes' => '%^(https?:)?(\/\/www\.youtube(?:-nocookie)?\.com\/embed\/|\/\/player\.vimeo\.com\/)%',
             ])
         );
@@ -67,18 +53,22 @@ class TraitTest extends TestCase
 
     public function test_getHtmlPurifier_with_purifier_path(): void
     {
+        $instance = new ContentModel;
+
         $this->assertInstanceOf(
             \HTMLPurifier::class,
-            $this->mock->getHtmlPurifier([
+            $instance->getHtmlPurifier([
                 'path' => '/tmp/purifier',
             ])
         );
     }
 
-    public function test_encodeURIComponent()
+    public function test_encodeURIComponent(): void
     {
+        $instance = new ContentModel;
+
         $expected = 'some-string';
 
-        $this->assertSame($expected, $this->mock->encodeURIComponent($expected));
+        $this->assertSame($expected, $instance->encodeURIComponent($expected));
     }
 }

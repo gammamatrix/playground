@@ -11,6 +11,10 @@ use Illuminate\Database\Eloquent\Builder;
  */
 trait ScopeFilterFlags
 {
+    /**
+     * @param array<string, mixed> $flags
+     * @param array<string, mixed> $validated
+     */
     public static function scopeFilterFlags(
         Builder $query,
         array $flags,

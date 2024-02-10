@@ -16,10 +16,11 @@ trait WithCreator
      */
     public function creator(): HasOne
     {
-        return $this->hasOne(
-            config('playground.user', '\\App\\Models\\User'),
-            'id',
-            'created_by_id'
-        );
+        /**
+         * @var class-string $userClass
+         */
+        $userClass = config('playground.user', '\\App\\Models\\User');
+
+        return $this->hasOne($userClass, 'id', 'created_by_id');
     }
 }

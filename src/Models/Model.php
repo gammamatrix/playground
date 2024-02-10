@@ -4,6 +4,7 @@
  */
 namespace Playground\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Playground\Models\Interfaces\WithChildrenInterface;
@@ -14,6 +15,15 @@ use Playground\Models\Interfaces\WithParentInterface;
 
 /**
  * \Playground\Models\Model
+ *
+ * @method static Builder|static query()
+ * @method Builder<static> scopeFilterDates(Builder $builder, array $dates, array $validated = [])
+ * @method Builder<static> scopeFilterColumns(Builder $builder, array $columns, array $validated = [])
+ * @method Builder<static> scopeFilterFlags(Builder $builder, array $flags, array $validated = [])
+ * @method Builder<static> scopeFilterIds(Builder $builder, array $ids, array $validated = [])
+ * @method Builder<static> ScopeSort(Builder $builder, array|string $sort = null)
+ * @method Builder|static sort(mixed $sort = null)
+ * @method Builder<static> scopeFilterTrash(Builder $builder, string $visibility = null)
  */
 abstract class Model extends UuidModel implements WithChildrenInterface, WithCreatorInterface, WithModifierInterface, WithOwnerInterface, WithParentInterface
 {

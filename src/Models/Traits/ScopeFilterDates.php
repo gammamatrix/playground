@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Log;
  */
 trait ScopeFilterDates
 {
+    /**
+     * @param array<string, mixed> $dates
+     * @param array<string, mixed> $validated
+     */
     public static function scopeFilterDates(
         Builder $query,
         array $dates,
@@ -45,6 +49,8 @@ trait ScopeFilterDates
             'NOTBETWEEN' => [],
         ];
 
+        $isNullable = false;
+
         foreach ($dates as $column => $meta) {
 
             if (empty(($column))
@@ -56,6 +62,8 @@ trait ScopeFilterDates
                 continue;
             }
 
+            $isNullable = is_array($meta) && ! empty($meta['nullable']);
+
             $filter_operator = null;
             $filter_value = null;
             $filter_parse = false;
@@ -63,7 +71,7 @@ trait ScopeFilterDates
             $filter_expects_array = false;
 
             if (is_null($validated['filter'][$column])) {
-                if (! empty($meta['nullable'])) {
+                if ($isNullable) {
                     $filter_operator = 'NULL';
                 } else {
                     continue;
@@ -137,7 +145,7 @@ trait ScopeFilterDates
                 }
             }
 
-            if (is_null($filter_value) && empty($meta['nullable'])) {
+            if (is_null($filter_value) && ! $isNullable) {
                 // Skip empty columns
                 continue;
             }
@@ -165,7 +173,7 @@ trait ScopeFilterDates
             } else {
                 $query->where(
                     $column,
-                    $filter_operator ?: '=',
+                    $filter_operator,
                     $filter_value
                 );
             }

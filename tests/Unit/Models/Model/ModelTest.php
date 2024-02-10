@@ -6,6 +6,8 @@ namespace Tests\Unit\Playground\Models\Model;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use PHPUnit\Framework\MockObject\MockObject;
+use Playground\Models\Model as TestModel;
 use Tests\Unit\Playground\TestCase;
 
 /**
@@ -14,14 +16,9 @@ use Tests\Unit\Playground\TestCase;
 class ModelTest extends TestCase
 {
     /**
-     * @var string
+     * @var class-string
      */
-    public const ABSTRACT_CLASS = \Playground\Models\Model::class;
-
-    /**
-     * @var object&\Playground\Models\Model::class
-     */
-    public $mock;
+    public const MODEL_CLASS = TestModel::class;
 
     /**
      * Setup the test environment.
@@ -29,38 +26,62 @@ class ModelTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        if (! class_exists(static::ABSTRACT_CLASS)) {
+        if (! class_exists(static::MODEL_CLASS)) {
             $this->markTestSkipped(sprintf(
                 'Expecting the abstract this->mock class to exist: %1$s',
-                static::ABSTRACT_CLASS
+                static::MODEL_CLASS
             ));
         }
-        $this->mock = $this->getMockForAbstractClass(static::ABSTRACT_CLASS);
         config(['playground.user' => \Playground\Test\Models\User::class]);
     }
 
     public function test_WithChildren_children_returns_HasMany(): void
     {
-        $this->assertInstanceOf(HasMany::class, $this->mock->children());
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
+        $this->assertInstanceOf(HasMany::class, $mock->children());
     }
 
     public function test_WithCreator_creator_returns_HasOne(): void
     {
-        $this->assertInstanceOf(HasOne::class, $this->mock->creator());
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
+        $this->assertInstanceOf(HasOne::class, $mock->creator());
     }
 
     public function test_WithModifier_modifier_returns_HasOne(): void
     {
-        $this->assertInstanceOf(HasOne::class, $this->mock->modifier());
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
+        $this->assertInstanceOf(HasOne::class, $mock->modifier());
     }
 
     public function test_WithOwner_owner_returns_HasOne(): void
     {
-        $this->assertInstanceOf(HasOne::class, $this->mock->owner());
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
+        $this->assertInstanceOf(HasOne::class, $mock->owner());
     }
 
     public function test_WithParent_parent_returns_HasOne(): void
     {
-        $this->assertInstanceOf(HasOne::class, $this->mock->parent());
+        /**
+         * @var MockObject&TestModel
+         */
+        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+
+        $this->assertInstanceOf(HasOne::class, $mock->parent());
     }
 }

@@ -4,7 +4,7 @@
  */
 namespace Playground\Filters;
 
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 use Ramsey\Uuid\Uuid;
 
 /**
@@ -21,10 +21,10 @@ trait ModelTrait
     /**
      * Filter an array.
      *
-     * @param string|array $value The value to filter.
-     * @return array Returns an array.
+     * @param mixed $value The value to filter.
+     * @return array<mixed> Returns an array.
      */
-    public function filterArray($value): array
+    public function filterArray(mixed $value): array
     {
         if (is_array($value)) {
             return $value;
@@ -40,10 +40,10 @@ trait ModelTrait
      *
      * NOTE: This may not be necessary if the field has been cast in the model.
      *
-     * @param string $value The value to filter.
-     * @return string Returns an array converted to JSON.
+     * @param mixed $value The value to filter.
+     * @return string|false Returns an array converted to JSON.
      */
-    public function filterArrayToJson($value): ?string
+    public function filterArrayToJson(mixed $value): string|false
     {
         if (is_array($value)) {
             return json_encode($value);
@@ -80,9 +80,9 @@ trait ModelTrait
     /**
      * Filter a boolean value
      *
-     * @param string $value The value to filter.
+     * @param mixed $value The value to filter.
      */
-    public function filterBoolean($value): bool
+    public function filterBoolean(mixed $value): bool
     {
         if (is_string($value) && ! is_numeric($value)) {
             return strtolower($value) === 'true';
@@ -99,14 +99,20 @@ trait ModelTrait
      * @param string $value The date to filter.
      * @param string $locale i18n
      */
-    public function filterDate($value, $locale = 'en-US'): ?string
+    public function filterDate(mixed $value, $locale = 'en-US'): ?string
     {
-        return is_string($value)
-            && ! empty($value)
-            ? gmdate(
-                config('playground.date.sql', 'Y-m-d H:i:s'),
-                strtotime($value)
-            ) : null;
+        if (empty($value) || ! (
+            is_string($value)
+            || $value instanceof \DateTimeInterface
+        )) {
+            return null;
+        }
+
+        $PLAYGROUND_DATE_SQL = config('playground.date.sql');
+        $PLAYGROUND_DATE_SQL = empty($PLAYGROUND_DATE_SQL) || ! is_string($PLAYGROUND_DATE_SQL) ? 'Y-m-d H:i:s' : $PLAYGROUND_DATE_SQL;
+
+        return Carbon::parse($value)->format($PLAYGROUND_DATE_SQL);
+        // return Carbon::parse($value)->format(config('playground.date.sql', 'Y-m-d H:i:s'));
     }
 
     /**
@@ -127,20 +133,22 @@ trait ModelTrait
     /**
      * Filter an email address.
      *
-     * @param string $email The address to filter.
+     * @param mixed $email The address to filter.
      */
-    public function filterEmail($email): string
+    public function filterEmail(mixed $email): string
     {
-        return filter_var($email, FILTER_SANITIZE_EMAIL);
+        $email = is_string($email) ? filter_var($email, FILTER_SANITIZE_EMAIL) : '';
+
+        return is_string($email) ? $email : '';
     }
 
     /**
      * Filter a float value
      *
-     * @param string $value The value to filter.
+     * @param mixed $value The value to filter.
      * @param string $locale i18n
      */
-    public function filterFloat($value, $locale = 'en-US'): ?float
+    public function filterFloat(mixed $value, $locale = 'en-US'): ?float
     {
         if ($value === '' || $value === null) {
             return null;
@@ -160,22 +168,24 @@ trait ModelTrait
      *
      * @param string $content The string to filter.
      */
-    public function filterHtml($content): string
+    public function filterHtml(string $content): string
     {
-        return filter_var(
+        $content = filter_var(
             $content,
             FILTER_SANITIZE_STRING,
             FILTER_FLAG_NO_ENCODE_QUOTES
         );
+
+        return is_string($content) ? $content : '';
     }
 
     /**
      * Filter an integer value
      *
-     * @param string $value The value to filter.
+     * @param mixed $value The value to filter.
      * @param string $locale i18n
      */
-    public function filterInteger($value, $locale = 'en-US'): int
+    public function filterInteger(mixed $value, $locale = 'en-US'): int
     {
         if ($value === '' || $value === null) {
             return 0;
@@ -193,9 +203,9 @@ trait ModelTrait
     /**
      * Filter an integer value ID.
      *
-     * @param string $value The value to filter.
+     * @param mixed $value The value to filter.
      */
-    public function filterIntegerId($value): ?int
+    public function filterIntegerId(mixed $value): ?int
     {
         return is_numeric($value) && ($value > 0) ? (int) $value : null;
     }
@@ -203,12 +213,12 @@ trait ModelTrait
     /**
      * Filter a positive integer value or return zero.
      *
-     * @param string $value The value to filter.
+     * @param mixed $value The value to filter.
      * @param bool $absolute Use `abs()` on the value to convert negative to positive.
      */
-    public function filterIntegerPositive($value, $absolute = true): int
+    public function filterIntegerPositive(mixed $value, $absolute = true): int
     {
-        $value = intval($value);
+        $value = is_scalar($value) ? intval($value) : 0;
 
         return $absolute && ($value < 0) ? (int) abs($value) : $value;
     }
@@ -218,25 +228,29 @@ trait ModelTrait
      *
      * NOTE: Only removes the percent sign.
      *
-     * @param string $value The value to filter.
+     * @param mixed $value The value to filter.
      * @param string $locale i18n
      */
-    public function filterPercent($value, $locale = 'en-US'): ?float
+    public function filterPercent(mixed $value, $locale = 'en-US'): ?float
     {
         if ($value === '' || $value === null) {
             return null;
         }
 
-        return $this->filterFloat(str_replace('%', '', $value), $locale);
+        if (is_string($value)) {
+            $value = str_replace('%', '', $value);
+        }
+
+        return $this->filterFloat($value, $locale);
     }
 
     /**
      * Filter the status
      *
-     * @param array $input The status input.
-     * @return int|null
+     * @param array<string, mixed> $input The status input.
+     * @return array<string, mixed>
      */
-    public function filterStatus(array $input = [])
+    public function filterStatus(array $input = []): array
     {
         if (! isset($input['status'])) {
             return $input;
@@ -260,13 +274,13 @@ trait ModelTrait
     /**
      * Filter system fields
      *
-     * @param array $input The system fields input.
-     * @return int|null
+     * @param array<string, mixed> $input The system fields input.
+     * @return array<string, mixed>
      */
-    public function filterSystemFields(array $input = [])
+    public function filterSystemFields(array $input = []): array
     {
         // Filter system fields.
-        if (isset($input['gids'])) {
+        if (isset($input['gids']) && is_numeric($input['gids'])) {
             $input['gids'] = (int) abs($input['gids']);
         }
 
@@ -275,23 +289,23 @@ trait ModelTrait
          */
         $pBits = 4 + 2 + 1;
 
-        if (isset($input['po'])) {
+        if (isset($input['po']) && is_numeric($input['po'])) {
             $input['po'] = intval(abs($input['po'])) & $pBits;
         }
 
-        if (isset($input['pg'])) {
+        if (isset($input['pg']) && is_numeric($input['pg'])) {
             $input['pg'] = intval(abs($input['pg'])) & $pBits;
         }
 
-        if (isset($input['pw'])) {
+        if (isset($input['pw']) && is_numeric($input['pw'])) {
             $input['pw'] = intval(abs($input['pw'])) & $pBits;
         }
 
-        if (isset($input['rank'])) {
+        if (isset($input['rank']) && is_numeric($input['rank'])) {
             $input['rank'] = (int) $input['rank'];
         }
 
-        if (isset($input['size'])) {
+        if (isset($input['size']) && is_numeric($input['size'])) {
             $input['size'] = (int) $input['size'];
         }
 
@@ -301,12 +315,11 @@ trait ModelTrait
     /**
      * Filter a UUID
      *
-     * @param string $value The value to filter.
-     * @return int|null
+     * @param mixed $value The value to filter.
      */
-    public function filterUuid($value)
+    public function filterUuid(mixed $value): ?string
     {
-        return Uuid::isValid($value)
+        return is_string($value) && Uuid::isValid($value)
             ? $value : null;
     }
 }

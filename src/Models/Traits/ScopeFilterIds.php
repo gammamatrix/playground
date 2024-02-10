@@ -12,6 +12,10 @@ use Ramsey\Uuid\Uuid;
  */
 trait ScopeFilterIds
 {
+    /**
+     * @param array<string, mixed> $ids
+     * @param array<string, mixed> $validated
+     */
     public static function scopeFilterIds(
         Builder $query,
         array $ids,
@@ -23,6 +27,8 @@ trait ScopeFilterIds
 
         $columns = [];
 
+        $filter_type = 'string';
+
         foreach ($ids as $column => $meta) {
             if (empty(($column))
                 || ! is_string($column)
@@ -30,6 +36,14 @@ trait ScopeFilterIds
                 || ! array_key_exists($column, $validated['filter'])
             ) {
                 continue;
+            }
+
+            $filter_type = 'string';
+            if (is_array($meta)
+                && ! empty($meta['type'])
+                && is_string($meta['type'])
+            ) {
+                $filter_type = $meta['type'];
             }
 
             if (is_null($validated['filter'][$column])) {
@@ -49,15 +63,15 @@ trait ScopeFilterIds
                         // Allows forms to pass empty fields and still validate.
                         continue;
                     }
-                    if (empty($meta['type']) || $meta['type'] === 'string') {
+                    if ($filter_type === 'string') {
                         if (! in_array(strval($id), $columns[$column])) {
                             $columns[$column][] = strval($id);
                         }
-                    } elseif ($meta['type'] === 'uuid') {
+                    } elseif ($filter_type === 'uuid') {
                         if (Uuid::isValid($id) && ! in_array($id, $columns[$column])) {
                             $columns[$column][] = $id;
                         }
-                    } elseif ($meta['type'] === 'integer') {
+                    } elseif ($filter_type === 'integer') {
                         if (is_numeric($id) && $id > 0 && ! in_array(intval($id), $columns[$column])) {
                             $columns[$column][] = intval($id);
                         }
