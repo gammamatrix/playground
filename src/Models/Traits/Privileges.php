@@ -5,7 +5,7 @@
 namespace Playground\Models\Traits;
 
 /**
- * \Playground\Models\Traits\UserPrivileges
+ * \Playground\Models\Traits\Privileges
  */
 trait Privileges
 {
