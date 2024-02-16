@@ -1,17 +1,5 @@
-Array Trait (Tests\Unit\Playground\Filters\ModelTrait\ArrayTrait)
- [x] Filter array
- [x] FilterArray to json
-
-Bits Trait (Tests\Unit\Playground\Filters\ModelTrait\BitsTrait)
- [x] FilterBits for exponent zero
- [x] FilterBits for exponent greater than zero
-
 Command (Tests\Feature\Playground\Console\Commands\About\Command)
  [x] Command about displays package information and succeed with code 0
-
-Date Trait (Tests\Unit\Playground\Filters\ModelTrait\DateTrait)
- [x] Filter date
- [x] Filter date as carbon
 
 Model (Tests\Feature\Playground\Models\User\Model)
  [x] Save model in database
@@ -101,36 +89,4 @@ Model (Tests\Unit\Playground\Models\User\Model)
  [x] Add has and remove Privileges
  [x] Add has and remove Roles
  [x] IsAdmin with admins and users
-
-Number Trait (Tests\Unit\Playground\Filters\ModelTrait\NumberTrait)
- [x] Filter float
- [x] Filter integer
- [x] Filter integer id
- [x] Filter integer positive
- [x] Filter percent
-
-Status Trait (Tests\Unit\Playground\Filters\ModelTrait\StatusTrait)
- [x] Filter status
-
-System Fields Trait (Tests\Unit\Playground\Filters\ModelTrait\SystemFieldsTrait)
- [x] FilterSystemFields for groups
- [x] FilterSystemFields for permissions
- [x] FilterSystemFields for rank
- [x] FilterSystemFields for size
-
-Trait (Tests\Unit\Playground\Filters\ContentTrait\Trait)
- [x] Purify
- [x] Exorcise
- [x] Get html purifier
- [x] GetHtmlPurifier with iframes
- [x] GetHtmlPurifier with purifier path
- [x] Encode u r i component
-
-Uuid Trait (Tests\Unit\Playground\Filters\ModelTrait\UuidTrait)
- [x] Filter uuid
-
-Value Trait (Tests\Unit\Playground\Filters\ModelTrait\ValueTrait)
- [x] Filter boolean
- [x] Filter email
- [x] Filter html
 

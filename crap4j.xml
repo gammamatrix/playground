@@ -1,247 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-02-10 03:31:36</timestamp>
+  <timestamp>2024-02-16 23:10:35</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>46</methodCount>
+    <methodCount>26</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>280</totalCrap>
+    <totalCrap>204.23</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ContentTrait</className>
-      <methodName>purify</methodName>
-      <methodSignature>purify($item)</methodSignature>
-      <fullMethod>purify($item)</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ContentTrait</className>
-      <methodName>exorcise</methodName>
-      <methodSignature>exorcise($item)</methodSignature>
-      <fullMethod>exorcise($item)</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ContentTrait</className>
-      <methodName>getHtmlPurifier</methodName>
-      <methodSignature>getHtmlPurifier(array $config): HTMLPurifier</methodSignature>
-      <fullMethod>getHtmlPurifier(array $config): HTMLPurifier</fullMethod>
-      <crap>9</crap>
-      <complexity>9</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ContentTrait</className>
-      <methodName>setHtmlPurifier</methodName>
-      <methodSignature>setHtmlPurifier(HTMLPurifier $purifier): self</methodSignature>
-      <fullMethod>setHtmlPurifier(HTMLPurifier $purifier): self</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ContentTrait</className>
-      <methodName>encodeURIComponent</methodName>
-      <methodSignature>encodeURIComponent(string $str): string</methodSignature>
-      <fullMethod>encodeURIComponent(string $str): string</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ModelTrait</className>
-      <methodName>filterArray</methodName>
-      <methodSignature>filterArray(mixed $value): array</methodSignature>
-      <fullMethod>filterArray(mixed $value): array</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ModelTrait</className>
-      <methodName>filterArrayToJson</methodName>
-      <methodSignature>filterArrayToJson(mixed $value): string|false</methodSignature>
-      <fullMethod>filterArrayToJson(mixed $value): string|false</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ModelTrait</className>
-      <methodName>filterBits</methodName>
-      <methodSignature>filterBits($value, $exponent): int</methodSignature>
-      <fullMethod>filterBits($value, $exponent): int</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ModelTrait</className>
-      <methodName>filterBoolean</methodName>
-      <methodSignature>filterBoolean(mixed $value): bool</methodSignature>
-      <fullMethod>filterBoolean(mixed $value): bool</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ModelTrait</className>
-      <methodName>filterDate</methodName>
-      <methodSignature>filterDate(mixed $value, $locale): ?string</methodSignature>
-      <fullMethod>filterDate(mixed $value, $locale): ?string</fullMethod>
-      <crap>6</crap>
-      <complexity>6</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ModelTrait</className>
-      <methodName>filterDateAsCarbon</methodName>
-      <methodSignature>filterDateAsCarbon($value, $locale): ?Illuminate\Support\Carbon</methodSignature>
-      <fullMethod>filterDateAsCarbon($value, $locale): ?Illuminate\Support\Carbon</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ModelTrait</className>
-      <methodName>filterEmail</methodName>
-      <methodSignature>filterEmail(mixed $email): string</methodSignature>
-      <fullMethod>filterEmail(mixed $email): string</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ModelTrait</className>
-      <methodName>filterFloat</methodName>
-      <methodSignature>filterFloat(mixed $value, $locale): ?float</methodSignature>
-      <fullMethod>filterFloat(mixed $value, $locale): ?float</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ModelTrait</className>
-      <methodName>filterHtml</methodName>
-      <methodSignature>filterHtml(string $content): string</methodSignature>
-      <fullMethod>filterHtml(string $content): string</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ModelTrait</className>
-      <methodName>filterInteger</methodName>
-      <methodSignature>filterInteger(mixed $value, $locale): int</methodSignature>
-      <fullMethod>filterInteger(mixed $value, $locale): int</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ModelTrait</className>
-      <methodName>filterIntegerId</methodName>
-      <methodSignature>filterIntegerId(mixed $value): ?int</methodSignature>
-      <fullMethod>filterIntegerId(mixed $value): ?int</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ModelTrait</className>
-      <methodName>filterIntegerPositive</methodName>
-      <methodSignature>filterIntegerPositive(mixed $value, $absolute): int</methodSignature>
-      <fullMethod>filterIntegerPositive(mixed $value, $absolute): int</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ModelTrait</className>
-      <methodName>filterPercent</methodName>
-      <methodSignature>filterPercent(mixed $value, $locale): ?float</methodSignature>
-      <fullMethod>filterPercent(mixed $value, $locale): ?float</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ModelTrait</className>
-      <methodName>filterStatus</methodName>
-      <methodSignature>filterStatus(array $input): array</methodSignature>
-      <fullMethod>filterStatus(array $input): array</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ModelTrait</className>
-      <methodName>filterSystemFields</methodName>
-      <methodSignature>filterSystemFields(array $input): array</methodSignature>
-      <fullMethod>filterSystemFields(array $input): array</fullMethod>
-      <crap>13</crap>
-      <complexity>13</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Filters</package>
-      <className>Playground\Filters\ModelTrait</className>
-      <methodName>filterUuid</methodName>
-      <methodSignature>filterUuid(mixed $value): ?string</methodSignature>
-      <fullMethod>filterUuid(mixed $value): ?string</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
     <method>
       <package>Playground\Models\Traits</package>
       <className>Playground\Models\Traits\Abilities</className>
@@ -490,9 +259,20 @@
       <methodName>about</methodName>
       <methodSignature>about(array $config): void</methodSignature>
       <fullMethod>about(array $config): void</fullMethod>
-      <crap>9</crap>
-      <complexity>9</complexity>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\ServiceProvider</className>
+      <methodName>userPrimaryKeyType</methodName>
+      <methodSignature>userPrimaryKeyType(string $auth_providers_users_model): string</methodSignature>
+      <fullMethod>userPrimaryKeyType(string $auth_providers_users_model): string</fullMethod>
+      <crap>9.23</crap>
+      <complexity>7</complexity>
+      <coverage>64.29</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
