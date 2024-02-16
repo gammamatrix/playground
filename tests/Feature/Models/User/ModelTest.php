@@ -34,9 +34,6 @@ class ModelTest extends TestCase
 
         $attributes = $user->toArray();
         $this->assertIsArray($attributes);
-        dump([
-            '$attributes' => $attributes,
-        ]);
 
         $this->assertArrayHasKey('abilities', $attributes);
         $this->assertSame(['site:*'], $attributes['abilities']);

@@ -38,7 +38,7 @@ class TestCase extends \Tests\Unit\Playground\TestCase
     protected function getEnvironmentSetUp($app)
     {
         $app['config']->set('auth.providers.users.model', 'Playground\\Test\\Models\\User');
-        $app['config']->set('playground.auth.verify', 'user');
+        $app['config']->set('playground-auth.verify', 'user');
 
         $app['config']->set('playground.load.routes', true);
         $app['config']->set('playground.routes.about', true);

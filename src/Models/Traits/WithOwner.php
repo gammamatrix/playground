@@ -19,7 +19,7 @@ trait WithOwner
         /**
          * @var class-string $userClass
          */
-        $userClass = config('playground.user', '\\App\\Models\\User');
+        $userClass = config('auth.providers.users.model', '\\App\\Models\\User');
 
         return $this->hasOne($userClass, 'id', 'owned_by_id');
     }

@@ -32,7 +32,7 @@ class ModelTest extends TestCase
                 static::MODEL_CLASS
             ));
         }
-        config(['playground.user' => \Playground\Test\Models\User::class]);
+        config(['auth.providers.users.model' => \Playground\Test\Models\User::class]);
     }
 
     public function test_WithChildren_children_returns_HasMany(): void

@@ -24,10 +24,10 @@ class ServiceProvider extends AuthServiceProvider
         $config = config($this->package);
 
         if (! empty($config['load']) && is_array($config['load'])) {
-            $this->loadTranslationsFrom(
-                dirname(__DIR__).'/lang',
-                'playground'
-            );
+            // $this->loadTranslationsFrom(
+            //     dirname(__DIR__).'/lang',
+            //     'playground'
+            // );
 
             if ($this->app->runningInConsole()) {
                 // Publish configuration
@@ -36,8 +36,9 @@ class ServiceProvider extends AuthServiceProvider
                 ], 'playground-config');
             }
 
-            $this->about($config);
         }
+
+        $this->about($config);
     }
 
     /**
@@ -45,27 +46,57 @@ class ServiceProvider extends AuthServiceProvider
      */
     public function about(array $config): void
     {
-        $purifier = ! empty($config['purifier']) && is_array($config['purifier']) ? $config['purifier'] : [];
         $packages = ! empty($config['packages']) && is_array($config['packages']) ? $config['packages'] : [];
 
         $version = $this->version();
 
+        /**
+         * @var class-string $auth_providers_users_model
+         */
         $auth_providers_users_model = config('auth.providers.users.model');
 
         AboutCommand::add('Playground', fn () => [
-            '<fg=blue;options=bold>Purifier</> [path]' => sprintf('[%s]', empty($purifier['path']) ? 'null' : $purifier['path']),
-            '<fg=blue;options=bold>Purifier</> [iframes]' => sprintf('[%s]', is_string($purifier['iframes']) ? $purifier['iframes'] : ''),
-
             '<fg=cyan;options=bold>User</> [auth.providers.users.model]' => sprintf('[%s]', is_string($auth_providers_users_model) ? $auth_providers_users_model : ''),
-            '<fg=cyan;options=bold>User</> [playground.user]' => sprintf('[%s]', is_string($config['user']) ? $config['user'] : ''),
-
-            '<fg=cyan;options=bold>User Model ID Type</>' => $config['user_id'],
-            '<fg=cyan;options=bold>User Model Table</>' => $config['user_table'],
+            '<fg=cyan;options=bold>User Primary</>' => $this->userPrimaryKeyType($auth_providers_users_model),
 
             'Packages' => implode(', ', $packages),
             'Package' => $this->package,
             'Version' => $version,
         ]);
+    }
+
+    /**
+     * @param ?class-string $auth_providers_users_model
+     */
+    public function userPrimaryKeyType(string $auth_providers_users_model = null): string
+    {
+        $model_info = '';
+        $user = null;
+        if (! $auth_providers_users_model || ! class_exists($auth_providers_users_model)) {
+            return '<fg=yellow;options=bold>invalid</>';
+        }
+
+        try {
+            /**
+             * @var \Illuminate\Contracts\Auth\Authenticatable
+             */
+            $user = new $auth_providers_users_model;
+            // dump($user->toArray());
+
+            if (in_array(\Illuminate\Database\Eloquent\Concerns\HasUuids::class, class_uses_recursive($user))
+                && ! $user->getIncrementing()
+            ) {
+                $model_info = '<fg=green;options=bold>UUID</>';
+            } elseif ($user->getIncrementing()) {
+                $model_info = '<fg=green;options=bold>increments</>';
+            }
+
+            return $model_info;
+        } catch (\Throwable $th) {
+            \Log::debug($th->__toString());
+
+            return '<fg=red;options=bold>error</>';
+        }
     }
 
     public function register(): void

@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'user' => env('PLAYGROUND_USER', 'App\\Models\\User'),
-    'user_id' => env('PLAYGROUND_USER_ID', 'uuid'),
-    'user_table' => env('PLAYGROUND_USER_TABLE', 'users'),
+    // 'user' => env('PLAYGROUND_USER', 'App\\Models\\User'),
+    // 'user_id' => env('PLAYGROUND_USER_ID', 'uuid'),
+    // 'user_table' => env('PLAYGROUND_USER_TABLE', 'users'),
     'packages' => is_string(env('PLAYGROUND_PACKAGES', 'playground')) ? array_map('trim', explode(',', env('PLAYGROUND_PACKAGES', 'playground'))) : [],
     // 'auth' => [
     //     /**
@@ -28,13 +28,13 @@ return [
     'date' => [
         'sql' => env('PLAYGROUND_DATE_SQL', 'Y-m-d H:i:s'),
     ],
-    'purifier' => [
-        'iframes' => env(
-            'PLAYGROUND_PURIFIER_IFRAMES',
-            '%^(https?:)?(\/\/www\.youtube(?:-nocookie)?\.com\/embed\/|\/\/player\.vimeo\.com\/)%'
-        ),
-        'path' => env('PLAYGROUND_PURIFIER_PATH', ''),
-    ],
+    // 'purifier' => [
+    //     'iframes' => env(
+    //         'PLAYGROUND_PURIFIER_IFRAMES',
+    //         '%^(https?:)?(\/\/www\.youtube(?:-nocookie)?\.com\/embed\/|\/\/player\.vimeo\.com\/)%'
+    //     ),
+    //     'path' => env('PLAYGROUND_PURIFIER_PATH', ''),
+    // ],
 
     /*
     |--------------------------------------------------------------------------
@@ -43,9 +43,9 @@ return [
     |
     */
 
-    'testing' => [
-        'password' => env('PLAYGROUND_TESTING_PASSWORD'),
-        'hashed' => (bool) env('PLAYGROUND_TESTING_HASHED', false),
-    ],
+    // 'testing' => [
+    //     'password' => env('PLAYGROUND_TESTING_PASSWORD'),
+    //     'hashed' => (bool) env('PLAYGROUND_TESTING_HASHED', false),
+    // ],
 
 ];
