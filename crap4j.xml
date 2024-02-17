@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-02-17 00:40:38</timestamp>
+  <timestamp>2024-02-17 23:47:34</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>27</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>203</totalCrap>
+    <totalCrap>222</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -259,8 +259,8 @@
       <methodName>about</methodName>
       <methodSignature>about(array $config): void</methodSignature>
       <fullMethod>about(array $config): void</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
+      <crap>23</crap>
+      <complexity>23</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
