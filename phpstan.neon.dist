@@ -9,7 +9,6 @@ parameters:
     paths:
         - config
         - database
-        - lang
         - src
         - tests
 

@@ -5,7 +5,7 @@
 namespace Playground\Models\Contracts;
 
 /**
- * \Playground\Test\Models\Traits\Admin
+ * \Playground\Models\Contracts\Admin
  */
 interface Admin
 {
