@@ -70,33 +70,39 @@ class ServiceProvider extends AuthServiceProvider
      */
     public function userPrimaryKeyType(string $auth_providers_users_model = null): string
     {
-        $model_info = '';
-        $user = null;
-        if (! $auth_providers_users_model || ! class_exists($auth_providers_users_model)) {
-            return '<fg=yellow;options=bold>invalid</>';
-        }
-
         try {
-            /**
-             * @var \Illuminate\Contracts\Auth\Authenticatable
-             */
-            $user = new $auth_providers_users_model;
-            // dump($user->toArray());
-
-            if (in_array(\Illuminate\Database\Eloquent\Concerns\HasUuids::class, class_uses_recursive($user))
-                && ! $user->getIncrementing()
-            ) {
-                $model_info = '<fg=green;options=bold>UUID</>';
-            } elseif ($user->getIncrementing()) {
-                $model_info = '<fg=green;options=bold>increments</>';
+            if (! $auth_providers_users_model || ! class_exists($auth_providers_users_model)) {
+                return '<fg=yellow;options=bold>invalid</>';
             }
 
-            return $model_info;
+            return $this->userPrimaryKeyTypeParse($auth_providers_users_model);
         } catch (\Throwable $th) {
             \Log::debug($th->__toString());
 
             return '<fg=red;options=bold>error</>';
         }
+    }
+
+    /**
+     * @param class-string $auth_providers_users_model
+     */
+    private function userPrimaryKeyTypeParse(string $auth_providers_users_model): string
+    {
+        $model_info = '';
+        /**
+         * @var \Illuminate\Contracts\Auth\Authenticatable
+         */
+        $user = new $auth_providers_users_model;
+
+        if (in_array(\Illuminate\Database\Eloquent\Concerns\HasUuids::class, class_uses_recursive($user))
+            && ! $user->getIncrementing()
+        ) {
+            $model_info = '<fg=green;options=bold>UUID</>';
+        } elseif ($user->getIncrementing()) {
+            $model_info = '<fg=green;options=bold>increments</>';
+        }
+
+        return $model_info;
     }
 
     public function register(): void
