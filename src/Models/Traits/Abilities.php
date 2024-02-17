@@ -5,7 +5,7 @@
 namespace Playground\Models\Traits;
 
 /**
- * \Playground\Models\Traits\UserAbilities
+ * \Playground\Models\Traits\Abilities
  */
 trait Abilities
 {

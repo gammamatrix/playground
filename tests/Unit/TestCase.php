@@ -30,6 +30,6 @@ class TestCase extends OrchestraTestCase
     protected function getEnvironmentSetUp($app)
     {
         $app['config']->set('auth.providers.users.model', 'Playground\\Test\\Models\\User');
-        $app['config']->set('playground.auth.verify', 'user');
+        $app['config']->set('playground-auth.verify', 'user');
     }
 }

@@ -32,11 +32,19 @@ class UserFactory extends Factory
     public function definition(): array
     {
         if (empty(static::$password)) {
-            $password = config('playground.testing.password');
+            $password = config('auth.testing.password');
+            $test_password_hashed = config('auth.testing.hashed');
+
             if (empty($password) || ! is_string($password)) {
                 $password = md5(Carbon::now()->format('c'));
+                $test_password_hashed = false;
             }
-            static::$password = Hash::make($password);
+
+            if (! $test_password_hashed) {
+                $password = Hash::make($password);
+            }
+
+            static::$password = $password;
         }
 
         return [
