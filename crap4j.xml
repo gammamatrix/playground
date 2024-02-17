@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-02-16 23:10:35</timestamp>
+  <timestamp>2024-02-17 00:40:38</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>26</methodCount>
+    <methodCount>27</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>204.23</totalCrap>
+    <totalCrap>203</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -270,9 +270,20 @@
       <methodName>userPrimaryKeyType</methodName>
       <methodSignature>userPrimaryKeyType(string $auth_providers_users_model): string</methodSignature>
       <fullMethod>userPrimaryKeyType(string $auth_providers_users_model): string</fullMethod>
-      <crap>9.23</crap>
-      <complexity>7</complexity>
-      <coverage>64.29</coverage>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\ServiceProvider</className>
+      <methodName>userPrimaryKeyTypeParse</methodName>
+      <methodSignature>userPrimaryKeyTypeParse(string $auth_providers_users_model): string</methodSignature>
+      <fullMethod>userPrimaryKeyTypeParse(string $auth_providers_users_model): string</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>

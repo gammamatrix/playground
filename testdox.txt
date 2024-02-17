@@ -1,6 +1,13 @@
 Command (Tests\Feature\Playground\Console\Commands\About\Command)
  [x] Command about displays package information and succeed with code 0
 
+Instance (Tests\Unit\Playground\ServiceProvider\Instance)
+ [x] Version matches
+ [x] UserPrimaryKeyType with empty model
+ [x] UserPrimaryKeyType with incrementing model
+ [x] UserPrimaryKeyType with uuid model
+ [x] UserPrimaryKeyType with exception
+
 Model (Tests\Feature\Playground\Models\User\Model)
  [x] Save model in database
 
