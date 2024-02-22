@@ -13,7 +13,6 @@ parameters:
         - tests
 
     excludePaths:
-        - 'tests/logs/*'
         - 'output/*'
 
     treatPhpDocTypesAsCertain: false
