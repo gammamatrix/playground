@@ -24,10 +24,6 @@ class ServiceProvider extends AuthServiceProvider
         $config = config($this->package);
 
         if (! empty($config['load']) && is_array($config['load'])) {
-            // $this->loadTranslationsFrom(
-            //     dirname(__DIR__).'/lang',
-            //     'playground'
-            // );
 
             if ($this->app->runningInConsole()) {
                 // Publish configuration
