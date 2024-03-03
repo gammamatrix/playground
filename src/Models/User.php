@@ -7,6 +7,7 @@ namespace Playground\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -17,6 +18,7 @@ class User extends Authenticatable implements Contracts\Abilities, Contracts\Adm
 {
     use HasFactory, Notifiable;
     use HasUuids;
+    use SoftDeletes;
     use Traits\Abilities;
     use Traits\Admin;
     use Traits\Privileges;
@@ -28,26 +30,88 @@ class User extends Authenticatable implements Contracts\Abilities, Contracts\Adm
      * @var array<string, mixed>
      */
     protected $attributes = [
+        'created_by_id' => null,
+        'modified_by_id' => null,
+        'user_type' => null,
+        'created_at' => null,
+        'updated_at' => null,
+        'deleted_at' => null,
+        'banned_at' => null,
+        'suspended_at' => null,
+        'gids' => 0,
+        'po' => 0,
+        'pg' => 0,
+        'pw' => 0,
+        'status' => 0,
+        'rank' => 0,
+        'size' => 0,
+        'active' => true,
+        'banned' => false,
+        'flagged' => false,
+        'internal' => false,
+        'locked' => false,
+        'problem' => false,
+        'suspended' => false,
+        'unknown' => false,
+        'name' => '',
+        'email' => '',
+        'password' => '',
+        'phone' => null,
+        'locale' => '',
+        'timezone' => '',
+        'label' => '',
+        'title' => '',
+        'byline' => '',
+        'slug' => null,
+        'url' => '',
+        'description' => '',
+        'introduction' => '',
+        'content' => null,
+        'summary' => null,
+        'icon' => '',
+        'image' => '',
+        'avatar' => '',
         // JSON
+        'ui' => '{}',
         // Abilities are shared with SPAs
-        'abilities' => '{}',
+        'abilities' => '[]',
         'accounts' => '{}',
         'address' => '{}',
+        'contact' => '{}',
         'meta' => '{}',
         'notes' => '[]',
         'options' => '{}',
-        'registration' => '[]',
+        'registration' => '{}',
         'roles' => '[]',
         'permissions' => '[]',
         'privileges' => '[]',
+        'sources' => '[]',
     ];
 
     /**
      * The attributes that are mass assignable.
      *
-     * @var string[]
+     * @var array<int, string>
      */
     protected $fillable = [
+        'user_type',
+        'resolved_at',
+        'suspended_at',
+        'gids',
+        'po',
+        'pg',
+        'pw',
+        'status',
+        'rank',
+        'size',
+        'active',
+        'banned',
+        'flagged',
+        'internal',
+        'locked',
+        'problem',
+        'suspended',
+        'unknown',
         'name',
         'email',
         'address',
@@ -55,12 +119,23 @@ class User extends Authenticatable implements Contracts\Abilities, Contracts\Adm
         'phone',
         'locale',
         'timezone',
+        'label',
+        'title',
+        'byline',
+        'slug',
+        'url',
         'description',
-        'style',
-        'klass',
+        'introduction',
+        'content',
+        'summary',
         'icon',
         'image',
         'avatar',
+        'ui',
+        'assets',
+        'meta',
+        'options',
+        'sources',
     ];
 
     /**
@@ -69,8 +144,16 @@ class User extends Authenticatable implements Contracts\Abilities, Contracts\Adm
      * @var array<int, string>
      */
     protected $hidden = [
+        'banned_at',
+        'suspended_at',
         'password',
         'remember_token',
+        'banned',
+        'flagged',
+        'internal',
+        'problem',
+        'suspended',
+        'unknown',
         'accounts',
         'address',
         'contact',
@@ -81,6 +164,7 @@ class User extends Authenticatable implements Contracts\Abilities, Contracts\Adm
         'roles',
         'permissions',
         'privileges',
+        'sources',
     ];
 
     /**
@@ -89,39 +173,51 @@ class User extends Authenticatable implements Contracts\Abilities, Contracts\Adm
      * @var array<string, string>
      */
     protected $casts = [
-        // 'email_verified_at' => 'datetime',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'deleted_at' => 'datetime',
+        'email_verified_at' => 'datetime',
+        'banned_at' => 'datetime',
+        'suspended_at' => 'datetime',
+        'gids' => 'integer',
+        'po' => 'integer',
+        'pg' => 'integer',
+        'pw' => 'integer',
+        'status' => 'integer',
+        'rank' => 'integer',
+        'size' => 'integer',
+        // Boolean
+        'active' => 'boolean',
+        'banned' => 'boolean',
+        'flagged' => 'boolean',
+        'internal' => 'boolean',
+        'locked' => 'boolean',
+        'problem' => 'boolean',
+        'suspended' => 'boolean',
+        'unknown' => 'boolean',
         // 'id' => 'uuid',
         'name' => 'string',
         'email' => 'string',
         'locale' => 'string',
-        'phone' => 'string',
+        'phone' => 'encrypted',
         'timezone' => 'string',
         'role' => 'string',
         'description' => 'string',
         'image' => 'string',
         'avatar' => 'string',
-        // Boolean
-        'active' => 'boolean',
-        'banned' => 'boolean',
-        'closed' => 'boolean',
-        'flagged' => 'boolean',
-        'internal' => 'boolean',
-        'locked' => 'boolean',
-        // dates
-        'email_verified_at' => 'datetime',
-        // 'deleted_at' => 'datetime',
         // json
         'abilities' => 'array',
-        'accounts' => 'array',
-        'address' => 'array',
-        'contact' => 'array',
-        'meta' => 'array',
-        'notes' => 'array',
-        'options' => 'array',
-        'registration' => 'array',
+        'accounts' => 'encrypted:array',
+        'address' => 'encrypted:array',
+        'contact' => 'encrypted:array',
+        'meta' => 'encrypted:array',
+        'notes' => 'encrypted:array',
+        'options' => 'encrypted:array',
+        'registration' => 'encrypted:array',
         'roles' => 'array',
         'permissions' => 'array',
         'privileges' => 'array',
+        'ui' => 'array',
     ];
 
     /**
