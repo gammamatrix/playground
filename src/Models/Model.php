@@ -7,6 +7,7 @@ namespace Playground\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Carbon;
 use Playground\Models\Interfaces\WithChildrenInterface;
 use Playground\Models\Interfaces\WithCreatorInterface;
 use Playground\Models\Interfaces\WithModifierInterface;
@@ -24,6 +25,11 @@ use Playground\Models\Interfaces\WithParentInterface;
  * @method Builder<static> ScopeSort(Builder $builder, array|string $sort = null)
  * @method Builder|static sort(mixed $sort = null)
  * @method Builder<static> scopeFilterTrash(Builder $builder, string $visibility = null)
+ *
+ * @property ?Carbon $deleted_at
+ * @property string $created_by_id
+ * @property string $modified_by_id
+ * @property string $owned_by_id
  */
 abstract class Model extends UuidModel implements WithChildrenInterface, WithCreatorInterface, WithModifierInterface, WithOwnerInterface, WithParentInterface
 {
