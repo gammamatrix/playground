@@ -18,7 +18,7 @@ Model (Tests\Unit\Playground\Models\Model\Model)
  [x] WithOwner owner returns HasOne
  [x] WithParent parent returns HasOne
 
-Model (Tests\Unit\Playground\Models\Traits\ScopeFilterColumns\Model)
+Model (Tests\Unit\Playground\Models\Scopes\ScopeFilterColumns\Model)
  [x] ScopeFilterColumns returns query without columns or filters
  [x] ScopeFilterColumns returns query without filters
  [x] ScopeFilterColumns returns query with invalid column
@@ -35,7 +35,7 @@ Model (Tests\Unit\Playground\Models\Traits\ScopeFilterColumns\Model)
  [x] ScopeFilterColumns with not between filter operator without single parameter and ignore between
  [x] ScopeFilterColumns with not between filter operator
 
-Model (Tests\Unit\Playground\Models\Traits\ScopeFilterDates\Model)
+Model (Tests\Unit\Playground\Models\Scopes\ScopeFilterDates\Model)
  [x] ScopeFilterDates returns query without dates or filters
  [x] ScopeFilterDates returns query without filters
  [x] ScopeFilterDates returns query with invalid column
@@ -55,12 +55,12 @@ Model (Tests\Unit\Playground\Models\Traits\ScopeFilterDates\Model)
  [x] ScopeFilterDates with not between filter operator with parse
  [x] ScopeFilterDates with filter operators
 
-Model (Tests\Unit\Playground\Models\Traits\ScopeFilterFlags\Model)
+Model (Tests\Unit\Playground\Models\Scopes\ScopeFilterFlags\Model)
  [x] ScopeFilterFlags returns query without flags or filters
  [x] ScopeFilterFlags returns query without filters
  [x] ScopeFilterFlags returns query with filters
 
-Model (Tests\Unit\Playground\Models\Traits\ScopeFilterIds\Model)
+Model (Tests\Unit\Playground\Models\Scopes\ScopeFilterIds\Model)
  [x] ScopeFilterIds returns query without ids or filters
  [x] ScopeFilterIds returns query without filters
  [x] ScopeFilterIds returns query with invalid column
@@ -73,12 +73,12 @@ Model (Tests\Unit\Playground\Models\Traits\ScopeFilterIds\Model)
  [x] ScopeFilterIds returns query with array of integer ids ignore duplicate id
  [x] ScopeFilterIds returns query with filters with null and string and array
 
-Model (Tests\Unit\Playground\Models\Traits\ScopeFilterTrash\Model)
+Model (Tests\Unit\Playground\Models\Scopes\ScopeFilterTrash\Model)
  [x] ScopeFilterTrash returns query with empty visibility
  [x] ScopeFilterTrash returns query with trash
  [x] ScopeFilterTrash returns query with only trash
 
-Model (Tests\Unit\Playground\Models\Traits\ScopeSort\Model)
+Model (Tests\Unit\Playground\Models\Scopes\ScopeSort\Model)
  [x] ScopeSort returns query with empty sort
  [x] ScopeSort returns query with array boolean sort asc
  [x] ScopeSort returns query with array boolean sort desc

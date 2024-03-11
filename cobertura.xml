@@ -1,51 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="1" branch-rate="0" lines-covered="427" lines-valid="427" branches-covered="0" branches-valid="0" complexity="222" version="0.4" timestamp="1709589082">
+<coverage line-rate="1" branch-rate="0" lines-covered="427" lines-valid="427" branches-covered="0" branches-valid="0" complexity="222" version="0.4" timestamp="1710139417">
   <sources>
     <source>/app/src</source>
   </sources>
   <packages>
-    <package name="Models/Contracts/Abilities.php" line-rate="0" branch-rate="0" complexity="0">
-      <classes/>
-    </package>
-    <package name="Models/Contracts/Admin.php" line-rate="0" branch-rate="0" complexity="0">
-      <classes/>
-    </package>
-    <package name="Models/Contracts/Privileges.php" line-rate="0" branch-rate="0" complexity="0">
-      <classes/>
-    </package>
-    <package name="Models/Contracts/Role.php" line-rate="0" branch-rate="0" complexity="0">
-      <classes/>
-    </package>
-    <package name="Models/Interfaces/WithChildrenInterface.php" line-rate="0" branch-rate="0" complexity="0">
-      <classes/>
-    </package>
-    <package name="Models/Interfaces/WithCreatorInterface.php" line-rate="0" branch-rate="0" complexity="0">
-      <classes/>
-    </package>
-    <package name="Models/Interfaces/WithModifierInterface.php" line-rate="0" branch-rate="0" complexity="0">
-      <classes/>
-    </package>
-    <package name="Models/Interfaces/WithOwnerInterface.php" line-rate="0" branch-rate="0" complexity="0">
-      <classes/>
-    </package>
-    <package name="Models/Interfaces/WithParentInterface.php" line-rate="0" branch-rate="0" complexity="0">
-      <classes/>
-    </package>
-    <package name="Models/Interfaces/WithRevisionInterface.php" line-rate="0" branch-rate="0" complexity="0">
-      <classes/>
-    </package>
-    <package name="Models/Model.php" line-rate="0" branch-rate="0" complexity="0">
+    <package name="Models/Concerns/Abilities.php" line-rate="1" branch-rate="0" complexity="14">
       <classes>
-        <class name="Playground\Models\Model" filename="Models/Model.php" line-rate="0" branch-rate="0" complexity="0">
-          <methods/>
-          <lines/>
-        </class>
-      </classes>
-    </package>
-    <package name="Models/Traits/Abilities.php" line-rate="1" branch-rate="0" complexity="14">
-      <classes>
-        <class name="Playground\Models\Traits\Abilities" filename="Models/Traits/Abilities.php" line-rate="1" branch-rate="0" complexity="14">
+        <class name="Playground\Models\Concerns\Abilities" filename="Models/Concerns/Abilities.php" line-rate="1" branch-rate="0" complexity="14">
           <methods>
             <method name="hasAbility" signature="mixed $ability" line-rate="1" branch-rate="0" complexity="4">
               <lines>
@@ -109,9 +71,9 @@
         </class>
       </classes>
     </package>
-    <package name="Models/Traits/Admin.php" line-rate="1" branch-rate="0" complexity="3">
+    <package name="Models/Concerns/Admin.php" line-rate="1" branch-rate="0" complexity="3">
       <classes>
-        <class name="Playground\Models\Traits\Admin" filename="Models/Traits/Admin.php" line-rate="1" branch-rate="0" complexity="3">
+        <class name="Playground\Models\Concerns\Admin" filename="Models/Concerns/Admin.php" line-rate="1" branch-rate="0" complexity="3">
           <methods>
             <method name="isAdmin" signature="" line-rate="1" branch-rate="0" complexity="3">
               <lines>
@@ -129,9 +91,9 @@
         </class>
       </classes>
     </package>
-    <package name="Models/Traits/Privileges.php" line-rate="1" branch-rate="0" complexity="14">
+    <package name="Models/Concerns/Privileges.php" line-rate="1" branch-rate="0" complexity="14">
       <classes>
-        <class name="Playground\Models\Traits\Privileges" filename="Models/Traits/Privileges.php" line-rate="1" branch-rate="0" complexity="14">
+        <class name="Playground\Models\Concerns\Privileges" filename="Models/Concerns/Privileges.php" line-rate="1" branch-rate="0" complexity="14">
           <methods>
             <method name="hasPrivilege" signature="mixed $privilege" line-rate="1" branch-rate="0" complexity="4">
               <lines>
@@ -195,9 +157,9 @@
         </class>
       </classes>
     </package>
-    <package name="Models/Traits/Role.php" line-rate="1" branch-rate="0" complexity="16">
+    <package name="Models/Concerns/Role.php" line-rate="1" branch-rate="0" complexity="16">
       <classes>
-        <class name="Playground\Models\Traits\Role" filename="Models/Traits/Role.php" line-rate="1" branch-rate="0" complexity="16">
+        <class name="Playground\Models\Concerns\Role" filename="Models/Concerns/Role.php" line-rate="1" branch-rate="0" complexity="16">
           <methods>
             <method name="hasRole" signature="mixed $role" line-rate="1" branch-rate="0" complexity="5">
               <lines>
@@ -271,9 +233,152 @@
         </class>
       </classes>
     </package>
-    <package name="Models/Traits/ScopeFilterColumns.php" line-rate="1" branch-rate="0" complexity="31">
+    <package name="Models/Concerns/WithChildren.php" line-rate="1" branch-rate="0" complexity="1">
       <classes>
-        <class name="Playground\Models\Traits\ScopeFilterColumns" filename="Models/Traits/ScopeFilterColumns.php" line-rate="1" branch-rate="0" complexity="31">
+        <class name="Playground\Models\Concerns\WithChildren" filename="Models/Concerns/WithChildren.php" line-rate="1" branch-rate="0" complexity="1">
+          <methods>
+            <method name="children" signature="" line-rate="1" branch-rate="0" complexity="1">
+              <lines>
+                <line number="19" hits="1"/>
+                <line number="20" hits="1"/>
+                <line number="21" hits="1"/>
+                <line number="22" hits="1"/>
+                <line number="23" hits="1"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="19" hits="1"/>
+            <line number="20" hits="1"/>
+            <line number="21" hits="1"/>
+            <line number="22" hits="1"/>
+            <line number="23" hits="1"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="Models/Concerns/WithCreator.php" line-rate="1" branch-rate="0" complexity="1">
+      <classes>
+        <class name="Playground\Models\Concerns\WithCreator" filename="Models/Concerns/WithCreator.php" line-rate="1" branch-rate="0" complexity="1">
+          <methods>
+            <method name="creator" signature="" line-rate="1" branch-rate="0" complexity="1">
+              <lines>
+                <line number="22" hits="1"/>
+                <line number="24" hits="1"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="22" hits="1"/>
+            <line number="24" hits="1"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="Models/Concerns/WithModifier.php" line-rate="1" branch-rate="0" complexity="1">
+      <classes>
+        <class name="Playground\Models\Concerns\WithModifier" filename="Models/Concerns/WithModifier.php" line-rate="1" branch-rate="0" complexity="1">
+          <methods>
+            <method name="modifier" signature="" line-rate="1" branch-rate="0" complexity="1">
+              <lines>
+                <line number="22" hits="1"/>
+                <line number="24" hits="1"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="22" hits="1"/>
+            <line number="24" hits="1"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="Models/Concerns/WithOwner.php" line-rate="1" branch-rate="0" complexity="1">
+      <classes>
+        <class name="Playground\Models\Concerns\WithOwner" filename="Models/Concerns/WithOwner.php" line-rate="1" branch-rate="0" complexity="1">
+          <methods>
+            <method name="owner" signature="" line-rate="1" branch-rate="0" complexity="1">
+              <lines>
+                <line number="22" hits="1"/>
+                <line number="24" hits="1"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="22" hits="1"/>
+            <line number="24" hits="1"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="Models/Concerns/WithParent.php" line-rate="1" branch-rate="0" complexity="1">
+      <classes>
+        <class name="Playground\Models\Concerns\WithParent" filename="Models/Concerns/WithParent.php" line-rate="1" branch-rate="0" complexity="1">
+          <methods>
+            <method name="parent" signature="" line-rate="1" branch-rate="0" complexity="1">
+              <lines>
+                <line number="19" hits="1"/>
+                <line number="20" hits="1"/>
+                <line number="21" hits="1"/>
+                <line number="22" hits="1"/>
+                <line number="23" hits="1"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="19" hits="1"/>
+            <line number="20" hits="1"/>
+            <line number="21" hits="1"/>
+            <line number="22" hits="1"/>
+            <line number="23" hits="1"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="Models/Contracts/Abilities.php" line-rate="0" branch-rate="0" complexity="0">
+      <classes/>
+    </package>
+    <package name="Models/Contracts/Admin.php" line-rate="0" branch-rate="0" complexity="0">
+      <classes/>
+    </package>
+    <package name="Models/Contracts/Privileges.php" line-rate="0" branch-rate="0" complexity="0">
+      <classes/>
+    </package>
+    <package name="Models/Contracts/Revision.php" line-rate="0" branch-rate="0" complexity="0">
+      <classes/>
+    </package>
+    <package name="Models/Contracts/Role.php" line-rate="0" branch-rate="0" complexity="0">
+      <classes/>
+    </package>
+    <package name="Models/Contracts/WithChildren.php" line-rate="0" branch-rate="0" complexity="0">
+      <classes/>
+    </package>
+    <package name="Models/Contracts/WithCreator.php" line-rate="0" branch-rate="0" complexity="0">
+      <classes/>
+    </package>
+    <package name="Models/Contracts/WithMatrix.php" line-rate="0" branch-rate="0" complexity="0">
+      <classes/>
+    </package>
+    <package name="Models/Contracts/WithModifier.php" line-rate="0" branch-rate="0" complexity="0">
+      <classes/>
+    </package>
+    <package name="Models/Contracts/WithOwner.php" line-rate="0" branch-rate="0" complexity="0">
+      <classes/>
+    </package>
+    <package name="Models/Contracts/WithParent.php" line-rate="0" branch-rate="0" complexity="0">
+      <classes/>
+    </package>
+    <package name="Models/Model.php" line-rate="0" branch-rate="0" complexity="0">
+      <classes>
+        <class name="Playground\Models\Model" filename="Models/Model.php" line-rate="0" branch-rate="0" complexity="0">
+          <methods/>
+          <lines/>
+        </class>
+      </classes>
+    </package>
+    <package name="Models/Scopes/ScopeFilterColumns.php" line-rate="1" branch-rate="0" complexity="31">
+      <classes>
+        <class name="Playground\Models\Scopes\ScopeFilterColumns" filename="Models/Scopes/ScopeFilterColumns.php" line-rate="1" branch-rate="0" complexity="31">
           <methods>
             <method name="scopeFilterColumns" signature="Illuminate\Database\Eloquent\Builder $query, array $columns, array $validated" line-rate="1" branch-rate="0" complexity="31">
               <lines>
@@ -443,9 +548,9 @@
         </class>
       </classes>
     </package>
-    <package name="Models/Traits/ScopeFilterDates.php" line-rate="1" branch-rate="0" complexity="43">
+    <package name="Models/Scopes/ScopeFilterDates.php" line-rate="1" branch-rate="0" complexity="43">
       <classes>
-        <class name="Playground\Models\Traits\ScopeFilterDates" filename="Models/Traits/ScopeFilterDates.php" line-rate="1" branch-rate="0" complexity="43">
+        <class name="Playground\Models\Scopes\ScopeFilterDates" filename="Models/Scopes/ScopeFilterDates.php" line-rate="1" branch-rate="0" complexity="43">
           <methods>
             <method name="scopeFilterDates" signature="Illuminate\Database\Eloquent\Builder $query, array $dates, array $validated" line-rate="1" branch-rate="0" complexity="43">
               <lines>
@@ -661,9 +766,9 @@
         </class>
       </classes>
     </package>
-    <package name="Models/Traits/ScopeFilterFlags.php" line-rate="1" branch-rate="0" complexity="9">
+    <package name="Models/Scopes/ScopeFilterFlags.php" line-rate="1" branch-rate="0" complexity="9">
       <classes>
-        <class name="Playground\Models\Traits\ScopeFilterFlags" filename="Models/Traits/ScopeFilterFlags.php" line-rate="1" branch-rate="0" complexity="9">
+        <class name="Playground\Models\Scopes\ScopeFilterFlags" filename="Models/Scopes/ScopeFilterFlags.php" line-rate="1" branch-rate="0" complexity="9">
           <methods>
             <method name="scopeFilterFlags" signature="Illuminate\Database\Eloquent\Builder $query, array $flags, array $validated" line-rate="1" branch-rate="0" complexity="9">
               <lines>
@@ -695,9 +800,9 @@
         </class>
       </classes>
     </package>
-    <package name="Models/Traits/ScopeFilterIds.php" line-rate="1" branch-rate="0" complexity="27">
+    <package name="Models/Scopes/ScopeFilterIds.php" line-rate="1" branch-rate="0" complexity="27">
       <classes>
-        <class name="Playground\Models\Traits\ScopeFilterIds" filename="Models/Traits/ScopeFilterIds.php" line-rate="1" branch-rate="0" complexity="27">
+        <class name="Playground\Models\Scopes\ScopeFilterIds" filename="Models/Scopes/ScopeFilterIds.php" line-rate="1" branch-rate="0" complexity="27">
           <methods>
             <method name="scopeFilterIds" signature="Illuminate\Database\Eloquent\Builder $query, array $ids, array $validated" line-rate="1" branch-rate="0" complexity="27">
               <lines>
@@ -783,9 +888,9 @@
         </class>
       </classes>
     </package>
-    <package name="Models/Traits/ScopeFilterTrash.php" line-rate="1" branch-rate="0" complexity="7">
+    <package name="Models/Scopes/ScopeFilterTrash.php" line-rate="1" branch-rate="0" complexity="7">
       <classes>
-        <class name="Playground\Models\Traits\ScopeFilterTrash" filename="Models/Traits/ScopeFilterTrash.php" line-rate="1" branch-rate="0" complexity="7">
+        <class name="Playground\Models\Scopes\ScopeFilterTrash" filename="Models/Scopes/ScopeFilterTrash.php" line-rate="1" branch-rate="0" complexity="7">
           <methods>
             <method name="scopeFilterTrash" signature="Illuminate\Database\Eloquent\Builder $query, string $visibility" line-rate="1" branch-rate="0" complexity="7">
               <lines>
@@ -811,9 +916,9 @@
         </class>
       </classes>
     </package>
-    <package name="Models/Traits/ScopeSort.php" line-rate="1" branch-rate="0" complexity="16">
+    <package name="Models/Scopes/ScopeSort.php" line-rate="1" branch-rate="0" complexity="16">
       <classes>
-        <class name="Playground\Models\Traits\ScopeSort" filename="Models/Traits/ScopeSort.php" line-rate="1" branch-rate="0" complexity="16">
+        <class name="Playground\Models\Scopes\ScopeSort" filename="Models/Scopes/ScopeSort.php" line-rate="1" branch-rate="0" complexity="16">
           <methods>
             <method name="scopeSort" signature="Illuminate\Database\Eloquent\Builder $query, mixed $sort" line-rate="1" branch-rate="0" complexity="16">
               <lines>
@@ -877,108 +982,6 @@
             <line number="55" hits="10"/>
             <line number="56" hits="10"/>
             <line number="61" hits="10"/>
-          </lines>
-        </class>
-      </classes>
-    </package>
-    <package name="Models/Traits/WithChildren.php" line-rate="1" branch-rate="0" complexity="1">
-      <classes>
-        <class name="Playground\Models\Traits\WithChildren" filename="Models/Traits/WithChildren.php" line-rate="1" branch-rate="0" complexity="1">
-          <methods>
-            <method name="children" signature="" line-rate="1" branch-rate="0" complexity="1">
-              <lines>
-                <line number="19" hits="1"/>
-                <line number="20" hits="1"/>
-                <line number="21" hits="1"/>
-                <line number="22" hits="1"/>
-                <line number="23" hits="1"/>
-              </lines>
-            </method>
-          </methods>
-          <lines>
-            <line number="19" hits="1"/>
-            <line number="20" hits="1"/>
-            <line number="21" hits="1"/>
-            <line number="22" hits="1"/>
-            <line number="23" hits="1"/>
-          </lines>
-        </class>
-      </classes>
-    </package>
-    <package name="Models/Traits/WithCreator.php" line-rate="1" branch-rate="0" complexity="1">
-      <classes>
-        <class name="Playground\Models\Traits\WithCreator" filename="Models/Traits/WithCreator.php" line-rate="1" branch-rate="0" complexity="1">
-          <methods>
-            <method name="creator" signature="" line-rate="1" branch-rate="0" complexity="1">
-              <lines>
-                <line number="22" hits="1"/>
-                <line number="24" hits="1"/>
-              </lines>
-            </method>
-          </methods>
-          <lines>
-            <line number="22" hits="1"/>
-            <line number="24" hits="1"/>
-          </lines>
-        </class>
-      </classes>
-    </package>
-    <package name="Models/Traits/WithModifier.php" line-rate="1" branch-rate="0" complexity="1">
-      <classes>
-        <class name="Playground\Models\Traits\WithModifier" filename="Models/Traits/WithModifier.php" line-rate="1" branch-rate="0" complexity="1">
-          <methods>
-            <method name="modifier" signature="" line-rate="1" branch-rate="0" complexity="1">
-              <lines>
-                <line number="22" hits="1"/>
-                <line number="24" hits="1"/>
-              </lines>
-            </method>
-          </methods>
-          <lines>
-            <line number="22" hits="1"/>
-            <line number="24" hits="1"/>
-          </lines>
-        </class>
-      </classes>
-    </package>
-    <package name="Models/Traits/WithOwner.php" line-rate="1" branch-rate="0" complexity="1">
-      <classes>
-        <class name="Playground\Models\Traits\WithOwner" filename="Models/Traits/WithOwner.php" line-rate="1" branch-rate="0" complexity="1">
-          <methods>
-            <method name="owner" signature="" line-rate="1" branch-rate="0" complexity="1">
-              <lines>
-                <line number="22" hits="1"/>
-                <line number="24" hits="1"/>
-              </lines>
-            </method>
-          </methods>
-          <lines>
-            <line number="22" hits="1"/>
-            <line number="24" hits="1"/>
-          </lines>
-        </class>
-      </classes>
-    </package>
-    <package name="Models/Traits/WithParent.php" line-rate="1" branch-rate="0" complexity="1">
-      <classes>
-        <class name="Playground\Models\Traits\WithParent" filename="Models/Traits/WithParent.php" line-rate="1" branch-rate="0" complexity="1">
-          <methods>
-            <method name="parent" signature="" line-rate="1" branch-rate="0" complexity="1">
-              <lines>
-                <line number="19" hits="1"/>
-                <line number="20" hits="1"/>
-                <line number="21" hits="1"/>
-                <line number="22" hits="1"/>
-                <line number="23" hits="1"/>
-              </lines>
-            </method>
-          </methods>
-          <lines>
-            <line number="19" hits="1"/>
-            <line number="20" hits="1"/>
-            <line number="21" hits="1"/>
-            <line number="22" hits="1"/>
-            <line number="23" hits="1"/>
           </lines>
         </class>
       </classes>

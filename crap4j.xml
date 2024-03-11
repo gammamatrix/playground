@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-03-04 21:51:22</timestamp>
+  <timestamp>2024-03-11 06:43:37</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>27</methodCount>
@@ -12,8 +12,8 @@
   </stats>
   <methods>
     <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\Abilities</className>
+      <package>Playground\Models\Concerns</package>
+      <className>Playground\Models\Concerns\Abilities</className>
       <methodName>hasAbility</methodName>
       <methodSignature>hasAbility(mixed $ability): bool</methodSignature>
       <fullMethod>hasAbility(mixed $ability): bool</fullMethod>
@@ -23,8 +23,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\Abilities</className>
+      <package>Playground\Models\Concerns</package>
+      <className>Playground\Models\Concerns\Abilities</className>
       <methodName>addAbility</methodName>
       <methodSignature>addAbility(mixed $ability): void</methodSignature>
       <fullMethod>addAbility(mixed $ability): void</fullMethod>
@@ -34,8 +34,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\Abilities</className>
+      <package>Playground\Models\Concerns</package>
+      <className>Playground\Models\Concerns\Abilities</className>
       <methodName>removeAbility</methodName>
       <methodSignature>removeAbility(mixed $ability): void</methodSignature>
       <fullMethod>removeAbility(mixed $ability): void</fullMethod>
@@ -45,8 +45,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\Admin</className>
+      <package>Playground\Models\Concerns</package>
+      <className>Playground\Models\Concerns\Admin</className>
       <methodName>isAdmin</methodName>
       <methodSignature>isAdmin(): bool</methodSignature>
       <fullMethod>isAdmin(): bool</fullMethod>
@@ -56,8 +56,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\Privileges</className>
+      <package>Playground\Models\Concerns</package>
+      <className>Playground\Models\Concerns\Privileges</className>
       <methodName>hasPrivilege</methodName>
       <methodSignature>hasPrivilege(mixed $privilege): bool</methodSignature>
       <fullMethod>hasPrivilege(mixed $privilege): bool</fullMethod>
@@ -67,8 +67,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\Privileges</className>
+      <package>Playground\Models\Concerns</package>
+      <className>Playground\Models\Concerns\Privileges</className>
       <methodName>addPrivilege</methodName>
       <methodSignature>addPrivilege(mixed $privilege): void</methodSignature>
       <fullMethod>addPrivilege(mixed $privilege): void</fullMethod>
@@ -78,8 +78,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\Privileges</className>
+      <package>Playground\Models\Concerns</package>
+      <className>Playground\Models\Concerns\Privileges</className>
       <methodName>removePrivilege</methodName>
       <methodSignature>removePrivilege(mixed $privilege): void</methodSignature>
       <fullMethod>removePrivilege(mixed $privilege): void</fullMethod>
@@ -89,8 +89,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\Role</className>
+      <package>Playground\Models\Concerns</package>
+      <className>Playground\Models\Concerns\Role</className>
       <methodName>hasRole</methodName>
       <methodSignature>hasRole(mixed $role): bool</methodSignature>
       <fullMethod>hasRole(mixed $role): bool</fullMethod>
@@ -100,8 +100,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\Role</className>
+      <package>Playground\Models\Concerns</package>
+      <className>Playground\Models\Concerns\Role</className>
       <methodName>addRole</methodName>
       <methodSignature>addRole(mixed $role): void</methodSignature>
       <fullMethod>addRole(mixed $role): void</fullMethod>
@@ -111,8 +111,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\Role</className>
+      <package>Playground\Models\Concerns</package>
+      <className>Playground\Models\Concerns\Role</className>
       <methodName>removeRole</methodName>
       <methodSignature>removeRole(mixed $role): void</methodSignature>
       <fullMethod>removeRole(mixed $role): void</fullMethod>
@@ -122,74 +122,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\ScopeFilterColumns</className>
-      <methodName>scopeFilterColumns</methodName>
-      <methodSignature>scopeFilterColumns(Illuminate\Database\Eloquent\Builder $query, array $columns, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
-      <fullMethod>scopeFilterColumns(Illuminate\Database\Eloquent\Builder $query, array $columns, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
-      <crap>31</crap>
-      <complexity>31</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\ScopeFilterDates</className>
-      <methodName>scopeFilterDates</methodName>
-      <methodSignature>scopeFilterDates(Illuminate\Database\Eloquent\Builder $query, array $dates, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
-      <fullMethod>scopeFilterDates(Illuminate\Database\Eloquent\Builder $query, array $dates, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
-      <crap>43</crap>
-      <complexity>43</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\ScopeFilterFlags</className>
-      <methodName>scopeFilterFlags</methodName>
-      <methodSignature>scopeFilterFlags(Illuminate\Database\Eloquent\Builder $query, array $flags, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
-      <fullMethod>scopeFilterFlags(Illuminate\Database\Eloquent\Builder $query, array $flags, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
-      <crap>9</crap>
-      <complexity>9</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\ScopeFilterIds</className>
-      <methodName>scopeFilterIds</methodName>
-      <methodSignature>scopeFilterIds(Illuminate\Database\Eloquent\Builder $query, array $ids, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
-      <fullMethod>scopeFilterIds(Illuminate\Database\Eloquent\Builder $query, array $ids, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
-      <crap>27</crap>
-      <complexity>27</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\ScopeFilterTrash</className>
-      <methodName>scopeFilterTrash</methodName>
-      <methodSignature>scopeFilterTrash(Illuminate\Database\Eloquent\Builder $query, string $visibility): Illuminate\Database\Eloquent\Builder</methodSignature>
-      <fullMethod>scopeFilterTrash(Illuminate\Database\Eloquent\Builder $query, string $visibility): Illuminate\Database\Eloquent\Builder</fullMethod>
-      <crap>7</crap>
-      <complexity>7</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\ScopeSort</className>
-      <methodName>scopeSort</methodName>
-      <methodSignature>scopeSort(Illuminate\Database\Eloquent\Builder $query, mixed $sort): Illuminate\Database\Eloquent\Builder</methodSignature>
-      <fullMethod>scopeSort(Illuminate\Database\Eloquent\Builder $query, mixed $sort): Illuminate\Database\Eloquent\Builder</fullMethod>
-      <crap>16</crap>
-      <complexity>16</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\WithChildren</className>
+      <package>Playground\Models\Concerns</package>
+      <className>Playground\Models\Concerns\WithChildren</className>
       <methodName>children</methodName>
       <methodSignature>children(): Illuminate\Database\Eloquent\Relations\HasMany</methodSignature>
       <fullMethod>children(): Illuminate\Database\Eloquent\Relations\HasMany</fullMethod>
@@ -199,8 +133,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\WithCreator</className>
+      <package>Playground\Models\Concerns</package>
+      <className>Playground\Models\Concerns\WithCreator</className>
       <methodName>creator</methodName>
       <methodSignature>creator(): Illuminate\Database\Eloquent\Relations\HasOne</methodSignature>
       <fullMethod>creator(): Illuminate\Database\Eloquent\Relations\HasOne</fullMethod>
@@ -210,8 +144,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\WithModifier</className>
+      <package>Playground\Models\Concerns</package>
+      <className>Playground\Models\Concerns\WithModifier</className>
       <methodName>modifier</methodName>
       <methodSignature>modifier(): Illuminate\Database\Eloquent\Relations\HasOne</methodSignature>
       <fullMethod>modifier(): Illuminate\Database\Eloquent\Relations\HasOne</fullMethod>
@@ -221,8 +155,8 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\WithOwner</className>
+      <package>Playground\Models\Concerns</package>
+      <className>Playground\Models\Concerns\WithOwner</className>
       <methodName>owner</methodName>
       <methodSignature>owner(): Illuminate\Database\Eloquent\Relations\HasOne</methodSignature>
       <fullMethod>owner(): Illuminate\Database\Eloquent\Relations\HasOne</fullMethod>
@@ -232,13 +166,79 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
-      <package>Playground\Models\Traits</package>
-      <className>Playground\Models\Traits\WithParent</className>
+      <package>Playground\Models\Concerns</package>
+      <className>Playground\Models\Concerns\WithParent</className>
       <methodName>parent</methodName>
       <methodSignature>parent(): Illuminate\Database\Eloquent\Relations\HasOne</methodSignature>
       <fullMethod>parent(): Illuminate\Database\Eloquent\Relations\HasOne</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Scopes</package>
+      <className>Playground\Models\Scopes\ScopeFilterColumns</className>
+      <methodName>scopeFilterColumns</methodName>
+      <methodSignature>scopeFilterColumns(Illuminate\Database\Eloquent\Builder $query, array $columns, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
+      <fullMethod>scopeFilterColumns(Illuminate\Database\Eloquent\Builder $query, array $columns, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
+      <crap>31</crap>
+      <complexity>31</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Scopes</package>
+      <className>Playground\Models\Scopes\ScopeFilterDates</className>
+      <methodName>scopeFilterDates</methodName>
+      <methodSignature>scopeFilterDates(Illuminate\Database\Eloquent\Builder $query, array $dates, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
+      <fullMethod>scopeFilterDates(Illuminate\Database\Eloquent\Builder $query, array $dates, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
+      <crap>43</crap>
+      <complexity>43</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Scopes</package>
+      <className>Playground\Models\Scopes\ScopeFilterFlags</className>
+      <methodName>scopeFilterFlags</methodName>
+      <methodSignature>scopeFilterFlags(Illuminate\Database\Eloquent\Builder $query, array $flags, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
+      <fullMethod>scopeFilterFlags(Illuminate\Database\Eloquent\Builder $query, array $flags, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
+      <crap>9</crap>
+      <complexity>9</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Scopes</package>
+      <className>Playground\Models\Scopes\ScopeFilterIds</className>
+      <methodName>scopeFilterIds</methodName>
+      <methodSignature>scopeFilterIds(Illuminate\Database\Eloquent\Builder $query, array $ids, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
+      <fullMethod>scopeFilterIds(Illuminate\Database\Eloquent\Builder $query, array $ids, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
+      <crap>27</crap>
+      <complexity>27</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Scopes</package>
+      <className>Playground\Models\Scopes\ScopeFilterTrash</className>
+      <methodName>scopeFilterTrash</methodName>
+      <methodSignature>scopeFilterTrash(Illuminate\Database\Eloquent\Builder $query, string $visibility): Illuminate\Database\Eloquent\Builder</methodSignature>
+      <fullMethod>scopeFilterTrash(Illuminate\Database\Eloquent\Builder $query, string $visibility): Illuminate\Database\Eloquent\Builder</fullMethod>
+      <crap>7</crap>
+      <complexity>7</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Scopes</package>
+      <className>Playground\Models\Scopes\ScopeSort</className>
+      <methodName>scopeSort</methodName>
+      <methodSignature>scopeSort(Illuminate\Database\Eloquent\Builder $query, mixed $sort): Illuminate\Database\Eloquent\Builder</methodSignature>
+      <fullMethod>scopeSort(Illuminate\Database\Eloquent\Builder $query, mixed $sort): Illuminate\Database\Eloquent\Builder</fullMethod>
+      <crap>16</crap>
+      <complexity>16</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
