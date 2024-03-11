@@ -4,10 +4,14 @@
  */
 namespace Playground\Models;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
+use Laravel\Sanctum;
 
 /**
  * \Playground\Models\User
@@ -28,6 +32,17 @@ use Illuminate\Support\Carbon;
  * @property int $status
  * @property int $rank
  * @property int $size
+ * @property string $matrix
+ * @property ?double $r
+ * @property ?double $θ
+ * @property ?double $ρ
+ * @property ?double $φ
+ * @property ?double $elevation
+ * @property ?double $latitude
+ * @property ?double $longitude
+ * @property ?int $x
+ * @property ?int $y
+ * @property ?int $z
  * @property bool $active
  * @property bool $banned
  * @property bool $flagged
@@ -62,32 +77,35 @@ use Illuminate\Support\Carbon;
  *       features. Read more on the Playground Wiki.
  *
  * @link https://github.com/gammamatrix/playground/wiki
- *
- * Available traits and contracts:
- * @see \Illuminate\Contracts\Auth\MustVerifyEmail
- * @see \Illuminate\Database\Eloquent\SoftDeletes
- * @see \Illuminate\Notifications\Notifiable
- * @see \Laravel\Sanctum\HasApiTokens
- * @see \Laravel\Sanctum\Contracts\HasApiTokens
- * @see Interfaces\WithCreatorInterface
- * @see Interfaces\WithModifierInterface
- * @see Traits\ScopeFilterColumns
- * @see Traits\ScopeFilterDates
- * @see Traits\ScopeFilterFlags
- * @see Traits\ScopeFilterIds
- * @see Traits\ScopeFilterTrash
- * @see Traits\ScopeSort
- * @see Traits\WithCreator
- * @see Traits\WithModifier
  */
-class User extends Authenticatable implements Contracts\Abilities, Contracts\Admin, Contracts\Privileges, Contracts\Role
+class User extends Authenticatable implements
+    Contracts\Abilities,
+    Contracts\Admin,
+    Contracts\Privileges,
+    Contracts\Role,
+    Contracts\WithCreator,
+    Contracts\WithMatrix,
+    Contracts\WithModifier,
+    MustVerifyEmail,
+    Sanctum\Contracts\HasApiTokens
 {
+    use Concerns\Abilities;
+    use Concerns\Admin;
+    use Concerns\Privileges;
+    use Concerns\Role;
+    use Concerns\WithCreator;
+    use Concerns\WithModifier;
     use HasFactory;
     use HasUuids;
-    use Traits\Abilities;
-    use Traits\Admin;
-    use Traits\Privileges;
-    use Traits\Role;
+    use Notifiable;
+    use Sanctum\HasApiTokens;
+    use Scopes\ScopeFilterColumns;
+    use Scopes\ScopeFilterDates;
+    use Scopes\ScopeFilterFlags;
+    use Scopes\ScopeFilterIds;
+    use Scopes\ScopeFilterTrash;
+    use Scopes\ScopeSort;
+    use SoftDeletes;
 
     /**
      * The default values for attributes.
@@ -110,6 +128,17 @@ class User extends Authenticatable implements Contracts\Abilities, Contracts\Adm
         'status' => 0,
         'rank' => 0,
         'size' => 0,
+        'matrix' => '',
+        'r' => null,
+        'θ' => null,
+        'ρ' => null,
+        'φ' => null,
+        'elevation' => null,
+        'latitude' => null,
+        'longitude' => null,
+        'x' => null,
+        'y' => null,
+        'z' => null,
         'active' => true,
         'banned' => false,
         'flagged' => false,

@@ -155,5 +155,6 @@ class ModelTest extends TestCase
         $this->assertTrue($instance_admin_secondary->hasRole('manager'));
         $instance_admin_secondary->addRole('admin');
         $this->assertTrue($instance_admin_secondary->isAdmin());
+        // dump($instance_root->toArray());
     }
 }

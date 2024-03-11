@@ -70,16 +70,16 @@ class ServiceProvider extends AuthServiceProvider
             '<fg=cyan;options=bold>User</> Illuminate\Auth\Authenticatable' => $this->userHasAuthenticatableConcerns ? '<fg=green;options=bold>USED</>' : '<fg=yellow;options=bold>NOT USED</>',
             '<fg=cyan;options=bold>User</> Illuminate\Contracts\Auth\Authenticatable' => $this->userHasAuthenticatableContracts ? '<fg=green;options=bold>IMPLEMENTED</>' : '<fg=yellow;options=bold>NOT IMPLEMENTED</>',
 
-            '<fg=cyan;options=bold>User</> Playground\Models\Traits\Abilities' => $this->userPlaygroundAbilitiesConcerns ? '<fg=green;options=bold>USED</>' : '<fg=yellow;options=bold>NOT USED</>',
+            '<fg=cyan;options=bold>User</> Playground\Models\Concerns\Abilities' => $this->userPlaygroundAbilitiesConcerns ? '<fg=green;options=bold>USED</>' : '<fg=yellow;options=bold>NOT USED</>',
             '<fg=cyan;options=bold>User</> Playground\Models\Contracts\Abilities' => $this->userHasPlaygroundAbilitiesContracts ? '<fg=green;options=bold>IMPLEMENTED</>' : '<fg=yellow;options=bold>NOT IMPLEMENTED</>',
 
-            '<fg=cyan;options=bold>User</> Playground\Models\Traits\Admin' => $this->userPlaygroundAdminConcerns ? '<fg=green;options=bold>USED</>' : '<fg=yellow;options=bold>NOT USED</>',
+            '<fg=cyan;options=bold>User</> Playground\Models\Concerns\Admin' => $this->userPlaygroundAdminConcerns ? '<fg=green;options=bold>USED</>' : '<fg=yellow;options=bold>NOT USED</>',
             '<fg=cyan;options=bold>User</> Playground\Models\Contracts\Admin' => $this->userHasPlaygroundAdminContracts ? '<fg=green;options=bold>IMPLEMENTED</>' : '<fg=yellow;options=bold>NOT IMPLEMENTED</>',
 
-            '<fg=cyan;options=bold>User</> Playground\Models\Traits\Privileges' => $this->userPlaygroundPrivilegesConcerns ? '<fg=green;options=bold>USED</>' : '<fg=yellow;options=bold>NOT USED</>',
+            '<fg=cyan;options=bold>User</> Playground\Models\Concerns\Privileges' => $this->userPlaygroundPrivilegesConcerns ? '<fg=green;options=bold>USED</>' : '<fg=yellow;options=bold>NOT USED</>',
             '<fg=cyan;options=bold>User</> Playground\Models\Contracts\Privileges' => $this->userHasPlaygroundPrivilegesContracts ? '<fg=green;options=bold>IMPLEMENTED</>' : '<fg=yellow;options=bold>NOT IMPLEMENTED</>',
 
-            '<fg=cyan;options=bold>User</> Playground\Models\Traits\Role' => $this->userPlaygroundRoleConcerns ? '<fg=green;options=bold>USED</>' : '<fg=yellow;options=bold>NOT USED</>',
+            '<fg=cyan;options=bold>User</> Playground\Models\Concerns\Role' => $this->userPlaygroundRoleConcerns ? '<fg=green;options=bold>USED</>' : '<fg=yellow;options=bold>NOT USED</>',
             '<fg=cyan;options=bold>User</> Playground\Models\Contracts\Role' => $this->userHasPlaygroundRoleContracts ? '<fg=green;options=bold>IMPLEMENTED</>' : '<fg=yellow;options=bold>NOT IMPLEMENTED</>',
 
             'Packages' => implode(', ', $packages),
@@ -173,16 +173,16 @@ class ServiceProvider extends AuthServiceProvider
 
         $this->userHasMustVerifyEmail = $user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail;
 
-        $this->userPlaygroundAbilitiesConcerns = in_array(Models\Traits\Abilities::class, class_uses_recursive($user));
+        $this->userPlaygroundAbilitiesConcerns = in_array(Models\Concerns\Abilities::class, class_uses_recursive($user));
         $this->userHasPlaygroundAbilitiesContracts = $user instanceof Models\Contracts\Abilities;
 
-        $this->userPlaygroundAdminConcerns = in_array(Models\Traits\Admin::class, class_uses_recursive($user));
+        $this->userPlaygroundAdminConcerns = in_array(Models\Concerns\Admin::class, class_uses_recursive($user));
         $this->userHasPlaygroundAdminContracts = $user instanceof Models\Contracts\Admin;
 
-        $this->userPlaygroundPrivilegesConcerns = in_array(Models\Traits\Privileges::class, class_uses_recursive($user));
+        $this->userPlaygroundPrivilegesConcerns = in_array(Models\Concerns\Privileges::class, class_uses_recursive($user));
         $this->userHasPlaygroundPrivilegesContracts = $user instanceof Models\Contracts\Privileges;
 
-        $this->userPlaygroundRoleConcerns = in_array(Models\Traits\Role::class, class_uses_recursive($user));
+        $this->userPlaygroundRoleConcerns = in_array(Models\Concerns\Role::class, class_uses_recursive($user));
         $this->userHasPlaygroundRoleContracts = $user instanceof Models\Contracts\Role;
 
         if (in_array(\Illuminate\Database\Eloquent\Concerns\HasUuids::class, class_uses_recursive($user))

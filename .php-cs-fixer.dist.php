@@ -45,7 +45,7 @@ $rules_laravel = [
     'class_definition' => [
         'multi_line_extends_each_single_line' => true,
         'single_item_single_line' => true,
-        'single_line' => true,
+        'single_line' => false,
     ],
     'clean_namespace' => true,
     'compact_nullable_typehint' => true,
@@ -220,6 +220,7 @@ $finder = PhpCsFixer\Finder::create()
         __DIR__.'/tests/Unit',
     ])
     ->name('*.php')
+    ->name('*.phps')
     ->notName('*.blade.php')
     ->ignoreDotFiles(true)
     ->ignoreVCS(true)
