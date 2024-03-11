@@ -56,16 +56,16 @@ return new class extends Migration
             // Matrix
 
             $table->string('matrix')->default('');
-            $table->double('r')->nullable()->default(null);
-            $table->double('θ')->nullable()->default(null);
-            $table->double('ρ')->nullable()->default(null);
-            $table->double('φ')->nullable()->default(null);
-            $table->double('elevation')->nullable()->default(null);
+            $table->bigInteger('x')->nullable();
+            $table->bigInteger('y')->nullable();
+            $table->bigInteger('z')->nullable();
+            $table->decimal('r', 65, 10)->nullable()->default(null);
+            $table->decimal('theta', 10, 6)->nullable()->default(null);
+            $table->decimal('rho', 10, 6)->nullable()->default(null);
+            $table->decimal('phi', 10, 6)->nullable()->default(null);
+            $table->decimal('elevation', 65, 10)->nullable()->default(null);
             $table->decimal('latitude', 8, 6)->nullable()->default(null);
             $table->decimal('longitude', 9, 6)->nullable()->default(null);
-            $table->bigInteger('x')->nullable()->unsigned();
-            $table->bigInteger('y')->nullable()->unsigned();
-            $table->bigInteger('z')->nullable()->unsigned();
 
             // Flags
 
