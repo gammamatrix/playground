@@ -1,13 +1,15 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Playground
  */
 namespace Tests\Unit\Playground\Models\Scopes\ScopeFilterIds;
 
 use Illuminate\Database\Eloquent\Builder;
-use PHPUnit\Framework\MockObject\MockObject;
-use Playground\Models\Model as TestModel;
+use Illuminate\Support\Carbon;
 use Playground\Test\SqlTrait;
+use Tests\Unit\Playground\Models\TestModel;
 use Tests\Unit\Playground\TestCase;
 
 /**
@@ -20,11 +22,6 @@ class ModelTest extends TestCase
     }
 
     /**
-     * @var class-string
-     */
-    public const MODEL_CLASS = TestModel::class;
-
-    /**
      * Setup the test environment.
      */
     protected function setUp(): void
@@ -33,27 +30,19 @@ class ModelTest extends TestCase
 
         parent::setUp();
 
-        if (! class_exists(static::MODEL_CLASS)) {
-            $this->markTestSkipped(sprintf(
-                'Expecting the abstract model class to exist: %1$s',
-                static::MODEL_CLASS
-            ));
-        }
+        Carbon::setTestNow(Carbon::now());
     }
 
     public function test_scopeFilterIds_returns_query_without_ids_or_filters(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->filterIds([], []);
+        $query = $instance->filterIds([], []);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -62,17 +51,14 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterIds_returns_query_without_filters(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->filterIds([
+        $query = $instance->filterIds([
             'id' => [],
             'owned_by_id' => [],
         ], []);
@@ -88,14 +74,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterIds_returns_query_with_invalid_column(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $ids = [
@@ -108,7 +91,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterIds($ids, $validated);
+        $query = $instance->filterIds($ids, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -121,14 +104,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterIds_returns_query_with_null_comparison(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `id` is null and `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $ids = [
@@ -142,7 +122,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterIds($ids, $validated);
+        $query = $instance->filterIds($ids, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -155,14 +135,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterIds_returns_query_with_comparison(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `id` = ? and `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $ids = [
@@ -175,7 +152,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterIds($ids, $validated);
+        $query = $instance->filterIds($ids, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -190,14 +167,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterIds_returns_query_with_filters_array(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `modified_by_id` in (?, ?, ?) and `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $ids = [
@@ -224,7 +198,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterIds($ids, $validated);
+        $query = $instance->filterIds($ids, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -243,14 +217,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterIds_returns_query_with_filters_with_integer(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `id` = ? and `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $ids = [
@@ -272,7 +243,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterIds($ids, $validated);
+        $query = $instance->filterIds($ids, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -287,14 +258,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterIds_returns_query_with_array_of_ids_without_type(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `modified_by_id` in (?, ?, ?) and `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $ids = [
@@ -318,7 +286,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterIds($ids, $validated);
+        $query = $instance->filterIds($ids, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -338,14 +306,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterIds_returns_query_with_array_of_uuids_for_integer_type_ids_and_ignore(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $ids = [
@@ -368,7 +333,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterIds($ids, $validated);
+        $query = $instance->filterIds($ids, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -382,14 +347,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterIds_returns_query_with_array_of_integer_ids_ignore_duplicate_id(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `modified_by_id` in (?, ?) and `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $ids = [
@@ -413,7 +375,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterIds($ids, $validated);
+        $query = $instance->filterIds($ids, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -431,14 +393,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterIds_returns_query_with_filters_with_null_and_string_and_array(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `id` = ? and `owned_by_id` is null and `modified_by_id` in (?, ?, ?) and `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $ids = [
@@ -468,7 +427,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterIds($ids, $validated);
+        $query = $instance->filterIds($ids, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 

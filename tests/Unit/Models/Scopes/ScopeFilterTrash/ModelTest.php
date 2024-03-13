@@ -1,13 +1,15 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Playground
  */
 namespace Tests\Unit\Playground\Models\Scopes\ScopeFilterTrash;
 
 use Illuminate\Database\Eloquent\Builder;
-use PHPUnit\Framework\MockObject\MockObject;
-use Playground\Models\Model as TestModel;
+use Illuminate\Support\Carbon;
 use Playground\Test\SqlTrait;
+use Tests\Unit\Playground\Models\TestModel;
 use Tests\Unit\Playground\TestCase;
 
 /**
@@ -20,11 +22,6 @@ class ModelTest extends TestCase
     }
 
     /**
-     * @var class-string
-     */
-    public const MODEL_CLASS = TestModel::class;
-
-    /**
      * Setup the test environment.
      */
     protected function setUp(): void
@@ -33,27 +30,19 @@ class ModelTest extends TestCase
 
         parent::setUp();
 
-        if (! class_exists(static::MODEL_CLASS)) {
-            $this->markTestSkipped(sprintf(
-                'Expecting the abstract model class to exist: %1$s',
-                static::MODEL_CLASS
-            ));
-        }
+        Carbon::setTestNow(Carbon::now());
     }
 
     public function test_scopeFilterTrash_returns_query_with_empty_visibility(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->filterTrash();
+        $query = $instance->filterTrash();
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -62,19 +51,16 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterTrash_returns_query_with_trash(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $visibility = 'with';
 
         $sql = sprintf(
             'select * from `%1$s`',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->filterTrash($visibility);
+        $query = $instance->filterTrash($visibility);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -83,19 +69,16 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterTrash_returns_query_with_only_trash(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $visibility = 'only';
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is not null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->filterTrash($visibility);
+        $query = $instance->filterTrash($visibility);
 
         $this->assertInstanceOf(Builder::class, $query);
 
