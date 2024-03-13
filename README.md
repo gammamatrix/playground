@@ -11,7 +11,7 @@ This package provides model handling for [Laravel](https://laravel.com/docs/10.x
 - The configuration in Playground and subpackages permits defining the user model, table and primary key type: `increments` or `uuid`.
 - Packages are compatible and tested with and without: middleware, roles, policies, privileges, Sanctum...
 
-Read more on using Playground with available packages [on the Playground wiki.](https://github.com/gammamatrix/playground/wiki)
+Read more on using Playground [at the Read the Docs for Playground.](https://gammamatrix-playground.readthedocs.io/)
 
 ## Installation
 

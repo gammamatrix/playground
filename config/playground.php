@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 return [
 
+    'about' => (bool) env('PLAYGROUND_ABOUT', true),
+
     /*
     |--------------------------------------------------------------------------
     | Packages

@@ -25,18 +25,16 @@ class ServiceProvider extends AuthServiceProvider
          */
         $config = config($this->package);
 
-        if (! empty($config['load']) && is_array($config['load'])) {
-
-            if ($this->app->runningInConsole()) {
-                // Publish configuration
-                $this->publishes([
-                    sprintf('%1$s/config/%2$s.php', dirname(__DIR__), $this->package) => config_path(sprintf('%1$s.php', $this->package)),
-                ], 'playground-config');
-            }
-
+        if ($this->app->runningInConsole()) {
+            // Publish configuration
+            $this->publishes([
+                sprintf('%1$s/config/%2$s.php', dirname(__DIR__), $this->package) => config_path(sprintf('%1$s.php', $this->package)),
+            ], 'playground-config');
         }
 
-        $this->about($config);
+        if (! empty($config['about'])) {
+            $this->about($config);
+        }
     }
 
     /**
