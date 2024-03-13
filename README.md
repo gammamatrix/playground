@@ -6,8 +6,8 @@
 
 This is the base package for Playground.
 
-This package provides model handling for [Laravel](https://laravel.com/docs/10.x) packages.
-- Playground allows using [Laravel ordered UUIDs](https://laravel.com/docs/10.x/strings#method-str-ordered-uuid) for primary keys.
+This package provides model handling for [Laravel](https://laravel.com/docs/11.x) packages.
+- Playground allows using [Laravel ordered UUIDs](https://laravel.com/docs/11.x/strings#method-str-ordered-uuid) for primary keys.
 - The configuration in Playground and subpackages permits defining the user model, table and primary key type: `increments` or `uuid`.
 - Packages are compatible and tested with and without: middleware, roles, policies, privileges, Sanctum...
 
@@ -39,7 +39,7 @@ Playground provides information in the `artisan about` command.
 
 ## Migrations
 
-The migrations provided in this package are used for [PHPunit 10](https://docs.phpunit.de/en/10.5/) feature testing with [Orchestra Testbench](https://packages.tools/testbench.html).
+The migrations provided in this package are used for [PHPunit 11](https://docs.phpunit.de/en/11.0/) feature testing with [Orchestra Testbench](https://packages.tools/testbench.html).
 - They will not be exported in software builds.
 
 ## Testing
