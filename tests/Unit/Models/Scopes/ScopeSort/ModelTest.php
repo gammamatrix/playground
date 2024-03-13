@@ -1,13 +1,15 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Playground
  */
 namespace Tests\Unit\Playground\Models\Scopes\ScopeSort;
 
 use Illuminate\Database\Eloquent\Builder;
-use PHPUnit\Framework\MockObject\MockObject;
-use Playground\Models\Model as TestModel;
+use Illuminate\Support\Carbon;
 use Playground\Test\SqlTrait;
+use Tests\Unit\Playground\Models\TestModel;
 use Tests\Unit\Playground\TestCase;
 
 /**
@@ -20,11 +22,6 @@ class ModelTest extends TestCase
     }
 
     /**
-     * @var class-string
-     */
-    public const MODEL_CLASS = TestModel::class;
-
-    /**
      * Setup the test environment.
      */
     protected function setUp(): void
@@ -33,29 +30,21 @@ class ModelTest extends TestCase
 
         parent::setUp();
 
-        if (! class_exists(static::MODEL_CLASS)) {
-            $this->markTestSkipped(sprintf(
-                'Expecting the abstract model class to exist: %1$s',
-                static::MODEL_CLASS
-            ));
-        }
+        Carbon::setTestNow(Carbon::now());
     }
 
     public function test_scopeSort_returns_query_with_empty_sort(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
-        $this->assertInstanceOf(Builder::class, $mock->sort());
+        $this->assertInstanceOf(Builder::class, $instance->sort());
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->sort();
+        $query = $instance->sort();
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -64,10 +53,7 @@ class ModelTest extends TestCase
 
     public function test_scopeSort_returns_query_with_array_boolean_sort_asc(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sort = [
             'label' => true,
@@ -75,10 +61,10 @@ class ModelTest extends TestCase
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null order by `label` asc',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->sort($sort);
+        $query = $instance->sort($sort);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -87,10 +73,7 @@ class ModelTest extends TestCase
 
     public function test_scopeSort_returns_query_with_array_boolean_sort_desc(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sort = [
             'title' => false,
@@ -98,10 +81,10 @@ class ModelTest extends TestCase
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null order by `title` desc',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->sort($sort);
+        $query = $instance->sort($sort);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -110,10 +93,7 @@ class ModelTest extends TestCase
 
     public function test_scopeSort_returns_query_with_array_boolean_sort_pair(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sort = [
             'label' => false,
@@ -122,10 +102,10 @@ class ModelTest extends TestCase
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null order by `label` desc, `title` asc',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->sort($sort);
+        $query = $instance->sort($sort);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -134,10 +114,7 @@ class ModelTest extends TestCase
 
     public function test_scopeSort_returns_query_with_array_boolean_sort_triplet(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sort = [
             'created_at' => true,
@@ -147,10 +124,10 @@ class ModelTest extends TestCase
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null order by `created_at` asc, `label` asc, `title` desc',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->sort($sort);
+        $query = $instance->sort($sort);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -159,18 +136,15 @@ class ModelTest extends TestCase
 
     public function test_scopeSort_returns_query_with_csv_sort_asc(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sort = 'label';
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null order by `label` asc',
-            $mock->getTable()
+            $instance->getTable()
         );
-        $query = $mock->sort($sort);
+        $query = $instance->sort($sort);
         $this->assertInstanceOf(Builder::class, $query);
 
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
@@ -178,19 +152,16 @@ class ModelTest extends TestCase
 
     public function test_scopeSort_returns_query_with_csv_sort_desc(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sort = '-created_at';
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null order by `created_at` desc',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->sort($sort);
+        $query = $instance->sort($sort);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -206,19 +177,16 @@ class ModelTest extends TestCase
 
     public function test_scopeSort_returns_query_with_simple_array_asc(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sort = ['label'];
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null order by `label` asc',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->sort($sort);
+        $query = $instance->sort($sort);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -227,19 +195,16 @@ class ModelTest extends TestCase
 
     public function test_scopeSort_returns_query_with_simple_array_desc(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sort = ['-label'];
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null order by `label` desc',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->sort($sort);
+        $query = $instance->sort($sort);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -248,10 +213,7 @@ class ModelTest extends TestCase
 
     public function test_scopeSort_returns_query_with_hash_array_asc(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sort = [
             'label' => 'aSc',
@@ -259,10 +221,10 @@ class ModelTest extends TestCase
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null order by `label` asc',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->sort($sort);
+        $query = $instance->sort($sort);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -271,10 +233,7 @@ class ModelTest extends TestCase
 
     public function test_scopeSort_returns_query_with_hash_array_desc(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sort = [
             'label' => 'dEsC',
@@ -282,10 +241,10 @@ class ModelTest extends TestCase
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null order by `label` desc',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->sort($sort);
+        $query = $instance->sort($sort);
 
         $this->assertInstanceOf(Builder::class, $query);
 

@@ -1,13 +1,15 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Playground
  */
 namespace Tests\Unit\Playground\Models\Scopes\ScopeFilterFlags;
 
 use Illuminate\Database\Eloquent\Builder;
-use PHPUnit\Framework\MockObject\MockObject;
-use Playground\Models\Model as TestModel;
+use Illuminate\Support\Carbon;
 use Playground\Test\SqlTrait;
+use Tests\Unit\Playground\Models\TestModel;
 use Tests\Unit\Playground\TestCase;
 
 /**
@@ -20,11 +22,6 @@ class ModelTest extends TestCase
     }
 
     /**
-     * @var class-string
-     */
-    public const MODEL_CLASS = TestModel::class;
-
-    /**
      * Setup the test environment.
      */
     protected function setUp(): void
@@ -33,27 +30,19 @@ class ModelTest extends TestCase
 
         parent::setUp();
 
-        if (! class_exists(static::MODEL_CLASS)) {
-            $this->markTestSkipped(sprintf(
-                'Expecting the abstract model class to exist: %1$s',
-                static::MODEL_CLASS
-            ));
-        }
+        Carbon::setTestNow(Carbon::now());
     }
 
     public function test_scopeFilterFlags_returns_query_without_flags_or_filters(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->filterFlags([], []);
+        $query = $instance->filterFlags([], []);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -62,17 +51,14 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterFlags_returns_query_without_filters(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->filterFlags([
+        $query = $instance->filterFlags([
             'active' => [],
             'problem' => [],
         ], []);
@@ -88,17 +74,14 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterFlags_returns_query_with_filters(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `active` = ? and `problem` = ? and `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->filterFlags([
+        $query = $instance->filterFlags([
             'active' => [],
             'problem' => [],
         ], [

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
 
     /*
@@ -28,6 +30,8 @@ return [
     |
     | PLAYGROUND_DATE_SQL is used to format dates for SQL handling. Where possible
     | Illuminate\Support\Carbon is use to handle dates, including formatting.
+    |
+    | @see \Illuminate\Database\Eloquent\Concerns::getDateFormat()
     */
 
     'date' => [

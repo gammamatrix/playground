@@ -1,13 +1,15 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Playground
  */
 namespace Tests\Unit\Playground\Models\Scopes\ScopeFilterColumns;
 
 use Illuminate\Database\Eloquent\Builder;
-use PHPUnit\Framework\MockObject\MockObject;
-use Playground\Models\Model as TestModel;
+use Illuminate\Support\Carbon;
 use Playground\Test\SqlTrait;
+use Tests\Unit\Playground\Models\TestModel;
 use Tests\Unit\Playground\TestCase;
 
 /**
@@ -20,11 +22,6 @@ class ModelTest extends TestCase
     }
 
     /**
-     * @var class-string
-     */
-    public const MODEL_CLASS = TestModel::class;
-
-    /**
      * Setup the test environment.
      */
     protected function setUp(): void
@@ -33,27 +30,19 @@ class ModelTest extends TestCase
 
         parent::setUp();
 
-        if (! class_exists(static::MODEL_CLASS)) {
-            $this->markTestSkipped(sprintf(
-                'Expecting the abstract model class to exist: %1$s',
-                static::MODEL_CLASS
-            ));
-        }
+        Carbon::setTestNow(Carbon::now());
     }
 
     public function test_scopeFilterColumns_returns_query_without_columns_or_filters(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->filterColumns([], []);
+        $query = $instance->filterColumns([], []);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -62,17 +51,14 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterColumns_returns_query_without_filters(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
-        $query = $mock->filterColumns([
+        $query = $instance->filterColumns([
             'title' => [],
             'label' => [],
         ], []);
@@ -88,14 +74,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterColumns_returns_query_with_invalid_column(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $columns = [
@@ -108,7 +91,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterColumns($columns, $validated);
+        $query = $instance->filterColumns($columns, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -121,14 +104,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterColumns_returns_query_with_filters_without_meta_for_strings(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `title` LIKE ? and `label` LIKE ? and `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $columns = [
@@ -145,7 +125,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterColumns($columns, $validated);
+        $query = $instance->filterColumns($columns, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -162,14 +142,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterColumns_returns_query_with_null_comparison_and_ignore(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $columns = [
@@ -183,7 +160,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterColumns($columns, $validated);
+        $query = $instance->filterColumns($columns, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -196,14 +173,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterColumns_returns_query_with_comparison(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `title` LIKE ? and `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $columns = [
@@ -216,7 +190,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterColumns($columns, $validated);
+        $query = $instance->filterColumns($columns, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -231,14 +205,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterColumns_with_boolean_filter_type_and_null_value(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `active` = ? and `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $columns = [
@@ -253,7 +224,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterColumns($columns, $validated);
+        $query = $instance->filterColumns($columns, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -268,14 +239,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterColumns_with_boolean_filter_type_and_true_value(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `active` = ? and `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $columns = [
@@ -290,7 +258,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterColumns($columns, $validated);
+        $query = $instance->filterColumns($columns, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -305,14 +273,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterColumns_with_boolean_filter_type_and_false_value(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `active` = ? and `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $columns = [
@@ -327,7 +292,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterColumns($columns, $validated);
+        $query = $instance->filterColumns($columns, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -342,14 +307,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterColumns_with_filter_operator_without_operator_and_default_to_like(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `title` LIKE ? and `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $columns = [
@@ -364,7 +326,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterColumns($columns, $validated);
+        $query = $instance->filterColumns($columns, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -379,10 +341,7 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterColumns_with_filter_operators(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $filter_operators = [
             '|' => [],
@@ -443,12 +402,12 @@ class ModelTest extends TestCase
 
             $sql = sprintf(
                 'select * from `%1$s` where `title` %2$s%3$s and `%1$s`.`deleted_at` is null',
-                $mock->getTable(),
+                $instance->getTable(),
                 $operator,
                 $parameter
             );
 
-            $query = $mock->filterColumns($columns, $validated);
+            $query = $instance->filterColumns($columns, $validated);
 
             $this->assertInstanceOf(Builder::class, $query);
 
@@ -469,14 +428,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterColumns_with_between_filter_operator_without_single_parameter_and_ignore_between(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $columns = [
@@ -492,7 +448,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterColumns($columns, $validated);
+        $query = $instance->filterColumns($columns, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -505,14 +461,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterColumns_with_between_filter_operator(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `rank` between ? and ? and `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $columns = [
@@ -528,7 +481,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterColumns($columns, $validated);
+        $query = $instance->filterColumns($columns, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -545,14 +498,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterColumns_with_not_between_filter_operator_without_single_parameter_and_ignore_between(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $columns = [
@@ -568,7 +518,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterColumns($columns, $validated);
+        $query = $instance->filterColumns($columns, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
@@ -581,14 +531,11 @@ class ModelTest extends TestCase
 
     public function test_scopeFilterColumns_with_not_between_filter_operator(): void
     {
-        /**
-         * @var MockObject&TestModel
-         */
-        $mock = $this->getMockForAbstractClass(static::MODEL_CLASS);
+        $instance = new TestModel;
 
         $sql = sprintf(
             'select * from `%1$s` where `rank` not between ? and ? and `%1$s`.`deleted_at` is null',
-            $mock->getTable()
+            $instance->getTable()
         );
 
         $columns = [
@@ -604,7 +551,7 @@ class ModelTest extends TestCase
             ],
         ];
 
-        $query = $mock->filterColumns($columns, $validated);
+        $query = $instance->filterColumns($columns, $validated);
 
         $this->assertInstanceOf(Builder::class, $query);
 
