@@ -8,11 +8,6 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
-use Playground\Models\Interfaces\WithChildrenInterface;
-use Playground\Models\Interfaces\WithCreatorInterface;
-use Playground\Models\Interfaces\WithModifierInterface;
-use Playground\Models\Interfaces\WithOwnerInterface;
-use Playground\Models\Interfaces\WithParentInterface;
 
 /**
  * \Playground\Models\Model
@@ -30,22 +25,39 @@ use Playground\Models\Interfaces\WithParentInterface;
  * @property string $created_by_id
  * @property string $modified_by_id
  * @property string $owned_by_id
+ * @property string $matrix
+ * @property ?double $r
+ * @property ?double $θ
+ * @property ?double $ρ
+ * @property ?double $φ
+ * @property ?double $elevation
+ * @property ?double $latitude
+ * @property ?double $longitude
+ * @property ?int $x
+ * @property ?int $y
+ * @property ?int $z
  */
-abstract class Model extends UuidModel implements WithChildrenInterface, WithCreatorInterface, WithModifierInterface, WithOwnerInterface, WithParentInterface
+abstract class Model extends UuidModel implements
+    Contracts\WithChildren,
+    Contracts\WithCreator,
+    Contracts\WithMatrix,
+    Contracts\WithModifier,
+    Contracts\WithOwner,
+    Contracts\WithParent
 {
+    use Concerns\WithChildren;
+    use Concerns\WithCreator;
+    use Concerns\WithModifier;
+    use Concerns\WithOwner;
+    use Concerns\WithParent;
     use HasFactory;
+    use Scopes\ScopeFilterColumns;
+    use Scopes\ScopeFilterDates;
+    use Scopes\ScopeFilterFlags;
+    use Scopes\ScopeFilterIds;
+    use Scopes\ScopeFilterTrash;
+    use Scopes\ScopeSort;
     use SoftDeletes;
-    use Traits\ScopeFilterColumns;
-    use Traits\ScopeFilterDates;
-    use Traits\ScopeFilterFlags;
-    use Traits\ScopeFilterIds;
-    use Traits\ScopeFilterTrash;
-    use Traits\ScopeSort;
-    use Traits\WithChildren;
-    use Traits\WithCreator;
-    use Traits\WithModifier;
-    use Traits\WithOwner;
-    use Traits\WithParent;
 
     protected $perPage = 15;
 }
