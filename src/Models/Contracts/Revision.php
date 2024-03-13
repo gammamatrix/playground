@@ -7,9 +7,9 @@ namespace Playground\Models\Contracts;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * \Playground\Models\Contracts\WithRevisionInterface
+ * \Playground\Models\Contracts\Revision
  */
-interface WithRevisionInterface
+interface Revision
 {
     /**
      * Get the revisions of the model.
