@@ -33,5 +33,7 @@ class TestCase extends OrchestraTestCase
     {
         $app['config']->set('auth.providers.users.model', 'Playground\\Test\\Models\\User');
         $app['config']->set('playground-auth.verify', 'user');
+        $app['config']->set('auth.testing.password', 'password');
+        $app['config']->set('auth.testing.hashed', false);
     }
 }
