@@ -19,8 +19,8 @@ use Laravel\Sanctum;
  * \Playground\Models\User
  *
  * @property string $id
- * @property string $created_by_id
- * @property string $modified_by_id
+ * @property ?string $created_by_id
+ * @property ?string $modified_by_id
  * @property string $user_type
  * @property ?Carbon $created_at
  * @property ?Carbon $updated_at
@@ -200,6 +200,17 @@ class User extends Authenticatable implements
         'status',
         'rank',
         'size',
+        'matrix',
+        'x',
+        'y',
+        'z',
+        'r',
+        'theta',
+        'rho',
+        'phi',
+        'elevation',
+        'latitude',
+        'longitude',
         'active',
         'banned',
         'flagged',
@@ -264,57 +275,72 @@ class User extends Authenticatable implements
     ];
 
     /**
-     * The attributes that should be cast.
+     * Get the attributes that should be cast.
      *
-     * @var array<string, string>
+     * @return array<string, string>
      */
-    protected $casts = [
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
-        'email_verified_at' => 'datetime',
-        'banned_at' => 'datetime',
-        'suspended_at' => 'datetime',
-        'gids' => 'integer',
-        'po' => 'integer',
-        'pg' => 'integer',
-        'pw' => 'integer',
-        'status' => 'integer',
-        'rank' => 'integer',
-        'size' => 'integer',
-        // Boolean
-        'active' => 'boolean',
-        'banned' => 'boolean',
-        'flagged' => 'boolean',
-        'internal' => 'boolean',
-        'locked' => 'boolean',
-        'problem' => 'boolean',
-        'suspended' => 'boolean',
-        'unknown' => 'boolean',
-        // 'id' => 'uuid',
-        'name' => 'string',
-        'email' => 'string',
-        'locale' => 'string',
-        'phone' => 'encrypted',
-        'timezone' => 'string',
-        'role' => 'string',
-        'description' => 'string',
-        'image' => 'string',
-        'avatar' => 'string',
-        // json
-        'abilities' => 'array',
-        'accounts' => 'encrypted:array',
-        'address' => 'encrypted:array',
-        'contact' => 'encrypted:array',
-        'meta' => 'encrypted:array',
-        'notes' => 'encrypted:array',
-        'options' => 'encrypted:array',
-        'registration' => 'encrypted:array',
-        'roles' => 'array',
-        'permissions' => 'array',
-        'privileges' => 'array',
-        'ui' => 'array',
-    ];
+    protected function casts(): array
+    {
+        return [
+            'created_at' => 'datetime',
+            'updated_at' => 'datetime',
+            'deleted_at' => 'datetime',
+            'email_verified_at' => 'datetime',
+            'banned_at' => 'datetime',
+            'suspended_at' => 'datetime',
+            'gids' => 'integer',
+            'po' => 'integer',
+            'pg' => 'integer',
+            'pw' => 'integer',
+            'status' => 'integer',
+            'rank' => 'integer',
+            'size' => 'integer',
+            // Matrix
+            'matrix' => 'string',
+            'x' => 'integer',
+            'y' => 'integer',
+            'z' => 'integer',
+            'r' => 'float',
+            'theta' => 'float',
+            'rho' => 'float',
+            'phi' => 'float',
+            'elevation' => 'float',
+            'latitude' => 'float',
+            'longitude' => 'float',
+            // Boolean
+            'active' => 'boolean',
+            'banned' => 'boolean',
+            'flagged' => 'boolean',
+            'internal' => 'boolean',
+            'locked' => 'boolean',
+            'problem' => 'boolean',
+            'suspended' => 'boolean',
+            'unknown' => 'boolean',
+            // 'id' => 'uuid',
+            'name' => 'string',
+            'email' => 'string',
+            'locale' => 'string',
+            'phone' => 'encrypted',
+            'timezone' => 'string',
+            'role' => 'string',
+            'description' => 'string',
+            'image' => 'string',
+            'avatar' => 'string',
+            // json
+            'abilities' => 'array',
+            'accounts' => 'encrypted:array',
+            'address' => 'encrypted:array',
+            'contact' => 'encrypted:array',
+            'meta' => 'encrypted:array',
+            'notes' => 'encrypted:array',
+            'options' => 'encrypted:array',
+            'registration' => 'encrypted:array',
+            'roles' => 'array',
+            'permissions' => 'array',
+            'privileges' => 'array',
+            'ui' => 'array',
+        ];
+    }
 
     /**
      * Disable auto-incrementing primary when using a UUID column.

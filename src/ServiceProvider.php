@@ -82,6 +82,8 @@ class ServiceProvider extends AuthServiceProvider
             '<fg=cyan;options=bold>User</> Playground\Models\Concerns\Role' => $this->userPlaygroundRoleConcerns ? '<fg=green;options=bold>USED</>' : '<fg=yellow;options=bold>NOT USED</>',
             '<fg=cyan;options=bold>User</> Playground\Models\Contracts\Role' => $this->userHasPlaygroundRoleContracts ? '<fg=green;options=bold>IMPLEMENTED</>' : '<fg=yellow;options=bold>NOT IMPLEMENTED</>',
 
+            '<fg=cyan;options=bold>User</> Playground\Models\Contracts\WithMatrix' => $this->userHasPlaygroundMatrixContracts ? '<fg=green;options=bold>IMPLEMENTED</>' : '<fg=yellow;options=bold>NOT IMPLEMENTED</>',
+
             'Packages' => implode(', ', $packages),
             'Package' => $this->package,
             'Version' => $version,
@@ -144,6 +146,8 @@ class ServiceProvider extends AuthServiceProvider
 
     protected bool $userHasPlaygroundRoleContracts;
 
+    protected bool $userHasPlaygroundMatrixContracts;
+
     /**
      * @param class-string $auth_providers_users_model
      */
@@ -184,6 +188,8 @@ class ServiceProvider extends AuthServiceProvider
 
         $this->userPlaygroundRoleConcerns = in_array(Models\Concerns\Role::class, class_uses_recursive($user));
         $this->userHasPlaygroundRoleContracts = $user instanceof Models\Contracts\Role;
+
+        $this->userHasPlaygroundMatrixContracts = $user instanceof Models\Contracts\WithMatrix;
 
         if (in_array(\Illuminate\Database\Eloquent\Concerns\HasUuids::class, class_uses_recursive($user))
             && ! $user->getIncrementing()
