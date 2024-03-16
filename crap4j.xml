@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-03-14 05:05:24</timestamp>
+  <timestamp>2024-03-16 23:59:48</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>27</methodCount>
+    <methodCount>28</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>221</totalCrap>
+    <totalCrap>223</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -243,6 +243,17 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
+      <package>Playground\Models</package>
+      <className>Playground\Models\User</className>
+      <methodName>casts</methodName>
+      <methodSignature>casts(): array</methodSignature>
+      <fullMethod>casts(): array</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
       <package>Playground</package>
       <className>Playground\ServiceProvider</className>
       <methodName>boot</methodName>
@@ -259,8 +270,8 @@
       <methodName>about</methodName>
       <methodSignature>about(array $config): void</methodSignature>
       <fullMethod>about(array $config): void</fullMethod>
-      <crap>23</crap>
-      <complexity>23</complexity>
+      <crap>24</crap>
+      <complexity>24</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
