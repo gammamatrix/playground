@@ -24,9 +24,9 @@ use Illuminate\Support\Carbon;
  * @method Builder<static> scopeFilterTrash(Builder $builder, string $visibility = null)
  *
  * @property ?Carbon $deleted_at
- * @property string $created_by_id
- * @property string $modified_by_id
- * @property string $owned_by_id
+ * @property ?scalar $created_by_id
+ * @property ?scalar $modified_by_id
+ * @property ?scalar $owned_by_id
  * @property string $matrix
  * @property ?double $r
  * @property ?double $θ

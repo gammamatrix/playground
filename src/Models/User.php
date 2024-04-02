@@ -19,8 +19,8 @@ use Laravel\Sanctum;
  * \Playground\Models\User
  *
  * @property string $id
- * @property ?string $created_by_id
- * @property ?string $modified_by_id
+ * @property ?scalar $created_by_id
+ * @property ?scalar $modified_by_id
  * @property string $user_type
  * @property ?Carbon $created_at
  * @property ?Carbon $updated_at
