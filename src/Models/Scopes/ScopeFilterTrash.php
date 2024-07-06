@@ -7,12 +7,17 @@ declare(strict_types=1);
 namespace Playground\Models\Scopes;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * \Playground\Models\Scopes\ScopeFilterTrash
  */
 trait ScopeFilterTrash
 {
+    /**
+     * @param Builder<Model> $query
+     * @return Builder<Model>
+     */
     public static function scopeFilterTrash(
         Builder $query,
         string $visibility = null

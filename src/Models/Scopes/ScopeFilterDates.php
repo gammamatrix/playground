@@ -8,6 +8,7 @@ namespace Playground\Models\Scopes;
 
 use Carbon\Exceptions\InvalidFormatException;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
 
@@ -17,8 +18,10 @@ use Illuminate\Support\Facades\Log;
 trait ScopeFilterDates
 {
     /**
+     * @param Builder<Model> $query
      * @param array<string, mixed> $dates
      * @param array<string, mixed> $validated
+     * @return Builder<Model>
      */
     public static function scopeFilterDates(
         Builder $query,

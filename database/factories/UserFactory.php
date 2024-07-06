@@ -11,6 +11,8 @@ use Playground\Models\User;
 
 /**
  * \Database\Factories\Playground\Models\UserFactory
+ *
+ * @extends Factory<User>
  */
 class UserFactory extends Factory
 {

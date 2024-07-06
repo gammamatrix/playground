@@ -7,8 +7,8 @@ declare(strict_types=1);
 namespace Playground\Models\Scopes;
 
 use Illuminate\Database\Eloquent\Builder;
-
-// use Illuminate\Support\Facades\Log;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Log;
 
 /**
  * \Playground\Models\Scopes\ScopeFilterColumns
@@ -16,8 +16,10 @@ use Illuminate\Database\Eloquent\Builder;
 trait ScopeFilterColumns
 {
     /**
+     * @param Builder<Model> $query
      * @param array<string, mixed> $columns
      * @param array<string, mixed> $validated
+     * @return Builder<Model>
      */
     public static function scopeFilterColumns(
         Builder $query,

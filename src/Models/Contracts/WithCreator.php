@@ -6,6 +6,7 @@ declare(strict_types=1);
  */
 namespace Playground\Models\Contracts;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
@@ -15,6 +16,8 @@ interface WithCreator
 {
     /**
      * Get the creator of the model.
+     *
+     * @return HasOne<Model>
      */
     public function creator(): HasOne;
 }
