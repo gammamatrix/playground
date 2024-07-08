@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-07-06 16:29:33</timestamp>
+  <timestamp>2024-07-08 19:15:22</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>28</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>223</totalCrap>
+    <totalCrap>227</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -259,8 +259,19 @@
       <methodName>boot</methodName>
       <methodSignature>boot(): void</methodSignature>
       <fullMethod>boot(): void</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
+      <crap>6</crap>
+      <complexity>6</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\ServiceProvider</className>
+      <methodName>publishMigrations</methodName>
+      <methodSignature>publishMigrations(): void</methodSignature>
+      <fullMethod>publishMigrations(): void</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -303,17 +314,6 @@
       <methodName>register</methodName>
       <methodSignature>register(): void</methodSignature>
       <fullMethod>register(): void</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground</package>
-      <className>Playground\ServiceProvider</className>
-      <methodName>version</methodName>
-      <methodSignature>version(): string</methodSignature>
-      <fullMethod>version(): string</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
