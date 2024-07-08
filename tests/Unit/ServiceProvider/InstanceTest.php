@@ -16,13 +16,10 @@ use TiMacDonald\Log\LogFake;
  */
 class InstanceTest extends TestCase
 {
-    public function test_version_matches(): void
+    public function test_version(): void
     {
-        $instance = (new \ReflectionClass(ServiceProvider::class))->newInstanceWithoutConstructor();
-
         $this->assertNotEmpty(ServiceProvider::VERSION);
         $this->assertIsString(ServiceProvider::VERSION);
-        $this->assertSame(ServiceProvider::VERSION, $instance->version());
     }
 
     public function test_userPrimaryKeyType_with_empty_model(): void

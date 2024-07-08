@@ -25,16 +25,43 @@ class ServiceProvider extends AuthServiceProvider
          */
         $config = config($this->package);
 
-        if ($this->app->runningInConsole()) {
-            // Publish configuration
-            $this->publishes([
-                sprintf('%1$s/config/%2$s.php', dirname(__DIR__), $this->package) => config_path(sprintf('%1$s.php', $this->package)),
-            ], 'playground-config');
+        if (! empty($config['load']) && is_array($config['load'])) {
+
+            if ($this->app->runningInConsole()) {
+                // Publish configuration
+                $this->publishes([
+                    sprintf('%1$s/config/%2$s.php', dirname(__DIR__), $this->package) => config_path(sprintf('%1$s.php', $this->package)),
+                ], 'playground-config');
+
+                // Publish migrations
+                $this->publishMigrations();
+
+                // Load migrations
+                if (! empty($config['load']['migrations'])) {
+                    $this->loadMigrationsFrom(dirname(__DIR__).'/database/migrations');
+                }
+            }
+
+            if (! empty($config['about'])) {
+                $this->about($config);
+            }
+        }
+    }
+
+    public function publishMigrations(): void
+    {
+        $migrations = [];
+
+        foreach ([
+            '0001_01_01_000000_create_users_table.php',
+            '0001_01_01_000001_create_cache_table.php',
+            '0001_01_01_000002_create_jobs_table.php',
+            '2024_03_13_210031_create_personal_access_tokens_table.php',
+        ] as $file) {
+            $migrations[dirname(__DIR__).'/database/migrations/'.$file] = database_path('migrations/'.$file);
         }
 
-        if (! empty($config['about'])) {
-            $this->about($config);
-        }
+        $this->publishes($migrations, 'playground-migrations');
     }
 
     /**
@@ -43,8 +70,6 @@ class ServiceProvider extends AuthServiceProvider
     public function about(array $config): void
     {
         $packages = ! empty($config['packages']) && is_array($config['packages']) ? $config['packages'] : [];
-
-        $version = $this->version();
 
         /**
          * @var class-string $auth_providers_users_model
@@ -86,7 +111,7 @@ class ServiceProvider extends AuthServiceProvider
 
             'Packages' => implode(', ', $packages),
             'Package' => $this->package,
-            'Version' => $version,
+            'Version' => ServiceProvider::VERSION,
         ]);
     }
 
@@ -208,10 +233,5 @@ class ServiceProvider extends AuthServiceProvider
             sprintf('%1$s/config/%2$s.php', dirname(__DIR__), $this->package),
             $this->package
         );
-    }
-
-    public function version(): string
-    {
-        return static::VERSION;
     }
 }

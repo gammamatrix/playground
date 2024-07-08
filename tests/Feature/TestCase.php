@@ -6,42 +6,24 @@ declare(strict_types=1);
  */
 namespace Tests\Feature\Playground;
 
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Tests\Unit\Playground\PackageProviders;
+
 /**
  * \Tests\Feature\Playground\TestCase
  */
 class TestCase extends \Tests\Unit\Playground\TestCase
 {
+    use DatabaseTransactions;
+    use PackageProviders;
+
+    protected bool $hasMigrations = true;
+
     protected bool $load_migrations_laravel = false;
+
+    protected bool $load_migrations_package = false;
 
     protected bool $load_migrations_playground = false;
 
-    /**
-     * Setup the test environment.
-     */
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        if (! empty(env('TEST_DB_MIGRATIONS'))) {
-            if ($this->load_migrations_laravel) {
-                $this->loadMigrationsFrom(dirname(dirname(__DIR__)).'/database/migrations-laravel');
-            }
-            if ($this->load_migrations_playground) {
-                $this->loadMigrationsFrom(dirname(dirname(__DIR__)).'/database/migrations-playground');
-            }
-        }
-    }
-
-    /**
-     * Set up the environment.
-     *
-     * @param  \Illuminate\Foundation\Application  $app
-     */
-    protected function getEnvironmentSetUp($app)
-    {
-        $app['config']->set('auth.providers.users.model', 'Playground\\Test\\Models\\User');
-        $app['config']->set('playground-auth.verify', 'user');
-        $app['config']->set('auth.testing.password', 'password');
-        $app['config']->set('auth.testing.hashed', false);
-    }
+    protected bool $setUpUserForPlayground = false;
 }

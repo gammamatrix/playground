@@ -69,4 +69,64 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+
+    /**
+     * Indicate that the user has the admin role.
+     *
+     * @return Factory<User>
+     */
+    public function admin(): Factory
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'admin',
+        ]);
+    }
+
+    /**
+     * Indicate that the user has the guest role.
+     *
+     * @return Factory<User>
+     */
+    public function guest(): Factory
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'guest',
+        ]);
+    }
+
+    /**
+     * Indicate that the user has the manager role.
+     *
+     * @return Factory<User>
+     */
+    public function manager(): Factory
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'manager',
+        ]);
+    }
+
+    /**
+     * Indicate that the user has the root role.
+     *
+     * @return Factory<User>
+     */
+    public function root(): Factory
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'root',
+        ]);
+    }
+
+    /**
+     * Indicate that the user has the wheel role.
+     *
+     * @return Factory<User>
+     */
+    public function wheel(): Factory
+    {
+        return $this->state(fn (array $attributes) => [
+            'role' => 'wheel',
+        ]);
+    }
 }
