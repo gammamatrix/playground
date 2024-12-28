@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  * \Playground\Models\UuidModel
  *
  * Models that extend this class use a UUID for a primary key.
+ *
  * @mixin Model
  */
 abstract class UuidModel extends Model

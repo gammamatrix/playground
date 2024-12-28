@@ -36,6 +36,10 @@ trait ScopeSort
 
         if (is_array($sort)) {
             foreach ($sort as $key => $value) {
+                if (is_null($value)) {
+                    // Ignore invalid sorting
+                    continue;
+                }
                 $direction = 'asc';
                 if ($csv) {
                     $column = ltrim($value, '-');

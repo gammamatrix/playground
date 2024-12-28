@@ -8,7 +8,6 @@ namespace Playground\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 
@@ -60,9 +59,9 @@ abstract class Model extends UuidModel implements
     use Scopes\ScopeFilterFlags;
     use Scopes\ScopeFilterIds;
     use Scopes\ScopeFilterTrash;
-    use Scopes\ScopeSort;
     use Scopes\ScopeIsActive;
     use Scopes\ScopeIsNotClosed;
+    use Scopes\ScopeSort;
     use SoftDeletes;
 
     protected $perPage = 15;

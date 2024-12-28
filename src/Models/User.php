@@ -98,8 +98,10 @@ class User extends Authenticatable implements
     use Concerns\Role;
     use Concerns\WithCreator;
     use Concerns\WithModifier;
+
     /** @use HasFactory<UserFactory> */
     use HasFactory;
+
     use HasUuids;
     use Notifiable;
     use Sanctum\HasApiTokens;
