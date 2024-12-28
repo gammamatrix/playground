@@ -69,6 +69,6 @@
         "analyse": "vendor/bin/phpstan analyse --verbose --debug --level max",
         "cloc": "cloc --exclude-dir=output,vendor .",
         "format": "vendor/bin/php-cs-fixer fix",
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/testbench package:test"
     }
 }
