@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-12-28 19:09:30</timestamp>
+  <timestamp>2024-12-28 23:35:51</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>32</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>239</totalCrap>
+    <totalCrap>240</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -281,9 +281,9 @@
       <methodName>scopeSort</methodName>
       <methodSignature>scopeSort(Illuminate\Database\Eloquent\Builder $query, mixed $sort): Illuminate\Database\Eloquent\Builder</methodSignature>
       <fullMethod>scopeSort(Illuminate\Database\Eloquent\Builder $query, mixed $sort): Illuminate\Database\Eloquent\Builder</fullMethod>
-      <crap>16</crap>
-      <complexity>16</complexity>
-      <coverage>100</coverage>
+      <crap>17</crap>
+      <complexity>17</complexity>
+      <coverage>96.67</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
