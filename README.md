@@ -2,7 +2,7 @@
 
 [![Playground CI Workflow](https://github.com/gammamatrix/playground/actions/workflows/ci.yml/badge.svg?branch=develop)](https://raw.githubusercontent.com/gammamatrix/playground/testing/develop/testdox.txt)
 [![Test Coverage](https://raw.githubusercontent.com/gammamatrix/playground/testing/develop/coverage.svg)](tests)
-[![PHPStan Level 2 src and tests](https://img.shields.io/badge/PHPStan-level%202-brightgreen)](.github/workflows/ci.yml#L128)
+<!-- [![PHPStan Level 2 src and tests](https://img.shields.io/badge/PHPStan-level%209-brightgreen)](.github/workflows/ci.yml#L128) -->
 
 This is the base package for Playground.
 
