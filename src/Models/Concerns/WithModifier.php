@@ -6,6 +6,7 @@ declare(strict_types=1);
  */
 namespace Playground\Models\Concerns;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
@@ -15,6 +16,8 @@ trait WithModifier
 {
     /**
      * Access the modifier of this model.
+     *
+     * @return HasOne<Model>
      */
     public function modifier(): HasOne
     {

@@ -6,6 +6,7 @@ declare(strict_types=1);
  */
 namespace Playground\Models;
 
+use Database\Factories\Playground\Models\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -97,7 +98,10 @@ class User extends Authenticatable implements
     use Concerns\Role;
     use Concerns\WithCreator;
     use Concerns\WithModifier;
+
+    /** @use HasFactory<UserFactory> */
     use HasFactory;
+
     use HasUuids;
     use Notifiable;
     use Sanctum\HasApiTokens;

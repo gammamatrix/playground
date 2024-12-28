@@ -7,7 +7,7 @@ declare(strict_types=1);
 namespace Playground\Models;
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 
@@ -29,15 +29,17 @@ use Illuminate\Support\Carbon;
  * @property ?scalar $owned_by_id
  * @property string $matrix
  * @property ?double $r
- * @property ?double $θ
- * @property ?double $ρ
- * @property ?double $φ
+ * @property ?double $theta
+ * @property ?double $rho
+ * @property ?double $phi
  * @property ?double $elevation
  * @property ?double $latitude
  * @property ?double $longitude
  * @property ?int $x
  * @property ?int $y
  * @property ?int $z
+ *
+ * @mixin UuidModel
  */
 abstract class Model extends UuidModel implements
     Contracts\WithChildren,
@@ -52,14 +54,28 @@ abstract class Model extends UuidModel implements
     use Concerns\WithModifier;
     use Concerns\WithOwner;
     use Concerns\WithParent;
-    use HasFactory;
     use Scopes\ScopeFilterColumns;
     use Scopes\ScopeFilterDates;
     use Scopes\ScopeFilterFlags;
     use Scopes\ScopeFilterIds;
     use Scopes\ScopeFilterTrash;
+    use Scopes\ScopeIsActive;
+    use Scopes\ScopeIsNotClosed;
     use Scopes\ScopeSort;
     use SoftDeletes;
 
     protected $perPage = 15;
+
+    /**
+     * @return Attribute<string, string>
+     */
+    protected function labelOrTitle(): Attribute
+    {
+        return Attribute::make(
+            get: fn (mixed $value, array $attributes) => $attributes['label'] ?: $attributes['title'],
+            // get: function (string|null $value, array $attributes) {
+            //     return $attributes['label'] ?: $attributes['title'];
+            // },
+        );
+    }
 }

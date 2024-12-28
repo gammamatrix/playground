@@ -56,8 +56,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-develop": "73.x-dev",
-            "dev-master": "73.x-dev"
+            "dev-develop": "73.x-dev"
         },
         "laravel": {
             "providers": [
@@ -69,6 +68,6 @@
         "analyse": "vendor/bin/phpstan analyse --verbose --debug --level max",
         "cloc": "cloc --exclude-dir=output,vendor .",
         "format": "vendor/bin/php-cs-fixer fix",
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/testbench package:test"
     }
 }
