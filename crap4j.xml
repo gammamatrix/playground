@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-07-08 19:15:22</timestamp>
+  <timestamp>2024-12-28 19:09:30</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>28</methodCount>
+    <methodCount>32</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>227</totalCrap>
+    <totalCrap>239</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -177,6 +177,17 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
+      <package>Playground\Models</package>
+      <className>Playground\Models\Model</className>
+      <methodName>labelOrTitle</methodName>
+      <methodSignature>labelOrTitle(): Illuminate\Database\Eloquent\Casts\Attribute</methodSignature>
+      <fullMethod>labelOrTitle(): Illuminate\Database\Eloquent\Casts\Attribute</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
       <package>Playground\Models\Scopes</package>
       <className>Playground\Models\Scopes\ScopeFilterColumns</className>
       <methodName>scopeFilterColumns</methodName>
@@ -229,6 +240,39 @@
       <crap>7</crap>
       <complexity>7</complexity>
       <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Scopes</package>
+      <className>Playground\Models\Scopes\ScopeIsActive</className>
+      <methodName>scopeIsActive</methodName>
+      <methodSignature>scopeIsActive(Illuminate\Database\Eloquent\Builder $query): Illuminate\Database\Eloquent\Builder</methodSignature>
+      <fullMethod>scopeIsActive(Illuminate\Database\Eloquent\Builder $query): Illuminate\Database\Eloquent\Builder</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Scopes</package>
+      <className>Playground\Models\Scopes\ScopeIsNotClosed</className>
+      <methodName>scopeIsNotClosed</methodName>
+      <methodSignature>scopeIsNotClosed(Illuminate\Database\Eloquent\Builder $query): Illuminate\Database\Eloquent\Builder</methodSignature>
+      <fullMethod>scopeIsNotClosed(Illuminate\Database\Eloquent\Builder $query): Illuminate\Database\Eloquent\Builder</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models\Scopes</package>
+      <className>Playground\Models\Scopes\ScopeIsPublished</className>
+      <methodName>scopeIsPublished</methodName>
+      <methodSignature>scopeIsPublished(Illuminate\Database\Eloquent\Builder $query): Illuminate\Database\Eloquent\Builder</methodSignature>
+      <fullMethod>scopeIsPublished(Illuminate\Database\Eloquent\Builder $query): Illuminate\Database\Eloquent\Builder</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>

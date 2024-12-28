@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="1" branch-rate="0" lines-covered="495" lines-valid="495" branches-covered="0" branches-valid="0" complexity="227" version="0.4" timestamp="1720466122">
+<coverage line-rate="0.97633136094675" branch-rate="0" lines-covered="495" lines-valid="507" branches-covered="0" branches-valid="0" complexity="232" version="0.4" timestamp="1735412970">
   <sources>
     <source>/app/src</source>
   </sources>
@@ -281,14 +281,14 @@
           <methods>
             <method name="modifier" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="24" hits="1"/>
-                <line number="26" hits="1"/>
+                <line number="27" hits="1"/>
+                <line number="29" hits="1"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="24" hits="1"/>
-            <line number="26" hits="1"/>
+            <line number="27" hits="1"/>
+            <line number="29" hits="1"/>
           </lines>
         </class>
       </classes>
@@ -317,20 +317,20 @@
           <methods>
             <method name="parent" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="21" hits="1"/>
-                <line number="22" hits="1"/>
-                <line number="23" hits="1"/>
                 <line number="24" hits="1"/>
                 <line number="25" hits="1"/>
+                <line number="26" hits="1"/>
+                <line number="27" hits="1"/>
+                <line number="28" hits="1"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="21" hits="1"/>
-            <line number="22" hits="1"/>
-            <line number="23" hits="1"/>
             <line number="24" hits="1"/>
             <line number="25" hits="1"/>
+            <line number="26" hits="1"/>
+            <line number="27" hits="1"/>
+            <line number="28" hits="1"/>
           </lines>
         </class>
       </classes>
@@ -368,11 +368,29 @@
     <package name="Models/Contracts/WithParent.php" line-rate="0" branch-rate="0" complexity="0">
       <classes/>
     </package>
-    <package name="Models/Model.php" line-rate="0" branch-rate="0" complexity="0">
+    <package name="Models/Model.php" line-rate="0" branch-rate="0" complexity="2">
       <classes>
-        <class name="Playground\Models\Model" filename="Models/Model.php" line-rate="0" branch-rate="0" complexity="0">
-          <methods/>
-          <lines/>
+        <class name="Playground\Models\Model" filename="Models/Model.php" line-rate="0" branch-rate="0" complexity="2">
+          <methods>
+            <method name="labelOrTitle" signature="" line-rate="0" branch-rate="0" complexity="2">
+              <lines>
+                <line number="75" hits="0"/>
+                <line number="76" hits="0"/>
+                <line number="77" hits="0"/>
+                <line number="78" hits="0"/>
+                <line number="79" hits="0"/>
+                <line number="80" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="75" hits="0"/>
+            <line number="76" hits="0"/>
+            <line number="77" hits="0"/>
+            <line number="78" hits="0"/>
+            <line number="79" hits="0"/>
+            <line number="80" hits="0"/>
+          </lines>
         </class>
       </classes>
     </package>
@@ -916,6 +934,60 @@
         </class>
       </classes>
     </package>
+    <package name="Models/Scopes/ScopeIsActive.php" line-rate="0" branch-rate="0" complexity="1">
+      <classes>
+        <class name="Playground\Models\Scopes\ScopeIsActive" filename="Models/Scopes/ScopeIsActive.php" line-rate="0" branch-rate="0" complexity="1">
+          <methods>
+            <method name="scopeIsActive" signature="Illuminate\Database\Eloquent\Builder $query" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="24" hits="0"/>
+                <line number="26" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="24" hits="0"/>
+            <line number="26" hits="0"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="Models/Scopes/ScopeIsNotClosed.php" line-rate="0" branch-rate="0" complexity="1">
+      <classes>
+        <class name="Playground\Models\Scopes\ScopeIsNotClosed" filename="Models/Scopes/ScopeIsNotClosed.php" line-rate="0" branch-rate="0" complexity="1">
+          <methods>
+            <method name="scopeIsNotClosed" signature="Illuminate\Database\Eloquent\Builder $query" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="24" hits="0"/>
+                <line number="26" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="24" hits="0"/>
+            <line number="26" hits="0"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="Models/Scopes/ScopeIsPublished.php" line-rate="0" branch-rate="0" complexity="1">
+      <classes>
+        <class name="Playground\Models\Scopes\ScopeIsPublished" filename="Models/Scopes/ScopeIsPublished.php" line-rate="0" branch-rate="0" complexity="1">
+          <methods>
+            <method name="scopeIsPublished" signature="Illuminate\Database\Eloquent\Builder $query" line-rate="0" branch-rate="0" complexity="1">
+              <lines>
+                <line number="24" hits="0"/>
+                <line number="26" hits="0"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="24" hits="0"/>
+            <line number="26" hits="0"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
     <package name="Models/Scopes/ScopeSort.php" line-rate="1" branch-rate="0" complexity="16">
       <classes>
         <class name="Playground\Models\Scopes\ScopeSort" filename="Models/Scopes/ScopeSort.php" line-rate="1" branch-rate="0" complexity="16">
@@ -992,8 +1064,6 @@
           <methods>
             <method name="casts" signature="" line-rate="1" branch-rate="0" complexity="1">
               <lines>
-                <line number="284" hits="6"/>
-                <line number="285" hits="6"/>
                 <line number="286" hits="6"/>
                 <line number="287" hits="6"/>
                 <line number="288" hits="6"/>
@@ -1006,8 +1076,8 @@
                 <line number="295" hits="6"/>
                 <line number="296" hits="6"/>
                 <line number="297" hits="6"/>
+                <line number="298" hits="6"/>
                 <line number="299" hits="6"/>
-                <line number="300" hits="6"/>
                 <line number="301" hits="6"/>
                 <line number="302" hits="6"/>
                 <line number="303" hits="6"/>
@@ -1017,16 +1087,16 @@
                 <line number="307" hits="6"/>
                 <line number="308" hits="6"/>
                 <line number="309" hits="6"/>
+                <line number="310" hits="6"/>
                 <line number="311" hits="6"/>
-                <line number="312" hits="6"/>
                 <line number="313" hits="6"/>
                 <line number="314" hits="6"/>
                 <line number="315" hits="6"/>
                 <line number="316" hits="6"/>
                 <line number="317" hits="6"/>
                 <line number="318" hits="6"/>
+                <line number="319" hits="6"/>
                 <line number="320" hits="6"/>
-                <line number="321" hits="6"/>
                 <line number="322" hits="6"/>
                 <line number="323" hits="6"/>
                 <line number="324" hits="6"/>
@@ -1034,8 +1104,8 @@
                 <line number="326" hits="6"/>
                 <line number="327" hits="6"/>
                 <line number="328" hits="6"/>
+                <line number="329" hits="6"/>
                 <line number="330" hits="6"/>
-                <line number="331" hits="6"/>
                 <line number="332" hits="6"/>
                 <line number="333" hits="6"/>
                 <line number="334" hits="6"/>
@@ -1047,12 +1117,12 @@
                 <line number="340" hits="6"/>
                 <line number="341" hits="6"/>
                 <line number="342" hits="6"/>
+                <line number="343" hits="6"/>
+                <line number="344" hits="6"/>
               </lines>
             </method>
           </methods>
           <lines>
-            <line number="284" hits="6"/>
-            <line number="285" hits="6"/>
             <line number="286" hits="6"/>
             <line number="287" hits="6"/>
             <line number="288" hits="6"/>
@@ -1065,8 +1135,8 @@
             <line number="295" hits="6"/>
             <line number="296" hits="6"/>
             <line number="297" hits="6"/>
+            <line number="298" hits="6"/>
             <line number="299" hits="6"/>
-            <line number="300" hits="6"/>
             <line number="301" hits="6"/>
             <line number="302" hits="6"/>
             <line number="303" hits="6"/>
@@ -1076,16 +1146,16 @@
             <line number="307" hits="6"/>
             <line number="308" hits="6"/>
             <line number="309" hits="6"/>
+            <line number="310" hits="6"/>
             <line number="311" hits="6"/>
-            <line number="312" hits="6"/>
             <line number="313" hits="6"/>
             <line number="314" hits="6"/>
             <line number="315" hits="6"/>
             <line number="316" hits="6"/>
             <line number="317" hits="6"/>
             <line number="318" hits="6"/>
+            <line number="319" hits="6"/>
             <line number="320" hits="6"/>
-            <line number="321" hits="6"/>
             <line number="322" hits="6"/>
             <line number="323" hits="6"/>
             <line number="324" hits="6"/>
@@ -1093,8 +1163,8 @@
             <line number="326" hits="6"/>
             <line number="327" hits="6"/>
             <line number="328" hits="6"/>
+            <line number="329" hits="6"/>
             <line number="330" hits="6"/>
-            <line number="331" hits="6"/>
             <line number="332" hits="6"/>
             <line number="333" hits="6"/>
             <line number="334" hits="6"/>
@@ -1106,6 +1176,8 @@
             <line number="340" hits="6"/>
             <line number="341" hits="6"/>
             <line number="342" hits="6"/>
+            <line number="343" hits="6"/>
+            <line number="344" hits="6"/>
           </lines>
         </class>
       </classes>
