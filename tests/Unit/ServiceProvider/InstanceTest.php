@@ -4,6 +4,7 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Tests\Unit\Playground\ServiceProvider;
 
 use Playground\ServiceProvider;
@@ -22,7 +23,7 @@ class InstanceTest extends TestCase
         $this->assertIsString(ServiceProvider::VERSION);
     }
 
-    public function test_userPrimaryKeyType_with_empty_model(): void
+    public function test_user_primary_key_type_with_empty_model(): void
     {
         $instance = (new \ReflectionClass(ServiceProvider::class))->newInstanceWithoutConstructor();
 
@@ -36,7 +37,7 @@ class InstanceTest extends TestCase
         );
     }
 
-    public function test_userPrimaryKeyType_with_incrementing_model(): void
+    public function test_user_primary_key_type_with_incrementing_model(): void
     {
         $instance = (new \ReflectionClass(ServiceProvider::class))->newInstanceWithoutConstructor();
 
@@ -50,7 +51,7 @@ class InstanceTest extends TestCase
         );
     }
 
-    public function test_userPrimaryKeyType_with_uuid_model(): void
+    public function test_user_primary_key_type_with_uuid_model(): void
     {
         $instance = (new \ReflectionClass(ServiceProvider::class))->newInstanceWithoutConstructor();
 
@@ -64,7 +65,7 @@ class InstanceTest extends TestCase
         );
     }
 
-    public function test_userPrimaryKeyType_with_exception(): void
+    public function test_user_primary_key_type_with_exception(): void
     {
         $log = LogFake::bind();
 

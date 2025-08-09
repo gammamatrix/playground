@@ -4,6 +4,7 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Playground\Models\Scopes;
 
 use Carbon\Exceptions\InvalidFormatException;
@@ -18,9 +19,9 @@ use Illuminate\Support\Facades\Log;
 trait ScopeFilterDates
 {
     /**
-     * @param Builder<Model> $query
-     * @param array<string, mixed> $dates
-     * @param array<string, mixed> $validated
+     * @param  Builder<Model>  $query
+     * @param  array<string, mixed>  $dates
+     * @param  array<string, mixed>  $validated
      * @return Builder<Model>
      */
     public static function scopeFilterDates(

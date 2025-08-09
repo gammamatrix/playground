@@ -4,6 +4,7 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Playground\Models\Scopes;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -16,9 +17,9 @@ use Ramsey\Uuid\Uuid;
 trait ScopeFilterIds
 {
     /**
-     * @param Builder<Model> $query
-     * @param array<string, mixed> $ids
-     * @param array<string, mixed> $validated
+     * @param  Builder<Model>  $query
+     * @param  array<string, mixed>  $ids
+     * @param  array<string, mixed>  $validated
      * @return Builder<Model>
      */
     public static function scopeFilterIds(

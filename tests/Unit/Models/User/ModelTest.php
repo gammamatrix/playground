@@ -4,6 +4,7 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Tests\Unit\Playground\Models\User;
 
 use Playground\Models\User as TestModel;
@@ -14,7 +15,7 @@ use Tests\Unit\Playground\TestCase;
  */
 class ModelTest extends TestCase
 {
-    public function test_add_has_and_remove_Abilities(): void
+    public function test_add_has_and_remove_abilities(): void
     {
         $instance = new TestModel;
 
@@ -48,7 +49,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($abilities);
     }
 
-    public function test_add_has_and_remove_Privileges(): void
+    public function test_add_has_and_remove_privileges(): void
     {
         $instance = new TestModel;
 
@@ -82,7 +83,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($privileges);
     }
 
-    public function test_add_has_and_remove_Roles(): void
+    public function test_add_has_and_remove_roles(): void
     {
         $primary_role = 'vendor';
 
@@ -143,15 +144,15 @@ class ModelTest extends TestCase
         $this->assertEmpty($roles);
     }
 
-    public function test_isAdmin_with_admins_and_users(): void
+    public function test_is_admin_with_admins_and_users(): void
     {
-        $instance_root = new TestModel();
+        $instance_root = new TestModel;
         $this->assertFalse($instance_root->isAdmin());
         $instance_root->setAttribute('role', 'root');
         $this->assertTrue($instance_root->hasRole('root'));
         $this->assertTrue($instance_root->isAdmin());
 
-        $instance_admin_secondary = new TestModel();
+        $instance_admin_secondary = new TestModel;
         $instance_admin_secondary->setAttribute('role', 'manager');
         $this->assertFalse($instance_admin_secondary->isAdmin());
         $this->assertTrue($instance_admin_secondary->hasRole('manager'));

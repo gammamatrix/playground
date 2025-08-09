@@ -4,23 +4,22 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Playground\Models\Contracts;
 
 /**
  * \Playground\Models\Contracts\WithMatrix
  *
- * @property string $matrix
+ * @property ?array<string, mixed> $matrix
  * @property ?int $x
  * @property ?int $y
  * @property ?int $z
- * @property ?double $r
- * @property ?double $theta
- * @property ?double $rho
- * @property ?double $phi
- * @property ?double $elevation
- * @property ?double $latitude
- * @property ?double $longitude
+ * @property ?float $r
+ * @property ?float $theta
+ * @property ?float $rho
+ * @property ?float $phi
+ * @property ?float $elevation
+ * @property ?float $latitude
+ * @property ?float $longitude
  */
-interface WithMatrix
-{
-}
+interface WithMatrix {}

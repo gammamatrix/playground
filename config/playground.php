@@ -2,6 +2,14 @@
 
 declare(strict_types=1);
 
+/**
+ * @return array{
+ *     about: bool,
+ *     load: array{migrations: bool},
+ *     packages: string[],
+ *     date: array{sql: string}
+ * }
+ */
 return [
 
     'about' => (bool) env('PLAYGROUND_ABOUT', true),

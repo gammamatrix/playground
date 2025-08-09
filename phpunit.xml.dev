@@ -71,7 +71,8 @@
         <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="SESSION_DRIVER" value="array"/>
         <env name="TELESCOPE_ENABLED" value="false"/>
-        <env name="TEST_DB_MIGRATIONS" value="true"/>
+        <env name="PLAYGROUND_TEST_DB_MIGRATIONS" value="true"/>
+        <env name="PLAYGROUND_TEST_PASSWORD" value="password-123"/>
         <ini name="memory_limit" value="128M" />
     </php>
 </phpunit>

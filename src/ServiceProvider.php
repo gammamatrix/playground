@@ -4,10 +4,12 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Playground;
 
 use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider;
+use Illuminate\Support\Facades\App;
 
 /**
  * \Playground\ServiceProvider
@@ -16,18 +18,15 @@ class ServiceProvider extends AuthServiceProvider
 {
     protected string $package = 'playground';
 
-    public const VERSION = '73.0.0';
+    public const string VERSION = '73.0.0';
 
     public function boot(): void
     {
-        /**
-         * @var array<string, mixed> $config
-         */
         $config = config($this->package);
 
         if (! empty($config['load']) && is_array($config['load'])) {
 
-            if ($this->app->runningInConsole()) {
+            if (App::runningInConsole()) {
                 // Publish configuration
                 $this->publishes([
                     sprintf('%1$s/config/%2$s.php', dirname(__DIR__), $this->package) => config_path(sprintf('%1$s.php', $this->package)),
@@ -65,7 +64,7 @@ class ServiceProvider extends AuthServiceProvider
     }
 
     /**
-     * @param array<string, mixed> $config
+     * @param  array<string, mixed>  $config
      */
     public function about(array $config): void
     {
@@ -116,9 +115,9 @@ class ServiceProvider extends AuthServiceProvider
     }
 
     /**
-     * @param ?class-string $auth_providers_users_model
+     * @param  ?class-string  $auth_providers_users_model
      */
-    public function userPrimaryKeyType(string $auth_providers_users_model = null): string
+    public function userPrimaryKeyType(?string $auth_providers_users_model = null): string
     {
         try {
             if (! $auth_providers_users_model || ! class_exists($auth_providers_users_model)) {
@@ -174,7 +173,7 @@ class ServiceProvider extends AuthServiceProvider
     protected bool $userHasPlaygroundMatrixContracts;
 
     /**
-     * @param class-string $auth_providers_users_model
+     * @param  class-string  $auth_providers_users_model
      */
     private function userPrimaryKeyTypeParse(string $auth_providers_users_model): string
     {

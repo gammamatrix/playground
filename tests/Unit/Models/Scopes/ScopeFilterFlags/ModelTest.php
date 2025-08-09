@@ -4,6 +4,7 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Tests\Unit\Playground\Models\Scopes\ScopeFilterFlags;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -33,7 +34,7 @@ class ModelTest extends TestCase
         Carbon::setTestNow(Carbon::now());
     }
 
-    public function test_scopeFilterFlags_returns_query_without_flags_or_filters(): void
+    public function test_scope_filter_flags_returns_query_without_flags_or_filters(): void
     {
         $instance = new TestModel;
 
@@ -49,7 +50,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeFilterFlags_returns_query_without_filters(): void
+    public function test_scope_filter_flags_returns_query_without_filters(): void
     {
         $instance = new TestModel;
 
@@ -72,7 +73,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterFlags_returns_query_with_filters(): void
+    public function test_scope_filter_flags_returns_query_with_filters(): void
     {
         $instance = new TestModel;
 

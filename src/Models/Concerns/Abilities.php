@@ -4,6 +4,7 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Playground\Models\Concerns;
 
 /**
@@ -14,7 +15,7 @@ trait Abilities
     /**
      * Checks to see if the user has the ability.
      *
-     * @param mixed $ability The ability to check.
+     * @param  mixed  $ability  The ability to check.
      */
     public function hasAbility(mixed $ability): bool
     {
@@ -28,9 +29,9 @@ trait Abilities
     }
 
     /**
-     * Add a ability to the model.
+     * Add an ability to the model.
      *
-     * @param mixed $ability The ability to add to the model.
+     * @param  mixed  $ability  The ability to add to the model.
      */
     public function addAbility(mixed $ability): void
     {
@@ -52,9 +53,9 @@ trait Abilities
     }
 
     /**
-     * Remove a ability from the model.
+     * Remove an ability from the model.
      *
-     * @param mixed $ability The ability to remove from the model.
+     * @param  mixed  $ability  The ability to remove from the model.
      */
     public function removeAbility(mixed $ability): void
     {

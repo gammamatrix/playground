@@ -4,6 +4,7 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Playground\Models;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -28,26 +29,20 @@ use Illuminate\Support\Carbon;
  * @property ?scalar $modified_by_id
  * @property ?scalar $owned_by_id
  * @property string $matrix
- * @property ?double $r
- * @property ?double $theta
- * @property ?double $rho
- * @property ?double $phi
- * @property ?double $elevation
- * @property ?double $latitude
- * @property ?double $longitude
+ * @property ?float $r
+ * @property ?float $theta
+ * @property ?float $rho
+ * @property ?float $phi
+ * @property ?float $elevation
+ * @property ?float $latitude
+ * @property ?float $longitude
  * @property ?int $x
  * @property ?int $y
  * @property ?int $z
  *
  * @mixin UuidModel
  */
-abstract class Model extends UuidModel implements
-    Contracts\WithChildren,
-    Contracts\WithCreator,
-    Contracts\WithMatrix,
-    Contracts\WithModifier,
-    Contracts\WithOwner,
-    Contracts\WithParent
+abstract class Model extends UuidModel implements Contracts\WithChildren, Contracts\WithCreator, Contracts\WithMatrix, Contracts\WithModifier, Contracts\WithOwner, Contracts\WithParent
 {
     use Concerns\WithChildren;
     use Concerns\WithCreator;

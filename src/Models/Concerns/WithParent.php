@@ -1,9 +1,11 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Playground\Models\Concerns;
 
 use Illuminate\Database\Eloquent\Model;

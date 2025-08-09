@@ -4,6 +4,7 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Tests\Unit\Playground\Models\Scopes\ScopeFilterTrash;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -33,7 +34,7 @@ class ModelTest extends TestCase
         Carbon::setTestNow(Carbon::now());
     }
 
-    public function test_scopeFilterTrash_returns_query_with_empty_visibility(): void
+    public function test_scope_filter_trash_returns_query_with_empty_visibility(): void
     {
         $instance = new TestModel;
 
@@ -49,7 +50,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeFilterTrash_returns_query_with_trash(): void
+    public function test_scope_filter_trash_returns_query_with_trash(): void
     {
         $instance = new TestModel;
 
@@ -67,7 +68,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeFilterTrash_returns_query_with_only_trash(): void
+    public function test_scope_filter_trash_returns_query_with_only_trash(): void
     {
         $instance = new TestModel;
 

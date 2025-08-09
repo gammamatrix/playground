@@ -4,6 +4,7 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Tests\Feature\Playground;
 
 use Illuminate\Foundation\Testing\DatabaseTransactions;

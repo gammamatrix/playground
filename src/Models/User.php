@@ -4,6 +4,7 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Playground\Models;
 
 use Database\Factories\Playground\Models\UserFactory;
@@ -39,13 +40,13 @@ use Laravel\Sanctum;
  * @property ?int $x
  * @property ?int $y
  * @property ?int $z
- * @property ?double $r
- * @property ?double $theta
- * @property ?double $rho
- * @property ?double $phi
- * @property ?double $elevation
- * @property ?double $latitude
- * @property ?double $longitude
+ * @property ?float $r
+ * @property ?float $theta
+ * @property ?float $rho
+ * @property ?float $phi
+ * @property ?float $elevation
+ * @property ?float $latitude
+ * @property ?float $longitude
  * @property bool $active
  * @property bool $banned
  * @property bool $flagged
@@ -81,16 +82,7 @@ use Laravel\Sanctum;
  *
  * @link https://github.com/gammamatrix/playground/wiki
  */
-class User extends Authenticatable implements
-    Contracts\Abilities,
-    Contracts\Admin,
-    Contracts\Privileges,
-    Contracts\Role,
-    Contracts\WithCreator,
-    Contracts\WithMatrix,
-    Contracts\WithModifier,
-    MustVerifyEmail,
-    Sanctum\Contracts\HasApiTokens
+class User extends Authenticatable implements Contracts\Abilities, Contracts\Admin, Contracts\Privileges, Contracts\Role, Contracts\WithCreator, Contracts\WithMatrix, Contracts\WithModifier, MustVerifyEmail, Sanctum\Contracts\HasApiTokens
 {
     use Concerns\Abilities;
     use Concerns\Admin;

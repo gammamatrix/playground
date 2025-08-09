@@ -4,6 +4,7 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Playground\Models\Scopes;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -15,9 +16,9 @@ use Illuminate\Database\Eloquent\Model;
 trait ScopeFilterFlags
 {
     /**
-     * @param Builder<Model> $query
-     * @param array<string, mixed> $flags
-     * @param array<string, mixed> $validated
+     * @param  Builder<Model>  $query
+     * @param  array<string, mixed>  $flags
+     * @param  array<string, mixed>  $validated
      * @return Builder<Model>
      */
     public static function scopeFilterFlags(

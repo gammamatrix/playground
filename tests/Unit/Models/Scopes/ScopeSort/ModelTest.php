@@ -4,6 +4,7 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Tests\Unit\Playground\Models\Scopes\ScopeSort;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -33,7 +34,7 @@ class ModelTest extends TestCase
         Carbon::setTestNow(Carbon::now());
     }
 
-    public function test_scopeSort_returns_query_with_empty_sort(): void
+    public function test_scope_sort_returns_query_with_empty_sort(): void
     {
         $instance = new TestModel;
 
@@ -51,7 +52,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_array_boolean_sort_asc(): void
+    public function test_scope_sort_returns_query_with_array_boolean_sort_asc(): void
     {
         $instance = new TestModel;
 
@@ -71,7 +72,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_array_boolean_sort_desc(): void
+    public function test_scope_sort_returns_query_with_array_boolean_sort_desc(): void
     {
         $instance = new TestModel;
 
@@ -91,7 +92,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_array_boolean_sort_pair(): void
+    public function test_scope_sort_returns_query_with_array_boolean_sort_pair(): void
     {
         $instance = new TestModel;
 
@@ -112,7 +113,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_array_boolean_sort_triplet(): void
+    public function test_scope_sort_returns_query_with_array_boolean_sort_triplet(): void
     {
         $instance = new TestModel;
 
@@ -134,7 +135,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_csv_sort_asc(): void
+    public function test_scope_sort_returns_query_with_csv_sort_asc(): void
     {
         $instance = new TestModel;
 
@@ -150,7 +151,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_csv_sort_desc(): void
+    public function test_scope_sort_returns_query_with_csv_sort_desc(): void
     {
         $instance = new TestModel;
 
@@ -175,7 +176,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_simple_array_asc(): void
+    public function test_scope_sort_returns_query_with_simple_array_asc(): void
     {
         $instance = new TestModel;
 
@@ -193,7 +194,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_simple_array_desc(): void
+    public function test_scope_sort_returns_query_with_simple_array_desc(): void
     {
         $instance = new TestModel;
 
@@ -211,7 +212,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_hash_array_asc(): void
+    public function test_scope_sort_returns_query_with_hash_array_asc(): void
     {
         $instance = new TestModel;
 
@@ -231,7 +232,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeSort_returns_query_with_hash_array_desc(): void
+    public function test_scope_sort_returns_query_with_hash_array_desc(): void
     {
         $instance = new TestModel;
 

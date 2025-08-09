@@ -4,6 +4,7 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Tests\Unit\Playground\Models\Scopes\ScopeFilterDates;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -33,7 +34,7 @@ class ModelTest extends TestCase
         Carbon::setTestNow(Carbon::now());
     }
 
-    public function test_scopeFilterDates_returns_query_without_dates_or_filters(): void
+    public function test_scope_filter_dates_returns_query_without_dates_or_filters(): void
     {
         $instance = new TestModel;
 
@@ -49,7 +50,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeFilterDates_returns_query_without_filters(): void
+    public function test_scope_filter_dates_returns_query_without_filters(): void
     {
         $instance = new TestModel;
 
@@ -72,7 +73,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterDates_returns_query_with_invalid_column(): void
+    public function test_scope_filter_dates_returns_query_with_invalid_column(): void
     {
         $instance = new TestModel;
 
@@ -102,7 +103,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterDates_returns_query_with_filters_without_meta_for_strings(): void
+    public function test_scope_filter_dates_returns_query_with_filters_without_meta_for_strings(): void
     {
         $instance = new TestModel;
 
@@ -137,7 +138,7 @@ class ModelTest extends TestCase
         $this->assertSame($validated['filter']['updated_at'].' 00:00:00', $bindings[0]);
     }
 
-    public function test_scopeFilterDates_returns_query_with_null_comparison_and_ignore(): void
+    public function test_scope_filter_dates_returns_query_with_null_comparison_and_ignore(): void
     {
         $instance = new TestModel;
 
@@ -172,7 +173,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterDates_returns_query_with_null_comparison_and_allow(): void
+    public function test_scope_filter_dates_returns_query_with_null_comparison_and_allow(): void
     {
         $instance = new TestModel;
 
@@ -207,7 +208,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterDates_returns_query_with_comparison(): void
+    public function test_scope_filter_dates_returns_query_with_comparison(): void
     {
         $instance = new TestModel;
 
@@ -240,7 +241,7 @@ class ModelTest extends TestCase
         $this->assertSame(Carbon::now()->format('Y-m-d H:i:s'), $bindings[0]);
     }
 
-    public function test_scopeFilterDates_returns_query_with_wildcard(): void
+    public function test_scope_filter_dates_returns_query_with_wildcard(): void
     {
         $instance = new TestModel;
 
@@ -272,7 +273,7 @@ class ModelTest extends TestCase
         $this->assertSame($validated['filter']['updated_at'], $bindings[0]);
     }
 
-    public function test_scopeFilterDates_returns_query_with_operator_wildcard(): void
+    public function test_scope_filter_dates_returns_query_with_operator_wildcard(): void
     {
         $instance = new TestModel;
 
@@ -306,7 +307,7 @@ class ModelTest extends TestCase
         $this->assertSame($validated['filter']['updated_at']['value'], $bindings[0]);
     }
 
-    public function test_scopeFilterDates_returns_query_with_object_value_and_ignore(): void
+    public function test_scope_filter_dates_returns_query_with_object_value_and_ignore(): void
     {
         $instance = new TestModel;
 
@@ -339,7 +340,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterDates_returns_query_with_unnullable_value_and_ignore(): void
+    public function test_scope_filter_dates_returns_query_with_unnullable_value_and_ignore(): void
     {
         $instance = new TestModel;
 
@@ -371,7 +372,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterDates_returns_query_with_invalid_operator_and_use_like(): void
+    public function test_scope_filter_dates_returns_query_with_invalid_operator_and_use_like(): void
     {
         $instance = new TestModel;
 
@@ -409,7 +410,7 @@ class ModelTest extends TestCase
         );
     }
 
-    public function test_scopeFilterDates_returns_query_with_invalid_parsable_value_and_ignore(): void
+    public function test_scope_filter_dates_returns_query_with_invalid_parsable_value_and_ignore(): void
     {
         $instance = new TestModel;
 
@@ -442,7 +443,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterDates_returns_query_with_short_date_and_gte_operator(): void
+    public function test_scope_filter_dates_returns_query_with_short_date_and_gte_operator(): void
     {
         $instance = new TestModel;
 
@@ -477,7 +478,7 @@ class ModelTest extends TestCase
         $this->assertSame($validated['filter']['updated_at']['value'], $bindings[0]);
     }
 
-    public function test_scopeFilterDates_returns_query_with_phrase_date_and_automatically_parse(): void
+    public function test_scope_filter_dates_returns_query_with_phrase_date_and_automatically_parse(): void
     {
         $instance = new TestModel;
 
@@ -515,7 +516,7 @@ class ModelTest extends TestCase
         );
     }
 
-    public function test_scopeFilterDates_with_between_filter_operator_with_parse(): void
+    public function test_scope_filter_dates_with_between_filter_operator_with_parse(): void
     {
         $instance = new TestModel;
 
@@ -560,7 +561,7 @@ class ModelTest extends TestCase
         $this->assertCount(2, $bindings);
     }
 
-    public function test_scopeFilterDates_with_not_between_filter_operator_with_parse(): void
+    public function test_scope_filter_dates_with_not_between_filter_operator_with_parse(): void
     {
         $instance = new TestModel;
 
@@ -605,7 +606,7 @@ class ModelTest extends TestCase
         $this->assertCount(2, $bindings);
     }
 
-    public function test_scopeFilterDates_with_filter_operators(): void
+    public function test_scope_filter_dates_with_filter_operators(): void
     {
         $instance = new TestModel;
 

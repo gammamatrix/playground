@@ -4,6 +4,7 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Tests\Unit\Playground\Models\Model;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -16,35 +17,35 @@ use Tests\Unit\Playground\TestCase;
  */
 class ModelTest extends TestCase
 {
-    public function test_WithChildren_children_returns_HasMany(): void
+    public function test_with_children_children_returns_has_many(): void
     {
         $instance = new TestModel;
 
         $this->assertInstanceOf(HasMany::class, $instance->children());
     }
 
-    public function test_WithCreator_creator_returns_HasOne(): void
+    public function test_with_creator_creator_returns_has_one(): void
     {
         $instance = new TestModel;
 
         $this->assertInstanceOf(HasOne::class, $instance->creator());
     }
 
-    public function test_WithModifier_modifier_returns_HasOne(): void
+    public function test_with_modifier_modifier_returns_has_one(): void
     {
         $instance = new TestModel;
 
         $this->assertInstanceOf(HasOne::class, $instance->modifier());
     }
 
-    public function test_WithOwner_owner_returns_HasOne(): void
+    public function test_with_owner_owner_returns_has_one(): void
     {
         $instance = new TestModel;
 
         $this->assertInstanceOf(HasOne::class, $instance->owner());
     }
 
-    public function test_WithParent_parent_returns_HasOne(): void
+    public function test_with_parent_parent_returns_has_one(): void
     {
         $instance = new TestModel;
 

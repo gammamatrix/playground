@@ -4,6 +4,7 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Playground\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;

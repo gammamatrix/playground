@@ -4,6 +4,7 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Tests\Unit\Playground\Models\Scopes\ScopeFilterColumns;
 
 use Illuminate\Database\Eloquent\Builder;
@@ -33,7 +34,7 @@ class ModelTest extends TestCase
         Carbon::setTestNow(Carbon::now());
     }
 
-    public function test_scopeFilterColumns_returns_query_without_columns_or_filters(): void
+    public function test_scope_filter_columns_returns_query_without_columns_or_filters(): void
     {
         $instance = new TestModel;
 
@@ -49,7 +50,7 @@ class ModelTest extends TestCase
         $this->assertSame($this->replace_quotes($sql), $query->toSql());
     }
 
-    public function test_scopeFilterColumns_returns_query_without_filters(): void
+    public function test_scope_filter_columns_returns_query_without_filters(): void
     {
         $instance = new TestModel;
 
@@ -72,7 +73,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterColumns_returns_query_with_invalid_column(): void
+    public function test_scope_filter_columns_returns_query_with_invalid_column(): void
     {
         $instance = new TestModel;
 
@@ -102,7 +103,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterColumns_returns_query_with_filters_without_meta_for_strings(): void
+    public function test_scope_filter_columns_returns_query_with_filters_without_meta_for_strings(): void
     {
         $instance = new TestModel;
 
@@ -140,7 +141,7 @@ class ModelTest extends TestCase
         $this->assertCount(2, $bindings);
     }
 
-    public function test_scopeFilterColumns_returns_query_with_null_comparison_and_ignore(): void
+    public function test_scope_filter_columns_returns_query_with_null_comparison_and_ignore(): void
     {
         $instance = new TestModel;
 
@@ -171,7 +172,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterColumns_returns_query_with_comparison(): void
+    public function test_scope_filter_columns_returns_query_with_comparison(): void
     {
         $instance = new TestModel;
 
@@ -203,7 +204,7 @@ class ModelTest extends TestCase
         $this->assertSame($validated['filter']['title'], $bindings[0]);
     }
 
-    public function test_scopeFilterColumns_with_boolean_filter_type_and_null_value(): void
+    public function test_scope_filter_columns_with_boolean_filter_type_and_null_value(): void
     {
         $instance = new TestModel;
 
@@ -237,7 +238,7 @@ class ModelTest extends TestCase
         $this->assertCount(1, $bindings);
     }
 
-    public function test_scopeFilterColumns_with_boolean_filter_type_and_true_value(): void
+    public function test_scope_filter_columns_with_boolean_filter_type_and_true_value(): void
     {
         $instance = new TestModel;
 
@@ -271,7 +272,7 @@ class ModelTest extends TestCase
         $this->assertCount(1, $bindings);
     }
 
-    public function test_scopeFilterColumns_with_boolean_filter_type_and_false_value(): void
+    public function test_scope_filter_columns_with_boolean_filter_type_and_false_value(): void
     {
         $instance = new TestModel;
 
@@ -305,7 +306,7 @@ class ModelTest extends TestCase
         $this->assertCount(1, $bindings);
     }
 
-    public function test_scopeFilterColumns_with_filter_operator_without_operator_and_default_to_like(): void
+    public function test_scope_filter_columns_with_filter_operator_without_operator_and_default_to_like(): void
     {
         $instance = new TestModel;
 
@@ -339,7 +340,7 @@ class ModelTest extends TestCase
         $this->assertCount(1, $bindings);
     }
 
-    public function test_scopeFilterColumns_with_filter_operators(): void
+    public function test_scope_filter_columns_with_filter_operators(): void
     {
         $instance = new TestModel;
 
@@ -426,7 +427,7 @@ class ModelTest extends TestCase
         }
     }
 
-    public function test_scopeFilterColumns_with_between_filter_operator_without_single_parameter_and_ignore_between(): void
+    public function test_scope_filter_columns_with_between_filter_operator_without_single_parameter_and_ignore_between(): void
     {
         $instance = new TestModel;
 
@@ -459,7 +460,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterColumns_with_between_filter_operator(): void
+    public function test_scope_filter_columns_with_between_filter_operator(): void
     {
         $instance = new TestModel;
 
@@ -496,7 +497,7 @@ class ModelTest extends TestCase
         $this->assertCount(2, $bindings);
     }
 
-    public function test_scopeFilterColumns_with_not_between_filter_operator_without_single_parameter_and_ignore_between(): void
+    public function test_scope_filter_columns_with_not_between_filter_operator_without_single_parameter_and_ignore_between(): void
     {
         $instance = new TestModel;
 
@@ -529,7 +530,7 @@ class ModelTest extends TestCase
         $this->assertEmpty($bindings);
     }
 
-    public function test_scopeFilterColumns_with_not_between_filter_operator(): void
+    public function test_scope_filter_columns_with_not_between_filter_operator(): void
     {
         $instance = new TestModel;
 

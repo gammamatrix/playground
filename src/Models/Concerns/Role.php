@@ -4,6 +4,7 @@ declare(strict_types=1);
 /**
  * Playground
  */
+
 namespace Playground\Models\Concerns;
 
 /**
@@ -17,7 +18,7 @@ trait Role
     /**
      * Checks to see if the model has the role.
      *
-     * @param mixed $role The role to check.
+     * @param  mixed  $role  The role to check.
      */
     public function hasRole(mixed $role): bool
     {
@@ -37,7 +38,7 @@ trait Role
     /**
      * Add a role to the model.
      *
-     * @param mixed $role The role to add to the model.
+     * @param  mixed  $role  The role to add to the model.
      */
     public function addRole(mixed $role): void
     {
@@ -64,7 +65,7 @@ trait Role
     /**
      * Remove a role from the model.
      *
-     * @param mixed $role The role to remove from the model.
+     * @param  mixed  $role  The role to remove from the model.
      */
     public function removeRole(mixed $role): void
     {

@@ -1,9 +1,11 @@
 <?php
+
 /**
  * Playground
  */
 
 declare(strict_types=1);
+
 namespace Tests\Unit\Playground;
 
 /**
@@ -17,6 +19,7 @@ trait PackageProviders
     {
         return [
             \Playground\ServiceProvider::class,
+            \Playground\Test\ServiceProvider::class,
         ];
     }
 }
