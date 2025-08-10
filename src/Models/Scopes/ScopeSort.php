@@ -43,12 +43,12 @@ trait ScopeSort
                     continue;
                 }
                 $direction = 'asc';
-                if ($csv) {
+                if ($csv && is_string($value)) {
                     $column = ltrim($value, '-');
-                    $direction = strpos($value, '-') === 0 ? 'desc' : 'asc';
-                } elseif (is_numeric($key)) {
+                    $direction = str_starts_with($value, '-') ? 'desc' : 'asc';
+                } elseif (is_numeric($key) && is_string($value)) {
                     $column = ltrim($value, '-');
-                    $direction = strpos($value, '-') === 0 ? 'desc' : 'asc';
+                    $direction = str_starts_with($value, '-') ? 'desc' : 'asc';
                 } elseif (is_bool($value)) {
                     $column = $key;
                     $direction = $value ? 'asc' : 'desc';

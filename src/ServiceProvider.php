@@ -10,6 +10,7 @@ namespace Playground;
 use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Log;
 
 /**
  * \Playground\ServiceProvider
@@ -18,10 +19,18 @@ class ServiceProvider extends AuthServiceProvider
 {
     protected string $package = 'playground';
 
-    public const string VERSION = '73.0.0';
+    public const string VERSION = '74.0.0';
 
     public function boot(): void
     {
+        /**
+         * @var array{
+         *      about: bool,
+         *      load: array{migrations: bool},
+         *      packages: string[],
+         *      date: array{sql: string}
+         *  } $config
+         */
         $config = config($this->package);
 
         if (! empty($config['load']) && is_array($config['load'])) {
@@ -126,7 +135,7 @@ class ServiceProvider extends AuthServiceProvider
 
             return $this->userPrimaryKeyTypeParse($auth_providers_users_model);
         } catch (\Throwable $th) {
-            \Log::debug($th->__toString());
+            Log::debug($th->__toString());
 
             return '<fg=red;options=bold>error</>';
         }
@@ -179,7 +188,7 @@ class ServiceProvider extends AuthServiceProvider
     {
         $model_info = '';
         /**
-         * @var \Illuminate\Contracts\Auth\Authenticatable
+         * @var \Illuminate\Contracts\Auth\Authenticatable $user
          */
         $user = new $auth_providers_users_model;
 

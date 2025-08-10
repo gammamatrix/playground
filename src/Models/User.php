@@ -36,7 +36,7 @@ use Laravel\Sanctum;
  * @property int $status
  * @property int $rank
  * @property int $size
- * @property string $matrix
+ * @property array<string, mixed> $matrix
  * @property ?int $x
  * @property ?int $y
  * @property ?int $z
@@ -64,18 +64,20 @@ use Laravel\Sanctum;
  * @property string $description
  * @property string $image
  * @property string $avatar
- * @property array $abilities
- * @property array $accounts
- * @property array $address
- * @property array $contact
- * @property array $meta
- * @property array $notes
- * @property array $options
- * @property array $registration
- * @property array $roles
- * @property array $permissions
- * @property array $privileges
- * @property array $ui
+ * @property array<string, mixed> $abilities
+ * @property array<string, mixed> $accounts
+ * @property array<string, mixed> $address
+ * @property array<string, mixed> $contact
+ * @property array<string, mixed> $meta
+ * @property array<int, array<string, mixed>> $notes
+ * @property array<string, mixed> $options
+ * @property array<string, mixed> $registration
+ * @property array<string, mixed> $roles
+ * @property array<string, mixed> $permissions
+ * @property array<string, mixed> $privileges
+ * @property array<string, mixed> $ui
+ *
+ * @mixin \Illuminate\Database\Eloquent\Model
  *
  * NOTE: This model does not include all available Laravel and Playground
  *       features. Read more on the Playground Wiki.
@@ -105,11 +107,6 @@ class User extends Authenticatable implements Contracts\Abilities, Contracts\Adm
     use Scopes\ScopeSort;
     use SoftDeletes;
 
-    /**
-     * The default values for attributes.
-     *
-     * @var array<string, mixed>
-     */
     protected $attributes = [
         'created_by_id' => null,
         'modified_by_id' => null,
@@ -180,11 +177,6 @@ class User extends Authenticatable implements Contracts\Abilities, Contracts\Adm
         'sources' => '[]',
     ];
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
     protected $fillable = [
         'user_type',
         'resolved_at',
@@ -241,11 +233,6 @@ class User extends Authenticatable implements Contracts\Abilities, Contracts\Adm
         'sources',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'banned_at',
         'suspended_at',

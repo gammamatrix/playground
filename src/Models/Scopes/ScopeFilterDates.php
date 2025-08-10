@@ -84,10 +84,12 @@ trait ScopeFilterDates
                 }
             } elseif (is_array($validated['filter'][$column])) {
 
-                if (! empty($validated['filter'][$column]['operator']) && array_key_exists(
-                    strtoupper($validated['filter'][$column]['operator']),
-                    $filter_operators
-                )) {
+                if (! empty($validated['filter'][$column]['operator'])
+                    && is_string($validated['filter'][$column]['operator'])
+                    && array_key_exists(
+                        strtoupper($validated['filter'][$column]['operator']),
+                        $filter_operators
+                    )) {
                     $filter_operator = strtoupper($validated['filter'][$column]['operator']);
                 }
 
@@ -142,8 +144,9 @@ trait ScopeFilterDates
                     if (is_string($filter_value)) {
                         $filter_value = Carbon::parse($filter_value)->format('Y-m-d H:i:s');
                     } elseif (is_array($filter_value) && count($filter_value) === 2) {
-                        $filter_value[0] = Carbon::parse($filter_value[0])->format('Y-m-d H:i:s');
-                        $filter_value[1] = Carbon::parse($filter_value[1])->format('Y-m-d H:i:s');
+                        // TODO make sure null is ok to be returned here.
+                        $filter_value[0] = is_string($filter_value[0]) ? Carbon::parse($filter_value[0])->format('Y-m-d H:i:s') : null;
+                        $filter_value[1] = is_string($filter_value[1]) ? Carbon::parse($filter_value[1])->format('Y-m-d H:i:s') : null;
                     }
                 } catch (InvalidFormatException $th) {
                     // \Log::debug($th);

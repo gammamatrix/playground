@@ -93,10 +93,13 @@ trait ScopeFilterColumns
                 $query->where($column, $filter_value);
             } else {
                 if (is_array($validated['filter'][$column])) {
-                    if (! empty($validated['filter'][$column]['operator']) && array_key_exists(
-                        strtoupper($validated['filter'][$column]['operator']),
-                        $filter_operators
-                    )) {
+                    if (! empty($validated['filter'][$column]['operator'])
+                        && is_string($validated['filter'][$column]['operator'])
+                        && array_key_exists(
+                            strtoupper($validated['filter'][$column]['operator']),
+                            $filter_operators
+                        )
+                    ) {
                         $filter_operator = strtoupper($validated['filter'][$column]['operator']);
                     }
 

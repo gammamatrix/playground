@@ -19,6 +19,7 @@ class InstanceTest extends TestCase
 {
     public function test_version(): void
     {
+        /** @phpstan-ignore method.alreadyNarrowedType */
         $this->assertNotEmpty(ServiceProvider::VERSION);
         $this->assertIsString(ServiceProvider::VERSION);
     }

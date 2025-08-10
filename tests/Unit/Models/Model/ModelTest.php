@@ -21,6 +21,7 @@ class ModelTest extends TestCase
     {
         $instance = new TestModel;
 
+        /** @phpstan-ignore method.alreadyNarrowedType */
         $this->assertInstanceOf(HasMany::class, $instance->children());
     }
 
@@ -28,6 +29,7 @@ class ModelTest extends TestCase
     {
         $instance = new TestModel;
 
+        /** @phpstan-ignore method.alreadyNarrowedType */
         $this->assertInstanceOf(HasOne::class, $instance->creator());
     }
 
@@ -35,6 +37,7 @@ class ModelTest extends TestCase
     {
         $instance = new TestModel;
 
+        /** @phpstan-ignore method.alreadyNarrowedType */
         $this->assertInstanceOf(HasOne::class, $instance->modifier());
     }
 
@@ -42,6 +45,7 @@ class ModelTest extends TestCase
     {
         $instance = new TestModel;
 
+        /** @phpstan-ignore method.alreadyNarrowedType */
         $this->assertInstanceOf(HasOne::class, $instance->owner());
     }
 
@@ -49,6 +53,7 @@ class ModelTest extends TestCase
     {
         $instance = new TestModel;
 
+        /** @phpstan-ignore method.alreadyNarrowedType */
         $this->assertInstanceOf(HasOne::class, $instance->parent());
     }
 }

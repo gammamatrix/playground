@@ -70,11 +70,11 @@ trait ScopeFilterIds
                         continue;
                     }
                     if ($filter_type === 'string') {
-                        if (! in_array(strval($id), $columns[$column])) {
+                        if (is_scalar($id) && ! in_array(strval($id), $columns[$column])) {
                             $columns[$column][] = strval($id);
                         }
                     } elseif ($filter_type === 'uuid') {
-                        if (Uuid::isValid($id) && ! in_array($id, $columns[$column])) {
+                        if (is_string($id) && Uuid::isValid($id) && ! in_array($id, $columns[$column])) {
                             $columns[$column][] = $id;
                         }
                     } elseif ($filter_type === 'integer') {
