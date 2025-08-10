@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-08-10 00:43:48</timestamp>
+  <timestamp>2025-08-10 19:01:14</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>32</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>240</totalCrap>
+    <totalCrap>248</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -193,8 +193,8 @@
       <methodName>scopeFilterColumns</methodName>
       <methodSignature>scopeFilterColumns(Illuminate\Database\Eloquent\Builder $query, array $columns, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
       <fullMethod>scopeFilterColumns(Illuminate\Database\Eloquent\Builder $query, array $columns, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
-      <crap>31</crap>
-      <complexity>31</complexity>
+      <crap>32</crap>
+      <complexity>32</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -204,8 +204,8 @@
       <methodName>scopeFilterDates</methodName>
       <methodSignature>scopeFilterDates(Illuminate\Database\Eloquent\Builder $query, array $dates, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
       <fullMethod>scopeFilterDates(Illuminate\Database\Eloquent\Builder $query, array $dates, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
-      <crap>43</crap>
-      <complexity>43</complexity>
+      <crap>46</crap>
+      <complexity>46</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -226,8 +226,8 @@
       <methodName>scopeFilterIds</methodName>
       <methodSignature>scopeFilterIds(Illuminate\Database\Eloquent\Builder $query, array $ids, array $validated): Illuminate\Database\Eloquent\Builder</methodSignature>
       <fullMethod>scopeFilterIds(Illuminate\Database\Eloquent\Builder $query, array $ids, array $validated): Illuminate\Database\Eloquent\Builder</fullMethod>
-      <crap>27</crap>
-      <complexity>27</complexity>
+      <crap>29</crap>
+      <complexity>29</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -281,8 +281,8 @@
       <methodName>scopeSort</methodName>
       <methodSignature>scopeSort(Illuminate\Database\Eloquent\Builder $query, mixed $sort): Illuminate\Database\Eloquent\Builder</methodSignature>
       <fullMethod>scopeSort(Illuminate\Database\Eloquent\Builder $query, mixed $sort): Illuminate\Database\Eloquent\Builder</fullMethod>
-      <crap>17</crap>
-      <complexity>17</complexity>
+      <crap>19</crap>
+      <complexity>19</complexity>
       <coverage>96.67</coverage>
       <crapLoad>0</crapLoad>
     </method>
