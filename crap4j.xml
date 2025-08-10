@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-08-03 23:02:55</timestamp>
+  <timestamp>2025-08-10 00:43:48</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>32</methodCount>
@@ -235,8 +235,8 @@
       <package>Playground\Models\Scopes</package>
       <className>Playground\Models\Scopes\ScopeFilterTrash</className>
       <methodName>scopeFilterTrash</methodName>
-      <methodSignature>scopeFilterTrash(Illuminate\Database\Eloquent\Builder $query, string $visibility): Illuminate\Database\Eloquent\Builder</methodSignature>
-      <fullMethod>scopeFilterTrash(Illuminate\Database\Eloquent\Builder $query, string $visibility): Illuminate\Database\Eloquent\Builder</fullMethod>
+      <methodSignature>scopeFilterTrash(Illuminate\Database\Eloquent\Builder $query, ?string $visibility): Illuminate\Database\Eloquent\Builder</methodSignature>
+      <fullMethod>scopeFilterTrash(Illuminate\Database\Eloquent\Builder $query, ?string $visibility): Illuminate\Database\Eloquent\Builder</fullMethod>
       <crap>7</crap>
       <complexity>7</complexity>
       <coverage>100</coverage>
@@ -334,8 +334,8 @@
       <package>Playground</package>
       <className>Playground\ServiceProvider</className>
       <methodName>userPrimaryKeyType</methodName>
-      <methodSignature>userPrimaryKeyType(string $auth_providers_users_model): string</methodSignature>
-      <fullMethod>userPrimaryKeyType(string $auth_providers_users_model): string</fullMethod>
+      <methodSignature>userPrimaryKeyType(?string $auth_providers_users_model): string</methodSignature>
+      <fullMethod>userPrimaryKeyType(?string $auth_providers_users_model): string</fullMethod>
       <crap>4</crap>
       <complexity>4</complexity>
       <coverage>100</coverage>

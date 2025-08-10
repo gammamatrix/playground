@@ -3,97 +3,97 @@ Command (Tests\Feature\Playground\Console\Commands\About\Command)
 
 Instance (Tests\Unit\Playground\ServiceProvider\Instance)
  [x] Version
- [x] UserPrimaryKeyType with empty model
- [x] UserPrimaryKeyType with incrementing model
- [x] UserPrimaryKeyType with uuid model
- [x] UserPrimaryKeyType with exception
+ [x] User primary key type with empty model
+ [x] User primary key type with incrementing model
+ [x] User primary key type with uuid model
+ [x] User primary key type with exception
 
 Model (Tests\Feature\Playground\Models\User\Model)
  [x] Save model in database
 
 Model (Tests\Unit\Playground\Models\Model\Model)
- [x] WithChildren children returns HasMany
- [x] WithCreator creator returns HasOne
- [x] WithModifier modifier returns HasOne
- [x] WithOwner owner returns HasOne
- [x] WithParent parent returns HasOne
+ [x] With children children returns has many
+ [x] With creator creator returns has one
+ [x] With modifier modifier returns has one
+ [x] With owner owner returns has one
+ [x] With parent parent returns has one
 
 Model (Tests\Unit\Playground\Models\Scopes\ScopeFilterColumns\Model)
- [x] ScopeFilterColumns returns query without columns or filters
- [x] ScopeFilterColumns returns query without filters
- [x] ScopeFilterColumns returns query with invalid column
- [x] ScopeFilterColumns returns query with filters without meta for strings
- [x] ScopeFilterColumns returns query with null comparison and ignore
- [x] ScopeFilterColumns returns query with comparison
- [x] ScopeFilterColumns with boolean filter type and null value
- [x] ScopeFilterColumns with boolean filter type and true value
- [x] ScopeFilterColumns with boolean filter type and false value
- [x] ScopeFilterColumns with filter operator without operator and default to like
- [x] ScopeFilterColumns with filter operators
- [x] ScopeFilterColumns with between filter operator without single parameter and ignore between
- [x] ScopeFilterColumns with between filter operator
- [x] ScopeFilterColumns with not between filter operator without single parameter and ignore between
- [x] ScopeFilterColumns with not between filter operator
+ [x] Scope filter columns returns query without columns or filters
+ [x] Scope filter columns returns query without filters
+ [x] Scope filter columns returns query with invalid column
+ [x] Scope filter columns returns query with filters without meta for strings
+ [x] Scope filter columns returns query with null comparison and ignore
+ [x] Scope filter columns returns query with comparison
+ [x] Scope filter columns with boolean filter type and null value
+ [x] Scope filter columns with boolean filter type and true value
+ [x] Scope filter columns with boolean filter type and false value
+ [x] Scope filter columns with filter operator without operator and default to like
+ [x] Scope filter columns with filter operators
+ [x] Scope filter columns with between filter operator without single parameter and ignore between
+ [x] Scope filter columns with between filter operator
+ [x] Scope filter columns with not between filter operator without single parameter and ignore between
+ [x] Scope filter columns with not between filter operator
 
 Model (Tests\Unit\Playground\Models\Scopes\ScopeFilterDates\Model)
- [x] ScopeFilterDates returns query without dates or filters
- [x] ScopeFilterDates returns query without filters
- [x] ScopeFilterDates returns query with invalid column
- [x] ScopeFilterDates returns query with filters without meta for strings
- [x] ScopeFilterDates returns query with null comparison and ignore
- [x] ScopeFilterDates returns query with null comparison and allow
- [x] ScopeFilterDates returns query with comparison
- [x] ScopeFilterDates returns query with wildcard
- [x] ScopeFilterDates returns query with operator wildcard
- [x] ScopeFilterDates returns query with object value and ignore
- [x] ScopeFilterDates returns query with unnullable value and ignore
- [x] ScopeFilterDates returns query with invalid operator and use like
- [x] ScopeFilterDates returns query with invalid parsable value and ignore
- [x] ScopeFilterDates returns query with short date and gte operator
- [x] ScopeFilterDates returns query with phrase date and automatically parse
- [x] ScopeFilterDates with between filter operator with parse
- [x] ScopeFilterDates with not between filter operator with parse
- [x] ScopeFilterDates with filter operators
+ [x] Scope filter dates returns query without dates or filters
+ [x] Scope filter dates returns query without filters
+ [x] Scope filter dates returns query with invalid column
+ [x] Scope filter dates returns query with filters without meta for strings
+ [x] Scope filter dates returns query with null comparison and ignore
+ [x] Scope filter dates returns query with null comparison and allow
+ [x] Scope filter dates returns query with comparison
+ [x] Scope filter dates returns query with wildcard
+ [x] Scope filter dates returns query with operator wildcard
+ [x] Scope filter dates returns query with object value and ignore
+ [x] Scope filter dates returns query with unnullable value and ignore
+ [x] Scope filter dates returns query with invalid operator and use like
+ [x] Scope filter dates returns query with invalid parsable value and ignore
+ [x] Scope filter dates returns query with short date and gte operator
+ [x] Scope filter dates returns query with phrase date and automatically parse
+ [x] Scope filter dates with between filter operator with parse
+ [x] Scope filter dates with not between filter operator with parse
+ [x] Scope filter dates with filter operators
 
 Model (Tests\Unit\Playground\Models\Scopes\ScopeFilterFlags\Model)
- [x] ScopeFilterFlags returns query without flags or filters
- [x] ScopeFilterFlags returns query without filters
- [x] ScopeFilterFlags returns query with filters
+ [x] Scope filter flags returns query without flags or filters
+ [x] Scope filter flags returns query without filters
+ [x] Scope filter flags returns query with filters
 
 Model (Tests\Unit\Playground\Models\Scopes\ScopeFilterIds\Model)
- [x] ScopeFilterIds returns query without ids or filters
- [x] ScopeFilterIds returns query without filters
- [x] ScopeFilterIds returns query with invalid column
- [x] ScopeFilterIds returns query with null comparison
- [x] ScopeFilterIds returns query with comparison
- [x] ScopeFilterIds returns query with filters array
- [x] ScopeFilterIds returns query with filters with integer
- [x] ScopeFilterIds returns query with array of ids without type
- [x] ScopeFilterIds returns query with array of uuids for integer type ids and ignore
- [x] ScopeFilterIds returns query with array of integer ids ignore duplicate id
- [x] ScopeFilterIds returns query with filters with null and string and array
+ [x] Scope filter ids returns query without ids or filters
+ [x] Scope filter ids returns query without filters
+ [x] Scope filter ids returns query with invalid column
+ [x] Scope filter ids returns query with null comparison
+ [x] Scope filter ids returns query with comparison
+ [x] Scope filter ids returns query with filters array
+ [x] Scope filter ids returns query with filters with integer
+ [x] Scope filter ids returns query with array of ids without type
+ [x] Scope filter ids returns query with array of uuids for integer type ids and ignore
+ [x] Scope filter ids returns query with array of integer ids ignore duplicate id
+ [x] Scope filter ids returns query with filters with null and string and array
 
 Model (Tests\Unit\Playground\Models\Scopes\ScopeFilterTrash\Model)
- [x] ScopeFilterTrash returns query with empty visibility
- [x] ScopeFilterTrash returns query with trash
- [x] ScopeFilterTrash returns query with only trash
+ [x] Scope filter trash returns query with empty visibility
+ [x] Scope filter trash returns query with trash
+ [x] Scope filter trash returns query with only trash
 
 Model (Tests\Unit\Playground\Models\Scopes\ScopeSort\Model)
- [x] ScopeSort returns query with empty sort
- [x] ScopeSort returns query with array boolean sort asc
- [x] ScopeSort returns query with array boolean sort desc
- [x] ScopeSort returns query with array boolean sort pair
- [x] ScopeSort returns query with array boolean sort triplet
- [x] ScopeSort returns query with csv sort asc
- [x] ScopeSort returns query with csv sort desc
- [x] ScopeSort returns query with simple array asc
- [x] ScopeSort returns query with simple array desc
- [x] ScopeSort returns query with hash array asc
- [x] ScopeSort returns query with hash array desc
+ [x] Scope sort returns query with empty sort
+ [x] Scope sort returns query with array boolean sort asc
+ [x] Scope sort returns query with array boolean sort desc
+ [x] Scope sort returns query with array boolean sort pair
+ [x] Scope sort returns query with array boolean sort triplet
+ [x] Scope sort returns query with csv sort asc
+ [x] Scope sort returns query with csv sort desc
+ [x] Scope sort returns query with simple array asc
+ [x] Scope sort returns query with simple array desc
+ [x] Scope sort returns query with hash array asc
+ [x] Scope sort returns query with hash array desc
 
 Model (Tests\Unit\Playground\Models\User\Model)
- [x] Add has and remove Abilities
- [x] Add has and remove Privileges
- [x] Add has and remove Roles
- [x] IsAdmin with admins and users
+ [x] Add has and remove abilities
+ [x] Add has and remove privileges
+ [x] Add has and remove roles
+ [x] Is admin with admins and users
 
