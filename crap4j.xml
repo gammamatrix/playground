@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-08-10 19:01:14</timestamp>
+  <timestamp>2025-09-06 21:12:36</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>32</methodCount>
-    <crapMethodCount>0</crapMethodCount>
-    <crapLoad>0</crapLoad>
-    <totalCrap>248</totalCrap>
-    <crapMethodPercent>0</crapMethodPercent>
+    <methodCount>47</methodCount>
+    <crapMethodCount>1</crapMethodCount>
+    <crapLoad>30</crapLoad>
+    <totalCrap>1146</totalCrap>
+    <crapMethodPercent>2.13</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -295,6 +295,171 @@
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\PackageInfo</className>
+      <methodName>setOptions</methodName>
+      <methodSignature>setOptions(array $options): self</methodSignature>
+      <fullMethod>setOptions(array $options): self</fullMethod>
+      <crap>870</crap>
+      <complexity>29</complexity>
+      <coverage>0</coverage>
+      <crapLoad>30</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\PackageInfo</className>
+      <methodName>model_attribute</methodName>
+      <methodSignature>model_attribute(): string</methodSignature>
+      <fullMethod>model_attribute(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\PackageInfo</className>
+      <methodName>model_label</methodName>
+      <methodSignature>model_label(): string</methodSignature>
+      <fullMethod>model_label(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\PackageInfo</className>
+      <methodName>model_label_plural</methodName>
+      <methodSignature>model_label_plural(): string</methodSignature>
+      <fullMethod>model_label_plural(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\PackageInfo</className>
+      <methodName>model_route</methodName>
+      <methodSignature>model_route(): string</methodSignature>
+      <fullMethod>model_route(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\PackageInfo</className>
+      <methodName>model_slug</methodName>
+      <methodSignature>model_slug(): string</methodSignature>
+      <fullMethod>model_slug(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\PackageInfo</className>
+      <methodName>model_slug_plural</methodName>
+      <methodSignature>model_slug_plural(): string</methodSignature>
+      <fullMethod>model_slug_plural(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\PackageInfo</className>
+      <methodName>module_label</methodName>
+      <methodSignature>module_label(): string</methodSignature>
+      <fullMethod>module_label(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\PackageInfo</className>
+      <methodName>module_label_plural</methodName>
+      <methodSignature>module_label_plural(): string</methodSignature>
+      <fullMethod>module_label_plural(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\PackageInfo</className>
+      <methodName>module_route</methodName>
+      <methodSignature>module_route(): string</methodSignature>
+      <fullMethod>module_route(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\PackageInfo</className>
+      <methodName>module_slug</methodName>
+      <methodSignature>module_slug(): string</methodSignature>
+      <fullMethod>module_slug(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\PackageInfo</className>
+      <methodName>privilege</methodName>
+      <methodSignature>privilege(): string</methodSignature>
+      <fullMethod>privilege(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\PackageInfo</className>
+      <methodName>table</methodName>
+      <methodSignature>table(): string</methodSignature>
+      <fullMethod>table(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\PackageInfo</className>
+      <methodName>type</methodName>
+      <methodSignature>type(): string</methodSignature>
+      <fullMethod>type(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\PackageInfo</className>
+      <methodName>view</methodName>
+      <methodSignature>view(): string</methodSignature>
+      <fullMethod>view(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>

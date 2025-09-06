@@ -9,7 +9,7 @@
 
 ##teamcity[testStarted name='test_with_children_children_returns_has_many' locationHint='php_qn:///app/tests/Unit/Models/Model/ModelTest.php::\Tests\Unit\Playground\Models\Model\ModelTest::test_with_children_children_returns_has_many' flowId='1']
 
-##teamcity[testFinished name='test_with_children_children_returns_has_many' duration='286' flowId='1']
+##teamcity[testFinished name='test_with_children_children_returns_has_many' duration='292' flowId='1']
 
 ##teamcity[testStarted name='test_with_creator_creator_returns_has_one' locationHint='php_qn:///app/tests/Unit/Models/Model/ModelTest.php::\Tests\Unit\Playground\Models\Model\ModelTest::test_with_creator_creator_returns_has_one' flowId='1']
 
@@ -33,7 +33,7 @@
 
 ##teamcity[testStarted name='test_scope_filter_columns_returns_query_without_columns_or_filters' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterColumns/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterColumns\ModelTest::test_scope_filter_columns_returns_query_without_columns_or_filters' flowId='1']
 
-##teamcity[testFinished name='test_scope_filter_columns_returns_query_without_columns_or_filters' duration='6' flowId='1']
+##teamcity[testFinished name='test_scope_filter_columns_returns_query_without_columns_or_filters' duration='7' flowId='1']
 
 ##teamcity[testStarted name='test_scope_filter_columns_returns_query_without_filters' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterColumns/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterColumns\ModelTest::test_scope_filter_columns_returns_query_without_filters' flowId='1']
 
@@ -41,7 +41,7 @@
 
 ##teamcity[testStarted name='test_scope_filter_columns_returns_query_with_invalid_column' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterColumns/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterColumns\ModelTest::test_scope_filter_columns_returns_query_with_invalid_column' flowId='1']
 
-##teamcity[testFinished name='test_scope_filter_columns_returns_query_with_invalid_column' duration='7' flowId='1']
+##teamcity[testFinished name='test_scope_filter_columns_returns_query_with_invalid_column' duration='6' flowId='1']
 
 ##teamcity[testStarted name='test_scope_filter_columns_returns_query_with_filters_without_meta_for_strings' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterColumns/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterColumns\ModelTest::test_scope_filter_columns_returns_query_with_filters_without_meta_for_strings' flowId='1']
 
@@ -53,7 +53,7 @@
 
 ##teamcity[testStarted name='test_scope_filter_columns_returns_query_with_comparison' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterColumns/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterColumns\ModelTest::test_scope_filter_columns_returns_query_with_comparison' flowId='1']
 
-##teamcity[testFinished name='test_scope_filter_columns_returns_query_with_comparison' duration='7' flowId='1']
+##teamcity[testFinished name='test_scope_filter_columns_returns_query_with_comparison' duration='6' flowId='1']
 
 ##teamcity[testStarted name='test_scope_filter_columns_with_boolean_filter_type_and_null_value' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterColumns/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterColumns\ModelTest::test_scope_filter_columns_with_boolean_filter_type_and_null_value' flowId='1']
 
@@ -61,7 +61,7 @@
 
 ##teamcity[testStarted name='test_scope_filter_columns_with_boolean_filter_type_and_true_value' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterColumns/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterColumns\ModelTest::test_scope_filter_columns_with_boolean_filter_type_and_true_value' flowId='1']
 
-##teamcity[testFinished name='test_scope_filter_columns_with_boolean_filter_type_and_true_value' duration='6' flowId='1']
+##teamcity[testFinished name='test_scope_filter_columns_with_boolean_filter_type_and_true_value' duration='7' flowId='1']
 
 ##teamcity[testStarted name='test_scope_filter_columns_with_boolean_filter_type_and_false_value' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterColumns/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterColumns\ModelTest::test_scope_filter_columns_with_boolean_filter_type_and_false_value' flowId='1']
 
@@ -73,11 +73,11 @@
 
 ##teamcity[testStarted name='test_scope_filter_columns_with_filter_operators' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterColumns/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterColumns\ModelTest::test_scope_filter_columns_with_filter_operators' flowId='1']
 
-##teamcity[testFinished name='test_scope_filter_columns_with_filter_operators' duration='14' flowId='1']
+##teamcity[testFinished name='test_scope_filter_columns_with_filter_operators' duration='16' flowId='1']
 
 ##teamcity[testStarted name='test_scope_filter_columns_with_between_filter_operator_without_single_parameter_and_ignore_between' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterColumns/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterColumns\ModelTest::test_scope_filter_columns_with_between_filter_operator_without_single_parameter_and_ignore_between' flowId='1']
 
-##teamcity[testFinished name='test_scope_filter_columns_with_between_filter_operator_without_single_parameter_and_ignore_between' duration='6' flowId='1']
+##teamcity[testFinished name='test_scope_filter_columns_with_between_filter_operator_without_single_parameter_and_ignore_between' duration='7' flowId='1']
 
 ##teamcity[testStarted name='test_scope_filter_columns_with_between_filter_operator' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterColumns/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterColumns\ModelTest::test_scope_filter_columns_with_between_filter_operator' flowId='1']
 
@@ -121,11 +121,11 @@
 
 ##teamcity[testStarted name='test_scope_filter_dates_returns_query_with_comparison' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterDates/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterDates\ModelTest::test_scope_filter_dates_returns_query_with_comparison' flowId='1']
 
-##teamcity[testFinished name='test_scope_filter_dates_returns_query_with_comparison' duration='6' flowId='1']
+##teamcity[testFinished name='test_scope_filter_dates_returns_query_with_comparison' duration='8' flowId='1']
 
 ##teamcity[testStarted name='test_scope_filter_dates_returns_query_with_wildcard' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterDates/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterDates\ModelTest::test_scope_filter_dates_returns_query_with_wildcard' flowId='1']
 
-##teamcity[testFinished name='test_scope_filter_dates_returns_query_with_wildcard' duration='6' flowId='1']
+##teamcity[testFinished name='test_scope_filter_dates_returns_query_with_wildcard' duration='7' flowId='1']
 
 ##teamcity[testStarted name='test_scope_filter_dates_returns_query_with_operator_wildcard' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterDates/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterDates\ModelTest::test_scope_filter_dates_returns_query_with_operator_wildcard' flowId='1']
 
@@ -141,7 +141,7 @@
 
 ##teamcity[testStarted name='test_scope_filter_dates_returns_query_with_invalid_operator_and_use_like' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterDates/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterDates\ModelTest::test_scope_filter_dates_returns_query_with_invalid_operator_and_use_like' flowId='1']
 
-##teamcity[testFinished name='test_scope_filter_dates_returns_query_with_invalid_operator_and_use_like' duration='7' flowId='1']
+##teamcity[testFinished name='test_scope_filter_dates_returns_query_with_invalid_operator_and_use_like' duration='8' flowId='1']
 
 ##teamcity[testStarted name='test_scope_filter_dates_returns_query_with_invalid_parsable_value_and_ignore' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterDates/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterDates\ModelTest::test_scope_filter_dates_returns_query_with_invalid_parsable_value_and_ignore' flowId='1']
 
@@ -173,11 +173,11 @@
 
 ##teamcity[testStarted name='test_scope_filter_flags_returns_query_without_flags_or_filters' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterFlags/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterFlags\ModelTest::test_scope_filter_flags_returns_query_without_flags_or_filters' flowId='1']
 
-##teamcity[testFinished name='test_scope_filter_flags_returns_query_without_flags_or_filters' duration='5' flowId='1']
+##teamcity[testFinished name='test_scope_filter_flags_returns_query_without_flags_or_filters' duration='8' flowId='1']
 
 ##teamcity[testStarted name='test_scope_filter_flags_returns_query_without_filters' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterFlags/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterFlags\ModelTest::test_scope_filter_flags_returns_query_without_filters' flowId='1']
 
-##teamcity[testFinished name='test_scope_filter_flags_returns_query_without_filters' duration='7' flowId='1']
+##teamcity[testFinished name='test_scope_filter_flags_returns_query_without_filters' duration='6' flowId='1']
 
 ##teamcity[testStarted name='test_scope_filter_flags_returns_query_with_filters' locationHint='php_qn:///app/tests/Unit/Models/Scopes/ScopeFilterFlags/ModelTest.php::\Tests\Unit\Playground\Models\Scopes\ScopeFilterFlags\ModelTest::test_scope_filter_flags_returns_query_with_filters' flowId='1']
 
@@ -301,19 +301,19 @@
 
 ##teamcity[testStarted name='test_add_has_and_remove_abilities' locationHint='php_qn:///app/tests/Unit/Models/User/ModelTest.php::\Tests\Unit\Playground\Models\User\ModelTest::test_add_has_and_remove_abilities' flowId='1']
 
-##teamcity[testFinished name='test_add_has_and_remove_abilities' duration='64' flowId='1']
+##teamcity[testFinished name='test_add_has_and_remove_abilities' duration='65' flowId='1']
 
 ##teamcity[testStarted name='test_add_has_and_remove_privileges' locationHint='php_qn:///app/tests/Unit/Models/User/ModelTest.php::\Tests\Unit\Playground\Models\User\ModelTest::test_add_has_and_remove_privileges' flowId='1']
 
-##teamcity[testFinished name='test_add_has_and_remove_privileges' duration='6' flowId='1']
+##teamcity[testFinished name='test_add_has_and_remove_privileges' duration='7' flowId='1']
 
 ##teamcity[testStarted name='test_add_has_and_remove_roles' locationHint='php_qn:///app/tests/Unit/Models/User/ModelTest.php::\Tests\Unit\Playground\Models\User\ModelTest::test_add_has_and_remove_roles' flowId='1']
 
-##teamcity[testFinished name='test_add_has_and_remove_roles' duration='7' flowId='1']
+##teamcity[testFinished name='test_add_has_and_remove_roles' duration='8' flowId='1']
 
 ##teamcity[testStarted name='test_is_admin_with_admins_and_users' locationHint='php_qn:///app/tests/Unit/Models/User/ModelTest.php::\Tests\Unit\Playground\Models\User\ModelTest::test_is_admin_with_admins_and_users' flowId='1']
 
-##teamcity[testFinished name='test_is_admin_with_admins_and_users' duration='6' flowId='1']
+##teamcity[testFinished name='test_is_admin_with_admins_and_users' duration='7' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Unit\Playground\Models\User\ModelTest' flowId='1']
 
@@ -349,7 +349,7 @@
 
 ##teamcity[testStarted name='test_command_about_displays_package_information_and_succeed_with_code_0' locationHint='php_qn:///app/tests/Feature/Console/Commands/About/CommandTest.php::\Tests\Feature\Playground\Console\Commands\About\CommandTest::test_command_about_displays_package_information_and_succeed_with_code_0' flowId='1']
 
-##teamcity[testFinished name='test_command_about_displays_package_information_and_succeed_with_code_0' duration='136' flowId='1']
+##teamcity[testFinished name='test_command_about_displays_package_information_and_succeed_with_code_0' duration='139' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Console\Commands\About\CommandTest' flowId='1']
 
@@ -357,7 +357,7 @@
 
 ##teamcity[testStarted name='test_save_model_in_database' locationHint='php_qn:///app/tests/Feature/Models/User/ModelTest.php::\Tests\Feature\Playground\Models\User\ModelTest::test_save_model_in_database' flowId='1']
 
-##teamcity[testFinished name='test_save_model_in_database' duration='43' flowId='1']
+##teamcity[testFinished name='test_save_model_in_database' duration='45' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Models\User\ModelTest' flowId='1']
 
