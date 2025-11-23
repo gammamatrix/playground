@@ -610,13 +610,18 @@ class ModelTest extends TestCase
     {
         $instance = new TestModel;
 
+        // TODO deal with testing connection
+        $isSqlite = in_array(config('database.default'), ['sqlite', 'testing']);
+
         $filter_operators = [
             '|' => [],
             '&' => [],
             '=' => [],
             '!=' => [],
             '<>' => [],
-            '<=>' => [],
+            '<=>' => [
+                'remap' => $isSqlite ? 'IS' : null,
+            ],
             '<' => [],
             '<=' => [],
             '>=' => [],

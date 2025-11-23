@@ -344,13 +344,18 @@ class ModelTest extends TestCase
     {
         $instance = new TestModel;
 
+        // TODO deal with testing connection
+        $isSqlite = in_array(config('database.default'), ['sqlite', 'testing']);
+
         $filter_operators = [
             '|' => [],
             '&' => [],
             '=' => [],
             '!=' => [],
             '<>' => [],
-            '<=>' => [],
+            '<=>' => [
+                'remap' => $isSqlite ? 'IS' : null,
+            ],
             '<' => [],
             '<=' => [],
             '>=' => [],
@@ -407,7 +412,14 @@ class ModelTest extends TestCase
                 $operator,
                 $parameter
             );
-
+            // dump([
+            //    '$isSqlite' => $isSqlite,
+            //    '$sql' => $sql,
+            //    '$operator' => $operator,
+            //    '$meta' => $meta,
+            //    '$parameter' => $parameter,
+            //    'config(database.default)' => config('database.default'),
+            // ]);
             $query = $instance->filterColumns($columns, $validated);
 
             $this->assertInstanceOf(Builder::class, $query);
