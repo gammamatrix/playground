@@ -18,20 +18,20 @@
     "require": {
         "php": "^8.4",
         "ext-intl": "*",
-        "ezyang/htmlpurifier": "^4.18",
-        "illuminate/auth": "^12.0",
-        "illuminate/console": "^12.0",
-        "illuminate/contracts": "^12.0",
-        "illuminate/database": "^12.0",
-        "illuminate/http": "^12.0",
-        "illuminate/routing": "^12.0",
-        "illuminate/support": "^12.0",
-        "illuminate/translation": "^12.0",
-        "illuminate/validation": "^12.0",
-        "illuminate/view": "^12.0"
+        "ezyang/htmlpurifier": "^4.19",
+        "illuminate/auth": "^13.0",
+        "illuminate/console": "^13.0",
+        "illuminate/contracts": "^13.0",
+        "illuminate/database": "^13.0",
+        "illuminate/http": "^13.0",
+        "illuminate/routing": "^13.0",
+        "illuminate/support": "^13.0",
+        "illuminate/translation": "^13.0",
+        "illuminate/validation": "^13.0",
+        "illuminate/view": "^13.0"
     },
     "require-dev": {
-        "gammamatrix/playground-test": "74.x-dev"
+        "gammamatrix/playground-test": "75.x-dev"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
@@ -56,7 +56,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-develop": "74.x-dev"
+            "dev-develop": "75.x-dev"
         },
         "laravel": {
             "providers": [
