@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-11-23 23:34:12</timestamp>
+  <timestamp>2026-06-07 18:50:26</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>47</methodCount>
+    <methodCount>49</methodCount>
     <crapMethodCount>1</crapMethodCount>
     <crapLoad>30</crapLoad>
-    <totalCrap>1146</totalCrap>
-    <crapMethodPercent>2.13</crapMethodPercent>
+    <totalCrap>1142.29</totalCrap>
+    <crapMethodPercent>2.04</crapMethodPercent>
   </stats>
   <methods>
     <method>
       <package>Playground\Models\Concerns</package>
       <className>Playground\Models\Concerns\Abilities</className>
       <methodName>hasAbility</methodName>
-      <methodSignature>hasAbility(mixed $ability): bool</methodSignature>
-      <fullMethod>hasAbility(mixed $ability): bool</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
-      <coverage>100</coverage>
+      <methodSignature>hasAbility(string $ability): bool</methodSignature>
+      <fullMethod>hasAbility(string $ability): bool</fullMethod>
+      <crap>3.14</crap>
+      <complexity>3</complexity>
+      <coverage>75</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Models\Concerns</package>
       <className>Playground\Models\Concerns\Abilities</className>
       <methodName>addAbility</methodName>
-      <methodSignature>addAbility(mixed $ability): void</methodSignature>
-      <fullMethod>addAbility(mixed $ability): void</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
-      <coverage>100</coverage>
+      <methodSignature>addAbility(string $ability): self</methodSignature>
+      <fullMethod>addAbility(string $ability): self</fullMethod>
+      <crap>4.02</crap>
+      <complexity>4</complexity>
+      <coverage>90</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Models\Concerns</package>
       <className>Playground\Models\Concerns\Abilities</className>
       <methodName>removeAbility</methodName>
-      <methodSignature>removeAbility(mixed $ability): void</methodSignature>
-      <fullMethod>removeAbility(mixed $ability): void</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
-      <coverage>100</coverage>
+      <methodSignature>removeAbility(string $ability): self</methodSignature>
+      <fullMethod>removeAbility(string $ability): self</fullMethod>
+      <crap>4.43</crap>
+      <complexity>4</complexity>
+      <coverage>70</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -59,121 +59,66 @@
       <package>Playground\Models\Concerns</package>
       <className>Playground\Models\Concerns\Privileges</className>
       <methodName>hasPrivilege</methodName>
-      <methodSignature>hasPrivilege(mixed $privilege): bool</methodSignature>
-      <fullMethod>hasPrivilege(mixed $privilege): bool</fullMethod>
-      <crap>4</crap>
-      <complexity>4</complexity>
-      <coverage>100</coverage>
+      <methodSignature>hasPrivilege(string $privilege): bool</methodSignature>
+      <fullMethod>hasPrivilege(string $privilege): bool</fullMethod>
+      <crap>3.14</crap>
+      <complexity>3</complexity>
+      <coverage>75</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Models\Concerns</package>
       <className>Playground\Models\Concerns\Privileges</className>
       <methodName>addPrivilege</methodName>
-      <methodSignature>addPrivilege(mixed $privilege): void</methodSignature>
-      <fullMethod>addPrivilege(mixed $privilege): void</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
-      <coverage>100</coverage>
+      <methodSignature>addPrivilege(string $privilege): self</methodSignature>
+      <fullMethod>addPrivilege(string $privilege): self</fullMethod>
+      <crap>4.02</crap>
+      <complexity>4</complexity>
+      <coverage>90</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Models\Concerns</package>
       <className>Playground\Models\Concerns\Privileges</className>
       <methodName>removePrivilege</methodName>
-      <methodSignature>removePrivilege(mixed $privilege): void</methodSignature>
-      <fullMethod>removePrivilege(mixed $privilege): void</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
-      <coverage>100</coverage>
+      <methodSignature>removePrivilege(string $privilege): self</methodSignature>
+      <fullMethod>removePrivilege(string $privilege): self</fullMethod>
+      <crap>4.43</crap>
+      <complexity>4</complexity>
+      <coverage>70</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Models\Concerns</package>
       <className>Playground\Models\Concerns\Role</className>
       <methodName>hasRole</methodName>
-      <methodSignature>hasRole(mixed $role): bool</methodSignature>
-      <fullMethod>hasRole(mixed $role): bool</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
-      <coverage>100</coverage>
+      <methodSignature>hasRole(string $role): bool</methodSignature>
+      <fullMethod>hasRole(string $role): bool</fullMethod>
+      <crap>4.07</crap>
+      <complexity>4</complexity>
+      <coverage>83.33</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Models\Concerns</package>
       <className>Playground\Models\Concerns\Role</className>
       <methodName>addRole</methodName>
-      <methodSignature>addRole(mixed $role): void</methodSignature>
-      <fullMethod>addRole(mixed $role): void</fullMethod>
-      <crap>6</crap>
-      <complexity>6</complexity>
-      <coverage>100</coverage>
+      <methodSignature>addRole(string $role): self</methodSignature>
+      <fullMethod>addRole(string $role): self</fullMethod>
+      <crap>5.02</crap>
+      <complexity>5</complexity>
+      <coverage>90.91</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>Playground\Models\Concerns</package>
       <className>Playground\Models\Concerns\Role</className>
       <methodName>removeRole</methodName>
-      <methodSignature>removeRole(mixed $role): void</methodSignature>
-      <fullMethod>removeRole(mixed $role): void</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Models\Concerns</package>
-      <className>Playground\Models\Concerns\WithChildren</className>
-      <methodName>children</methodName>
-      <methodSignature>children(): Illuminate\Database\Eloquent\Relations\HasMany</methodSignature>
-      <fullMethod>children(): Illuminate\Database\Eloquent\Relations\HasMany</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Models\Concerns</package>
-      <className>Playground\Models\Concerns\WithCreator</className>
-      <methodName>creator</methodName>
-      <methodSignature>creator(): Illuminate\Database\Eloquent\Relations\HasOne</methodSignature>
-      <fullMethod>creator(): Illuminate\Database\Eloquent\Relations\HasOne</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Models\Concerns</package>
-      <className>Playground\Models\Concerns\WithModifier</className>
-      <methodName>modifier</methodName>
-      <methodSignature>modifier(): Illuminate\Database\Eloquent\Relations\HasOne</methodSignature>
-      <fullMethod>modifier(): Illuminate\Database\Eloquent\Relations\HasOne</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Models\Concerns</package>
-      <className>Playground\Models\Concerns\WithOwner</className>
-      <methodName>owner</methodName>
-      <methodSignature>owner(): Illuminate\Database\Eloquent\Relations\HasOne</methodSignature>
-      <fullMethod>owner(): Illuminate\Database\Eloquent\Relations\HasOne</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Models\Concerns</package>
-      <className>Playground\Models\Concerns\WithParent</className>
-      <methodName>parent</methodName>
-      <methodSignature>parent(): Illuminate\Database\Eloquent\Relations\HasOne</methodSignature>
-      <fullMethod>parent(): Illuminate\Database\Eloquent\Relations\HasOne</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
+      <methodSignature>removeRole(string $role): self</methodSignature>
+      <fullMethod>removeRole(string $role): self</fullMethod>
+      <crap>4.02</crap>
+      <complexity>4</complexity>
+      <coverage>90</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -185,6 +130,61 @@
       <crap>6</crap>
       <complexity>2</complexity>
       <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models</package>
+      <className>Playground\Models\Model</className>
+      <methodName>parent</methodName>
+      <methodSignature>parent(): Illuminate\Database\Eloquent\Relations\HasOne</methodSignature>
+      <fullMethod>parent(): Illuminate\Database\Eloquent\Relations\HasOne</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models</package>
+      <className>Playground\Models\Model</className>
+      <methodName>children</methodName>
+      <methodSignature>children(): Illuminate\Database\Eloquent\Relations\HasMany</methodSignature>
+      <fullMethod>children(): Illuminate\Database\Eloquent\Relations\HasMany</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models</package>
+      <className>Playground\Models\Model</className>
+      <methodName>creator</methodName>
+      <methodSignature>creator(): Illuminate\Database\Eloquent\Relations\HasOne</methodSignature>
+      <fullMethod>creator(): Illuminate\Database\Eloquent\Relations\HasOne</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models</package>
+      <className>Playground\Models\Model</className>
+      <methodName>modifier</methodName>
+      <methodSignature>modifier(): Illuminate\Database\Eloquent\Relations\HasOne</methodSignature>
+      <fullMethod>modifier(): Illuminate\Database\Eloquent\Relations\HasOne</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models</package>
+      <className>Playground\Models\Model</className>
+      <methodName>owner</methodName>
+      <methodSignature>owner(): Illuminate\Database\Eloquent\Relations\HasOne</methodSignature>
+      <fullMethod>owner(): Illuminate\Database\Eloquent\Relations\HasOne</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -283,7 +283,7 @@
       <fullMethod>scopeSort(Illuminate\Database\Eloquent\Builder $query, mixed $sort): Illuminate\Database\Eloquent\Builder</fullMethod>
       <crap>19</crap>
       <complexity>19</complexity>
-      <coverage>96.67</coverage>
+      <coverage>96.77</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -295,6 +295,28 @@
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models</package>
+      <className>Playground\Models\User</className>
+      <methodName>creator</methodName>
+      <methodSignature>creator(): Illuminate\Database\Eloquent\Relations\HasOne</methodSignature>
+      <fullMethod>creator(): Illuminate\Database\Eloquent\Relations\HasOne</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Models</package>
+      <className>Playground\Models\User</className>
+      <methodName>modifier</methodName>
+      <methodSignature>modifier(): Illuminate\Database\Eloquent\Relations\HasOne</methodSignature>
+      <fullMethod>modifier(): Illuminate\Database\Eloquent\Relations\HasOne</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
