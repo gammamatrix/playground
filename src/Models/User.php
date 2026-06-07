@@ -11,6 +11,7 @@ use Database\Factories\Playground\Models\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -64,7 +65,7 @@ use Laravel\Sanctum;
  * @property string $description
  * @property string $image
  * @property string $avatar
- * @property array<string, mixed> $abilities
+ * @property string[] $abilities
  * @property array<string, mixed> $accounts
  * @property array<string, mixed> $address
  * @property array<string, mixed> $contact
@@ -72,26 +73,22 @@ use Laravel\Sanctum;
  * @property array<int, array<string, mixed>> $notes
  * @property array<string, mixed> $options
  * @property array<string, mixed> $registration
- * @property array<string, mixed> $roles
+ * @property string[] $roles
  * @property array<string, mixed> $permissions
- * @property array<string, mixed> $privileges
+ * @property string[] $privileges
  * @property array<string, mixed> $ui
- *
- * @mixin \Illuminate\Database\Eloquent\Model
  *
  * NOTE: This model does not include all available Laravel and Playground
  *       features. Read more on the Playground Wiki.
  *
  * @link https://github.com/gammamatrix/playground/wiki
  */
-class User extends Authenticatable implements Contracts\Abilities, Contracts\Admin, Contracts\Privileges, Contracts\Role, Contracts\WithCreator, Contracts\WithMatrix, Contracts\WithModifier, MustVerifyEmail, Sanctum\Contracts\HasApiTokens
+class User extends Authenticatable implements Contracts\Abilities, Contracts\Admin, Contracts\Privileges, Contracts\Role, Contracts\WithMatrix, MustVerifyEmail, Sanctum\Contracts\HasApiTokens
 {
     use Concerns\Abilities;
     use Concerns\Admin;
     use Concerns\Privileges;
     use Concerns\Role;
-    use Concerns\WithCreator;
-    use Concerns\WithModifier;
 
     /** @use HasFactory<UserFactory> */
     use HasFactory;
@@ -335,4 +332,20 @@ class User extends Authenticatable implements Contracts\Abilities, Contracts\Adm
     protected $perPage = 250;
 
     protected $table = 'users';
+
+    /**
+     * @return HasOne<User, $this>
+     */
+    public function creator(): HasOne
+    {
+        return $this->hasOne(User::class, 'id', 'created_by_id');
+    }
+
+    /**
+     * @return HasOne<User, $this>
+     */
+    public function modifier(): HasOne
+    {
+        return $this->hasOne(User::class, 'id', 'modified_by_id');
+    }
 }

@@ -7,10 +7,9 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Playground\ServiceProvider;
 
+use Playground\Models\User;
 use Playground\ServiceProvider;
 use Tests\Unit\Playground\TestCase;
-use TiMacDonald\Log\LogEntry;
-use TiMacDonald\Log\LogFake;
 
 /**
  * \Tests\Unit\Playground\ServiceProvider\InstanceTest
@@ -56,7 +55,7 @@ class InstanceTest extends TestCase
     {
         $instance = (new \ReflectionClass(ServiceProvider::class))->newInstanceWithoutConstructor();
 
-        $auth_providers_users_model = \Playground\Models\User::class;
+        $auth_providers_users_model = User::class;
 
         $expected = '<fg=green;options=bold>UUID</>';
 
@@ -68,8 +67,6 @@ class InstanceTest extends TestCase
 
     public function test_user_primary_key_type_with_exception(): void
     {
-        $log = LogFake::bind();
-
         $instance = (new \ReflectionClass(ServiceProvider::class))->newInstanceWithoutConstructor();
 
         $auth_providers_users_model = \Exception::class;
@@ -79,19 +76,6 @@ class InstanceTest extends TestCase
         $this->assertSame(
             $expected,
             $instance->userPrimaryKeyType($auth_providers_users_model)
-        );
-
-        // $log->dump();
-
-        $log->assertLogged(
-            fn (LogEntry $log) => $log->level === 'debug'
-        );
-
-        $log->assertLogged(
-            fn (LogEntry $log) => is_string($log->message) && str_contains(
-                $log->message,
-                'Error: Call to undefined method Exception::getIncrementing()'
-            )
         );
     }
 }

@@ -11,28 +11,28 @@ namespace Playground\Models\Contracts;
  * \Playground\Models\Contracts\Role
  *
  * @property string $role
- * @property array<int, string> $roles
+ * @property string[] $roles
  */
 interface Role
 {
     /**
      * Add a role to the model.
      *
-     * @param  mixed  $role  The role to add to the model.
+     * @param  string  $role  The role to add to the model.
      */
-    public function addRole(mixed $role): void;
+    public function addRole(string $role): self;
 
     /**
      * Checks to see if the model has the role.
      *
-     * @param  mixed  $role  The role to check.
+     * @param  string  $role  The role to check.
      */
-    public function hasRole(mixed $role): bool;
+    public function hasRole(string $role): bool;
 
     /**
      * Remove a role from the model.
      *
-     * @param  mixed  $role  The role to remove from the model.
+     * @param  string  $role  The role to remove from the model.
      */
-    public function removeRole(mixed $role): void;
+    public function removeRole(string $role): self;
 }

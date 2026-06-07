@@ -24,9 +24,6 @@ class ModelTest extends TestCase
             'the-value-should-be-a-string-and-will-be-removed'
         );
 
-        $this->assertFalse($instance->hasAbility(false));
-        $instance->removeAbility(false);
-
         $ability = 'admin:*';
 
         $this->assertFalse($instance->hasAbility($ability));
@@ -57,9 +54,6 @@ class ModelTest extends TestCase
             'privileges',
             'the-value-should-be-a-string-and-will-be-removed'
         );
-
-        $this->assertFalse($instance->hasPrivilege(false));
-        $instance->removePrivilege(false);
 
         $privilege = 'running-with-scissors';
 
@@ -105,9 +99,6 @@ class ModelTest extends TestCase
         );
 
         $this->assertTrue($instance->hasRole($primary_role));
-
-        $this->assertFalse($instance->hasRole(false));
-        $instance->removeRole(false);
 
         // Remove role does not affect the primary role.
         $instance->removeRole($primary_role);

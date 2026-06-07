@@ -9,20 +9,22 @@ namespace Playground\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Carbon;
 
 /**
  * \Playground\Models\Model
  *
- * @method static Builder|static query()
- * @method Builder<static> scopeFilterDates(Builder $builder, array $dates, array $validated = [])
- * @method Builder<static> scopeFilterColumns(Builder $builder, array $columns, array $validated = [])
- * @method Builder<static> scopeFilterFlags(Builder $builder, array $flags, array $validated = [])
- * @method Builder<static> scopeFilterIds(Builder $builder, array $ids, array $validated = [])
- * @method Builder<static> ScopeSort(Builder $builder, array|string $sort = null)
- * @method Builder|static sort(mixed $sort = null)
- * @method Builder<static> scopeFilterTrash(Builder $builder, string $visibility = null)
+ * @method static Builder<static>|static query()
+ * @method Builder<static> scopeFilterColumns(Builder<static> $builder, array<string, mixed> $columns, array<string, mixed> $validated = [])
+ * @method Builder<static> scopeFilterDates(Builder<static> $builder, array<string, mixed> $dates, array<string, mixed> $validated = [])
+ * @method Builder<static> scopeFilterFlags(Builder<static> $builder, array<string, mixed> $flags, array<string, mixed> $validated = [])
+ * @method Builder<static> scopeFilterIds(Builder<static> $builder, array<string, mixed> $ids, array<string, mixed> $validated = [])
+ * @method Builder<static> ScopeSort(Builder<static> $builder, array<int|string, mixed>|string|null $sort = null)
+ * @method Builder<static>|static sort(mixed $sort = null)
+ * @method Builder<static> scopeFilterTrash(Builder<static> $builder, string $visibility = null)
  *
  * @property ?Carbon $deleted_at
  * @property ?scalar $created_by_id
@@ -42,13 +44,8 @@ use Illuminate\Support\Carbon;
  *
  * @mixin UuidModel
  */
-abstract class Model extends UuidModel implements Contracts\WithChildren, Contracts\WithCreator, Contracts\WithMatrix, Contracts\WithModifier, Contracts\WithOwner, Contracts\WithParent
+abstract class Model extends UuidModel implements Contracts\WithMatrix
 {
-    use Concerns\WithChildren;
-    use Concerns\WithCreator;
-    use Concerns\WithModifier;
-    use Concerns\WithOwner;
-    use Concerns\WithParent;
     use Scopes\ScopeFilterColumns;
     use Scopes\ScopeFilterDates;
     use Scopes\ScopeFilterFlags;
@@ -72,5 +69,58 @@ abstract class Model extends UuidModel implements Contracts\WithChildren, Contra
             //     return $attributes['label'] ?: $attributes['title'];
             // },
         );
+    }
+
+    /**
+     * Access the parent of this model.
+     *
+     * @return HasOne<static, $this>
+     */
+    public function parent(): HasOne
+    {
+        return $this->hasOne(
+            static::class,
+            'id',
+            'parent_id'
+        );
+    }
+
+    /**
+     * Access the children of this model.
+     * `
+     *
+     * @return HasMany<static, $this>
+     */
+    public function children(): HasMany
+    {
+        return $this->hasMany(
+            static::class,
+            'parent_id',
+            'id'
+        );
+    }
+
+    /**
+     * @return HasOne<User, $this>
+     */
+    public function creator(): HasOne
+    {
+        return $this->hasOne(User::class, 'id', 'created_by_id');
+    }
+
+    /**
+     * @return HasOne<User, $this>
+     */
+    public function modifier(): HasOne
+    {
+        return $this->hasOne(User::class, 'id', 'modified_by_id');
+    }
+
+    /**
+     * @return HasOne<User, $this>
+     */
+    public function owner(): HasOne
+    {
+        return $this->hasOne(User::class, 'id', 'owned_by_id');
     }
 }

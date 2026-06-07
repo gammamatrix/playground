@@ -620,7 +620,7 @@ class ModelTest extends TestCase
             '!=' => [],
             '<>' => [],
             '<=>' => [
-                'remap' => $isSqlite ? 'IS' : null,
+                'remap' => $isSqlite ? 'is' : null,
             ],
             '<' => [],
             '<=' => [],
@@ -666,7 +666,9 @@ class ModelTest extends TestCase
                 $operator = $meta['remap'];
             }
 
-            if (array_key_exists('parameter', $meta) && is_string($meta['parameter'])) {
+            if (array_key_exists('parameter', $meta)
+                // && is_string($meta['parameter'])
+            ) {
                 $parameter = $meta['parameter'];
             } else {
                 $parameter = ' ?';

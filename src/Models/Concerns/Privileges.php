@@ -9,17 +9,19 @@ namespace Playground\Models\Concerns;
 
 /**
  * \Playground\Models\Concerns\Privileges
+ *
+ * @property string[] $privileges
  */
 trait Privileges
 {
     /**
      * Checks to see if the user has the privilege.
      *
-     * @param  mixed  $privilege  The privilege to check.
+     * @param  string  $privilege  The privilege to check.
      */
-    public function hasPrivilege(mixed $privilege): bool
+    public function hasPrivilege(string $privilege): bool
     {
-        if (empty($privilege) || ! is_string($privilege)) {
+        if (empty($privilege)) {
             return false;
         }
 
@@ -31,48 +33,57 @@ trait Privileges
     /**
      * Add a privilege to the model.
      *
-     * @param  mixed  $privilege  The privilege to add to the model.
+     * @param  string  $privilege  The privilege to add to the model.
      */
-    public function addPrivilege(mixed $privilege): void
+    public function addPrivilege(string $privilege): self
     {
+        if (empty($privilege)) {
+            return $this;
+        }
+
         $privileges = $this->getAttribute('privileges');
         if (! is_array($privileges)) {
             $privileges = [];
         }
 
-        if (empty($privilege)
-            || ! is_string($privilege)
-            || in_array($privilege, $privileges)
-        ) {
-            return;
+        if (in_array($privilege, $privileges)) {
+            return $this;
         }
 
         $privileges[] = $privilege;
 
         $this->setAttribute('privileges', $privileges);
+
+        return $this;
     }
 
     /**
      * Remove a privilege from the model.
      *
-     * @param  mixed  $privilege  The privilege to remove from the model.
+     * @param  string  $privilege  The privilege to remove from the model.
      */
-    public function removePrivilege(mixed $privilege): void
+    public function removePrivilege(string $privilege): self
     {
+        if (empty($privilege)) {
+            return $this;
+        }
+
+        /**
+         * @var string[] $privileges
+         */
         $privileges = $this->getAttribute('privileges');
         if (! is_array($privileges)) {
             $privileges = [];
         }
 
-        if (empty($privilege)
-            || ! is_string($privilege)
-            || ! in_array($privilege, $privileges)
-        ) {
-            return;
+        if (! in_array($privilege, $privileges)) {
+            return $this;
         }
 
         $privileges = array_diff($privileges, [$privilege]);
 
         $this->setAttribute('privileges', $privileges);
+
+        return $this;
     }
 }

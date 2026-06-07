@@ -7,8 +7,16 @@ declare(strict_types=1);
 
 namespace Playground;
 
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Log;
 
@@ -77,6 +85,9 @@ class ServiceProvider extends AuthServiceProvider
      */
     public function about(array $config): void
     {
+        /**
+         * @var string[] $packages
+         */
         $packages = ! empty($config['packages']) && is_array($config['packages']) ? $config['packages'] : [];
 
         /**
@@ -192,23 +203,23 @@ class ServiceProvider extends AuthServiceProvider
          */
         $user = new $auth_providers_users_model;
 
-        $this->userHasFactory = in_array(\Illuminate\Database\Eloquent\Factories\HasFactory::class, class_uses_recursive($user));
+        $this->userHasFactory = in_array(HasFactory::class, class_uses_recursive($user));
 
-        $this->userCanResetPasswordConcern = in_array(\Illuminate\Auth\Passwords\CanResetPassword::class, class_uses_recursive($user));
+        $this->userCanResetPasswordConcern = in_array(CanResetPassword::class, class_uses_recursive($user));
         $this->userCanResetPasswordContract = $user instanceof \Illuminate\Contracts\Auth\CanResetPassword;
 
-        $this->userHasAuthorizableConcerns = in_array(\Illuminate\Foundation\Auth\Access\Authorizable::class, class_uses_recursive($user));
+        $this->userHasAuthorizableConcerns = in_array(Authorizable::class, class_uses_recursive($user));
         $this->userHasAuthorizableContracts = $user instanceof \Illuminate\Contracts\Auth\Access\Authorizable;
 
-        $this->userIsEloquentModel = $user instanceof \Illuminate\Database\Eloquent\Model;
+        $this->userIsEloquentModel = $user instanceof Model;
 
-        $this->userHasEloquentUuids = in_array(\Illuminate\Database\Eloquent\Concerns\HasUuids::class, class_uses_recursive($user));
-        $this->userHasNotifiable = in_array(\Illuminate\Notifications\Notifiable::class, class_uses_recursive($user));
+        $this->userHasEloquentUuids = in_array(HasUuids::class, class_uses_recursive($user));
+        $this->userHasNotifiable = in_array(Notifiable::class, class_uses_recursive($user));
 
-        $this->userHasAuthenticatableConcerns = in_array(\Illuminate\Auth\Authenticatable::class, class_uses_recursive($user));
+        $this->userHasAuthenticatableConcerns = in_array(Authenticatable::class, class_uses_recursive($user));
         $this->userHasAuthenticatableContracts = $user instanceof \Illuminate\Contracts\Auth\Authenticatable;
 
-        $this->userHasMustVerifyEmail = $user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail;
+        $this->userHasMustVerifyEmail = $user instanceof MustVerifyEmail;
 
         $this->userPlaygroundAbilitiesConcerns = in_array(Models\Concerns\Abilities::class, class_uses_recursive($user));
         $this->userHasPlaygroundAbilitiesContracts = $user instanceof Models\Contracts\Abilities;
@@ -224,7 +235,7 @@ class ServiceProvider extends AuthServiceProvider
 
         $this->userHasPlaygroundMatrixContracts = $user instanceof Models\Contracts\WithMatrix;
 
-        if (in_array(\Illuminate\Database\Eloquent\Concerns\HasUuids::class, class_uses_recursive($user))
+        if (in_array(HasUuids::class, class_uses_recursive($user))
             && ! $user->getIncrementing()
         ) {
             $model_info = '<fg=green;options=bold>UUID</>';

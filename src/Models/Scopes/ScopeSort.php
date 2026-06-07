@@ -52,12 +52,11 @@ trait ScopeSort
                 } elseif (is_bool($value)) {
                     $column = $key;
                     $direction = $value ? 'asc' : 'desc';
-                } else {
+                } elseif (is_string($value)) {
                     $column = $key;
-                    if (is_string($value) &&
-                        in_array(strtolower($value), ['asc', 'desc'])
-                    ) {
-                        $direction = strtolower($value);
+                    $value = strtolower($value);
+                    if (in_array($value, ['asc', 'desc'])) {
+                        $direction = $value;
                     }
                 }
 

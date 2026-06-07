@@ -11,18 +11,26 @@ namespace Playground\Models\Concerns;
  * \Playground\Models\Concerns\Role
  *
  * @property string $role
- * @property array<int, string> $roles
+ * @property string[] $roles
  */
 trait Role
 {
     /**
+     * @var string[]
+     */
+    protected array $internalRoles = [
+        'nobody',
+        'root',
+    ];
+
+    /**
      * Checks to see if the model has the role.
      *
-     * @param  mixed  $role  The role to check.
+     * @param  string  $role  The role to check.
      */
-    public function hasRole(mixed $role): bool
+    public function hasRole(string $role): bool
     {
-        if (empty($role) || ! is_string($role)) {
+        if (empty($role)) {
             return false;
         }
 
@@ -38,51 +46,59 @@ trait Role
     /**
      * Add a role to the model.
      *
-     * @param  mixed  $role  The role to add to the model.
+     * @param  string  $role  The role to add to the model.
      */
-    public function addRole(mixed $role): void
+    public function addRole(string $role): self
     {
+        if (empty($role)) {
+            return $this;
+        }
+
         $roles = $this->getAttribute('roles');
         if (! is_array($roles)) {
             $roles = [];
         }
 
-        if (empty($role)
-            || ! is_string($role)
-            || in_array($role, [
-                'root',
-            ])
+        if (in_array($role, $this->internalRoles)
             || in_array($role, $roles)
         ) {
-            return;
+            return $this;
         }
 
         $roles[] = $role;
 
         $this->setAttribute('roles', $roles);
+
+        return $this;
     }
 
     /**
      * Remove a role from the model.
      *
-     * @param  mixed  $role  The role to remove from the model.
+     * @param  string  $role  The role to remove from the model.
      */
-    public function removeRole(mixed $role): void
+    public function removeRole(string $role): self
     {
+        if (empty($role)) {
+            return $this;
+        }
+
+        /**
+         * @var string[] $roles
+         */
         $roles = $this->getAttribute('roles');
         if (! is_array($roles)) {
             $roles = [];
         }
 
-        if (empty($role)
-            || ! is_string($role)
-            || ! in_array($role, $roles)
-        ) {
-            return;
+        if (! in_array($role, $roles)) {
+            return $this;
         }
 
         $roles = array_diff($roles, [$role]);
 
         $this->setAttribute('roles', $roles);
+
+        return $this;
     }
 }

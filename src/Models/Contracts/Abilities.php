@@ -10,28 +10,28 @@ namespace Playground\Models\Contracts;
 /**
  * \Playground\Models\Contracts\Abilities
  *
- * @property array<int, string> $abilities
+ * @property string[] $abilities
  */
 interface Abilities
 {
     /**
      * Add an ability to the model.
      *
-     * @param  mixed  $ability  The ability to add to the model.
+     * @param  string  $ability  The ability to add to the model.
      */
-    public function addAbility(mixed $ability): void;
+    public function addAbility(string $ability): self;
 
     /**
      * Checks to see if the user has the ability.
      *
-     * @param  mixed  $ability  The ability to check.
+     * @param  string  $ability  The ability to check.
      */
-    public function hasAbility(mixed $ability): bool;
+    public function hasAbility(string $ability): bool;
 
     /**
      * Remove an ability from the model.
      *
-     * @param  mixed  $ability  The ability to remove from the model.
+     * @param  string  $ability  The ability to remove from the model.
      */
-    public function removeAbility(mixed $ability): void;
+    public function removeAbility(string $ability): self;
 }
