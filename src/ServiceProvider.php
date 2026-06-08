@@ -27,7 +27,7 @@ class ServiceProvider extends AuthServiceProvider
 {
     protected string $package = 'playground';
 
-    public const string VERSION = '74.0.0';
+    public const string VERSION = '75.0.0';
 
     public function boot(): void
     {
