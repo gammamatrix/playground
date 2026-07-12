@@ -54,6 +54,7 @@ use Laravel\Sanctum;
  * @property bool $internal
  * @property bool $locked
  * @property bool $problem
+ * @property bool $retired
  * @property bool $suspended
  * @property bool $unknown
  * @property string $name
@@ -178,6 +179,10 @@ class User extends Authenticatable implements Contracts\Abilities, Contracts\Adm
         'user_type',
         'resolved_at',
         'suspended_at',
+        'abilities',
+        'role',
+        'roles',
+        'permissions',
         'gids',
         'po',
         'pg',

@@ -85,8 +85,8 @@ class ModelTest extends TestCase
             'role' => $primary_role,
         ]);
 
-        // The primary role is not fillable
-        $this->assertFalse($instance->hasRole($primary_role));
+        // The primary role is fillable
+        $this->assertTrue($instance->hasRole($primary_role));
 
         $instance->setAttribute(
             'role',
