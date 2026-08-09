@@ -22,6 +22,10 @@ class PackageInfo
 
     protected string $model_slug_plural = '';
 
+    protected string $model_variable = '';
+
+    protected string $model_variable_plural = '';
+
     protected string $module_label = '';
 
     protected string $module_label_plural = '';
@@ -77,6 +81,18 @@ class PackageInfo
             && is_string($options['model_slug_plural'])
         ) {
             $this->model_slug_plural = $options['model_slug_plural'];
+        }
+
+        if (! empty($options['model_variable'])
+            && is_string($options['model_variable'])
+        ) {
+            $this->model_variable = $options['model_variable'];
+        }
+
+        if (! empty($options['model_variable_plural'])
+            && is_string($options['model_variable_plural'])
+        ) {
+            $this->model_variable_plural = $options['model_variable_plural'];
         }
 
         if (! empty($options['module_label'])
@@ -158,6 +174,16 @@ class PackageInfo
     public function model_slug_plural(): string
     {
         return $this->model_slug_plural;
+    }
+
+    public function model_variable(): string
+    {
+        return $this->model_variable;
+    }
+
+    public function model_variable_plural(): string
+    {
+        return $this->model_variable_plural;
     }
 
     public function module_label(): string
