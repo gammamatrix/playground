@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-07-12 21:18:02</timestamp>
+  <timestamp>2026-08-09 23:22:13</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>49</methodCount>
+    <methodCount>51</methodCount>
     <crapMethodCount>1</crapMethodCount>
-    <crapLoad>30</crapLoad>
-    <totalCrap>1142.29</totalCrap>
-    <crapMethodPercent>2.04</crapMethodPercent>
+    <crapLoad>34</crapLoad>
+    <totalCrap>1398.29</totalCrap>
+    <crapMethodPercent>1.96</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -325,10 +325,10 @@
       <methodName>setOptions</methodName>
       <methodSignature>setOptions(array $options): self</methodSignature>
       <fullMethod>setOptions(array $options): self</fullMethod>
-      <crap>870</crap>
-      <complexity>29</complexity>
+      <crap>1122</crap>
+      <complexity>33</complexity>
       <coverage>0</coverage>
-      <crapLoad>30</crapLoad>
+      <crapLoad>34</crapLoad>
     </method>
     <method>
       <package>Playground</package>
@@ -391,6 +391,28 @@
       <methodName>model_slug_plural</methodName>
       <methodSignature>model_slug_plural(): string</methodSignature>
       <fullMethod>model_slug_plural(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\PackageInfo</className>
+      <methodName>model_variable</methodName>
+      <methodSignature>model_variable(): string</methodSignature>
+      <fullMethod>model_variable(): string</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground</package>
+      <className>Playground\PackageInfo</className>
+      <methodName>model_variable_plural</methodName>
+      <methodSignature>model_variable_plural(): string</methodSignature>
+      <fullMethod>model_variable_plural(): string</fullMethod>
       <crap>2</crap>
       <complexity>1</complexity>
       <coverage>0</coverage>
