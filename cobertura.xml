@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="0.84020618556701" branch-rate="0" lines-covered="489" lines-valid="582" branches-covered="0" branches-valid="0" complexity="283" version="0.4" timestamp="1786317733">
+<coverage line-rate="0.84020618556701" branch-rate="0" lines-covered="489" lines-valid="582" branches-covered="0" branches-valid="0" complexity="283" version="0.4" timestamp="1788973143">
   <sources>
     <source>/app/src</source>
   </sources>
@@ -335,7 +335,7 @@
       <classes>
         <class name="Playground\Models\Scopes\ScopeFilterColumns" filename="Models/Scopes/ScopeFilterColumns.php" line-rate="1" branch-rate="0" complexity="32">
           <methods>
-            <method name="scopeFilterColumns" signature="Illuminate\Database\Eloquent\Builder $query, array $columns, array $validated" line-rate="1" branch-rate="0" complexity="32">
+            <method name="scopeFilterColumns" signature="Builder $query, array $columns, array $validated" line-rate="1" branch-rate="0" complexity="32">
               <lines>
                 <line number="30" hits="15"/>
                 <line number="31" hits="2"/>
@@ -511,7 +511,7 @@
       <classes>
         <class name="Playground\Models\Scopes\ScopeFilterDates" filename="Models/Scopes/ScopeFilterDates.php" line-rate="1" branch-rate="0" complexity="46">
           <methods>
-            <method name="scopeFilterDates" signature="Illuminate\Database\Eloquent\Builder $query, array $dates, array $validated" line-rate="1" branch-rate="0" complexity="46">
+            <method name="scopeFilterDates" signature="Builder $query, array $dates, array $validated" line-rate="1" branch-rate="0" complexity="46">
               <lines>
                 <line number="32" hits="18"/>
                 <line number="33" hits="2"/>
@@ -733,7 +733,7 @@
       <classes>
         <class name="Playground\Models\Scopes\ScopeFilterFlags" filename="Models/Scopes/ScopeFilterFlags.php" line-rate="1" branch-rate="0" complexity="9">
           <methods>
-            <method name="scopeFilterFlags" signature="Illuminate\Database\Eloquent\Builder $query, array $flags, array $validated" line-rate="1" branch-rate="0" complexity="9">
+            <method name="scopeFilterFlags" signature="Builder $query, array $flags, array $validated" line-rate="1" branch-rate="0" complexity="9">
               <lines>
                 <line number="29" hits="3"/>
                 <line number="30" hits="2"/>
@@ -767,7 +767,7 @@
       <classes>
         <class name="Playground\Models\Scopes\ScopeFilterIds" filename="Models/Scopes/ScopeFilterIds.php" line-rate="1" branch-rate="0" complexity="29">
           <methods>
-            <method name="scopeFilterIds" signature="Illuminate\Database\Eloquent\Builder $query, array $ids, array $validated" line-rate="1" branch-rate="0" complexity="29">
+            <method name="scopeFilterIds" signature="Builder $query, array $ids, array $validated" line-rate="1" branch-rate="0" complexity="29">
               <lines>
                 <line number="30" hits="11"/>
                 <line number="31" hits="2"/>
@@ -855,7 +855,7 @@
       <classes>
         <class name="Playground\Models\Scopes\ScopeFilterTrash" filename="Models/Scopes/ScopeFilterTrash.php" line-rate="1" branch-rate="0" complexity="7">
           <methods>
-            <method name="scopeFilterTrash" signature="Illuminate\Database\Eloquent\Builder $query, ?string $visibility" line-rate="1" branch-rate="0" complexity="7">
+            <method name="scopeFilterTrash" signature="Builder $query, ?string $visibility" line-rate="1" branch-rate="0" complexity="7">
               <lines>
                 <line number="26" hits="3"/>
                 <line number="27" hits="3"/>
@@ -883,7 +883,7 @@
       <classes>
         <class name="Playground\Models\Scopes\ScopeIsActive" filename="Models/Scopes/ScopeIsActive.php" line-rate="0" branch-rate="0" complexity="1">
           <methods>
-            <method name="scopeIsActive" signature="Illuminate\Database\Eloquent\Builder $query" line-rate="0" branch-rate="0" complexity="1">
+            <method name="scopeIsActive" signature="Builder $query" line-rate="0" branch-rate="0" complexity="1">
               <lines>
                 <line number="26" hits="0"/>
                 <line number="28" hits="0"/>
@@ -901,7 +901,7 @@
       <classes>
         <class name="Playground\Models\Scopes\ScopeIsNotClosed" filename="Models/Scopes/ScopeIsNotClosed.php" line-rate="0" branch-rate="0" complexity="1">
           <methods>
-            <method name="scopeIsNotClosed" signature="Illuminate\Database\Eloquent\Builder $query" line-rate="0" branch-rate="0" complexity="1">
+            <method name="scopeIsNotClosed" signature="Builder $query" line-rate="0" branch-rate="0" complexity="1">
               <lines>
                 <line number="26" hits="0"/>
                 <line number="28" hits="0"/>
@@ -919,7 +919,7 @@
       <classes>
         <class name="Playground\Models\Scopes\ScopeIsPublished" filename="Models/Scopes/ScopeIsPublished.php" line-rate="0" branch-rate="0" complexity="1">
           <methods>
-            <method name="scopeIsPublished" signature="Illuminate\Database\Eloquent\Builder $query" line-rate="0" branch-rate="0" complexity="1">
+            <method name="scopeIsPublished" signature="Builder $query" line-rate="0" branch-rate="0" complexity="1">
               <lines>
                 <line number="26" hits="0"/>
                 <line number="28" hits="0"/>
@@ -937,7 +937,7 @@
       <classes>
         <class name="Playground\Models\Scopes\ScopeSort" filename="Models/Scopes/ScopeSort.php" line-rate="0.96774193548387" branch-rate="0" complexity="19">
           <methods>
-            <method name="scopeSort" signature="Illuminate\Database\Eloquent\Builder $query, mixed $sort" line-rate="0.96774193548387" branch-rate="0" complexity="19">
+            <method name="scopeSort" signature="Builder $query, mixed $sort" line-rate="0.96774193548387" branch-rate="0" complexity="19">
               <lines>
                 <line number="27" hits="11"/>
                 <line number="28" hits="1"/>
