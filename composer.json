@@ -19,16 +19,7 @@
         "php": "^8.4",
         "ext-intl": "*",
         "ezyang/htmlpurifier": "^4.19",
-        "illuminate/auth": "^13.0",
-        "illuminate/console": "^13.0",
-        "illuminate/contracts": "^13.0",
-        "illuminate/database": "^13.0",
-        "illuminate/http": "^13.0",
-        "illuminate/routing": "^13.0",
-        "illuminate/support": "^13.0",
-        "illuminate/translation": "^13.0",
-        "illuminate/validation": "^13.0",
-        "illuminate/view": "^13.0"
+        "laravel/framework": "^13.0"
     },
     "require-dev": {
         "gammamatrix/playground-test": "75.x-dev"
@@ -69,6 +60,7 @@
         "cloc": "cloc --exclude-dir=output,vendor .",
         "format": "vendor/bin/pint",
         "test": "vendor/bin/testbench package:test",
-        "test-dev": "vendor/bin/phpunit -c phpunit-dev.xml"
+        "test-dev": "vendor/bin/phpunit -c phpunit-dev.xml",
+        "test-parallel": "vendor/bin/paratest -c phpunit-dev.xml"
     }
 }
