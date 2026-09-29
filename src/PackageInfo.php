@@ -14,25 +14,37 @@ class PackageInfo
 
     protected string $model_label = '';
 
+    protected string $model_labels = '';
+
     protected string $model_label_plural = '';
 
     protected string $model_route = '';
 
+    protected string $model_route_param = '';
+
     protected string $model_slug = '';
+
+    protected string $model_slugs = '';
 
     protected string $model_slug_plural = '';
 
     protected string $model_variable = '';
 
+    protected string $model_variables = '';
+
     protected string $model_variable_plural = '';
 
     protected string $module_label = '';
+
+    protected string $module_labels = '';
 
     protected string $module_label_plural = '';
 
     protected string $module_route = '';
 
     protected string $module_slug = '';
+
+    protected string $module_slugs = '';
 
     protected string $privilege = '';
 
@@ -59,10 +71,19 @@ class PackageInfo
             $this->model_label = $options['model_label'];
         }
 
+        if (! empty($options['model_labels'])
+            && is_string($options['model_labels'])
+        ) {
+            $this->model_labels = $options['model_labels'];
+        }
+
         if (! empty($options['model_label_plural'])
             && is_string($options['model_label_plural'])
         ) {
             $this->model_label_plural = $options['model_label_plural'];
+            if (empty($this->model_labels)) {
+                $this->model_labels = $this->model_label_plural;
+            }
         }
 
         if (! empty($options['model_route'])
@@ -71,16 +92,31 @@ class PackageInfo
             $this->model_route = $options['model_route'];
         }
 
+        if (! empty($options['model_route_param'])
+            && is_string($options['model_route_param'])
+        ) {
+            $this->model_route_param = $options['model_route_param'];
+        }
+
         if (! empty($options['model_slug'])
             && is_string($options['model_slug'])
         ) {
             $this->model_slug = $options['model_slug'];
         }
 
+        if (! empty($options['model_slugs'])
+            && is_string($options['model_slugs'])
+        ) {
+            $this->model_slugs = $options['model_slugs'];
+        }
+
         if (! empty($options['model_slug_plural'])
             && is_string($options['model_slug_plural'])
         ) {
             $this->model_slug_plural = $options['model_slug_plural'];
+            if (empty($this->model_slugs)) {
+                $this->model_slugs = $this->model_slug_plural;
+            }
         }
 
         if (! empty($options['model_variable'])
@@ -89,10 +125,19 @@ class PackageInfo
             $this->model_variable = $options['model_variable'];
         }
 
+        if (! empty($options['model_variables'])
+            && is_string($options['model_variables'])
+        ) {
+            $this->model_variables = $options['model_variables'];
+        }
+
         if (! empty($options['model_variable_plural'])
             && is_string($options['model_variable_plural'])
         ) {
             $this->model_variable_plural = $options['model_variable_plural'];
+            if (empty($this->model_variables)) {
+                $this->model_variables = $this->model_variable_plural;
+            }
         }
 
         if (! empty($options['module_label'])
@@ -101,10 +146,19 @@ class PackageInfo
             $this->module_label = $options['module_label'];
         }
 
+        if (! empty($options['module_labels'])
+            && is_string($options['module_labels'])
+        ) {
+            $this->module_labels = $options['module_labels'];
+        }
+
         if (! empty($options['module_label_plural'])
             && is_string($options['module_label_plural'])
         ) {
             $this->module_label_plural = $options['module_label_plural'];
+            if (empty($this->module_labels)) {
+                $this->module_labels = $this->module_label_plural;
+            }
         }
 
         if (! empty($options['module_route'])
@@ -117,6 +171,12 @@ class PackageInfo
             && is_string($options['module_slug'])
         ) {
             $this->module_slug = $options['module_slug'];
+        }
+
+        if (! empty($options['module_slugs'])
+            && is_string($options['module_slugs'])
+        ) {
+            $this->module_slugs = $options['module_slugs'];
         }
 
         if (! empty($options['privilege'])
@@ -156,6 +216,11 @@ class PackageInfo
         return $this->model_label;
     }
 
+    public function model_labels(): string
+    {
+        return $this->model_labels;
+    }
+
     public function model_label_plural(): string
     {
         return $this->model_label_plural;
@@ -166,9 +231,19 @@ class PackageInfo
         return $this->model_route;
     }
 
+    public function model_route_param(): string
+    {
+        return $this->model_route_param;
+    }
+
     public function model_slug(): string
     {
         return $this->model_slug;
+    }
+
+    public function model_slugs(): string
+    {
+        return $this->model_slugs;
     }
 
     public function model_slug_plural(): string
@@ -181,6 +256,11 @@ class PackageInfo
         return $this->model_variable;
     }
 
+    public function model_variables(): string
+    {
+        return $this->model_variables;
+    }
+
     public function model_variable_plural(): string
     {
         return $this->model_variable_plural;
@@ -189,6 +269,11 @@ class PackageInfo
     public function module_label(): string
     {
         return $this->module_label;
+    }
+
+    public function module_labels(): string
+    {
+        return $this->module_labels;
     }
 
     public function module_label_plural(): string
@@ -204,6 +289,11 @@ class PackageInfo
     public function module_slug(): string
     {
         return $this->module_slug;
+    }
+
+    public function module_slugs(): string
+    {
+        return $this->module_slugs;
     }
 
     public function privilege(): string
